@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{28BDDD64-10E0-4815-87AD-E7853C06ECBC}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{F7AD837C-4CC4-49F9-922A-97E6EDED4503}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACQKQHrxBJD/6UR8uhIuUsMAAAAAASAAACgAAAAEAAAAI/lmCevK6XZl/vvWbv2s74QAAAAA/pGV/BSUo34tKAp2yX/yxQAAADn/0wkvjxI9n1LVWnZo6xOtD/DzA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABrHLDepKhrc00hqHdXarKAAAAAAASAAACgAAAAEAAAAMKAjwiyqi/76hrA/WxL0TYQAAAAW3/gfolkEIAcERvw1AN+bBQAAABpF8l6s4D+hPb9mixF0gq/tmLglA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAseEYNzMSFkbpv7+UFFGYfAAAAAASAAACgAAAAEAAAALt5ndr0pggNFU+PWLG3nLoQAAAArIxD1xn3/TekLav8cJZz7RQAAAAz+NEoZnJ3u9EWvArAQjzetlkXPA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC+CGBuBo6qCvf5RITKWBs5AAAAAASAAACgAAAAEAAAAM5qRfCBVTyPZVsgDy82GZ8QAAAAywgvgDG0xRtgI6cOFy4rqhQAAADGWz6ioLRqKyyj+uvME1SLPQ5zvQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2689,17 +2689,17 @@ where Exists(select *
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.2684044100677" />
+                    End="0,4.26840422774762" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.2684044100677"
-                    Point2="0,21.2684044100677"
-                    Point3="4,21.2684044100677" />
+                    Point1="0,4.26840422774762"
+                    Point2="0,8.26840422774762"
+                    Point3="4,8.26840422774762" />
                   <mssgle:LineSegment
-                    End="291.204760872832,21.2684044100677" />
+                    End="291.204760872832,8.26840422774762" />
                   <mssgle:CubicBezierSegment
-                    Point1="291.204760872832,21.2684044100677"
-                    Point2="295.204760872832,21.2684044100677"
-                    Point3="295.204760872832,25.2684044100677" />
+                    Point1="291.204760872832,8.26840422774762"
+                    Point2="295.204760872832,8.26840422774762"
+                    Point3="295.204760872832,12.2684042277476" />
                   <mssgle:LineSegment
                     End="295.204760872832,54.2098039287186" />
                 </mssgle:SegmentCollection>
@@ -2708,7 +2708,7 @@ where Exists(select *
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="131.429021061416,26.2684044100677,32.34671875,9.7490234375"
+              BoundingBox="131.429021061416,13.2684042277476,32.34671875,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
