@@ -1,0 +1,614 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/6/2022 4:21:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{F88A3706-4341-491D-8381-A5BAA05768A4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{FCD89347-2FC5-4E78-B782-854AC253415B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones SMTP]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{3F46E46E-F4A3-4C46-884E-418B10842C58}"
+      DTS:ObjectName="Administrador de conexiones SMTP">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=192.168.31.3;UseWindowsAuthentication=False;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{2B8EF2C9-189C-4BAF-A35C-7DFA6C1AD14C}"
+      DTS:ObjectName="Especie">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">16</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{0d35575d-99fa-4a74-b215-a08f3021dfa1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Calibres"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{790892d5-d302-43b1-9026-7f6daf68f2f9}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Calibres"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Calibres.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\categorias"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{9e3e7b31-405c-4424-a94c-ecc8e10252a9}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="categorias"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Categorias.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especie</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Cuartel"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{96ebbe96-24bf-495e-bfe7-e6aa0e5bb944}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Cuartel"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Cuartel.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especie</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Envases"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{c103e296-580f-4a3d-8500-6ba982adcf90}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Envases"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Envases.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especies</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Especie"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{915e8a14-6b5f-4d56-9183-8f42f40b7eb6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Especie"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Especies.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especies</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Predio"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{16de2867-b959-417e-be48-74f8ee3cc459}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Predio"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Predio.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especie</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Productor"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{f7ea2dfc-7132-44db-919c-829dc177305f}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Productor"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Productores.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especie</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Variedad"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{6afb6101-713b-4a40-93ea-8462ba5316e0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Variedad"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Variedades.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>gv_Especie</ParameterName>
+                <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{2177b136-04d2-4900-bb9f-46813da41359}"
+          DTS:From="Package\Contenedor de secuencias\Especie"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Contenedor de secuencias\Variedad" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{bd4b81a0-c416-4572-9986-536ff257b6ec}"
+          DTS:From="Package\Contenedor de secuencias\Productor"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\Contenedor de secuencias\Predio" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{132bcde6-0099-44dc-afc3-d880e51c900f}"
+          DTS:From="Package\Contenedor de secuencias\Predio"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 2"
+          DTS:To="Package\Contenedor de secuencias\Cuartel" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{dc810657-ea58-446f-afda-cfe9297632cc}"
+          DTS:From="Package\Contenedor de secuencias\Envases"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 3"
+          DTS:To="Package\Contenedor de secuencias\categorias" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{dfac7426-b078-4b5f-aedd-729a36cc3298}"
+          DTS:From="Package\Contenedor de secuencias\categorias"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 4"
+          DTS:To="Package\Contenedor de secuencias\Calibres" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Enviar correo"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Tarea Enviar correo"
+      DTS:DTSID="{DA1CD795-D2F9-4DA2-9800-D6C76CFC1B0D}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Enviar correo"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{3F46E46E-F4A3-4C46-884E-418B10842C58}"
+          SendMailTask:From="noreplay@subsole.com"
+          SendMailTask:To="etl@subsole.com"
+          SendMailTask:Subject="Proyecto ISO - Datos Maestros - Exitosa"
+          SendMailTask:MessageSource="Actualización Exitosa" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Enviar correo 1"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Tarea Enviar correo"
+      DTS:DTSID="{ee011733-9cdc-4b36-8bb3-7a1a3d94822c}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Enviar correo 1"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{3F46E46E-F4A3-4C46-884E-418B10842C58}"
+          SendMailTask:From="noreplay@subsole.com"
+          SendMailTask:To="etl@subsole.com"
+          SendMailTask:Subject="Proyecto ISO - Datos Maestros - Erronea"
+          SendMailTask:MessageSource="Actualización Erronea" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{96957AEF-4A5F-4A88-833F-C805EFD85F79}"
+      DTS:From="Package\Contenedor de secuencias"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Enviar correo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{019B9D36-0388-43A9-B795-7E8462A9C1CF}"
+      DTS:From="Package\Contenedor de secuencias"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Tarea Enviar correo 1"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Contenedor de secuencias\Variedad"
+          TopLeft="41.2142863224965,107.205883779327" />
+        <NodeLayout
+          Size="113.6,41.6"
+          Id="Package\Contenedor de secuencias\Especie"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción]"
+          TopLeft="62.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.9142863224965,60.1058837793273"
+              Start="0,0"
+              End="38.9142863224965,52.6058837793273">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0529418896636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0529418896636"
+                    Point2="0,30.0529418896636"
+                    Point3="4,30.0529418896636" />
+                  <mssgle:LineSegment
+                    End="34.9142863224965,30.0529418896636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.9142863224965,30.0529418896636"
+                    Point2="38.9142863224965,30.0529418896636"
+                    Point3="38.9142863224965,34.0529418896636" />
+                  <mssgle:LineSegment
+                    End="38.9142863224965,52.6058837793273" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Especie"
+          ParentId="Package\Contenedor de secuencias"
+          HeaderHeight="43.2"
+          IsExpanded="True"
+          PanelSize="187.2,252"
+          Size="187.2,295.2"
+          Id="6e3ca859-bac4-42ac-8e0c-6caf38719013"
+          TopLeft="35.2714298243424,10.0882368170267">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Contenedor de secuencias\Variedad</s:String>
+            <s:String>Package\Contenedor de secuencias\Especie</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Contenedor de secuencias\Productor"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\Contenedor de secuencias\Predio"
+          TopLeft="7.64285717934973,86.5588246662311" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Contenedor de secuencias\Cuartel"
+          TopLeft="7.14285726449924,153.823528553788" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 1]"
+          TopLeft="64.5714285896749,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.4588246662311"
+              Start="0,0"
+              End="0,31.9588246662311">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9588246662311" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 2]"
+          TopLeft="62.3928572219245,128.158824666231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.6647038875566"
+              Start="0,0"
+              End="0,18.1647038875566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1647038875566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Productor"
+          ParentId="Package\Contenedor de secuencias"
+          HeaderHeight="43.2"
+          IsExpanded="True"
+          PanelSize="150.4,250.4"
+          Size="134.4,293.6"
+          Id="f0ab906a-8ad5-4527-9a53-f711d9eacfd2"
+          TopLeft="273.842862458618,10.0882353584659">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Contenedor de secuencias\Productor</s:String>
+            <s:String>Package\Contenedor de secuencias\Predio</s:String>
+            <s:String>Package\Contenedor de secuencias\Cuartel</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 1]</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 2]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <NodeLayout
+          Size="116,41.6"
+          Id="Package\Contenedor de secuencias\Envases"
+          TopLeft="6.92857145289992,5.5" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Contenedor de secuencias\categorias"
+          TopLeft="7.54081636128558,76.252941798504" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 3]"
+          TopLeft="67.8346939070927,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.152941798504"
+              Start="0,0"
+              End="0,21.652941798504">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.652941798504" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Contenedor de secuencias\Calibres"
+          TopLeft="18.7428741727558,152.880675578247" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]"
+          TopLeft="73.5418452670207,117.852941798504">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.027733779743"
+              Start="0,0"
+              End="0,27.527733779743">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.527733779743" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Grupo 3"
+          ParentId="Package\Contenedor de secuencias"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="206.4,255.2"
+          Size="206.4,298.4"
+          Id="fe5382a0-66cd-44a0-bf0d-f4b09caf189f"
+          TopLeft="458.1285798827,6.26470589307769">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Contenedor de secuencias\Envases</s:String>
+            <s:String>Package\Contenedor de secuencias\categorias</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 3]</s:String>
+            <s:String>Package\Contenedor de secuencias\Calibres</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="669.6,358.4"
+          Size="669.6,401.6"
+          Id="Package\Contenedor de secuencias"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Tarea Enviar correo"
+          TopLeft="793.57144208587,171.294120049394" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="729.6,193.647060024697">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.9714420858697,0"
+              Start="0,0"
+              End="56.4714420858697,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56.4714420858697,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Tarea Enviar correo 1"
+          TopLeft="809.942866971541,315.894114762111" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="729.6,326.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80.3428669715414,10.2941147621115"
+              Start="0,0"
+              End="72.8428669715414,10.2941147621115">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="28.328439329025,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.328439329025,0"
+                    Point2="32.328439329025,0"
+                    Point3="32.328439329025,4" />
+                  <mssgle:LineSegment
+                    End="32.328439329025,6.29411476211146" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.328439329025,6.29411476211146"
+                    Point2="32.328439329025,10.2941147621115"
+                    Point3="36.328439329025,10.2941147621115" />
+                  <mssgle:LineSegment
+                    End="72.8428669715414,10.2941147621115" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="20.799747922775,-15.421875,23.0573828125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
