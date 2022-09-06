@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{982BD3D3-91DA-42A6-827E-D00ACFFD0B94}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{9C8C5BE0-8EA0-4D51-BFBB-AD14AC7ABF3E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB9zHGyc4Csi3ixfPy5Prn6AAAAAASAAACgAAAAEAAAAA61rhiwBNqV2Fts5KFjp1oQAAAA3vJqmY0jUNfHH7A23HAXLRQAAADHj6YLiI0SZ7RJA0D+N7RotJazzQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADCmmrkEVigpB3AbYnOaWbXAAAAAASAAACgAAAAEAAAAI00Hss+/vPJy/GtPqo+0DoQAAAA7gZCFSW8/e2bFuEfrP/7TBQAAADkeMdpItz1eteuVHVTHT4bPVKNGg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAni4fq61H/ngYQbEncM4tdAAAAAASAAACgAAAAEAAAAE+rBm4jnMc6JLpD+/KWYCUQAAAAy3g+U0NGN/1L0HJwDqOXFRQAAABzsUoYc1LC15Puw0Yd2dqR75QZYw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABavsvn1lHU1cX7KfYz7hIxAAAAAASAAACgAAAAEAAAAJI7MT8jHD6aQsJE/YqUno0QAAAA3F6F1aDEabcQSW+Gac8IYhQAAADTwRupPBTarggUPcm4ruVIb8YCPQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2501,7 +2501,7 @@ where Exists(select *
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\Envases\Sort 1"
-          TopLeft="347.142863054666,192.897061528838" />
+          TopLeft="372.142863480413,191.367649742683" />
         <NodeLayout
           Size="154.4,41.6"
           Id="Package\Envases\Conditional Split"
@@ -2532,30 +2532,30 @@ where Exists(select *
           TopLeft="280.000004768372,516.611771569697" />
         <EdgeLayout
           Id="Package\Envases.Paths[Sort Output1]"
-          TopLeft="400.342863054665,234.497061528838">
+          TopLeft="425.342863480413,232.967649742683">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-125.276193152318,22.773529966768"
+              EndConnector="-150.276193578066,24.3029417529233"
               Start="0,0"
-              End="-125.276193152318,15.273529966768">
+              End="-150.276193578066,16.8029417529233">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.4974823949381" />
+                    End="0,10.4039386486838" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.4974823949381"
-                    Point2="0,13.4974823949381"
-                    Point3="-4,13.4974823949381" />
+                    Point1="0,10.4039386486838"
+                    Point2="0,14.4039386486838"
+                    Point3="-4,14.4039386486838" />
                   <mssgle:LineSegment
-                    End="-121.276193152318,13.4974823949381" />
+                    End="-146.276193578066,14.4039386486838" />
                   <mssgle:CubicBezierSegment
-                    Point1="-121.276193152318,13.4974823949381"
-                    Point2="-125.276193152318,13.4974823949381"
-                    Point3="-125.276193152318,17.4974823949381" />
+                    Point1="-146.276193578066,14.4039386486838"
+                    Point2="-150.276193578066,14.4039386486838"
+                    Point3="-150.276193578066,18.4039386486838" />
                   <mssgle:LineSegment
-                    End="-125.276193152318,15.273529966768" />
+                    End="-150.276193578066,16.8029417529233" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2600,30 +2600,18 @@ where Exists(select *
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Envases.Paths[OLE DB Source Output1]"
-          TopLeft="417.914291516616,80.4941167676326">
+          TopLeft="421.628577498515,80.4941167676326">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.5714284619498,112.402944761205"
+              EndConnector="0,110.87353297505"
               Start="0,0"
-              End="-17.5714284619498,104.902944761205">
+              End="0,103.37353297505">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.2014723806027" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,52.2014723806027"
-                    Point2="0,56.2014723806027"
-                    Point3="-4,56.2014723806027" />
-                  <mssgle:LineSegment
-                    End="-13.5714284619498,56.2014723806027" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.5714284619498,56.2014723806027"
-                    Point2="-17.5714284619498,56.2014723806027"
-                    Point3="-17.5714284619498,60.2014723806027" />
-                  <mssgle:LineSegment
-                    End="-17.5714284619498,104.902944761205" />
+                    End="0,103.37353297505" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
