@@ -1,0 +1,2240 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2022 11:20:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{EA1C25D4-C37D-4CF9-A1C9-C9D7EC17120F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{64403CEA-A90E-4BCD-B31A-4FC83773244E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
+      DTS:ObjectName="Conn-Origen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETL_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABcNkX2qqBDCGqx4RxTBphzAAAAAASAAACgAAAAEAAAAB+djmwvGybpwlPCocEPpCMQAAAAplkrcoeFdCixNEeYOQP+shQAAAC/MBDnbJxJ+wqldlHzMl9/xxz17A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destino]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
+      DTS:ObjectName="Destino">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Osiris\ErpProduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACKPVxz0fYEZfDFO7fhT+siAAAAAASAAACgAAAAEAAAAPcMhW6fm65AGvQA8ZPUZlIQAAAA7i4Suiyk/Xey/ue0zMkQsxQAAAD1Dg06kGzaPN1XCG5XBnD+SeJ4oQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{CE5E4FB9-0AF4-42B2-BACD-1C1D5D4AFF80}"
+      DTS:ObjectName="gv_Especie">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">16</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Categorias"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{669DB412-B2F7-4428-BF50-4D4B8AF197CD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Categorias"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Categorias\Categorias-Destino"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Categorias-Destino"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[categoria_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.cate_codigo,cate_nombre,espe_codigo
+  from dba.categorias as a inner join dba.categoriaespe as ce on
+  a.cate_codigo=ce.cate_codigo
+  where espe_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{CE5E4FB9-F50B-42B2-BACD-1C1D5D4AFF80};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Categorias\Categorias-Destino.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_categoria]"
+                      length="20"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_categoria]"
+                      name="cod_categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      length="50"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      length="20"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_especie" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[cod_categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[cod_categoria]"
+                      name="cod_categoria" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      name="cod_especie" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Categorias-Origen"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Categorias-Origen"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.cate_codigo,cate_nombre,espe_codigo
+  from dba.categorias as a inner join dba.categoriaespe as ce on
+  a.cate_codigo=ce.cate_codigo
+  where espe_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{CE5E4FB9-F50B-42B2-BACD-1C1D5D4AFF80};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Categorias\Categorias-Origen.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].ExternalColumns[cate_nombre]"
+                      length="20"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_nombre]"
+                      name="cate_nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
+                      dataType="numeric"
+                      name="cate_codigo"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].ExternalColumns[cate_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cate_nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      dataType="numeric"
+                      name="espe_codigo"
+                      precision="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[cate_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[cate_nombre]"
+                      name="cate_nombre" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]" />
+                    <inputColumn
+                      refId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input].Columns[cod_categoria_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_categoria_int"
+                      cachedPrecision="4"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Conditional Split.Outputs[Agregar]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Agregar"
+                  synchronousInputId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(cod_categoria_int)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Conditional Split.Outputs[Actualizar]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualizar"
+                  synchronousInputId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(cod_categoria_int)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Conditional Split.Outputs[Eliminar]"
+                  description="Output 3 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Eliminar"
+                  synchronousInputId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(cate_codigo)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Categorias\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Data Conversion.Inputs[Data Conversion Input].Columns[cod_categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_categoria"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_categoria]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Categorias\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion.Outputs[Data Conversion Output].Columns[cod_categoria_int]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Categorias\Data Conversion.Outputs[Data Conversion Output].Columns[cod_categoria_int]"
+                      name="cod_categoria_int"
+                      precision="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Categorias\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Categorias\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Data Conversion 1.Inputs[Data Conversion Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Categorias\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]"
+                      name="cate_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Categorias\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Data Conversion 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Categorias\Data Conversion 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Data Conversion 1 1.Inputs[Data Conversion Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Categorias\Data Conversion 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]"
+                      name="cate_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Categorias\Data Conversion 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Data Conversion 1 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Categorias\Data Conversion 1 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Data Conversion 1 1 1.Inputs[Data Conversion Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Categorias\Data Conversion 1 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]"
+                      name="cate_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Categorias\Data Conversion 1 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Categorias\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Merge Join.Inputs[Merge Join Left Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Categorias\Sort.Outputs[Sort Output].Columns[cate_codigo]" />
+                    <inputColumn
+                      refId="Package\Categorias\Merge Join.Inputs[Merge Join Left Input].Columns[cate_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cate_nombre"
+                      lineageId="Package\Categorias\Sort.Outputs[Sort Output].Columns[cate_nombre]" />
+                    <inputColumn
+                      refId="Package\Categorias\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Categorias\Sort.Outputs[Sort Output].Columns[espe_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Categorias\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Merge Join.Inputs[Merge Join Right Input].Columns[cod_categoria_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_categoria_int"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_categoria_int]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Categorias\Merge Join.Inputs[Merge Join Left Input].Columns[cate_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre]"
+                      name="cate_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Categorias\Merge Join.Inputs[Merge Join Left Input].Columns[cate_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Categorias\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]"
+                      name="cod_categoria_int"
+                      precision="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Categorias\Merge Join.Inputs[Merge Join Right Input].Columns[cod_categoria_int]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.categoria_ext set
+descripcion=?, 
+cod_especie=? 
+where cod_categoria=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Categorias\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].Columns[cate_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="cate_codigo_str"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]" />
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].Columns[cate_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cate_nombre"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Delete dbo.categoria_ext  
+where cod_categoria=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Categorias\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cate_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="cate_codigo_str"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Categorias\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[categoria_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Categorias\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cate_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="cate_codigo_str"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cod_categoria]"
+                      lineageId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Output].Columns[cate_codigo_str]" />
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cate_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cate_nombre"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre]" />
+                    <inputColumn
+                      refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cod_especie]"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cod_categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_especie" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Categorias\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Categorias\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Categorias\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Sort.Inputs[Sort Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Categorias\Sort.Inputs[Sort Input].Columns[cate_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cate_nombre"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Categorias\Sort.Inputs[Sort Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Sort.Outputs[Sort Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Sort.Outputs[Sort Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Sort.Outputs[Sort Output].Columns[cate_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Sort.Outputs[Sort Output].Columns[cate_nombre]"
+                      name="cate_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[cate_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Sort.Outputs[Sort Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Sort.Outputs[Sort Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Categorias\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Categorias\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Categorias\Sort 1.Inputs[Sort Input].Columns[cod_categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_categoria"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_categoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Categorias\Sort 1.Inputs[Sort Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Categorias\Sort 1.Inputs[Sort Input].Columns[cod_especie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_especie"
+                      lineageId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_especie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Categorias\Sort 1.Inputs[Sort Input].Columns[cod_categoria_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_categoria_int"
+                      cachedPrecision="4"
+                      lineageId="Package\Categorias\Data Conversion.Outputs[Data Conversion Output].Columns[cod_categoria_int]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Categorias\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_categoria]"
+                      name="cod_categoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_categoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_especie]"
+                      name="cod_especie">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output].Columns[cod_especie]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_categoria_int]"
+                      dataType="numeric"
+                      lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_categoria_int]"
+                      name="cod_categoria_int"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Categorias\Data Conversion.Outputs[Data Conversion Output].Columns[cod_categoria_int]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Categorias.Paths[Actualizar]"
+              endId="Package\Categorias\Data Conversion 1 1.Inputs[Data Conversion Input]"
+              name="Actualizar"
+              startId="Package\Categorias\Conditional Split.Outputs[Actualizar]" />
+            <path
+              refId="Package\Categorias.Paths[Agregar]"
+              endId="Package\Categorias\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Agregar"
+              startId="Package\Categorias\Conditional Split.Outputs[Agregar]" />
+            <path
+              refId="Package\Categorias.Paths[Data Conversion Output]"
+              endId="Package\Categorias\Sort 1.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Categorias\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Categorias.Paths[Data Conversion Output1]"
+              endId="Package\Categorias\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Categorias\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Categorias.Paths[Data Conversion Output2]"
+              endId="Package\Categorias\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Categorias\Data Conversion 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Categorias.Paths[Data Conversion Output3]"
+              endId="Package\Categorias\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Categorias\Data Conversion 1 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Categorias.Paths[Eliminar]"
+              endId="Package\Categorias\Data Conversion 1 1 1.Inputs[Data Conversion Input]"
+              name="Eliminar"
+              startId="Package\Categorias\Conditional Split.Outputs[Eliminar]" />
+            <path
+              refId="Package\Categorias.Paths[Merge Join Output]"
+              endId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Categorias\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Categorias.Paths[OLE DB Source Output]"
+              endId="Package\Categorias\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Categorias\Categorias-Destino.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Categorias.Paths[OLE DB Source Output1]"
+              endId="Package\Categorias\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Categorias\Categorias-Origen.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Categorias.Paths[Sort Output]"
+              endId="Package\Categorias\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Categorias\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Categorias.Paths[Sort Output1]"
+              endId="Package\Categorias\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Categorias\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Categorias"
+          TopLeft="138.571430931286,55.8235301946686" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Categorias">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Categorias\Data Conversion"
+          TopLeft="336.428577157916,100.94117788625" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Categorias\OLE DB Command 1"
+          TopLeft="449.285721937005,476.011767376336" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Categorias\Data Conversion 1 1 1"
+          TopLeft="433.571435955106,394.952942710104" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Categorias\Categorias-Origen"
+          TopLeft="87.8571443533411,40.5294123331156" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Categorias\Sort 1"
+          TopLeft="356.428577498514,174.352943621705" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Categorias\OLE DB Command"
+          TopLeft="237.142861181376,476.847061483258" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Categorias\Data Conversion 1 1"
+          TopLeft="233.571432549126,396.447058930776" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Categorias\OLE DB Destination"
+          TopLeft="12.1428573496488,479.941180621052" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Categorias\Conditional Split"
+          TopLeft="200.71428913243,319.22353329411" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Categorias\Data Conversion 1"
+          TopLeft="11.4285716231988,390.22353311179" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Categorias\Categorias-Destino"
+          TopLeft="332.857148525666,38.1294108745549" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Categorias\Sort"
+          TopLeft="121.428573496488,129.235295930123" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Categorias\Merge Join"
+          TopLeft="230.714289643327,235.529415067917" />
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Sort Output1]"
+          TopLeft="356.428577498514,195.152943621705">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.6476211885208,40.3764714462122"
+              Start="0,0"
+              End="-40.6476211885208,32.8764714462122">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.6476211885208,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.6476211885208,0"
+                    Point2="-40.6476211885208,0"
+                    Point3="-40.6476211885208,4" />
+                  <mssgle:LineSegment
+                    End="-40.6476211885208,32.8764714462122" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Sort Output]"
+          TopLeft="170.228573496488,170.835295930123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.285716146839,64.6941191377936"
+              Start="0,0"
+              End="125.285716146839,57.1941191377936">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.3470595688968" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.3470595688968"
+                    Point2="0,32.3470595688968"
+                    Point3="4,32.3470595688968" />
+                  <mssgle:LineSegment
+                    End="121.285716146839,32.3470595688968" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.285716146839,32.3470595688968"
+                    Point2="125.285716146839,32.3470595688968"
+                    Point3="125.285716146839,36.3470595688968" />
+                  <mssgle:LineSegment
+                    End="125.285716146839,57.1941191377936" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[OLE DB Source Output1]"
+          TopLeft="169.842858924914,82.1294123331156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1058835970077"
+              Start="0,0"
+              End="0,39.6058835970077">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6058835970077" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[OLE DB Source Output]"
+          TopLeft="500.057148525666,58.9294108745549">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.42857136775035,62.8117670116953"
+              Start="0,0"
+              End="-0.928571367750351,62.8117670116953">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,58.8117670116953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,58.8117670116953"
+                    Point2="22.5,62.8117670116953"
+                    Point3="18.5,62.8117670116953" />
+                  <mssgle:LineSegment
+                    End="-0.928571367750351,62.8117670116953" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Merge Join Output]"
+          TopLeft="295.514289643327,277.129415067917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.600000510897,42.0941182261932"
+              Start="0,0"
+              End="-17.600000510897,34.5941182261932">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.0470591130966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0470591130966"
+                    Point2="0,21.0470591130966"
+                    Point3="-4,21.0470591130966" />
+                  <mssgle:LineSegment
+                    End="-13.600000510897,21.0470591130966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.600000510897,21.0470591130966"
+                    Point2="-17.600000510897,21.0470591130966"
+                    Point3="-17.600000510897,25.0470591130966" />
+                  <mssgle:LineSegment
+                    End="-17.600000510897,34.5941182261932" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Eliminar]"
+          TopLeft="314.51428913243,360.82353329411">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="201.457146822676,34.1294094159942"
+              Start="0,0"
+              End="201.457146822676,26.6294094159942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.76276759159052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.76276759159052"
+                    Point2="0,11.7627675915905"
+                    Point3="4,11.7627675915905" />
+                  <mssgle:LineSegment
+                    End="197.457146822676,11.7627675915905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="197.457146822676,11.7627675915905"
+                    Point2="201.457146822676,11.7627675915905"
+                    Point3="201.457146822676,15.7627675915905" />
+                  <mssgle:LineSegment
+                    End="201.457146822676,26.6294094159942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="82.4648820050882,16.7627675915905,36.5273828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Data Conversion Output3]"
+          TopLeft="515.971435955106,436.552942710104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5142859818984,39.4588246662311"
+              Start="0,0"
+              End="20.5142859818984,31.9588246662311">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7294123331155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7294123331155"
+                    Point2="0,19.7294123331155"
+                    Point3="4,19.7294123331155" />
+                  <mssgle:LineSegment
+                    End="16.5142859818984,19.7294123331155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5142859818984,19.7294123331155"
+                    Point2="20.5142859818984,19.7294123331155"
+                    Point3="20.5142859818984,23.7294123331155" />
+                  <mssgle:LineSegment
+                    End="20.5142859818984,31.9588246662311" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Data Conversion Output2]"
+          TopLeft="317.757146865251,438.047058930776">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.8000025524813"
+              Start="0,0"
+              End="0,31.3000025524813">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.3000025524813" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Data Conversion Output1]"
+          TopLeft="95.5857144864238,431.82353311179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.1176475092615"
+              Start="0,0"
+              End="0,40.6176475092615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.6176475092615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Data Conversion Output]"
+          TopLeft="411.828577328215,142.54117788625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.8117657354546"
+              Start="0,0"
+              End="0,24.3117657354546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3117657354546" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Agregar]"
+          TopLeft="277.91428913243,360.82353329411">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-184.085717509231,29.3999998176799"
+              Start="0,0"
+              End="-184.085717509231,21.8999998176799">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6999999088399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6999999088399"
+                    Point2="0,14.6999999088399"
+                    Point3="-4,14.6999999088399" />
+                  <mssgle:LineSegment
+                    End="-180.085717509231,14.6999999088399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-180.085717509231,14.6999999088399"
+                    Point2="-184.085717509231,14.6999999088399"
+                    Point3="-184.085717509231,18.6999999088399" />
+                  <mssgle:LineSegment
+                    End="-184.085717509231,21.8999998176799" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-110.429616567115,19.6999999088399,36.773515625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Categorias.Paths[Actualizar]"
+          TopLeft="302.31428913243,360.82353329411">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.6571434166967,35.6235256366662"
+              Start="0,0"
+              End="13.6571434166967,28.1235256366662">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.4686319508921" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.4686319508921"
+                    Point2="0,14.4686319508921"
+                    Point3="4,14.4686319508921" />
+                  <mssgle:LineSegment
+                    End="9.65714341669667,14.4686319508921" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.65714341669667,14.4686319508921"
+                    Point2="13.6571434166967,14.4686319508921"
+                    Point3="13.6571434166967,18.4686319508921" />
+                  <mssgle:LineSegment
+                    End="13.6571434166967,28.1235256366662" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.4981861041517,19.4686319508921,44.653515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Categorias\Categorias-Origen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Categorias\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Categorias\Categorias-Destino">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

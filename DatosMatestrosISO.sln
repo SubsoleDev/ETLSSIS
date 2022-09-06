@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DatosMatestrosISO", "DatosMatestrosISO\DatosMatestrosISO.dtproj", "{78179B25-3CF3-4C8D-AB70-77181E550788}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78179B25-3CF3-4C8D-AB70-77181E550788}.Development|Default.ActiveCfg = Development
+		{78179B25-3CF3-4C8D-AB70-77181E550788}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {246D6060-BB58-4CD6-9634-7A05FACD0449}
+	EndGlobalSection
+EndGlobal

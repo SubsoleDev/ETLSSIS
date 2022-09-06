@@ -1,0 +1,2932 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/17/2022 2:47:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{7C4B965A-C4A9-440B-A07C-25B2BE126562}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{FF2143B2-68FD-48AC-9277-6E6E467762EF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
+      DTS:ObjectName="Conn-Origen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETL_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADFEYEVnezX0zo6EXD9MYmxAAAAAASAAACgAAAAEAAAADz+b43IYy4kkJXW4eHhBIUQAAAAfOWGsueDLhFfaxWRacsdPRQAAABhcMmR7P0VU4Oc/0q7ULZqrLHfdw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destino]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D49DAEC2-4B86-44EC-BED9-5084403A7403}"
+      DTS:ObjectName="Destino">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Osiris\ERPproduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC/UeM0uv3WLi5vwbbetXkoAAAAAASAAACgAAAAEAAAAE8GkZK9ZqYN9DHszeyCiG8QAAAAji8zdx8L5MCoV//5cO4BFBQAAAAJg6yQbw+JxYMBFoNl/C7pWULXiA</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{2027D252-F3AF-4E25-8211-1F369C4C4A44}"
+      DTS:ObjectName="gv_Especies">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">16</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Envases"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D7F4BEBB-4606-4F90-A544-4B7BAEBCD426}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Envases"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Envases\Actualiza"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.envase_ext set 
+nombre=?, 
+peso_neto=?, 
+peso_bruto=?, 
+peso_declarado=? ,
+gtin=?
+where cod_envase=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Envases\Actualiza.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]" />
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]" />
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]" />
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[Gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Gtin"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]" />
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Actualiza.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Envases\Actualiza.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Actualiza.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Envases\Actualiza.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Agrega"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Agrega"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[envase_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Envases\Agrega.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_envase]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]" />
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[peso_neto]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]" />
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[peso_bruto]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]" />
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[peso_declarado]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]" />
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[nombre_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre_str"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Envases\Data Conversion.Outputs[Data Conversion Output].Columns[nombre_str]" />
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[Gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Gtin"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[gtin]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_envase" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[peso_neto]"
+                      dataType="numeric"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[peso_bruto]"
+                      dataType="numeric"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[peso_declarado]"
+                      dataType="numeric"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="material" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="gtin" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Agrega.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Envases\Agrega.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[cod_envase_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase_destino"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre_destino"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[peso_neto_destino]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto_destino"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[peso_bruto_destino]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto_destino"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[peso_declarado_destino]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado_destino"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Conditional Split.Outputs[Agrega]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Agrega"
+                  synchronousInputId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(cod_envase_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Conditional Split.Outputs[Actualiza]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualiza"
+                  synchronousInputId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">([REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]},"") == [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]},"")) &amp;&amp; ((#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]}))</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(REPLACENULL(cod_envase,"") == REPLACENULL(cod_envase_destino,"")) &amp;&amp; ((nombre != nombre_destino || peso_neto != peso_neto_destino || peso_bruto != peso_bruto_destino || peso_declarado != peso_declarado_destino))</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Conditional Split.Outputs[Elimina]"
+                  description="Output 3 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Elimina"
+                  synchronousInputId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(cod_envase)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Envases\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Data Conversion.Inputs[Data Conversion Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Envases\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion.Outputs[Data Conversion Output].Columns[nombre_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Envases\Data Conversion.Outputs[Data Conversion Output].Columns[nombre_str]"
+                      name="nombre_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Envases\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Data Conversion 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Envases\Data Conversion 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Data Conversion 1 1.Inputs[Data Conversion Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Envases\Data Conversion 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[nombre_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[nombre_str]"
+                      name="nombre_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Envases\Data Conversion 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Data Conversion 1 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Envases\Data Conversion 1 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Data Conversion 1 1 1.Inputs[Data Conversion Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Envases\Data Conversion 1 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[nombre_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[nombre_str]"
+                      name="nombre_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Envases\Data Conversion 1 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Elimina"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Elimina"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete dbo.envase_ext 
+where cod_envase=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Envases\Elimina.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Envases\Elimina.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Elimina.Inputs[OLE DB Command Input].Columns[cod_envase_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase_destino"
+                      externalMetadataColumnId="Package\Envases\Elimina.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Envases\Elimina.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Elimina.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Envases\Elimina.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Envases\Elimina.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Envases\Elimina.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\envases"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="envases"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dba].[categorias]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  distinct 
+	   [cod_envase] = emb.emba_codigo
+     ,[nombre] = Ema.emba_abrevi
+      ,[peso_neto] = env.enva_pesone
+      ,[peso_bruto] = env.enva_pesobr
+      ,[peso_declarado] = env.enva_pesone
+      ,Gtin = gt.gtin_codigo
+  from dba.embalajes emb join dba.envases env on
+  emb.enva_codigo = env.enva_codigo 
+  and emb.enva_tipoen = env.enva_tipoen
+  join dba.envases_especies esp on
+  esp.enva_codigo = env.enva_codigo 
+  and esp.enva_tipoen = env.enva_tipoen  inner join dba.embalajes_abreviados as Ema on
+  emb.emba_abrcod=Ema.emba_abrcod  inner join dba.spro_gtin as gt on
+  emb.emba_abrcod=gt.emba_abrcod and
+  env.enva_pesone=gt.enva_pesone and
+  esp.espe_codigo=gt.espe_codigo and
+  env.enva_tipoen=gt.enva_tipoen
+  where  esp.espe_codigo = ?
+  and gt.gtin_estado=1</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{2027D252-0C50-4E25-8211-1F369C4C4A44};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Envases\envases.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Envases\envases.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[cod_envase]"
+                      length="20"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[cod_envase]"
+                      name="cod_envase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="50"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_neto]"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_bruto]"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_declarado]"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[Gtin]"
+                      length="20"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Gtin]"
+                      name="Gtin"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cod_envase" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_neto]"
+                      dataType="numeric"
+                      name="peso_neto"
+                      precision="6"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_bruto]"
+                      dataType="numeric"
+                      name="peso_bruto"
+                      precision="6"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_declarado]"
+                      dataType="numeric"
+                      name="peso_declarado"
+                      precision="6"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[Gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="Gtin" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Envases\envases.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[cod_envase]"
+                      name="cod_envase" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="6"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="6"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="6"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[Gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[Gtin]"
+                      name="Gtin" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\envases Destino"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="envases Destino"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[envase_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select (enva_tipoen*100000) +e.enva_codigo as CodEnvase,
+e.enva_nombre,e.enva_pesone,e.enva_pesobr,e.enva_pesone as enva_declarado
+from dba.envases as e
+where Exists(select * 
+			 from dba.envases_especies as ee
+			 where e.enva_tipoen=ee.enva_tipoen and
+				  e.enva_codigo=ee.enva_codigo
+				  and ee.espe_codigo=16)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Envases\envases Destino.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_envase]"
+                      length="20"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[cod_envase]"
+                      name="cod_envase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="50"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[peso_neto]"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[peso_bruto]"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[peso_declarado]"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[material]"
+                      length="5"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]"
+                      name="material"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
+                      length="20"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[gtin]"
+                      name="gtin"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_envase" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[peso_neto]"
+                      dataType="numeric"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[peso_bruto]"
+                      dataType="numeric"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[peso_declarado]"
+                      dataType="numeric"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="material" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="gtin" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[cod_envase]"
+                      name="cod_envase" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[material]"
+                      name="material" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[gtin]"
+                      name="gtin" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[cod_envase]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_neto]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_bruto]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_declarado]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[Gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Gtin"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[Gtin]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[cod_envase]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[nombre]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_neto]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_bruto]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_declarado]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="material"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[material]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gtin"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[gtin]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]"
+                      name="cod_envase"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[cod_envase]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]"
+                      name="nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[peso_neto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[peso_bruto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[peso_declarado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]"
+                      name="cod_envase_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[cod_envase]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]"
+                      name="Gtin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[Gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]"
+                      name="nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]"
+                      name="peso_neto_destino"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[peso_neto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]"
+                      name="peso_bruto_destino"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[peso_bruto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]"
+                      name="peso_declarado_destino"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[peso_declarado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]"
+                      name="material_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[material]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[gtin_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[gtin_destino]"
+                      name="gtin_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Envases\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[cod_envase]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_neto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_bruto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_declarado]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[Gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Gtin"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Gtin]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[cod_envase]"
+                      name="cod_envase"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[cod_envase]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[nombre]"
+                      name="nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_neto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_bruto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[peso_declarado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[Gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[Gtin]"
+                      name="Gtin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Envases\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Envases\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[cod_envase]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_envase"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[cod_envase]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[peso_neto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_neto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_neto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[peso_bruto]"
+                      cachedDataType="numeric"
+                      cachedName="peso_bruto"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_bruto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[peso_declarado]"
+                      cachedDataType="numeric"
+                      cachedName="peso_declarado"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_declarado]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="material"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gtin"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[gtin]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Envases\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[cod_envase]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[cod_envase]"
+                      name="cod_envase"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[cod_envase]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[nombre]"
+                      name="nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_neto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_neto]"
+                      name="peso_neto"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_neto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_bruto]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_bruto]"
+                      name="peso_bruto"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_bruto]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_declarado]"
+                      dataType="numeric"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[peso_declarado]"
+                      name="peso_declarado"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[peso_declarado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[material]"
+                      name="material">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[gtin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[gtin]"
+                      name="gtin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Envases.Paths[Actualiza]"
+              endId="Package\Envases\Data Conversion 1 1.Inputs[Data Conversion Input]"
+              name="Actualiza"
+              startId="Package\Envases\Conditional Split.Outputs[Actualiza]" />
+            <path
+              refId="Package\Envases.Paths[Agrega]"
+              endId="Package\Envases\Data Conversion.Inputs[Data Conversion Input]"
+              name="Agrega"
+              startId="Package\Envases\Conditional Split.Outputs[Agrega]" />
+            <path
+              refId="Package\Envases.Paths[Data Conversion Output]"
+              endId="Package\Envases\Actualiza.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Envases\Data Conversion 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Envases.Paths[Data Conversion Output1]"
+              endId="Package\Envases\Elimina.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Envases\Data Conversion 1 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Envases.Paths[Data Conversion Output2]"
+              endId="Package\Envases\Agrega.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Envases\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Envases.Paths[Elimina]"
+              endId="Package\Envases\Data Conversion 1 1 1.Inputs[Data Conversion Input]"
+              name="Elimina"
+              startId="Package\Envases\Conditional Split.Outputs[Elimina]" />
+            <path
+              refId="Package\Envases.Paths[Merge Join Output]"
+              endId="Package\Envases\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Envases\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Envases.Paths[OLE DB Source Output]"
+              endId="Package\Envases\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Envases\envases.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Envases.Paths[OLE DB Source Output1]"
+              endId="Package\Envases\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Envases\envases Destino.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Envases.Paths[Sort Output]"
+              endId="Package\Envases\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Envases\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Envases.Paths[Sort Output1]"
+              endId="Package\Envases\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Envases\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="116,41.6"
+          Id="Package\Envases"
+          TopLeft="97.8571445236401,57.3529419808239" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Envases">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Envases\Data Conversion 1 1 1"
+          TopLeft="491.690478126614,432.898043845187" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Envases\Agrega"
+          TopLeft="35.0000005960465,508.808829725613" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Envases\Sort"
+          TopLeft="95.0000016178404,148.68235467858" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Envases\Data Conversion 1 1"
+          TopLeft="291.428576391571,430.702944852365" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Envases\Sort 1"
+          TopLeft="347.142863054666,192.897061528838" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Envases\Conditional Split"
+          TopLeft="174.285717253782,329.588239916468" />
+        <NodeLayout
+          Size="116,41.6"
+          Id="Package\Envases\envases"
+          TopLeft="64.2857153804937,36.7058828677274" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Envases\envases Destino"
+          TopLeft="329.285719893417,39.6588226607102" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Envases\Merge Join"
+          TopLeft="190.000003235681,257.270591495606" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Envases\Data Conversion"
+          TopLeft="48.5714293985951,413.505886514129" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Envases\Elimina"
+          TopLeft="491.6666750397,512.427456360622" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Envases\Actualiza"
+          TopLeft="280.000004768372,516.611771569697" />
+        <EdgeLayout
+          Id="Package\Envases.Paths[Sort Output1]"
+          TopLeft="400.342863054665,234.497061528838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.276193152318,22.773529966768"
+              Start="0,0"
+              End="-125.276193152318,15.273529966768">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.4974823949381" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.4974823949381"
+                    Point2="0,13.4974823949381"
+                    Point3="-4,13.4974823949381" />
+                  <mssgle:LineSegment
+                    End="-121.276193152318,13.4974823949381" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.276193152318,13.4974823949381"
+                    Point2="-125.276193152318,13.4974823949381"
+                    Point3="-125.276193152318,17.4974823949381" />
+                  <mssgle:LineSegment
+                    End="-125.276193152318,15.273529966768" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Sort Output]"
+          TopLeft="143.80000161784,190.28235467858">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.7333349511737,66.9882368170265"
+              Start="0,0"
+              End="90.7333349511737,59.4882368170265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7027842598474" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.7027842598474"
+                    Point2="0,39.7027842598474"
+                    Point3="4,39.7027842598474" />
+                  <mssgle:LineSegment
+                    End="86.7333349511737,39.7027842598474" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.7333349511737,39.7027842598474"
+                    Point2="90.7333349511737,39.7027842598474"
+                    Point3="90.7333349511737,43.7027842598474" />
+                  <mssgle:LineSegment
+                    End="90.7333349511737,59.4882368170265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[OLE DB Source Output1]"
+          TopLeft="403.414291474041,81.2588226607102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,111.638238868128"
+              Start="0,0"
+              End="0,104.138238868128">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.138238868128" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[OLE DB Source Output]"
+          TopLeft="122.285715380494,78.3058828677274">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5142862373467,70.3764718108523"
+              Start="0,0"
+              End="21.5142862373467,62.8764718108523">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1882359054262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.1882359054262"
+                    Point2="0,35.1882359054262"
+                    Point3="4,35.1882359054262" />
+                  <mssgle:LineSegment
+                    End="17.5142862373467,35.1882359054262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5142862373467,35.1882359054262"
+                    Point2="21.5142862373467,35.1882359054262"
+                    Point3="21.5142862373467,39.1882359054262" />
+                  <mssgle:LineSegment
+                    End="21.5142862373467,62.8764718108523" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Merge Join Output]"
+          TopLeft="253.142860244732,298.870591495606">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7176484208621"
+              Start="0,0"
+              End="0,23.2176484208621">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2176484208621" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Elimina]"
+          TopLeft="288.085717253782,371.188239916468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="295.204760872832,61.7098039287186"
+              Start="0,0"
+              End="295.204760872832,54.2098039287186">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2684044100677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2684044100677"
+                    Point2="0,21.2684044100677"
+                    Point3="4,21.2684044100677" />
+                  <mssgle:LineSegment
+                    End="291.204760872832,21.2684044100677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="291.204760872832,21.2684044100677"
+                    Point2="295.204760872832,21.2684044100677"
+                    Point3="295.204760872832,25.2684044100677" />
+                  <mssgle:LineSegment
+                    End="295.204760872832,54.2098039287186" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="131.429021061416,26.2684044100677,32.34671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Data Conversion Output2]"
+          TopLeft="126.171429398595,455.105886514129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.1714288025486,53.7029432114837"
+              Start="0,0"
+              End="-35.1714288025486,46.2029432114837">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8514716057419" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8514716057419"
+                    Point2="0,26.8514716057419"
+                    Point3="-4,26.8514716057419" />
+                  <mssgle:LineSegment
+                    End="-31.1714288025486,26.8514716057419" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.1714288025486,26.8514716057419"
+                    Point2="-35.1714288025486,26.8514716057419"
+                    Point3="-35.1714288025486,30.8514716057419" />
+                  <mssgle:LineSegment
+                    End="-35.1714288025486,46.2029432114837" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Data Conversion Output1]"
+          TopLeft="583.290478126614,474.498043845187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.6238030869139,37.929412515435"
+              Start="0,0"
+              End="-35.6238030869139,30.429412515435">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9647062577175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9647062577175"
+                    Point2="0,18.9647062577175"
+                    Point3="-4,18.9647062577175" />
+                  <mssgle:LineSegment
+                    End="-31.6238030869139,18.9647062577175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.6238030869139,18.9647062577175"
+                    Point2="-35.6238030869139,18.9647062577175"
+                    Point3="-35.6238030869139,22.9647062577175" />
+                  <mssgle:LineSegment
+                    End="-35.6238030869139,30.429412515435" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Data Conversion Output]"
+          TopLeft="373.828576391571,472.302944852365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.828571623199,44.308826717332"
+              Start="0,0"
+              End="-33.828571623199,36.808826717332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.154413358666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.154413358666"
+                    Point2="0,22.154413358666"
+                    Point3="-4,22.154413358666" />
+                  <mssgle:LineSegment
+                    End="-29.828571623199,22.154413358666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.828571623199,22.154413358666"
+                    Point2="-33.828571623199,22.154413358666"
+                    Point3="-33.828571623199,26.154413358666" />
+                  <mssgle:LineSegment
+                    End="-33.828571623199,36.808826717332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Agrega]"
+          TopLeft="214.885717253782,371.188239916468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-88.7142878551869,42.3176465976612"
+              Start="0,0"
+              End="-88.7142878551869,34.8176465976612">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5848595234724" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5848595234724"
+                    Point2="0,14.5848595234724"
+                    Point3="-4,14.5848595234724" />
+                  <mssgle:LineSegment
+                    End="-84.7142878551869,14.5848595234724" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.7142878551869,14.5848595234724"
+                    Point2="-88.7142878551869,14.5848595234724"
+                    Point3="-88.7142878551869,18.5848595234724" />
+                  <mssgle:LineSegment
+                    End="-88.7142878551869,34.8176465976612" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.6535697088435,19.5848595234724,32.5928515625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Envases.Paths[Actualiza]"
+          TopLeft="275.885717253782,371.188239916468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.9428591377887,59.5147049358966"
+              Start="0,0"
+              End="97.9428591377887,52.0147049358966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1721263124257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1721263124257"
+                    Point2="0,24.1721263124257"
+                    Point3="4,24.1721263124257" />
+                  <mssgle:LineSegment
+                    End="93.9428591377887,24.1721263124257" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.9428591377887,24.1721263124257"
+                    Point2="97.9428591377887,24.1721263124257"
+                    Point3="97.9428591377887,28.1721263124257" />
+                  <mssgle:LineSegment
+                    End="97.9428591377887,52.0147049358966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.7350037876444,29.1721263124257,40.4728515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Envases\Agrega">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Envases\envases Destino">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Envases\envases">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

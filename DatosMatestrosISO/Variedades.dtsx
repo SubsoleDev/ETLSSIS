@@ -1,0 +1,2622 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/17/2022 9:10:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{F9906DAE-CB68-42A7-BB20-8927512DA8C3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{D7294AEC-C7E2-4DED-B20E-582D4946C40D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E34761AC-D175-4FAC-8FCC-F75A3CAA40DB}"
+      DTS:ObjectName="Conn-Origen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETL_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABgKOYhorNLdRjvEJokW/vKAAAAAASAAACgAAAAEAAAAFPpB/NBTeJ7j3IO5CRM3WwQAAAA+7Wix6wJavOmZN+7hEPlpRQAAABAD4O/TawFkcv1YyFQlIrDVtpI7g</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destino]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
+      DTS:ObjectName="Destino">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Osiris\ERPPRODUCCION;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB0NmDYhaMXITS8DMQDUSqsAAAAAASAAACgAAAAEAAAAJAxkdwqDcQe5/7Yl9GHceIQAAAAUAazk3MeIYyGCGySMSPetBQAAADoSDkBgxSwi1HruKKV7z7J0BcQ8w</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{7E0B4157-9907-4E70-BFB1-E8E0A1FA8975}"
+      DTS:ObjectName="gv_Especie">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">16</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Variedades"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{43B73520-04EE-445C-BC0D-CF1FC00E7E2F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Variedades"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Variedades\Actualiza"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update variedad_ext set
+nombre =?,
+abreviado = ?
+where cod_variedad=? and
+cod_especie = ?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Variedades\Actualiza.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].Columns[vari_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="vari_nombre"
+                      externalMetadataColumnId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_nombre]" />
+                    <inputColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].Columns[vari_abrevi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_abrevi"
+                      externalMetadataColumnId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_abrevi]" />
+                    <inputColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].Columns[vari_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_codigo_str"
+                      externalMetadataColumnId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]" />
+                    <inputColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].Columns[espe_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="espe_codigo_str"
+                      externalMetadataColumnId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Actualiza.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Actualiza.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Agrega"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Agrega"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[variedad_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Variedades\Agrega.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].Columns[vari_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_codigo_str"
+                      externalMetadataColumnId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_variedad]"
+                      lineageId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]" />
+                    <inputColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].Columns[vari_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="vari_nombre"
+                      externalMetadataColumnId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_nombre]" />
+                    <inputColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].Columns[vari_abrevi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_abrevi"
+                      externalMetadataColumnId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[abreviado]"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_abrevi]" />
+                    <inputColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].Columns[espe_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="espe_codigo_str"
+                      externalMetadataColumnId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_especie]"
+                      lineageId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_variedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_variedad" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_especie" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[abreviado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="abreviado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Agrega.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Agrega.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                    <inputColumn
+                      refId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input].Columns[cod_variedad_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_variedad_int"
+                      cachedPrecision="18"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_variedad_int]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Conditional Split.Outputs[Insert]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Insert"
+                  synchronousInputId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_variedad_int]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(cod_variedad_int)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Conditional Split.Outputs[Actualiza]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualiza"
+                  synchronousInputId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_variedad_int]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(cod_variedad_int)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Conditional Split.Outputs[Elimina]"
+                  description="Output 3 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Elimina"
+                  synchronousInputId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(vari_codigo)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Variedades\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion.Inputs[Data Conversion Input].Columns[cod_variedad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_variedad"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_variedad]" />
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion.Inputs[Data Conversion Input].Columns[cod_especie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_especie"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_especie]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Variedades\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_variedad_int]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_variedad_int]"
+                      name="cod_variedad_int"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_variedad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_especie_int]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_especie_int]"
+                      name="cod_especie_int"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_especie]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Variedades\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Variedades\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion 1.Inputs[Data Conversion Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion 1.Inputs[Data Conversion Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Variedades\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]"
+                      name="espe_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]"
+                      name="vari_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Variedades\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Data Conversion 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Variedades\Data Conversion 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion 1 1.Inputs[Data Conversion Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion 1 1.Inputs[Data Conversion Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Variedades\Data Conversion 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]"
+                      name="espe_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]"
+                      name="vari_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Variedades\Data Conversion 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Data Conversion 1 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Variedades\Data Conversion 1 1 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion 1 1 1.Inputs[Data Conversion Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\Variedades\Data Conversion 1 1 1.Inputs[Data Conversion Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Variedades\Data Conversion 1 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]"
+                      name="espe_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]"
+                      name="vari_codigo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Variedades\Data Conversion 1 1 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Elimina"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Elimina"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete variedad_ext 
+where cod_variedad=? and
+cod_especie = ?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Variedades\Elimina.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Variedades\Elimina.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Elimina.Inputs[OLE DB Command Input].Columns[vari_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_codigo_str"
+                      externalMetadataColumnId="Package\Variedades\Elimina.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[vari_codigo_str]" />
+                    <inputColumn
+                      refId="Package\Variedades\Elimina.Inputs[OLE DB Command Input].Columns[espe_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="espe_codigo_str"
+                      externalMetadataColumnId="Package\Variedades\Elimina.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[espe_codigo_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Elimina.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Elimina.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Elimina.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Variedades\Elimina.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Variedades\Elimina.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Variedades\Elimina.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Elimina.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Variedades\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_codigo]" />
+                    <inputColumn
+                      refId="Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[vari_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="vari_nombre"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_nombre]" />
+                    <inputColumn
+                      refId="Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[vari_abrevi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_abrevi"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_abrevi]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Variedades\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Merge Join.Inputs[Merge Join Right Input].Columns[cod_variedad_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_variedad_int"
+                      cachedPrecision="18"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_variedad_int]" />
+                    <inputColumn
+                      refId="Package\Variedades\Merge Join.Inputs[Merge Join Right Input].Columns[cod_especie_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_especie_int"
+                      cachedPrecision="18"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_especie_int]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[vari_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_nombre]"
+                      name="vari_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[vari_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_abrevi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[vari_abrevi]"
+                      name="vari_abrevi">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Variedades\Merge Join.Inputs[Merge Join Left Input].Columns[vari_abrevi]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_variedad_int]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_variedad_int]"
+                      name="cod_variedad_int"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Variedades\Merge Join.Inputs[Merge Join Right Input].Columns[cod_variedad_int]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_especie_int]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Merge Join.Outputs[Merge Join Output].Columns[cod_especie_int]"
+                      name="cod_especie_int"
+                      precision="18">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Variedades\Merge Join.Inputs[Merge Join Right Input].Columns[cod_especie_int]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Variedades\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Sort.Inputs[Sort Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort.Inputs[Sort Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort.Inputs[Sort Input].Columns[vari_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="vari_nombre"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort.Inputs[Sort Input].Columns[vari_abrevi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="vari_abrevi"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_abrevi]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Sort.Outputs[Sort Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_nombre]"
+                      name="vari_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_abrevi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Variedades\Sort.Outputs[Sort Output].Columns[vari_abrevi]"
+                      name="vari_abrevi">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_abrevi]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Variedades\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Variedades\Sort 1.Inputs[Sort Input].Columns[cod_variedad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_variedad"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_variedad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort 1.Inputs[Sort Input].Columns[cod_especie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_especie"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_especie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort 1.Inputs[Sort Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort 1.Inputs[Sort Input].Columns[abreviado]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="abreviado"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[abreviado]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort 1.Inputs[Sort Input].Columns[cod_variedad_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_variedad_int"
+                      cachedPrecision="18"
+                      lineageId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_variedad_int]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Variedades\Sort 1.Inputs[Sort Input].Columns[cod_especie_int]"
+                      cachedDataType="numeric"
+                      cachedName="cod_especie_int"
+                      cachedPrecision="18"
+                      lineageId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_especie_int]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_variedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_variedad]"
+                      name="cod_variedad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_variedad]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_especie]"
+                      name="cod_especie">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_especie]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[nombre]"
+                      name="nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[abreviado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[abreviado]"
+                      name="abreviado">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[abreviado]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_variedad_int]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_variedad_int]"
+                      name="cod_variedad_int"
+                      precision="18"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_variedad_int]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_especie_int]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Sort 1.Outputs[Sort Output].Columns[cod_especie_int]"
+                      name="cod_especie_int"
+                      precision="18"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Variedades\Data Conversion.Outputs[Data Conversion Output].Columns[cod_especie_int]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Variedad Destino"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Variedad Destino"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[variedad_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Variedades\Variedad Destino.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_variedad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_variedad]"
+                      length="20"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_variedad]"
+                      name="cod_variedad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      length="20"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="100"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[abreviado]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[abreviado]"
+                      length="20"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].Columns[abreviado]"
+                      name="abreviado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_variedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_variedad" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_especie" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output].ExternalColumns[abreviado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="abreviado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[cod_variedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[cod_variedad]"
+                      name="cod_variedad" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      name="cod_especie" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[abreviado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[abreviado]"
+                      name="abreviado" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Variedades\Variedad Origen"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Variedad Origen"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dba].[variedades]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select espe_codigo,vari_codigo,vari_nombre,vari_abrevi
+from dba.variedades
+where espe_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parámetro0:Input",{7E0B4157-66F8-4E70-BFB1-E8E0A1FA8975};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Variedades\Variedad Origen.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[vari_nombre]"
+                      length="30"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_nombre]"
+                      name="vari_nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_abrevi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[vari_abrevi]"
+                      length="4"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].Columns[vari_abrevi]"
+                      name="vari_abrevi"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      dataType="numeric"
+                      name="espe_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
+                      dataType="numeric"
+                      name="vari_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[vari_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="vari_nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output].ExternalColumns[vari_abrevi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="vari_abrevi" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[vari_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[vari_nombre]"
+                      name="vari_nombre" />
+                    <outputColumn
+                      refId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[vari_abrevi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Error Output].Columns[vari_abrevi]"
+                      name="vari_abrevi" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Variedades.Paths[Actualiza]"
+              endId="Package\Variedades\Data Conversion 1 1.Inputs[Data Conversion Input]"
+              name="Actualiza"
+              startId="Package\Variedades\Conditional Split.Outputs[Actualiza]" />
+            <path
+              refId="Package\Variedades.Paths[Data Conversion Output]"
+              endId="Package\Variedades\Sort 1.Inputs[Sort Input]"
+              name="Data Conversion Output"
+              startId="Package\Variedades\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Variedades.Paths[Data Conversion Output1]"
+              endId="Package\Variedades\Agrega.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Variedades\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Variedades.Paths[Data Conversion Output2]"
+              endId="Package\Variedades\Actualiza.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Variedades\Data Conversion 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Variedades.Paths[Data Conversion Output3]"
+              endId="Package\Variedades\Elimina.Inputs[OLE DB Command Input]"
+              name="Data Conversion Output"
+              startId="Package\Variedades\Data Conversion 1 1 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Variedades.Paths[Elimina]"
+              endId="Package\Variedades\Data Conversion 1 1 1.Inputs[Data Conversion Input]"
+              name="Elimina"
+              startId="Package\Variedades\Conditional Split.Outputs[Elimina]" />
+            <path
+              refId="Package\Variedades.Paths[Insert]"
+              endId="Package\Variedades\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Insert"
+              startId="Package\Variedades\Conditional Split.Outputs[Insert]" />
+            <path
+              refId="Package\Variedades.Paths[Merge Join Output]"
+              endId="Package\Variedades\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Variedades\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Variedades.Paths[OLE DB Source Output]"
+              endId="Package\Variedades\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Variedades\Variedad Origen.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Variedades.Paths[OLE DB Source Output1]"
+              endId="Package\Variedades\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Variedades\Variedad Destino.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Variedades.Paths[Sort Output]"
+              endId="Package\Variedades\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Variedades\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Variedades.Paths[Sort Output1]"
+              endId="Package\Variedades\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Variedades\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Variedades"
+          TopLeft="164.285717083483,40.5294123331156" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Variedades">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Variedades\Data Conversion"
+          TopLeft="401.428578264859,136.117648967822" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Variedades\Merge Join"
+          TopLeft="265.714290239373,331.117651702623" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Variedades\Variedad Origen"
+          TopLeft="84.2857157210915,65.7647068046781" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Variedades\Agrega"
+          TopLeft="18.5714288876982,569.329418167358" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Variedades\Data Conversion 1 1"
+          TopLeft="335.000005705016,536.352946903466" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Variedades\Sort"
+          TopLeft="120.714287770038,146.823531470909" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Variedades\Elimina"
+          TopLeft="628.571439275937,643.776476733495" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Variedades\Conditional Split"
+          TopLeft="254.285718616174,419.058829406554" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Variedades\Data Conversion 1"
+          TopLeft="130.000002213887,478.235299029565" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Variedades\Sort 1"
+          TopLeft="426.428578690607,212.588238275587" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Variedades\Variedad Destino"
+          TopLeft="398.57143535906,63.3647053461174" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Variedades\Actualiza"
+          TopLeft="337.142862884366,637.000007475124" />
+        <NodeLayout
+          Size="173.6,41.6"
+          Id="Package\Variedades\Data Conversion 1 1 1"
+          TopLeft="619.285724832087,525.247063306459" />
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Sort Output1]"
+          TopLeft="479.628578690607,254.188238275587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.847621784567,76.929413427036"
+              Start="0,0"
+              End="-128.847621784567,69.429413427036">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5947499091945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5947499091945"
+                    Point2="0,45.5947499091945"
+                    Point3="-4,45.5947499091945" />
+                  <mssgle:LineSegment
+                    End="-124.847621784567,45.5947499091945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.847621784567,45.5947499091945"
+                    Point2="-128.847621784567,45.5947499091945"
+                    Point3="-128.847621784567,49.5947499091945" />
+                  <mssgle:LineSegment
+                    End="-128.847621784567,69.429413427036" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Sort Output]"
+          TopLeft="169.514287770038,188.423531470909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.733335802669,142.694120231714"
+              Start="0,0"
+              End="140.733335802669,135.194120231714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5723688202598" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80.5723688202598"
+                    Point2="0,84.5723688202598"
+                    Point3="4,84.5723688202598" />
+                  <mssgle:LineSegment
+                    End="136.733335802669,84.5723688202598" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.733335802669,84.5723688202598"
+                    Point2="140.733335802669,84.5723688202598"
+                    Point3="140.733335802669,88.5723688202598" />
+                  <mssgle:LineSegment
+                    End="140.733335802669,135.194120231714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[OLE DB Source Output1]"
+          TopLeft="478.400006811959,104.964705346117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.1529436217048"
+              Start="0,0"
+              End="0,23.6529436217048">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6529436217048" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[OLE DB Source Output]"
+          TopLeft="161.485715721091,107.364706804678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.02857204894636,39.4588246662313"
+              Start="0,0"
+              End="8.02857204894636,31.9588246662313">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7294123331156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7294123331156"
+                    Point2="0,19.7294123331156"
+                    Point3="4,19.7294123331156" />
+                  <mssgle:LineSegment
+                    End="4.02857204894636,19.7294123331156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.02857204894636,19.7294123331156"
+                    Point2="8.02857204894636,19.7294123331156"
+                    Point3="8.02857204894636,23.7294123331156" />
+                  <mssgle:LineSegment
+                    End="8.02857204894636,31.9588246662313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Merge Join Output]"
+          TopLeft="331.000004427774,372.717651702623">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.34117770393"
+              Start="0,0"
+              End="0,38.84117770393">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.84117770393" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Insert]"
+          TopLeft="254.285718616174,439.858829406554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-41.8857164022874,38.3764696230114"
+              Start="0,0"
+              End="-41.8857164022874,30.8764696230114">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-37.8857164022874,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-37.8857164022874,0"
+                    Point2="-41.8857164022874,0"
+                    Point3="-41.8857164022874,4" />
+                  <mssgle:LineSegment
+                    End="-41.8857164022874,30.8764696230114" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.6387046835374,-15.40234375,27.5059765625,9.40234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Elimina]"
+          TopLeft="355.885718616174,460.658829406554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="350.200006215913,64.5882338999053"
+              Start="0,0"
+              End="350.200006215913,57.0882338999053">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2327596147308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2327596147308"
+                    Point2="0,26.2327596147308"
+                    Point3="4,26.2327596147308" />
+                  <mssgle:LineSegment
+                    End="346.200006215913,26.2327596147308" />
+                  <mssgle:CubicBezierSegment
+                    Point1="346.200006215913,26.2327596147308"
+                    Point2="350.200006215913,26.2327596147308"
+                    Point3="350.200006215913,30.2327596147308" />
+                  <mssgle:LineSegment
+                    End="350.200006215913,57.0882338999053" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="158.926643732957,31.2327596147308,32.34671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Data Conversion Output3]"
+          TopLeft="706.085724832087,566.847063306459">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.5142855561509,76.929413427036"
+              Start="0,0"
+              End="-21.5142855561509,69.429413427036">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.464706713518" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.464706713518"
+                    Point2="0,38.464706713518"
+                    Point3="-4,38.464706713518" />
+                  <mssgle:LineSegment
+                    End="-17.5142855561509,38.464706713518" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.5142855561509,38.464706713518"
+                    Point2="-21.5142855561509,38.464706713518"
+                    Point3="-21.5142855561509,42.464706713518" />
+                  <mssgle:LineSegment
+                    End="-21.5142855561509,69.429413427036" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Data Conversion Output2]"
+          TopLeft="421.800005705016,577.952946903466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.6571428206502,59.0470605716574"
+              Start="0,0"
+              End="-24.6571428206502,51.5470605716574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5235302858287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5235302858287"
+                    Point2="0,29.5235302858287"
+                    Point3="-4,29.5235302858287" />
+                  <mssgle:LineSegment
+                    End="-20.6571428206502,29.5235302858287" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.6571428206502,29.5235302858287"
+                    Point2="-24.6571428206502,29.5235302858287"
+                    Point3="-24.6571428206502,33.5235302858287" />
+                  <mssgle:LineSegment
+                    End="-24.6571428206502,51.5470605716574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Data Conversion Output1]"
+          TopLeft="212.400002213887,519.835299029565">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-137.828573326189,49.4941191377934"
+              Start="0,0"
+              End="-137.828573326189,41.9941191377934">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.7470595688967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.7470595688967"
+                    Point2="0,24.7470595688967"
+                    Point3="-4,24.7470595688967" />
+                  <mssgle:LineSegment
+                    End="-133.828573326189,24.7470595688967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.828573326189,24.7470595688967"
+                    Point2="-137.828573326189,24.7470595688967"
+                    Point3="-137.828573326189,28.7470595688967" />
+                  <mssgle:LineSegment
+                    End="-137.828573326189,41.9941191377934" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Data Conversion Output]"
+          TopLeft="479.328578477733,177.717648967822">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8705893077653"
+              Start="0,0"
+              End="0,27.3705893077653">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3705893077653" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Variedades.Paths[Actualiza]"
+          TopLeft="331.485718616174,460.658829406554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.314287088842,75.6941174969128"
+              Start="0,0"
+              End="90.314287088842,68.1941174969128">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8470587484564" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.8470587484564"
+                    Point2="0,37.8470587484564"
+                    Point3="4,37.8470587484564" />
+                  <mssgle:LineSegment
+                    End="86.314287088842,37.8470587484564" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.314287088842,37.8470587484564"
+                    Point2="90.314287088842,37.8470587484564"
+                    Point3="90.314287088842,41.8470587484564" />
+                  <mssgle:LineSegment
+                    End="90.314287088842,68.1941174969128" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="24.920717763171,42.8470587484564,40.4728515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Variedades\Variedad Origen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Variedades\Agrega">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Variedades\Variedad Destino">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

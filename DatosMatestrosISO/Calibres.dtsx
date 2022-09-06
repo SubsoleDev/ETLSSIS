@@ -1,0 +1,2019 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2022 11:25:41 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{3B6E9BD3-3D11-40EE-9AE9-889C91F68A9E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{BE109EFE-69A0-4510-B66B-553E1D7E125D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
+      DTS:ObjectName="Conn-Origen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETl_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACNjIOjODQcLcMJrJ5jZSczAAAAAASAAACgAAAAEAAAADc1WllJpUcGEY3SuLAcT0EQAAAATMT/zkyAnyXKp7s/vvUqDRQAAAC0V18r5OFzxKuSTvzb/nIm6euHsw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destino]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
+      DTS:ObjectName="Destino">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Osiris\ErpProduccion;User ID=ETL_user;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB7n/MEVzevMRB8Wso8Svh3AAAAAASAAACgAAAAEAAAAEpo3TFYgnow29oF6bYz3c8QAAAA5QXYLlzck64NoKLEGUfyiBQAAACXOyC/7WgvliGmyWl9h/fwyIF29g</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{8D1244E7-6821-4A9C-A4E9-6B219DFD8E11}"
+      DTS:ObjectName="gv_especie">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">16</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Calibres"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DB4EEE35-B9C5-493D-A670-FD5ABBF3223D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Calibres"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Calibres\Actualiza"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+update dbo.calibres_ext set
+descripcion = ?,
+rango = ?,
+gtin = ?,
+cod_especie = ?
+where cod_calibre=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calibres\Actualiza.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].Columns[rango]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="rango"
+                      externalMetadataColumnId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[rango]" />
+                    <inputColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].Columns[gtin]"
+                      cachedDataType="i4"
+                      cachedName="gtin"
+                      externalMetadataColumnId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[gtin]" />
+                    <inputColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].Columns[cod_especie]"
+                      cachedDataType="numeric"
+                      cachedName="cod_especie"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie]" />
+                    <inputColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cod_calibre"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="20">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Actualiza.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calibres\Actualiza.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calibres\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Actualiza.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\Agrega Calibres"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Agrega Calibres"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[calibres_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calibres\Agrega Calibres.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cod_calibre"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[cod_calibre]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre]" />
+                    <inputColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="descripcion"
+                      externalMetadataColumnId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].Columns[rango]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="rango"
+                      externalMetadataColumnId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[rango]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[rango]" />
+                    <inputColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].Columns[gtin]"
+                      cachedDataType="i4"
+                      cachedName="gtin"
+                      externalMetadataColumnId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[gtin]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[gtin]" />
+                    <inputColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].Columns[cod_especie]"
+                      cachedDataType="numeric"
+                      cachedName="cod_especie"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[cod_especie]"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_calibre" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rango" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[gtin]"
+                      dataType="numeric"
+                      name="gtin"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input].ExternalColumns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_especie" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Agrega Calibres.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Agrega Calibres.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Agrega Calibres.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calibres\Agrega Calibres.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Agrega Calibres.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\Calibres"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Calibres"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select caen_calibr cod_calibre,
+ caen_calibr as descripcion, 
+'A-B' as rango,
+null as gtin,
+espe_codigo as cod_especie
+ from dba.ordencal
+where espe_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{8D1244E7-97DE-4A9C-A4E9-6B219DFD8E11};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calibres\Calibres.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[cod_calibre]"
+                      length="20"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_calibre]"
+                      name="cod_calibre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      length="4"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[rango]"
+                      length="3"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[rango]"
+                      name="rango"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[gtin]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[gtin]"
+                      name="gtin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="cod_calibre" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="rango" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
+                      dataType="i4"
+                      name="gtin" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      dataType="numeric"
+                      name="cod_especie"
+                      precision="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[cod_calibre]"
+                      name="cod_calibre" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[rango]"
+                      name="rango" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[gtin]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[gtin]"
+                      name="gtin" />
+                    <outputColumn
+                      refId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      dataType="numeric"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      precision="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input].Columns[cod_especie_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_especie_destino"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie_destino]" />
+                    <inputColumn
+                      refId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cod_calibre"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre]" />
+                    <inputColumn
+                      refId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="descripcion"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input].Columns[descripcion_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcion_destino"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion_destino]" />
+                    <inputColumn
+                      refId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input].Columns[cod_calibre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_calibre_destino"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre_destino]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Conditional Split.Outputs[Agrega]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Agrega"
+                  synchronousInputId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(cod_especie_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calibres\Conditional Split.Outputs[Actualiza]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualiza"
+                  synchronousInputId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(#{Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre]} == #{Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre_destino]}) &amp;&amp; (#{Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion]} != #{Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(cod_calibre == cod_calibre_destino) &amp;&amp; (descripcion != descripcion_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calibres\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calibres\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calibres\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_calibre"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[cod_calibre]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="descripcion"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[rango]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="rango"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[rango]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[gtin]"
+                      cachedDataType="i4"
+                      cachedName="gtin"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[gtin]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[cod_especie]"
+                      cachedDataType="numeric"
+                      cachedName="cod_especie"
+                      cachedPrecision="2"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[cod_especie]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_calibre"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[cod_calibre]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[rango]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rango"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[rango]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[gtin]"
+                      cachedDataType="numeric"
+                      cachedName="gtin"
+                      cachedPrecision="20"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[gtin]" />
+                    <inputColumn
+                      refId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[cod_especie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_especie"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[cod_especie]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre]"
+                      name="cod_calibre"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[cod_calibre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[rango]"
+                      name="rango">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[rango]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[gtin]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[gtin]"
+                      name="gtin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie]"
+                      dataType="numeric"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Left Input].Columns[cod_especie]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[descripcion_destino]"
+                      name="descripcion_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[rango_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[rango_destino]"
+                      name="rango_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[rango]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[gtin_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[gtin_destino]"
+                      name="gtin_destino"
+                      precision="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_especie_destino]"
+                      name="cod_especie_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[cod_especie]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\Merge Join.Outputs[Merge Join Output].Columns[cod_calibre_destino]"
+                      name="cod_calibre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Calibres\Merge Join.Inputs[Merge Join Right Input].Columns[cod_calibre]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[calibres_ext]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calibres\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_calibre]"
+                      length="20"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_calibre]"
+                      name="cod_calibre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      length="50"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rango]"
+                      length="50"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[rango]"
+                      name="rango"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[gtin]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[gtin]"
+                      name="gtin"
+                      precision="20"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      length="20"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_calibre" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rango" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
+                      dataType="numeric"
+                      name="gtin"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cod_especie" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_calibre]"
+                      name="cod_calibre" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rango]"
+                      name="rango" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gtin]"
+                      dataType="numeric"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gtin]"
+                      name="gtin"
+                      precision="20" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cod_especie]"
+                      name="cod_especie" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Calibres\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Sort.Inputs[Sort Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_calibre"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_calibre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort.Inputs[Sort Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="descripcion"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort.Inputs[Sort Input].Columns[rango]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="rango"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[rango]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort.Inputs[Sort Input].Columns[gtin]"
+                      cachedDataType="i4"
+                      cachedName="gtin"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[gtin]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort.Inputs[Sort Input].Columns[cod_especie]"
+                      cachedDataType="numeric"
+                      cachedName="cod_especie"
+                      cachedPrecision="2"
+                      lineageId="Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_especie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Sort.Outputs[Sort Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[cod_calibre]"
+                      name="cod_calibre"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_calibre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort.Outputs[Sort Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort.Outputs[Sort Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[rango]"
+                      name="rango">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[rango]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort.Outputs[Sort Output].Columns[gtin]"
+                      dataType="i4"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[gtin]"
+                      name="gtin">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort.Outputs[Sort Output].Columns[cod_especie]"
+                      dataType="numeric"
+                      lineageId="Package\Calibres\Sort.Outputs[Sort Output].Columns[cod_especie]"
+                      name="cod_especie"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\Calibres.Outputs[OLE DB Source Output].Columns[cod_especie]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calibres\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Calibres\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calibres\Sort 1.Inputs[Sort Input].Columns[cod_calibre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_calibre"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_calibre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort 1.Inputs[Sort Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[descripcion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort 1.Inputs[Sort Input].Columns[rango]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rango"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[rango]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort 1.Inputs[Sort Input].Columns[gtin]"
+                      cachedDataType="numeric"
+                      cachedName="gtin"
+                      cachedPrecision="20"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[gtin]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calibres\Sort 1.Inputs[Sort Input].Columns[cod_especie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_especie"
+                      lineageId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_especie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calibres\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[cod_calibre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[cod_calibre]"
+                      name="cod_calibre"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_calibre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[descripcion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[descripcion]"
+                      name="descripcion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[descripcion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[rango]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[rango]"
+                      name="rango">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[rango]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[gtin]"
+                      dataType="numeric"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[gtin]"
+                      name="gtin"
+                      precision="20">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[cod_especie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Calibres\Sort 1.Outputs[Sort Output].Columns[cod_especie]"
+                      name="cod_especie">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output].Columns[cod_especie]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Calibres.Paths[Actualiza]"
+              endId="Package\Calibres\Actualiza.Inputs[OLE DB Command Input]"
+              name="Actualiza"
+              startId="Package\Calibres\Conditional Split.Outputs[Actualiza]" />
+            <path
+              refId="Package\Calibres.Paths[Agrega]"
+              endId="Package\Calibres\Agrega Calibres.Inputs[OLE DB Destination Input]"
+              name="Agrega"
+              startId="Package\Calibres\Conditional Split.Outputs[Agrega]" />
+            <path
+              refId="Package\Calibres.Paths[Merge Join Output]"
+              endId="Package\Calibres\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Calibres\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Calibres.Paths[OLE DB Source Output]"
+              endId="Package\Calibres\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Calibres\Calibres.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Calibres.Paths[OLE DB Source Output1]"
+              endId="Package\Calibres\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Calibres\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Calibres.Paths[Sort Output]"
+              endId="Package\Calibres\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Calibres\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Calibres.Paths[Sort Output1]"
+              endId="Package\Calibres\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Calibres\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Calibres"
+          TopLeft="144.285716742885,38.2352946538826" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Calibres">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Calibres\OLE DB Source"
+          TopLeft="491.42857979755,53.5294125154357" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Calibres\Calibres"
+          TopLeft="108.571430420389,55.8235301946687" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Calibres\Sort"
+          TopLeft="127.142859308087,135.352943074744" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Calibres\Conditional Split"
+          TopLeft="317.142862543768,318.882357413381" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Calibres\Actualiza"
+          TopLeft="395.00000672681,422.694123148836" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Calibres\Merge Join"
+          TopLeft="323.571434081817,216.411767740976" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Calibres\Agrega Calibres"
+          TopLeft="47.8571436721452,378.529417073438" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Calibres\Sort 1"
+          TopLeft="509.285722958799,137.647060753977" />
+        <EdgeLayout
+          Id="Package\Calibres.Paths[Sort Output1]"
+          TopLeft="562.485722958799,179.247060753977">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.847622210315,37.1647069869982"
+              Start="0,0"
+              End="-153.847622210315,29.6647069869982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0268873118062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0268873118062"
+                    Point2="0,22.0268873118062"
+                    Point3="-4,22.0268873118062" />
+                  <mssgle:LineSegment
+                    End="-149.847622210315,22.0268873118062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.847622210315,22.0268873118062"
+                    Point2="-153.847622210315,22.0268873118062"
+                    Point3="-153.847622210315,26.0268873118062" />
+                  <mssgle:LineSegment
+                    End="-153.847622210315,29.6647069869982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[Sort Output]"
+          TopLeft="175.942859308087,176.952943074744">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.161908107064,39.4588246662312"
+              Start="0,0"
+              End="192.161908107064,31.9588246662312">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3865716924248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3865716924248"
+                    Point2="0,23.3865716924248"
+                    Point3="4,23.3865716924248" />
+                  <mssgle:LineSegment
+                    End="188.161908107064,23.3865716924248" />
+                  <mssgle:CubicBezierSegment
+                    Point1="188.161908107064,23.3865716924248"
+                    Point2="192.161908107064,23.3865716924248"
+                    Point3="192.161908107064,27.3865716924248" />
+                  <mssgle:LineSegment
+                    End="192.161908107064,31.9588246662312" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[OLE DB Source Output1]"
+          TopLeft="564.357151378174,95.1294125154357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5176482385417"
+              Start="0,0"
+              End="0,35.0176482385417">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0176482385417" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[OLE DB Source Output]"
+          TopLeft="166.171430420389,97.4235301946687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.77142888769811,37.9294128800753"
+              Start="0,0"
+              End="9.77142888769811,30.4294128800753">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9647064400376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9647064400376"
+                    Point2="0,18.9647064400376"
+                    Point3="4,18.9647064400376" />
+                  <mssgle:LineSegment
+                    End="5.77142888769811,18.9647064400376" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.77142888769811,18.9647064400376"
+                    Point2="9.77142888769811,18.9647064400376"
+                    Point3="9.77142888769811,22.9647064400376" />
+                  <mssgle:LineSegment
+                    End="9.77142888769811,30.4294128800753" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[Merge Join Output]"
+          TopLeft="391.357148312793,258.011767740976">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.870589672405"
+              Start="0,0"
+              End="0,53.370589672405">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.370589672405" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[Agrega]"
+          TopLeft="317.142862543768,339.682357413381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-117.285718871623,59.647059660057"
+              Start="0,0"
+              End="-109.785718871623,59.647059660057">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-54.6428594358114,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.6428594358114,0"
+                    Point2="-58.6428594358114,0"
+                    Point3="-58.6428594358114,4" />
+                  <mssgle:LineSegment
+                    End="-58.6428594358114,55.647059660057" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.6428594358114,55.647059660057"
+                    Point2="-58.6428594358114,59.647059660057"
+                    Point3="-62.6428594358114,59.647059660057" />
+                  <mssgle:LineSegment
+                    End="-109.785718871623,59.647059660057" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-74.9392852170614,-17.3359375,32.5928515625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[Actualiza]"
+          TopLeft="394.342862543768,360.482357413381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="78.6571441830421,62.211765735455"
+              Start="0,0"
+              End="78.6571441830421,54.711765735455">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.1058828677275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.1058828677275"
+                    Point2="0,31.1058828677275"
+                    Point3="4,31.1058828677275" />
+                  <mssgle:LineSegment
+                    End="74.6571441830421,31.1058828677275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.6571441830421,31.1058828677275"
+                    Point2="78.6571441830421,31.1058828677275"
+                    Point3="78.6571441830421,35.1058828677275" />
+                  <mssgle:LineSegment
+                    End="78.6571441830421,54.711765735455" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.092146310271,36.1058828677275,40.4728515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calibres\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calibres\Calibres">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calibres\Agrega Calibres">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
