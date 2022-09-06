@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="125"
-  DTS:VersionGUID="{00FA6391-917C-4CC8-AB75-C63F0541BE6E}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{AFA72DCC-8B8E-476F-B2B1-FF08313D8555}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAJPKHKlfgUSIXLTfgB7PB+AAAAAASAAACgAAAAEAAAACiTch2/8VWynFh1sG5S660QAAAA7TvG1Wl/Xzu/hogFWfHjMRQAAACc5DTl7yhCokfzKVYC0GLdqYZ5Pw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAANlzYfpXESMLX5ebY8BceIAAAAAASAAACgAAAAEAAAAHYdHQESYJjOanlPi4vHbKgQAAAAzflkieo6Rdhfue/fGrm2hhQAAADdKtnaPe7unqKGaBLR7Z34jpoZDA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAACMIUA50el59cRN5B18lQOAAAAAASAAACgAAAAEAAAACMHpiaUKrjLPw9MFDgcx/oQAAAA2vfvS0YuuzQR0gR/IGpg8xQAAABt9ERLGh5ce9r60XqtOEuXwgIZqg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADsQGnrYnLrk4T/N3vty1DFAAAAAASAAACgAAAAEAAAAF27Syv9bpGZuENrWAvv4ggQAAAAh0fUy27UKvvccFe0QpnmTRQAAACs/KvvDswilZSrnKQxM3JP8T1b1w</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2307,7 +2307,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
 		 FROM   dba.spro_ordenproceso orp
  where  orp.orpr_tipord = 4
  and    orp.espe_codigo = ?
- and    orp.plde_codigo = 74</property>
+ and    orp.plde_codigo = 74
+and     orp.orpr_tipope=1</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -3641,19 +3642,31 @@ fecha_vaciado is not null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [id] = 1,
-      [nro_orden_trabajo] = d.[orpr_numero],
-      [nro_lote] =d.lote_codigo,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [id] = 1,
+      [nro_orden_trabajo] = det.[orpr_numero],
+      [nro_lote] =det.lote_codigo,
       [folio] =t.lote_codbar,
       [fecha_vaciado] =null ,
       [cantidad_envases] =1
-from  dba.spro_ordenprocdeta as d inner join dba.spro_lotesfrutagranel_tarja as t on
-d.lote_codigo=t.lote_codigo and
-d.lote_espcod=t.lote_espcod and
-d.lote_pltcod=t.lote_pltcod
-where d.plde_codigo = 74 and
-d.orpr_tipord = 4 and
-d.[lote_espcod]=?</property>
+      from [dba].[spro_ordenprocdeta] det join dba.spro_ordenproceso orp on 
+	det.plde_codigo = orp.plde_codigo AND
+	det.orpr_tipord = orp.orpr_tipord AND
+    det.orpr_numero = orp.orpr_numero	 join
+	[dba].[spro_lotesfrutagranel] lot on
+	det.lote_pltcod = lot.lote_pltcod AND
+	det.lote_espcod = lot.lote_espcod AND
+	det.lote_codigo = lot.lote_codigo join
+	[dba].[prodcuarteles] prc on
+	lot.prod_codigo = prc.prod_codigo AND
+    lot.prbr_codpre = prc.prbr_codpre AND
+    lot.prcc_codigo = prc.prcc_codigo inner join dba.spro_lotesfrutagranel_tarja as t on
+	det.lote_codigo=t.lote_codigo and
+	det.lote_espcod=t.lote_espcod and
+	det.lote_pltcod=t.lote_pltcod
+  where  det.orpr_tipord = 4
+ and    det.lote_espcod = ?
+ and    det.plde_codigo = 74
+and  orpr_tipope=1</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -6175,7 +6188,8 @@ nro_lote	=?
     lot.prcc_codigo = prc.prcc_codigo 
   where  det.orpr_tipord = 4
  and    det.lote_espcod = ?
- and    det.plde_codigo = 74</property>
+ and    det.plde_codigo = 74
+and  orpr_tipope=1</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -8928,9 +8942,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8952,9 +8964,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8988,9 +8998,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9012,9 +9020,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9120,9 +9126,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9173,9 +9177,33 @@ nro_lote	=?
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle"
+          TopLeft="1065.30614059104,489.327734509024" />
+        <NodeLayout
           Size="106.4,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Sort 1"
           TopLeft="966.571435529359,232.529411786155" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Agrega detalle"
+          TopLeft="414.857149802909,505" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Sort"
+          TopLeft="552.857149802909,217" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle"
+          TopLeft="417.00000510897,72.5294114215151" />
+        <NodeLayout
+          Size="127.2,41.6"
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-ORigen"
+          TopLeft="941.857149802909,118.907563009889" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Conditional Split"
+          TopLeft="734.857149377162,438.176470899252" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Actualiza Items"
@@ -9184,26 +9212,42 @@ nro_lote	=?
           Size="129.6,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join"
           TopLeft="759.857149802909,348.235294106922" />
-        <NodeLayout
-          Size="146.4,41.6"
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Agrega detalle"
-          TopLeft="414.857149802909,505" />
-        <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Conditional Split"
-          TopLeft="734.857149377162,438.176470899252" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle"
-          TopLeft="417.00000510897,72.5294114215151" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Sort"
-          TopLeft="552.857149802909,217" />
-        <NodeLayout
-          Size="127.2,41.6"
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-ORigen"
-          TopLeft="941.857149802909,118.907563009889" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[Actualizar]"
+          TopLeft="836.457149377162,479.776470899252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.66123109844136,117.16471136268"
+              Start="0,0"
+              End="9.66123109844136,109.66471136268">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5868981534579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.5868981534579"
+                    Point2="0,47.5868981534579"
+                    Point3="4,47.5868981534579" />
+                  <mssgle:LineSegment
+                    End="5.66123109844136,47.5868981534579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.66123109844136,47.5868981534579"
+                    Point2="9.66123109844136,47.5868981534579"
+                    Point3="9.66123109844136,51.5868981534579" />
+                  <mssgle:LineSegment
+                    End="9.66123109844136,109.66471136268" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.4961422632793,52.5868981534579,44.653515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[Sort Output1]"
           TopLeft="1019.77143552936,274.129411786155">
@@ -9375,82 +9419,6 @@ nro_lote	=?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[Agrega]"
-          TopLeft="787.657149377162,479.776470899252">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-299.599999574253,25.2235291007479"
-              Start="0,0"
-              End="-299.599999574253,17.7235291007479">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,6.24463335784223" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,6.24463335784223"
-                    Point2="0,10.2446333578422"
-                    Point3="-4,10.2446333578422" />
-                  <mssgle:LineSegment
-                    End="-295.599999574253,10.2446333578422" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-295.599999574253,10.2446333578422"
-                    Point2="-299.599999574253,10.2446333578422"
-                    Point3="-299.599999574253,14.2446333578422" />
-                  <mssgle:LineSegment
-                    End="-299.599999574253,17.7235291007479" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-166.096425568377,15.2446333578422,32.5928515625,11.3359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[Actualizar]"
-          TopLeft="836.457149377162,479.776470899252">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.66123109844136,117.16471136268"
-              Start="0,0"
-              End="9.66123109844136,109.66471136268">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5868981534579" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.5868981534579"
-                    Point2="0,47.5868981534579"
-                    Point3="4,47.5868981534579" />
-                  <mssgle:LineSegment
-                    End="5.66123109844136,47.5868981534579" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.66123109844136,47.5868981534579"
-                    Point2="9.66123109844136,47.5868981534579"
-                    Point3="9.66123109844136,51.5868981534579" />
-                  <mssgle:LineSegment
-                    End="9.66123109844136,109.66471136268" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-17.4961422632793,52.5868981534579,44.653515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="146.4,41.6"
-          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle"
-          TopLeft="1065.30614059104,489.327734509024" />
-        <EdgeLayout
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[Elimina]"
           TopLeft="889.257149377162,458.976470899252">
           <EdgeLayout.Curve>
@@ -9483,6 +9451,42 @@ nro_lote	=?
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="71.8511362319365,-15.7490234375,32.34671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[Agrega]"
+          TopLeft="787.657149377162,479.776470899252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-299.599999574253,25.2235291007479"
+              Start="0,0"
+              End="-299.599999574253,17.7235291007479">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.24463335784223" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.24463335784223"
+                    Point2="0,10.2446333578422"
+                    Point3="-4,10.2446333578422" />
+                  <mssgle:LineSegment
+                    End="-295.599999574253,10.2446333578422" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-295.599999574253,10.2446333578422"
+                    Point2="-299.599999574253,10.2446333578422"
+                    Point3="-299.599999574253,14.2446333578422" />
+                  <mssgle:LineSegment
+                    End="-299.599999574253,17.7235291007479" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-166.096425568377,15.2446333578422,32.5928515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9663,9 +9667,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9699,9 +9701,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9735,9 +9735,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9771,9 +9769,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9795,9 +9791,7 @@ nro_lote	=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
