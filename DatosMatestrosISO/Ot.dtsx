@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="123"
-  DTS:VersionGUID="{55BBE712-8534-45D1-9E3A-4FB21723B8AB}">
+  DTS:VersionBuild="124"
+  DTS:VersionGUID="{449A8265-D42F-4CA9-AF10-4F2F99D3BF5B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACSPtOOz+OM+NvBm4tF7ufDAAAAAASAAACgAAAAEAAAAPnHIl/ud4uegQCx82ynvgAQAAAAsg8Qv4crxVYFI56eBNVjUxQAAAD7tFngfa60i+IebKgWF0zSa9GbIQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAeGUw/CEAr9/cwzxrvMnSpAAAAAASAAACgAAAAEAAAAHisOz/kTTXud0gupd8gDwsQAAAAV4ULr//hNrgumoRQV25HJBQAAAB7nHfKpbcgS7pcqUPLDJ5F5Pkskw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD6h4GNP6dYPyZqWT9RPGJmAAAAAASAAACgAAAAEAAAAOgPsgalVy92TxS43OkylUMQAAAAtLVIOEj2FmBaf8go0Bx9ORQAAADt5bqOxZbeanReq37xmZBv2jGFvg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACGmsllfrl3XiKza5iNR9+KAAAAAASAAACgAAAAEAAAAGikgQdUgnYvY3LBrd3UvpcQAAAAukhZlUHjv+IWceV9IprfFBQAAAAk8panBToB/zfLI9ZbtijT0h0iJA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -8798,33 +8798,21 @@ nro_lote	=?
         <NodeLayout
           Size="231.2,41.6"
           Id="Package\Notificacion  Ok Actualizacion Ot"
-          TopLeft="735.028583714427,265.070591313286" />
+          TopLeft="747.885726790526,181.717648967822" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="690.828575454926,208.086275861118">
+          TopLeft="690.828575454926,205.30196241447">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="44.2000082595011,77.7843154521681"
+              EndConnector="57.0571513355999,0"
               Start="0,0"
-              End="36.7000082595011,77.7843154521681">
+              End="49.5571513355999,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="13.8075033276259,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.8075033276259,0"
-                    Point2="17.8075033276259,0"
-                    Point3="17.8075033276259,4" />
-                  <mssgle:LineSegment
-                    End="17.8075033276259,73.7843154521681" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.8075033276259,73.7843154521681"
-                    Point2="17.8075033276259,77.7843154521681"
-                    Point3="21.8075033276259,77.7843154521681" />
-                  <mssgle:LineSegment
-                    End="36.7000082595011,77.7843154521681" />
+                    End="49.5571513355999,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
