@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{FF2143B2-68FD-48AC-9277-6E6E467762EF}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{982BD3D3-91DA-42A6-827E-D00ACFFD0B94}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADFEYEVnezX0zo6EXD9MYmxAAAAAASAAACgAAAAEAAAADz+b43IYy4kkJXW4eHhBIUQAAAAfOWGsueDLhFfaxWRacsdPRQAAABhcMmR7P0VU4Oc/0q7ULZqrLHfdw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB9zHGyc4Csi3ixfPy5Prn6AAAAAASAAACgAAAAEAAAAA61rhiwBNqV2Fts5KFjp1oQAAAA3vJqmY0jUNfHH7A23HAXLRQAAADHj6YLiI0SZ7RJA0D+N7RotJazzQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC/UeM0uv3WLi5vwbbetXkoAAAAAASAAACgAAAAEAAAAE8GkZK9ZqYN9DHszeyCiG8QAAAAji8zdx8L5MCoV//5cO4BFBQAAAAJg6yQbw+JxYMBFoNl/C7pWULXiA</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAni4fq61H/ngYQbEncM4tdAAAAAASAAACgAAAAEAAAAE+rBm4jnMc6JLpD+/KWYCUQAAAAy3g+U0NGN/1L0HJwDqOXFRQAAABzsUoYc1LC15Puw0Yd2dqR75QZYw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2513,7 +2513,7 @@ where Exists(select *
         <NodeLayout
           Size="154.4,41.6"
           Id="Package\Envases\envases Destino"
-          TopLeft="329.285719893417,39.6588226607102" />
+          TopLeft="340.714291516616,38.8941167676326" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Envases\Merge Join"
@@ -2600,18 +2600,30 @@ where Exists(select *
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Envases.Paths[OLE DB Source Output1]"
-          TopLeft="403.414291474041,81.2588226607102">
+          TopLeft="417.914291516616,80.4941167676326">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,111.638238868128"
+              EndConnector="-17.5714284619498,112.402944761205"
               Start="0,0"
-              End="0,104.138238868128">
+              End="-17.5714284619498,104.902944761205">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,104.138238868128" />
+                    End="0,52.2014723806027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.2014723806027"
+                    Point2="0,56.2014723806027"
+                    Point3="-4,56.2014723806027" />
+                  <mssgle:LineSegment
+                    End="-13.5714284619498,56.2014723806027" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5714284619498,56.2014723806027"
+                    Point2="-17.5714284619498,56.2014723806027"
+                    Point3="-17.5714284619498,60.2014723806027" />
+                  <mssgle:LineSegment
+                    End="-17.5714284619498,104.902944761205" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

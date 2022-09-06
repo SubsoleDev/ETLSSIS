@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{D7294AEC-C7E2-4DED-B20E-582D4946C40D}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{8BE977F5-2D01-4BD1-B32D-61B3F800A47B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABgKOYhorNLdRjvEJokW/vKAAAAAASAAACgAAAAEAAAAFPpB/NBTeJ7j3IO5CRM3WwQAAAA+7Wix6wJavOmZN+7hEPlpRQAAABAD4O/TawFkcv1YyFQlIrDVtpI7g</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACEOYldAn5/njtIrUY0foAkAAAAAASAAACgAAAAEAAAAC5GUzDr6+AjJmhUMW5rH+sQAAAAMO1WzcmHxVPkvBikW+/lvxQAAADqorxTPDDGlpiOMUlnsW6hz33N3w</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB0NmDYhaMXITS8DMQDUSqsAAAAAASAAACgAAAAEAAAAJAxkdwqDcQe5/7Yl9GHceIQAAAAUAazk3MeIYyGCGySMSPetBQAAADoSDkBgxSwi1HruKKV7z7J0BcQ8w</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwUd/4Qh9pzbWuUm/KaZ0aAAAAAASAAACgAAAAEAAAADx8RlUFaNgrGPJy10CK7cAQAAAAKFCKM//FNTBoFXjrz3/uQBQAAADyok54r++bw316rr//0KPMmyTI0Q</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2143,7 +2143,7 @@ where espe_codigo=?</property>
         <NodeLayout
           Size="130.4,41.6"
           Id="Package\Variedades"
-          TopLeft="164.285717083483,40.5294123331156" />
+          TopLeft="187.142860329881,37.470588760805" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

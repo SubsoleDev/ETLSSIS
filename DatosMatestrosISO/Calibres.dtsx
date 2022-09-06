@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{BE109EFE-69A0-4510-B66B-553E1D7E125D}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{258FAD42-66D1-47A0-A06D-214151F938C0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACNjIOjODQcLcMJrJ5jZSczAAAAAASAAACgAAAAEAAAADc1WllJpUcGEY3SuLAcT0EQAAAATMT/zkyAnyXKp7s/vvUqDRQAAAC0V18r5OFzxKuSTvzb/nIm6euHsw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAAdY1DCdOYT613KG+efDlMAAAAAASAAACgAAAAEAAAAOWlEEIePpA5CJ+ZgIiA4JUQAAAA8E42ITUNZdio0aSmwS3PeBQAAABgAyRiekqqHZkAVVfC2f6BJmlABQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB7n/MEVzevMRB8Wso8Svh3AAAAAASAAACgAAAAEAAAAEpo3TFYgnow29oF6bYz3c8QAAAA5QXYLlzck64NoKLEGUfyiBQAAACXOyC/7WgvliGmyWl9h/fwyIF29g</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAL5QrbDAzbi5zmvZG974jhAAAAAASAAACgAAAAEAAAACGJvqK9UvZib5ttwQrZzkkQAAAA6PT2B0RZSgVPt5MX6dD6fRQAAACusXCCpeF0AQREfz1/tUbqkUqj9A</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1729,25 +1729,13 @@ where espe_codigo=?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Calibres\OLE DB Source"
-          TopLeft="491.42857979755,53.5294125154357" />
-        <NodeLayout
-          Size="115.2,41.6"
-          Id="Package\Calibres\Calibres"
-          TopLeft="108.571430420389,55.8235301946687" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Calibres\Sort"
-          TopLeft="127.142859308087,135.352943074744" />
-        <NodeLayout
           Size="154.4,41.6"
           Id="Package\Calibres\Conditional Split"
           TopLeft="317.142862543768,318.882357413381" />
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\Calibres\Actualiza"
-          TopLeft="395.00000672681,422.694123148836" />
+          Size="97.6,41.6"
+          Id="Package\Calibres\Sort"
+          TopLeft="127.142859308087,135.352943074744" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Calibres\Merge Join"
@@ -1757,43 +1745,21 @@ where espe_codigo=?</property>
           Id="Package\Calibres\Agrega Calibres"
           TopLeft="47.8571436721452,378.529417073438" />
         <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Calibres\OLE DB Source"
+          TopLeft="468.571436551152,46.6470594777368" />
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Calibres\Calibres"
+          TopLeft="108.571430420389,55.8235301946687" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Calibres\Actualiza"
+          TopLeft="395.00000672681,422.694123148836" />
+        <NodeLayout
           Size="106.4,41.6"
           Id="Package\Calibres\Sort 1"
           TopLeft="509.285722958799,137.647060753977" />
-        <EdgeLayout
-          Id="Package\Calibres.Paths[Sort Output1]"
-          TopLeft="562.485722958799,179.247060753977">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-153.847622210315,37.1647069869982"
-              Start="0,0"
-              End="-153.847622210315,29.6647069869982">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.0268873118062" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.0268873118062"
-                    Point2="0,22.0268873118062"
-                    Point3="-4,22.0268873118062" />
-                  <mssgle:LineSegment
-                    End="-149.847622210315,22.0268873118062" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-149.847622210315,22.0268873118062"
-                    Point2="-153.847622210315,22.0268873118062"
-                    Point3="-153.847622210315,26.0268873118062" />
-                  <mssgle:LineSegment
-                    End="-153.847622210315,29.6647069869982" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Calibres.Paths[Sort Output]"
           TopLeft="175.942859308087,176.952943074744">
@@ -1830,18 +1796,30 @@ where espe_codigo=?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Calibres.Paths[OLE DB Source Output1]"
-          TopLeft="564.357151378174,95.1294125154357">
+          TopLeft="543.371436551152,88.2470594777369">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.5176482385417"
+              EndConnector="19.1142864076468,49.4000012762401"
               Start="0,0"
-              End="0,35.0176482385417">
+              End="19.1142864076468,41.9000012762401">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.0176482385417" />
+                    End="0,20.7000006381201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.7000006381201"
+                    Point2="0,24.7000006381201"
+                    Point3="4,24.7000006381201" />
+                  <mssgle:LineSegment
+                    End="15.1142864076468,24.7000006381201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.1142864076468,24.7000006381201"
+                    Point2="19.1142864076468,24.7000006381201"
+                    Point3="19.1142864076468,28.7000006381201" />
+                  <mssgle:LineSegment
+                    End="19.1142864076468,41.9000012762401" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1978,9 +1956,56 @@ where espe_codigo=?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calibres.Paths[Sort Output1]"
+          TopLeft="562.485722958799,179.247060753977">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.847622210315,37.1647069869982"
+              Start="0,0"
+              End="-153.847622210315,29.6647069869982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0268873118062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0268873118062"
+                    Point2="0,22.0268873118062"
+                    Point3="-4,22.0268873118062" />
+                  <mssgle:LineSegment
+                    End="-149.847622210315,22.0268873118062" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.847622210315,22.0268873118062"
+                    Point2="-153.847622210315,22.0268873118062"
+                    Point3="-153.847622210315,26.0268873118062" />
+                  <mssgle:LineSegment
+                    End="-153.847622210315,29.6647069869982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calibres\Agrega Calibres">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Calibres\OLE DB Source">
     <Properties>
@@ -1999,19 +2024,6 @@ where espe_codigo=?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calibres\Agrega Calibres">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

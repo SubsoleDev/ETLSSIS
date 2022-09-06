@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{64403CEA-A90E-4BCD-B31A-4FC83773244E}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{181D13DD-9B75-4867-8B13-F0A997D67790}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABcNkX2qqBDCGqx4RxTBphzAAAAAASAAACgAAAAEAAAAB+djmwvGybpwlPCocEPpCMQAAAAplkrcoeFdCixNEeYOQP+shQAAAC/MBDnbJxJ+wqldlHzMl9/xxz17A</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABz5ayPfkaOzB+2Q/pZGyFIAAAAAASAAACgAAAAEAAAAMgwRYakR5rbrcpfm9SDEj0QAAAAdhQv1dj1JB6xDaJ6Gf8OahQAAADwxLNc7PaAR7V061OQkFyvlptcqw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACKPVxz0fYEZfDFO7fhT+siAAAAAASAAACgAAAAEAAAAPcMhW6fm65AGvQA8ZPUZlIQAAAA7i4Suiyk/Xey/ue0zMkQsxQAAAD1Dg06kGzaPN1XCG5XBnD+SeJ4oQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAHir1ThCY1zH+iT7gW193qAAAAAASAAACgAAAAEAAAABLeJQ/ev6ujaCtH0EWNB4sQAAAAFiS6dpe13LjJlAibgIP+BRQAAACQkAFajy/Ma7WjRnqlD/0MGiqrxQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1830,7 +1830,7 @@ where cod_categoria=?</property>
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Categorias\Categorias-Destino"
-          TopLeft="332.857148525666,38.1294108745549" />
+          TopLeft="388.57143518876,38.1294108745549" />
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Categorias\Sort"
@@ -1925,30 +1925,24 @@ where cod_categoria=?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Categorias.Paths[OLE DB Source Output]"
-          TopLeft="500.057148525666,58.9294108745549">
+          TopLeft="388.57143518876,58.9294108745549">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.42857136775035,62.8117670116953"
+              EndConnector="25.4571419691556,42.0117670116951"
               Start="0,0"
-              End="-0.928571367750351,62.8117670116953">
+              End="25.4571419691556,34.5117670116951">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
+                    End="21.4571419691556,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
+                    Point1="21.4571419691556,0"
+                    Point2="25.4571419691556,0"
+                    Point3="25.4571419691556,4" />
                   <mssgle:LineSegment
-                    End="22.5,58.8117670116953" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,58.8117670116953"
-                    Point2="22.5,62.8117670116953"
-                    Point3="18.5,62.8117670116953" />
-                  <mssgle:LineSegment
-                    End="-0.928571367750351,62.8117670116953" />
+                    End="25.4571419691556,34.5117670116951" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

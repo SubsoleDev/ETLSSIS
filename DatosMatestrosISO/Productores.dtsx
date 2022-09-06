@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{3E782460-34D6-4A9A-831F-B377BC7301D4}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{F7ABC33E-212B-40BE-9B14-D1FFE7467FD0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABLB+N58vnZfN4roL/e/U1PAAAAAASAAACgAAAAEAAAAAjX1ovQY3zAe3WldtmJLTkQAAAAw6A7y2740u4TDMy5oP5h1xQAAACZcxfLmq7Fht1D/bwrPVeJgLRiKw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABLPjZ5Iktgj8H8RDRh4oEHAAAAAASAAACgAAAAEAAAAAouX9juVZyNhAeEq7642EUQAAAAqKkjYxEBHzM8aFc/NLrHpRQAAADveFH8NVBBaLJF5ECmJREl6WYRtA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAABWWYYaFfwezt8PxC8S/7PAAAAAASAAACgAAAAEAAAALxaNHTrMKLEcXhxTWvS/hAQAAAAowVkxVb8bftXrvmtL+I4kBQAAAD1KEK3pgg2UwVP6sln+4euvgJDOQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA8NAKo4ggWPqa9t7k30Pl3AAAAAASAAACgAAAAEAAAAPNhBlVlJdlDivWscJCmh0UQAAAA3KBIYAE+l8AhkFPJoym+yhQAAADikm4XroFYl7D/5MgMBSCZTglv8A</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2571,7 +2571,7 @@ where espe_codigo=?)</property>
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="95.0000016178404,25.2352944715625" />
+          TopLeft="107.142858967489,29.8235298300284" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
