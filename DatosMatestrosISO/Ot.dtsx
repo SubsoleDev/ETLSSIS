@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="167"
-  DTS:VersionGUID="{9447D412-C1D0-4FA6-A02C-3DAAE6DF1DA4}">
+  DTS:VersionBuild="170"
+  DTS:VersionGUID="{6F309A04-2137-42E6-8C82-E0EFD3A6B036}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA8Gk6QejFrcF8sQkSGnf8yAAAAAASAAACgAAAAEAAAAJhKvyI3CXd1l2wDdM3tPSIQAAAAoQrDm/EPE49GgsMrmUGDaRQAAADsaokZvH4HQM2kN/JIif8dBHpbJQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAByQJz/kdG7Bx/uyGMJ2E0vAAAAAASAAACgAAAAEAAAAHbvP5x4AzJuQFONn0AKJqYQAAAAE21xEaQdSjtmDtDdLs0+gRQAAAAE0GcpKolM/I67ck+lUJ8CN8bJcg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC4LtNKe828U7Tf5hHerzRSAAAAAASAAACgAAAAEAAAAPRzKgLFanshVwOXAatjvfIQAAAACXBHzx19OcHfZXpIzJxb9RQAAAA5RPKucY1tNOiHPtgopK1Sfkr0NQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAjeOjyNE5kXAXwsYN76gocAAAAAASAAACgAAAAEAAAAK3kiQg8DiFwz3cdZIFft2UQAAAAjQEYURTA9/1QWiiNxvjIahQAAADMI6rOk8jllXIVbgC8auIpav+L6w</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3316,7 +3316,7 @@ where
 nro_orden_trabajo  = ? and 
 nro_lote = ?  and 
 folio =? and
-fecha_vaciado is not null</property>
+fecha_vaciado is null</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3339,30 +3339,27 @@ fecha_vaciado is not null</property>
                       name="OLE DB Command Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].Columns[nro_orden_trabajo]"
+                          refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].Columns[nro_orden_trabajo_destino]"
                           cachedDataType="numeric"
-                          cachedName="nro_orden_trabajo"
-                          cachedPrecision="8"
-                          cachedSortKeyPosition="1"
-                          externalMetadataColumnId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]" />
-                        <inputColumn
-                          refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].Columns[nro_lote]"
-                          cachedDataType="numeric"
-                          cachedName="nro_lote"
+                          cachedName="nro_orden_trabajo_destino"
                           cachedPrecision="10"
-                          cachedSortKeyPosition="2"
-                          externalMetadataColumnId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                          lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join.Outputs[Merge Join Output].Columns[nro_lote]" />
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo_destino]" />
                         <inputColumn
-                          refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].Columns[folio]"
+                          refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].Columns[nro_lote_destino]"
+                          cachedDataType="numeric"
+                          cachedName="nro_lote_destino"
+                          cachedPrecision="10"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join.Outputs[Merge Join Output].Columns[nro_lote_destino]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].Columns[folio_destino]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="50"
-                          cachedName="folio"
-                          cachedSortKeyPosition="3"
+                          cachedName="folio_destino"
                           externalMetadataColumnId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                          lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join.Outputs[Merge Join Output].Columns[folio]" />
+                          lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Merge Join.Outputs[Merge Join Output].Columns[folio_destino]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -9734,7 +9731,7 @@ and  orpr_tipope=1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="71.8511362319365,-15.7490234375,32.34671875,9.7490234375"
+              BoundingBox="62.9824838881865,-22,50.0840234375,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
