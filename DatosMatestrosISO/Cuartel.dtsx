@@ -11,46 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{282D2D02-41A8-4E8A-BE38-3CE3AF365444}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{033EAB1D-2539-4FB9-BE76-B9F0BD910B62}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
-      DTS:ObjectName="Conn-Origen">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETl_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACDiVVXCK+6Ban/yLkGlWEIAAAAAASAAACgAAAAEAAAAEknxHxge2SZ/RTPKsffz40QAAAAEvoDqfMFZZSW8D/Kz9oE8BQAAABAdOsy0W3DZj1KqFNdeVfHxfc4ZA</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Destino]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
-      DTS:ObjectName="Destino">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Osiris\ErpProduccion;User ID=ETl_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACNL6t/JEbGZZ3mtJAHPHqrAAAAAASAAACgAAAAEAAAABgPdjpZsLNoFQvs8fgHJogQAAAA815h1YFuZx2RskzSrXCeqhQAAABMpipJOH/dkUzROzrFohfZSL9c5Q</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -307,8 +271,8 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
               <connections>
                 <connection
                   refId="Package\Cuarteles\Cuarteles-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -599,8 +563,8 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
               <connections>
                 <connection
                   refId="Package\Cuarteles\Cuartel_Destino.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1696,8 +1660,8 @@ cod_predio=? where cod_cuartel=?
               <connections>
                 <connection
                   refId="Package\Cuarteles\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1964,8 +1928,8 @@ cod_predio=? where cod_cuartel=?
               <connections>
                 <connection
                   refId="Package\Cuarteles\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2116,8 +2080,8 @@ cod_predio=? where cod_cuartel=?
               <connections>
                 <connection
                   refId="Package\Cuarteles\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3122,7 +3086,7 @@ cod_predio=? where cod_cuartel=?
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Cuarteles\Cuartel_Destino"
-          TopLeft="495.0000084298,15.294117861553" />
+          TopLeft="531.428580478746,16.8235296477083" />
         <NodeLayout
           Size="157.6,41.6"
           Id="Package\Cuarteles\Cuarteles-Origen"
@@ -3225,24 +3189,24 @@ cod_predio=? where cod_cuartel=?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cuarteles.Paths[OLE DB Source Output1]"
-          TopLeft="495.0000084298,36.094117861553">
+          TopLeft="531.428580478746,37.6235296477083">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.3142850452545,42.6705891254452"
+              EndConnector="1.88571299630757,41.1411773392899"
               Start="0,0"
-              End="38.3142850452545,35.1705891254452">
+              End="1.88571299630757,33.6411773392899">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="34.3142850452545,0" />
+                    End="-2.11428700369243,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="34.3142850452545,0"
-                    Point2="38.3142850452545,0"
-                    Point3="38.3142850452545,4" />
+                    Point1="-2.11428700369243,0"
+                    Point2="1.88571299630757,0"
+                    Point3="1.88571299630757,4" />
                   <mssgle:LineSegment
-                    End="38.3142850452545,35.1705891254452" />
+                    End="1.88571299630757,33.6411773392899" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

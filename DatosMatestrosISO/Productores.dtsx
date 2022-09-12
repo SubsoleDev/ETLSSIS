@@ -11,46 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{F7ABC33E-212B-40BE-9B14-D1FFE7467FD0}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{6797039F-B400-47D2-B575-E99E068F5883}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
-      DTS:ObjectName="Conn-Origen">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=Etl_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABLPjZ5Iktgj8H8RDRh4oEHAAAAAASAAACgAAAAEAAAAAouX9juVZyNhAeEq7642EUQAAAAqKkjYxEBHzM8aFc/NLrHpRQAAADveFH8NVBBaLJF5ECmJREl6WYRtA</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Destino]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
-      DTS:ObjectName="Destino">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Osiris\ERPproduccion;User ID=ETl_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA8NAKo4ggWPqa9t7k30Pl3AAAAAASAAACgAAAAEAAAAPNhBlVlJdlDivWscJCmh0UQAAAA3KBIYAE+l8AhkFPJoym+yhQAAADikm4XroFYl7D/5MgMBSCZTglv8A</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -112,8 +76,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -368,8 +332,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -413,13 +377,13 @@ where cod_productor=?</property>
                       externalMetadataColumnId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[region]"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Region]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].Columns[prod_codigo_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="prod_codigo_str"
+                      refId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].Columns[prod_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="prod_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[cod_productor]"
-                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[prod_codigo_str]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].Columns[prod_nombre]"
                       cachedCodepage="1252"
@@ -428,14 +392,6 @@ where cod_productor=?</property>
                       cachedName="prod_nombre"
                       externalMetadataColumnId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[prod_nombre]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].Columns[Direccion]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Direccion"
-                      externalMetadataColumnId="Package\Data Flow Task\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[domicilio]"
-                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Direccion]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1098,8 +1054,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Elimina.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1448,8 +1404,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Productor-Destino.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1723,8 +1679,8 @@ where espe_codigo=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Productor-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

@@ -11,46 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{181D13DD-9B75-4867-8B13-F0A997D67790}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{04C55AC1-A184-46B3-AFE6-E949DAA7FF59}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
-      DTS:ObjectName="Conn-Origen">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETL_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABz5ayPfkaOzB+2Q/pZGyFIAAAAAASAAACgAAAAEAAAAMgwRYakR5rbrcpfm9SDEj0QAAAAdhQv1dj1JB6xDaJ6Gf8OahQAAADwxLNc7PaAR7V061OQkFyvlptcqw</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Destino]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
-      DTS:ObjectName="Destino">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Osiris\ErpProduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAHir1ThCY1zH+iT7gW193qAAAAAASAAACgAAAAEAAAABLeJQ/ev6ujaCtH0EWNB4sQAAAAFiS6dpe13LjJlAibgIP+BRQAAACQkAFajy/Ma7WjRnqlD/0MGiqrxQ</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -132,8 +96,8 @@
               <connections>
                 <connection
                   refId="Package\Categorias\Categorias-Destino.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -295,8 +259,8 @@
               <connections>
                 <connection
                   refId="Package\Categorias\Categorias-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1036,8 +1000,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1177,8 +1141,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1308,8 +1272,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1830,7 +1794,7 @@ where cod_categoria=?</property>
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Categorias\Categorias-Destino"
-          TopLeft="388.57143518876,38.1294108745549" />
+          TopLeft="465.714293645352,31.247057836856" />
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Categorias\Sort"
@@ -1925,24 +1889,30 @@ where cod_categoria=?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Categorias.Paths[OLE DB Source Output]"
-          TopLeft="388.57143518876,58.9294108745549">
+          TopLeft="549.314293645352,72.847057836856">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25.4571419691556,42.0117670116951"
+              EndConnector="-135.285716487436,28.094120049394"
               Start="0,0"
-              End="25.4571419691556,34.5117670116951">
+              End="-135.285716487436,20.594120049394">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="21.4571419691556,0" />
+                    End="0,10.047060024697" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.4571419691556,0"
-                    Point2="25.4571419691556,0"
-                    Point3="25.4571419691556,4" />
+                    Point1="0,10.047060024697"
+                    Point2="0,14.047060024697"
+                    Point3="-4,14.047060024697" />
                   <mssgle:LineSegment
-                    End="25.4571419691556,34.5117670116951" />
+                    End="-131.285716487436,14.047060024697" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-131.285716487436,14.047060024697"
+                    Point2="-135.285716487436,14.047060024697"
+                    Point3="-135.285716487436,18.047060024697" />
+                  <mssgle:LineSegment
+                    End="-135.285716487436,20.594120049394" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

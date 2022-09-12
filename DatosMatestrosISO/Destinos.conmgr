@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Destinos"
+  DTS:DTSID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=Osiris\ERPproduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAACu4PV2XfcxOKXHd/sNFiX1AAAAAASAAACgAAAAEAAAANVjXlxrZt1VXbFtZYWBs994AAAAGC52NPJt6G3/0oPyRXeunMvG4ZVQ+9ZKqiP21EkV2C02oGB7Nmn0Q7zhFt6EgYA+pT3YWgs8r7PTkVs2GQwj5W3apkSDiLFe4u8K+eAFMbBHVUK8J6mAZbp6U5VSANXnSenG18Ev0GjC8WElQoVVKARMqNSoUU75FAAAAC1XDtA0EzIY37G6fD00XuGkx7d/</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

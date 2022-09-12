@@ -11,46 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{258FAD42-66D1-47A0-A06D-214151F938C0}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{825EB0F4-67BF-4800-B885-6345417C5E18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
-      DTS:ObjectName="Conn-Origen">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETl_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAAdY1DCdOYT613KG+efDlMAAAAAASAAACgAAAAEAAAAOWlEEIePpA5CJ+ZgIiA4JUQAAAA8E42ITUNZdio0aSmwS3PeBQAAABgAyRiekqqHZkAVVfC2f6BJmlABQ</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Destino]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
-      DTS:ObjectName="Destino">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Osiris\ErpProduccion;User ID=ETL_user;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAL5QrbDAzbi5zmvZG974jhAAAAAASAAACgAAAAEAAAACGJvqK9UvZib5ttwQrZzkkQAAAA6PT2B0RZSgVPt5MX6dD6fRQAAACusXCCpeF0AQREfz1/tUbqkUqj9A</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -111,8 +75,8 @@ where cod_calibre=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -323,8 +287,8 @@ where cod_calibre=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\Agrega Calibres.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -491,8 +455,8 @@ where espe_codigo=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\Calibres.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1108,8 +1072,8 @@ where espe_codigo=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Destino]"
-                  connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

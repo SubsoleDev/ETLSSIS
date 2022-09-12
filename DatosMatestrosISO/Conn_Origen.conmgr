@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Conn_Origen"
+  DTS:DTSID="{70536297-E20F-471B-90FF-787A6DAA6650}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETL_User;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAAAmTtHy33pOZwlz+KANXWfHAAAAAASAAACgAAAAEAAAAMyz+T+WP6l8Rhwpw0v3s+94AAAAq8LUDDIH3GZxdx60/ecBWuhdEdy27ak33NMIBe6AfwuFWNAPhq49Mmkr2Nc3Ck4oDNXxIXQgiu6KWnjvrX7yOZMK0x84rjIvyGSTa0mCCMiDStwaxTQ3W7osMqxTDTfmg/4szPOnCy1fle6TPnXSlSfZcBs4eolVFAAAAAn7+AkSDlRNiuBETpa/UsYoMvsg</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

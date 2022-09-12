@@ -11,45 +11,11 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="173"
-  DTS:VersionGUID="{5A3D4B66-C1DB-49CC-BDB0-B98B841392FD}">
+  DTS:VersionBuild="176"
+  DTS:VersionGUID="{A2F695F9-E8C3-4131-A814-412E52356B27}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Conn-Origen]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9269F69-F478-4584-9A5A-942425A08937}"
-      DTS:ObjectName="Conn-Origen">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ANUBIS\QA;User ID=ETL_user;Initial Catalog=ExpSubsole_2122_ISO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACBslJUm3rJjDe4S4zTKieHAAAAAASAAACgAAAAEAAAAJ5Vv+bkTg2HctEitLI2Fr4QAAAANFdOCXIEpCiE3m9SGHA0/BQAAADcpED5sJ3/MtAIcaweePGb2WDgJA</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Destino]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{42065093-654F-415E-9137-FAF627D7C474}"
-      DTS:ObjectName="Destino">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=Osiris\ErpProduccion;User ID=ETL_user;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABkvHGZvWlVHJg1RncasElOAAAAAASAAACgAAAAEAAAAGHg1YarHXLRLsNK3JfAKloQAAAAp0TagLJzE59tToNUNM/WmhQAAADozz29pq8phamNotBQfKWqQL6AwQ</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Notifca Correo]"
       DTS:CreationName="SMTP"
@@ -150,8 +116,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -609,8 +575,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\Eliminar.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1180,8 +1146,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\Orden trabajo.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1494,8 +1460,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2432,8 +2398,8 @@ and     orp.orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                      connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2769,8 +2735,8 @@ folio = ?</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Actualiza Items.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2977,8 +2943,8 @@ folio = ?</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Agrega detalle.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3325,8 +3291,8 @@ fecha_vaciado is null</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3792,8 +3758,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                      connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                      connectionManagerID="{B9269F69-F478-4584-9A5A-942425A08937}:invalid"
+                      connectionManagerRefId="{B9269F69-F478-4584-9A5A-942425A08937}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4002,8 +3968,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-ORigen.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4777,8 +4743,8 @@ nro_lote	=?
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Actualiza Items.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5523,8 +5489,8 @@ nro_lote	=?
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Eliminar items.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6451,8 +6417,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Conn-Origen]"
-                      connectionManagerRefId="Package.ConnectionManagers[Conn-Origen]"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6911,8 +6877,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\ORdenItems-Destino.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -7388,8 +7354,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Ot-Items-Destino.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Destino]"
-                      connectionManagerRefId="Package.ConnectionManagers[Destino]"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -8892,7 +8858,7 @@ and  orpr_tipope=1</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Notificacion  Error Actualizacion Ot"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -8914,7 +8880,7 @@ and  orpr_tipope=1</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Notificacion  Ok Actualizacion Ot"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9814,6 +9780,14 @@ and  orpr_tipope=1</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Sort"
+          TopLeft="140,155" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\ORdenItems-Destino"
+          TopLeft="379,83" />
+        <NodeLayout
           Size="134.4,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems"
           TopLeft="108,84" />
@@ -9822,13 +9796,9 @@ and  orpr_tipope=1</property>
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Conditional Split"
           TopLeft="234,435" />
         <NodeLayout
-          Size="176,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\ORdenItems-Destino"
-          TopLeft="379,83" />
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Ot-Items-Destino"
-          TopLeft="39.0000000000001,569" />
+          Size="144.8,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Eliminar items"
+          TopLeft="674,536.6" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Merge Join"
@@ -9838,49 +9808,13 @@ and  orpr_tipope=1</property>
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Sort 1"
           TopLeft="403,154" />
         <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Ot-Items-Destino"
+          TopLeft="39.0000000000001,569" />
+        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Actualiza Items"
           TopLeft="402,563" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Sort"
-          TopLeft="140,155" />
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem.Paths[Agrega]"
-          TopLeft="274.6,476.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-156,92.4"
-              Start="0,0"
-              End="-156,84.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.8458404074703" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.8458404074703"
-                    Point2="0,31.8458404074703"
-                    Point3="-4,31.8458404074703" />
-                  <mssgle:LineSegment
-                    End="-152,31.8458404074703" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-152,31.8458404074703"
-                    Point2="-156,31.8458404074703"
-                    Point3="-156,35.8458404074703" />
-                  <mssgle:LineSegment
-                    End="-156,84.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-94.29642578125,36.8458404074703,32.5928515625,11.3359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem.Paths[Actualizar]"
           TopLeft="311.2,476.6">
@@ -10075,10 +10009,6 @@ and  orpr_tipope=1</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Eliminar items"
-          TopLeft="674,536.6" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem.Paths[Eliminar]"
           TopLeft="347.8,476.6">
@@ -10112,6 +10042,42 @@ and  orpr_tipope=1</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="181.03630859375,25.6791171477079,36.5273828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem.Paths[Agrega]"
+          TopLeft="274.6,476.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-156,92.4"
+              Start="0,0"
+              End="-156,84.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.8458404074703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.8458404074703"
+                    Point2="0,31.8458404074703"
+                    Point3="-4,31.8458404074703" />
+                  <mssgle:LineSegment
+                    End="-152,31.8458404074703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-152,31.8458404074703"
+                    Point2="-156,31.8458404074703"
+                    Point3="-156,35.8458404074703" />
+                  <mssgle:LineSegment
+                    End="-156,84.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-94.29642578125,36.8458404074703,32.5928515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
