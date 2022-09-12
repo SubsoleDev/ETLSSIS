@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="170"
-  DTS:VersionGUID="{6F309A04-2137-42E6-8C82-E0EFD3A6B036}">
+  DTS:VersionBuild="173"
+  DTS:VersionGUID="{5A3D4B66-C1DB-49CC-BDB0-B98B841392FD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAByQJz/kdG7Bx/uyGMJ2E0vAAAAAASAAACgAAAAEAAAAHbvP5x4AzJuQFONn0AKJqYQAAAAE21xEaQdSjtmDtDdLs0+gRQAAAAE0GcpKolM/I67ck+lUJ8CN8bJcg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACBslJUm3rJjDe4S4zTKieHAAAAAASAAACgAAAAEAAAAJ5Vv+bkTg2HctEitLI2Fr4QAAAANFdOCXIEpCiE3m9SGHA0/BQAAADcpED5sJ3/MtAIcaweePGb2WDgJA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAjeOjyNE5kXAXwsYN76gocAAAAAASAAACgAAAAEAAAAK3kiQg8DiFwz3cdZIFft2UQAAAAjQEYURTA9/1QWiiNxvjIahQAAADMI6rOk8jllXIVbgC8auIpav+L6w</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABkvHGZvWlVHJg1RncasElOAAAAAASAAACgAAAAEAAAAGHg1YarHXLRLsNK3JfAKloQAAAAp0TagLJzE59tToNUNM/WmhQAAADozz29pq8phamNotBQfKWqQL6AwQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -8892,7 +8892,7 @@ and  orpr_tipope=1</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Notificacion  Error Actualizacion Ot"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -8914,7 +8914,7 @@ and  orpr_tipope=1</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Notificacion  Ok Actualizacion Ot"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -9121,37 +9121,75 @@ and  orpr_tipope=1</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="116,41.6"
+          Id="Package\Contenedor de secuencias\Orden de trabajo\Eliminar"
+          TopLeft="812.142870973568,501.576476186534" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso"
+          TopLeft="124.285716402287,61.1764714462122" />
+        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Contenedor de secuencias\Orden de trabajo\Merge Join"
           TopLeft="325.714291261167,264.588239004868" />
-        <NodeLayout
-          Size="144,41.6"
-          Id="Package\Contenedor de secuencias\Orden de trabajo\Orden trabajo"
-          TopLeft="483.571436806601,61.1764714462122" />
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Contenedor de secuencias\Orden de trabajo\Sort"
           TopLeft="144.285716742885,170.529414156317" />
         <NodeLayout
           Size="144,41.6"
-          Id="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso"
-          TopLeft="67.1428582862936,510.858830682794" />
-        <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Contenedor de secuencias\Orden de trabajo\Conditional Split"
-          TopLeft="310.000005279269,396.117652614224" />
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos"
-          TopLeft="400.000006811959,560.811771022738" />
+          Id="Package\Contenedor de secuencias\Orden de trabajo\Orden trabajo"
+          TopLeft="483.571436806601,61.1764714462122" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\Contenedor de secuencias\Orden de trabajo\Sort 1"
           TopLeft="498.57143706205,164.411767011695" />
         <NodeLayout
-          Size="168,41.6"
-          Id="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso"
-          TopLeft="124.285716402287,61.1764714462122" />
+          Size="154.4,41.6"
+          Id="Package\Contenedor de secuencias\Orden de trabajo\Conditional Split"
+          TopLeft="310.000005279269,396.117652614224" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso"
+          TopLeft="67.1428582862936,510.858830682794" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos"
+          TopLeft="400.000006811959,560.811771022738" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Sort Output1]"
+          TopLeft="551.77143706205,206.011767011695">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-140.990479134216,58.5764719931725"
+              Start="0,0"
+              End="-140.990479134216,51.0764719931725">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.7172748642461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.7172748642461"
+                    Point2="0,34.7172748642461"
+                    Point3="-4,34.7172748642461" />
+                  <mssgle:LineSegment
+                    End="-136.990479134216,34.7172748642461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-136.990479134216,34.7172748642461"
+                    Point2="-140.990479134216,34.7172748642461"
+                    Point3="-140.990479134216,38.7172748642461" />
+                  <mssgle:LineSegment
+                    End="-140.990479134216,51.0764719931725" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Sort Output]"
           TopLeft="193.085716742885,212.129414156317">
@@ -9265,6 +9303,42 @@ and  orpr_tipope=1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Eliminar]"
+          TopLeft="423.800005279269,437.717652614224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="446.342865694299,63.8588235723101"
+              Start="0,0"
+              End="446.342865694299,56.3588235723101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0090682261103" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0090682261103"
+                    Point2="0,22.0090682261103"
+                    Point3="4,22.0090682261103" />
+                  <mssgle:LineSegment
+                    End="442.342865694299,22.0090682261103" />
+                  <mssgle:CubicBezierSegment
+                    Point1="442.342865694299,22.0090682261103"
+                    Point2="446.342865694299,22.0090682261103"
+                    Point3="446.342865694299,26.0090682261103" />
+                  <mssgle:LineSegment
+                    End="446.342865694299,56.3588235723101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="204.9077414409,27.0090682261103,36.5273828125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Agregar]"
           TopLeft="362.800005279269,437.717652614224">
           <EdgeLayout.Curve>
@@ -9336,83 +9410,22 @@ and  orpr_tipope=1</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Sort Output1]"
-          TopLeft="551.77143706205,206.011767011695">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-140.990479134216,58.5764719931725"
-              Start="0,0"
-              End="-140.990479134216,51.0764719931725">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.7172748642461" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.7172748642461"
-                    Point2="0,34.7172748642461"
-                    Point3="-4,34.7172748642461" />
-                  <mssgle:LineSegment
-                    End="-136.990479134216,34.7172748642461" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-136.990479134216,34.7172748642461"
-                    Point2="-140.990479134216,34.7172748642461"
-                    Point3="-140.990479134216,38.7172748642461" />
-                  <mssgle:LineSegment
-                    End="-140.990479134216,51.0764719931725" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="116,41.6"
-          Id="Package\Contenedor de secuencias\Orden de trabajo\Eliminar"
-          TopLeft="812.142870973568,501.576476186534" />
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Eliminar]"
-          TopLeft="423.800005279269,437.717652614224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="446.342865694299,63.8588235723101"
-              Start="0,0"
-              End="446.342865694299,56.3588235723101">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.0090682261103" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.0090682261103"
-                    Point2="0,22.0090682261103"
-                    Point3="4,22.0090682261103" />
-                  <mssgle:LineSegment
-                    End="442.342865694299,22.0090682261103" />
-                  <mssgle:CubicBezierSegment
-                    Point1="442.342865694299,22.0090682261103"
-                    Point2="446.342865694299,22.0090682261103"
-                    Point3="446.342865694299,26.0090682261103" />
-                  <mssgle:LineSegment
-                    End="446.342865694299,56.3588235723101" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="204.9077414409,27.0090682261103,36.5273828125,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Contenedor de secuencias\Orden de trabajo\Orden trabajo">
     <Properties>
@@ -9428,19 +9441,6 @@ and  orpr_tipope=1</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10119,14 +10119,6 @@ and  orpr_tipope=1</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Contenedor de secuencias\OrdenTrabajo-ITem\ORdenItems-Destino">
     <Properties>
       <Property>
@@ -10136,6 +10128,14 @@ and  orpr_tipope=1</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
