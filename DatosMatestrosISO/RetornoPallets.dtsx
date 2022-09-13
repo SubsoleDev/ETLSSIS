@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{632467A8-A9DC-4360-9CE4-9912BD5D2969}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{86E8AFA8-EA16-4407-BDA5-31FAA6A79050}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -49,7 +49,1591 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza Estado de Sinc en conecta"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update  dbo.spro_palletfruta_ss set
+paen_sincro=1
+where pate_tempor = ? and
+expo_codigo = ? and
+paen_numero = ? and
+plde_codigo = ? and
+pafr_secuen = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[paen_numero]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[pafr_secuen]"
+                      cachedDataType="numeric"
+                      cachedName="pafr_secuen"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_secuen]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PalletDetaFruta\Agrega Registros"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Agrega Registros"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Insert into  dba.spro_palletfruta(pate_tempor, expo_codigo, paen_numero , plde_codigo , pafr_secuen , espe_codigo , vari_codigo , prod_codigo  , prbr_codpre, prcc_codigo, emba_codigo, cate_codigo, lote_codigo , pafr_calibr , pafr_fecemb , pafr_docrel, pafr_ccajas, vari_codrot, cate_codrot, caen_calrot , prod_codrot , prbr_codrot , prcc_codrot  , lote_codrot)
+Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PalletDetaFruta\Agrega Registros.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[paen_numero]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[pafr_secuen]"
+                      cachedDataType="numeric"
+                      cachedName="pafr_secuen"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_secuen]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[vari_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[prod_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="prod_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prod_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[prbr_codpre]"
+                      cachedDataType="numeric"
+                      cachedName="prbr_codpre"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prbr_codpre]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[prcc_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="prcc_codigo"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prcc_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[emba_codigo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="emba_codigo"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[emba_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[cate_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[lote_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="lote_codigo"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[lote_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[pafr_calibr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="pafr_calibr"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_calibr]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[pafr_fecemb]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="pafr_fecemb"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_fecemb]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[pafr_docrel]"
+                      cachedDataType="numeric"
+                      cachedName="pafr_docrel"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_docrel]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[pafr_ccajas]"
+                      cachedDataType="numeric"
+                      cachedName="pafr_ccajas"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_ccajas]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[vari_codrot]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codrot"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[vari_codrot]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[cate_codrot]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codrot"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[cate_codrot]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[caen_calrot]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="caen_calrot"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[caen_calrot]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[prod_codrot]"
+                      cachedDataType="numeric"
+                      cachedName="prod_codrot"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prod_codrot]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[prbr_codrot]"
+                      cachedDataType="numeric"
+                      cachedName="prbr_codrot"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_21]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prbr_codrot]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[prcc_codrot]"
+                      cachedDataType="numeric"
+                      cachedName="prcc_codrot"
+                      cachedPrecision="3"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_22]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prcc_codrot]" />
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].Columns[lote_codrot]"
+                      cachedDataType="numeric"
+                      cachedName="lote_codrot"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_23]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[lote_codrot]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="numeric"
+                      name="Param_5"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="numeric"
+                      name="Param_6"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="numeric"
+                      name="Param_7"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="numeric"
+                      name="Param_8"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="numeric"
+                      name="Param_9"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="numeric"
+                      name="Param_11"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="numeric"
+                      name="Param_12"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      dataType="dbTimeStamp2"
+                      name="Param_14"
+                      scale="6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1073741889</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      dataType="numeric"
+                      name="Param_15"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="numeric"
+                      name="Param_16"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                      dataType="numeric"
+                      name="Param_17"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_18]"
+                      dataType="numeric"
+                      name="Param_18"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_19]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Param_19">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_20]"
+                      dataType="numeric"
+                      name="Param_20"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_21]"
+                      dataType="numeric"
+                      name="Param_21"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_22]"
+                      dataType="numeric"
+                      name="Param_22"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_23]"
+                      dataType="numeric"
+                      name="Param_23"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PalletDetaFruta\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT pate_tempor ,
+expo_codigo ,
+paen_numero ,
+plde_codigo ,
+pafr_secuen 
+FROM dba.spro_palletfruta</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT pate_tempor ,
+expo_codigo ,
+paen_numero ,
+plde_codigo ,
+pafr_secuen 
+FROM dba.spro_palletfruta) [refTable]
+where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTable].[paen_numero] = ? and [refTable].[plde_codigo] = ? and [refTable].[pafr_secuen] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="pate_tempor" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="expo_codigo" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="paen_numero" dataType="DT_NUMERIC" length="0" precision="8" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plde_codigo" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pafr_secuen" dataType="DT_NUMERIC" length="0" precision="3" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]};#{Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]};#{Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[paen_numero]};#{Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[plde_codigo]};#{Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_secuen]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PalletDetaFruta\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">pate_tempor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">expo_codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[paen_numero]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">paen_numero</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">plde_codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input].Columns[pafr_secuen]"
+                      cachedDataType="numeric"
+                      cachedName="pafr_secuen"
+                      cachedPrecision="3"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_secuen]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">pafr_secuen</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PalletDetaFruta\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PalletDetaFruta\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PalletDetaFruta\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PalletDetaFruta\PalletDetaFruta_SS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="PalletDetaFruta_SS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT pate_tempor ,
+expo_codigo ,
+paen_numero ,
+plde_codigo ,
+pafr_secuen ,
+espe_codigo ,
+vari_codigo ,
+prod_codigo ,
+prbr_codpre,
+prcc_codigo ,
+emba_codigo ,
+cate_codigo ,
+lote_codigo ,
+pafr_calibr ,
+pafr_fecemb ,
+pafr_docrel ,
+pafr_ccajas,
+vari_codrot ,
+cate_codrot ,
+caen_calrot ,
+prod_codrot ,
+prbr_codrot ,
+prcc_codrot ,
+lote_codrot    
+FROM dbo.spro_palletfruta_ss
+where Isnull(paen_sincro,0)=0 and
+pate_tempor =? and
+espe_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{7669F752-4B3B-4C0C-A7BF-160710FC6D96};"1:Input",{783005C7-B187-420B-AF07-1D3EDCD1EB97};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_secuen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_secuen]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_secuen]"
+                      name="pafr_secuen"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prod_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prod_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prod_codigo]"
+                      name="prod_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prbr_codpre]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prbr_codpre]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prbr_codpre]"
+                      name="prbr_codpre"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prcc_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prcc_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prcc_codigo]"
+                      name="prcc_codigo"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[emba_codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[emba_codigo]"
+                      length="10"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[emba_codigo]"
+                      name="emba_codigo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[lote_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[lote_codigo]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[lote_codigo]"
+                      name="lote_codigo"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_calibr]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_calibr]"
+                      length="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_calibr]"
+                      name="pafr_calibr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_fecemb]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_fecemb]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_fecemb]"
+                      name="pafr_fecemb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_docrel]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_docrel]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_docrel]"
+                      name="pafr_docrel"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_ccajas]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_ccajas]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pafr_ccajas]"
+                      name="pafr_ccajas"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[vari_codrot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[vari_codrot]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[vari_codrot]"
+                      name="vari_codrot"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[cate_codrot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[cate_codrot]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[cate_codrot]"
+                      name="cate_codrot"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[caen_calrot]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[caen_calrot]"
+                      length="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[caen_calrot]"
+                      name="caen_calrot"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prod_codrot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prod_codrot]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prod_codrot]"
+                      name="prod_codrot"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prbr_codrot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prbr_codrot]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prbr_codrot]"
+                      name="prbr_codrot"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prcc_codrot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prcc_codrot]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[prcc_codrot]"
+                      name="prcc_codrot"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[lote_codrot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[lote_codrot]"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[lote_codrot]"
+                      name="lote_codrot"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
+                      dataType="numeric"
+                      name="pate_tempor"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      dataType="numeric"
+                      name="expo_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      dataType="numeric"
+                      name="paen_numero"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_secuen]"
+                      dataType="numeric"
+                      name="pafr_secuen"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      dataType="numeric"
+                      name="espe_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
+                      dataType="numeric"
+                      name="vari_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prod_codigo]"
+                      dataType="numeric"
+                      name="prod_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prbr_codpre]"
+                      dataType="numeric"
+                      name="prbr_codpre"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prcc_codigo]"
+                      dataType="numeric"
+                      name="prcc_codigo"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[emba_codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="emba_codigo" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
+                      dataType="numeric"
+                      name="cate_codigo"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[lote_codigo]"
+                      dataType="numeric"
+                      name="lote_codigo"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_calibr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="pafr_calibr" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_fecemb]"
+                      dataType="dbTimeStamp"
+                      name="pafr_fecemb" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_docrel]"
+                      dataType="numeric"
+                      name="pafr_docrel"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[pafr_ccajas]"
+                      dataType="numeric"
+                      name="pafr_ccajas"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[vari_codrot]"
+                      dataType="numeric"
+                      name="vari_codrot"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[cate_codrot]"
+                      dataType="numeric"
+                      name="cate_codrot"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[caen_calrot]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="caen_calrot" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prod_codrot]"
+                      dataType="numeric"
+                      name="prod_codrot"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prbr_codrot]"
+                      dataType="numeric"
+                      name="prbr_codrot"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[prcc_codrot]"
+                      dataType="numeric"
+                      name="prcc_codrot"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[lote_codrot]"
+                      dataType="numeric"
+                      name="lote_codrot"
+                      precision="8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_secuen]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_secuen]"
+                      name="pafr_secuen"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prod_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prod_codigo]"
+                      name="prod_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prbr_codpre]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prbr_codpre]"
+                      name="prbr_codpre"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prcc_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prcc_codigo]"
+                      name="prcc_codigo"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[emba_codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[emba_codigo]"
+                      name="emba_codigo" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[lote_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[lote_codigo]"
+                      name="lote_codigo"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_calibr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_calibr]"
+                      name="pafr_calibr" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_fecemb]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_fecemb]"
+                      name="pafr_fecemb" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_docrel]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_docrel]"
+                      name="pafr_docrel"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_ccajas]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[pafr_ccajas]"
+                      name="pafr_ccajas"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[vari_codrot]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[vari_codrot]"
+                      name="vari_codrot"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[cate_codrot]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[cate_codrot]"
+                      name="cate_codrot"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[caen_calrot]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[caen_calrot]"
+                      name="caen_calrot" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prod_codrot]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prod_codrot]"
+                      name="prod_codrot"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prbr_codrot]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prbr_codrot]"
+                      name="prbr_codrot"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prcc_codrot]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[prcc_codrot]"
+                      name="prcc_codrot"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[lote_codrot]"
+                      dataType="numeric"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[lote_codrot]"
+                      name="lote_codrot"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\PalletDetaFruta.Paths[Lookup No Match Output]"
+              endId="Package\PalletDetaFruta\Agrega Registros.Inputs[OLE DB Command Input]"
+              name="Lookup No Match Output"
+              startId="Package\PalletDetaFruta\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\PalletDetaFruta.Paths[OLE DB Command Output]"
+              endId="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]"
+              name="OLE DB Command Output"
+              startId="Package\PalletDetaFruta\Agrega Registros.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\PalletDetaFruta.Paths[OLE DB Source Output]"
+              endId="Package\PalletDetaFruta\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\PalletDetaFruta\PalletDetaFruta_SS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -67,11 +1651,11 @@
           version="1">
           <components>
             <component
-              refId="Package\PalletEncab\Actualiza estado de transferido origen"
+              refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Actualiza estado de transferido origen"
+              name="Actualiza Estado de Sinc en conecta"
               usesDispositions="true"
               version="2">
               <properties>
@@ -98,7 +1682,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\PalletEncab\Actualiza estado de transferido origen.Connections[OleDbConnection]"
+                  refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Connections[OleDbConnection]"
                   connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
@@ -106,45 +1690,45 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input]"
+                  refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[pate_tempor]"
                       cachedDataType="numeric"
                       cachedName="pate_tempor"
                       cachedPrecision="4"
-                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]" />
                     <inputColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[expo_codigo]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[expo_codigo]"
                       cachedDataType="numeric"
                       cachedName="expo_codigo"
                       cachedPrecision="4"
-                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]" />
                     <inputColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[paen_numero]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[paen_numero]"
                       cachedDataType="numeric"
                       cachedName="paen_numero"
                       cachedPrecision="8"
-                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]" />
                     <inputColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].Columns[plde_codigo]"
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="numeric"
                       name="Param_0"
                       precision="4">
@@ -156,7 +1740,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="numeric"
                       name="Param_1"
                       precision="4">
@@ -168,7 +1752,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       dataType="numeric"
                       name="Param_2"
                       precision="8">
@@ -180,7 +1764,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       dataType="numeric"
                       name="Param_3"
                       precision="4">
@@ -196,29 +1780,29 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\PalletEncab\Actualiza estado de transferido origen.Outputs[OLE DB Command Output]"
+                  refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\PalletEncab\Actualiza estado de transferido origen.Outputs[OLE DB Command Error Output]"
+                  refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\PalletEncab\Actualiza estado de transferido origen.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\PalletEncab\Actualiza estado de transferido origen.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1284,7 +2868,7 @@ where pate_tempor=? and
               startId="Package\PalletEncab\Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\PalletEncab.Paths[OLE DB Command Output]"
-              endId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input]"
+              endId="Package\PalletEncab\Actualiza Estado de Sinc en conecta.Inputs[OLE DB Command Input]"
               name="OLE DB Command Output"
               startId="Package\PalletEncab\Agrega Registros nuevos.Outputs[OLE DB Command Output]" />
             <path
@@ -1326,21 +2910,21 @@ where pate_tempor=? and
         <NodeLayout
           Size="132,41.6"
           Id="Package\PalletEncab"
-          TopLeft="192.14286041503,86.4117659177747" />
+          TopLeft="192.14286041503,87.1764718108523" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="258.457146056331,128.011765917775">
+          TopLeft="258.457146056331,128.776471810852">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.2235309239492"
+              EndConnector="0,65.4588250308715"
               Start="0,0"
-              End="0,58.7235309239492">
+              End="0,57.9588250308715">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.7235309239492" />
+                    End="0,57.9588250308715" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1352,6 +2936,134 @@ where pate_tempor=? and
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\PalletDetaFruta">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\PalletDetaFruta\PalletDetaFruta_SS"
+          TopLeft="138,89" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\PalletDetaFruta\Lookup"
+          TopLeft="266.153846153846,209.230769230769" />
+        <EdgeLayout
+          Id="Package\PalletDetaFruta.Paths[OLE DB Source Output]"
+          TopLeft="222,130.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100.553846153846,78.6307692307692"
+              Start="0,0"
+              End="100.553846153846,71.1307692307692">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3153846153846" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.3153846153846"
+                    Point2="0,39.3153846153846"
+                    Point3="4,39.3153846153846" />
+                  <mssgle:LineSegment
+                    End="96.5538461538461,39.3153846153846" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.5538461538461,39.3153846153846"
+                    Point2="100.553846153846,39.3153846153846"
+                    Point3="100.553846153846,43.3153846153846" />
+                  <mssgle:LineSegment
+                    End="100.553846153846,71.1307692307692" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\PalletDetaFruta\Agrega Registros"
+          TopLeft="57.6923076923077,326.153846153846" />
+        <EdgeLayout
+          Id="Package\PalletDetaFruta.Paths[Lookup No Match Output]"
+          TopLeft="322.553846153846,250.830769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185.661538461538,75.323076923077"
+              Start="0,0"
+              End="-185.661538461538,67.823076923077">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6615384615385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6615384615385"
+                    Point2="0,37.6615384615385"
+                    Point3="-4,37.6615384615385" />
+                  <mssgle:LineSegment
+                    End="-181.661538461538,37.6615384615385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181.661538461538,37.6615384615385"
+                    Point2="-185.661538461538,37.6615384615385"
+                    Point3="-185.661538461538,41.6615384615385" />
+                  <mssgle:LineSegment
+                    End="-185.661538461538,67.823076923077" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-148.637155949519,42.6615384615385,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="247.2,41.6"
+          Id="Package\PalletDetaFruta\Actualiza Estado de Sinc en conecta"
+          TopLeft="86.1538461538462,438.461538461538" />
+        <EdgeLayout
+          Id="Package\PalletDetaFruta.Paths[OLE DB Command Output]"
+          TopLeft="136.892307692308,367.753846153846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.8615384615385,70.7076923076922"
+              Start="0,0"
+              End="72.8615384615385,63.2076923076922">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.3538461538461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.3538461538461"
+                    Point2="0,35.3538461538461"
+                    Point3="4,35.3538461538461" />
+                  <mssgle:LineSegment
+                    End="68.8615384615385,35.3538461538461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.8615384615385,35.3538461538461"
+                    Point2="72.8615384615385,35.3538461538461"
+                    Point3="72.8615384615385,39.3538461538461" />
+                  <mssgle:LineSegment
+                    End="72.8615384615385,63.2076923076922" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\PalletEncab">
     <LayoutInfo>
@@ -1366,8 +3078,8 @@ where pate_tempor=? and
           Id="Package\PalletEncab\Agrega Registros nuevos"
           TopLeft="28.3571415859826,284.382349482458" />
         <NodeLayout
-          Size="256,41.6"
-          Id="Package\PalletEncab\Actualiza estado de transferido origen"
+          Size="247.2,41.6"
+          Id="Package\PalletEncab\Actualiza Estado de Sinc en conecta"
           TopLeft="88.5714249708215,407.841173054767" />
         <EdgeLayout
           Id="Package\PalletEncab.Paths[OLE DB Command Output]"
@@ -1375,9 +3087,9 @@ where pate_tempor=? and
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="90.6142833848389,81.8588235723097"
+              EndConnector="86.2142833848389,81.8588235723097"
               Start="0,0"
-              End="90.6142833848389,74.3588235723097">
+              End="86.2142833848389,74.3588235723097">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1388,13 +3100,13 @@ where pate_tempor=? and
                     Point2="0,40.9294117861548"
                     Point3="4,40.9294117861548" />
                   <mssgle:LineSegment
-                    End="86.6142833848389,40.9294117861548" />
+                    End="82.2142833848389,40.9294117861548" />
                   <mssgle:CubicBezierSegment
-                    Point1="86.6142833848389,40.9294117861548"
-                    Point2="90.6142833848389,40.9294117861548"
-                    Point3="90.6142833848389,44.9294117861548" />
+                    Point1="82.2142833848389,40.9294117861548"
+                    Point2="86.2142833848389,40.9294117861548"
+                    Point3="86.2142833848389,44.9294117861548" />
                   <mssgle:LineSegment
-                    End="90.6142833848389,74.3588235723097" />
+                    End="86.2142833848389,74.3588235723097" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1497,6 +3209,37 @@ where pate_tempor=? and
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\PalletEncab\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PalletDetaFruta\PalletDetaFruta_SS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PalletDetaFruta\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
