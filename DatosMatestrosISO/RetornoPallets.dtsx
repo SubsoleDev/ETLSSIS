@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{FCEC69CC-EC1C-47C7-AACF-43D9BE26D3D0}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{632467A8-A9DC-4360-9CE4-9912BD5D2969}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -38,13 +38,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task 1"
+      DTS:refId="Package\PalletDetaFruta"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{57478E77-B95B-4D85-B8E8-CDFF38D1D5F9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task 1"
+      DTS:ObjectName="PalletDetaFruta"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -85,8 +85,8 @@
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
- update [dba].[spro_palletencab] set
- Transferido =1
+ update [dbo].[spro_palletencab_ss] set
+ paen_sincro=1
  where pate_tempor =? and
  expo_codigo =? and
  paen_numero =? and
@@ -99,8 +99,8 @@
               <connections>
                 <connection
                   refId="Package\PalletEncab\Actualiza estado de transferido origen.Connections[OleDbConnection]"
-                  connectionManagerID="{D390A9CA-BD15-4C9D-B0CA-1286E7D8C710}:invalid"
-                  connectionManagerRefId="{D390A9CA-BD15-4C9D-B0CA-1286E7D8C710}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -111,8 +111,87 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]" />
+                    <inputColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]" />
+                    <inputColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]" />
+                    <inputColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -196,95 +275,91 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
                       cachedDataType="numeric"
                       cachedName="pate_tempor"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[expo_codigo]"
                       cachedDataType="numeric"
                       cachedName="expo_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_numero]"
                       cachedDataType="numeric"
                       cachedName="paen_numero"
                       cachedPrecision="8"
-                      cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[plde_codigo]"
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="4"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[espe_codigo]"
                       cachedDataType="numeric"
                       cachedName="espe_codigo"
                       cachedPrecision="2"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[espe_codigo]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[vari_codigo]"
                       cachedDataType="numeric"
                       cachedName="vari_codigo"
                       cachedPrecision="4"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[vari_codigo]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[cate_codigo]"
                       cachedDataType="numeric"
                       cachedName="cate_codigo"
                       cachedPrecision="3"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[cate_codigo]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_tipopa]"
                       cachedDataType="numeric"
                       cachedName="paen_tipopa"
                       cachedPrecision="1"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_tipopa]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_tipopa]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_feccon]"
                       cachedDataType="dbTimeStamp"
                       cachedName="paen_feccon"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_feccon]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_feccon]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_altura]"
                       cachedDataType="numeric"
                       cachedName="paen_altura"
                       cachedPrecision="4"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_altura]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_altura]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_ccajas]"
                       cachedDataType="numeric"
                       cachedName="paen_ccajas"
                       cachedPrecision="7"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_ccajas]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_ccajas]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[bapa_codigo]"
                       cachedDataType="numeric"
                       cachedName="bapa_codigo"
                       cachedPrecision="1"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[bapa_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[bapa_codigo]" />
                     <inputColumn
                       refId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[parr_codigo]"
                       cachedDataType="numeric"
                       cachedName="parr_codigo"
                       cachedPrecision="2"
                       externalMetadataColumnId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]" />
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[parr_codigo]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -480,1598 +555,18 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
               </outputs>
             </component>
             <component
-              refId="Package\PalletEncab\Conditional Split"
-              componentClassID="Microsoft.ConditionalSplit"
-              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input]"
-                  description="Input to the Conditional Split Transformation"
-                  name="Conditional Split Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input].Columns[pate_tempor_Origen]"
-                      cachedDataType="numeric"
-                      cachedName="pate_tempor_Origen"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_Origen]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input].Columns[paen_numero_Origen]"
-                      cachedDataType="numeric"
-                      cachedName="paen_numero_Origen"
-                      cachedPrecision="8"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero_Origen]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\PalletEncab\Conditional Split.Outputs[Agregar]"
-                  description="Output 1 of the Conditional Split Transformation"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Agregar"
-                  synchronousInputId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input]"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_Origen]}) &amp;&amp; [ISNULL](#{Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero_Origen]})</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(pate_tempor_Origen) &amp;&amp; ISNULL(paen_numero_Origen)</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                      name="EvaluationOrder">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\PalletEncab\Conditional Split.Outputs[Conditional Split Default Output]"
-                  description="Default Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  name="Conditional Split Default Output"
-                  synchronousInputId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input]">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      name="IsDefaultOut">true</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\PalletEncab\Conditional Split.Outputs[Conditional Split Error Output]"
-                  description="Error Output of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Conditional Split Error Output"
-                  synchronousInputId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\PalletEncab\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\PalletEncab\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\PalletEncab\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\PalletEncab\Merge Join"
-              componentClassID="Microsoft.MergeJoin"
-              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-              name="Merge Join"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of join to perform."
-                  name="JoinType"
-                  typeConverter="JoinType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">4</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the null values are treated as equal values."
-                  name="TreatNullsAsEqual">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Indicates the requested maximum buffers per input before blocking."
-                  name="MaxBuffersPerInput">5</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Left Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[pate_tempor]"
-                      cachedDataType="numeric"
-                      cachedName="pate_tempor"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[pate_tempor]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="expo_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="2"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[expo_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_numero]"
-                      cachedDataType="numeric"
-                      cachedName="paen_numero"
-                      cachedPrecision="8"
-                      cachedSortKeyPosition="3"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_numero]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="4"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[plde_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[espe_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[vari_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[cate_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="cate_codigo"
-                      cachedPrecision="3"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[cate_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_tipopa]"
-                      cachedDataType="numeric"
-                      cachedName="paen_tipopa"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_tipopa]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_feccon]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="paen_feccon"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_feccon]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_altura]"
-                      cachedDataType="numeric"
-                      cachedName="paen_altura"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_altura]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_ccajas]"
-                      cachedDataType="numeric"
-                      cachedName="paen_ccajas"
-                      cachedPrecision="7"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_ccajas]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[bapa_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="bapa_codigo"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[bapa_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[parr_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="parr_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[parr_codigo]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Right Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[pate_tempor]"
-                      cachedDataType="numeric"
-                      cachedName="pate_tempor"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[pate_tempor]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="expo_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="2"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[expo_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_numero]"
-                      cachedDataType="numeric"
-                      cachedName="paen_numero"
-                      cachedPrecision="8"
-                      cachedSortKeyPosition="3"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_numero]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="4"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[plde_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[espe_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[vari_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[cate_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="cate_codigo"
-                      cachedPrecision="3"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[cate_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_tipopa]"
-                      cachedDataType="numeric"
-                      cachedName="paen_tipopa"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_tipopa]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_feccon]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="paen_feccon"
-                      cachedScale="6"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_feccon]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_altura]"
-                      cachedDataType="numeric"
-                      cachedName="paen_altura"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_altura]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_ccajas]"
-                      cachedDataType="numeric"
-                      cachedName="paen_ccajas"
-                      cachedPrecision="7"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_ccajas]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[bapa_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="bapa_codigo"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[bapa_codigo]" />
-                    <inputColumn
-                      refId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[parr_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="parr_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[parr_codigo]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output]"
-                  isSorted="true"
-                  name="Merge Join Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]"
-                      name="pate_tempor"
-                      precision="4"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[pate_tempor]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]"
-                      name="expo_codigo"
-                      precision="4"
-                      sortKeyPosition="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero]"
-                      name="paen_numero"
-                      precision="8"
-                      sortKeyPosition="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_numero]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]"
-                      name="plde_codigo"
-                      precision="4"
-                      sortKeyPosition="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[plde_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
-                      name="espe_codigo"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]"
-                      name="vari_codigo"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[vari_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]"
-                      name="cate_codigo"
-                      precision="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[cate_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_tipopa]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_tipopa]"
-                      name="paen_tipopa"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_tipopa]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_feccon]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_feccon]"
-                      name="paen_feccon">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_feccon]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_altura]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_altura]"
-                      name="paen_altura"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_altura]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_ccajas]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_ccajas]"
-                      name="paen_ccajas"
-                      precision="7">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[paen_ccajas]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[bapa_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[bapa_codigo]"
-                      name="bapa_codigo"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[bapa_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]"
-                      name="parr_codigo"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input].Columns[parr_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_Origen]"
-                      name="pate_tempor_Origen"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[pate_tempor]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_Origen]"
-                      name="expo_codigo_Origen"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_numero_Origen]"
-                      name="paen_numero_Origen"
-                      precision="8">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_numero]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_Origen]"
-                      name="plde_codigo_Origen"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[plde_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo_Origen]"
-                      name="espe_codigo_Origen"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[espe_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo_Origen]"
-                      name="vari_codigo_Origen"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[vari_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo_Origen]"
-                      name="cate_codigo_Origen"
-                      precision="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[cate_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_tipopa_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_tipopa_Origen]"
-                      name="paen_tipopa_Origen"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_tipopa]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_feccon_Origen]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_feccon_Origen]"
-                      name="paen_feccon_Origen"
-                      scale="6">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_feccon]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_altura_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_altura_Origen]"
-                      name="paen_altura_Origen"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_altura]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_ccajas_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[paen_ccajas_Origen]"
-                      name="paen_ccajas_Origen"
-                      precision="7">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[paen_ccajas]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[bapa_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[bapa_codigo_Origen]"
-                      name="bapa_codigo_Origen"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[bapa_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_Origen]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_Origen]"
-                      name="parr_codigo_Origen"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input].Columns[parr_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\PalletEncab\Sort"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\PalletEncab\Sort.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[pate_tempor]"
-                      cachedDataType="numeric"
-                      cachedName="pate_tempor"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[expo_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="expo_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[paen_numero]"
-                      cachedDataType="numeric"
-                      cachedName="paen_numero"
-                      cachedPrecision="8"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">4</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[espe_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[vari_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[cate_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="cate_codigo"
-                      cachedPrecision="3"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[cate_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[paen_tipopa]"
-                      cachedDataType="numeric"
-                      cachedName="paen_tipopa"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_tipopa]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[paen_feccon]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="paen_feccon"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_feccon]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[paen_altura]"
-                      cachedDataType="numeric"
-                      cachedName="paen_altura"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_altura]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[paen_ccajas]"
-                      cachedDataType="numeric"
-                      cachedName="paen_ccajas"
-                      cachedPrecision="7"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_ccajas]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[bapa_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="bapa_codigo"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[bapa_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort.Inputs[Sort Input].Columns[parr_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="parr_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[parr_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\PalletEncab\Sort.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[pate_tempor]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[pate_tempor]"
-                      name="pate_tempor"
-                      precision="4"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[expo_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[expo_codigo]"
-                      name="expo_codigo"
-                      precision="4"
-                      sortKeyPosition="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_numero]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_numero]"
-                      name="paen_numero"
-                      precision="8"
-                      sortKeyPosition="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[plde_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[plde_codigo]"
-                      name="plde_codigo"
-                      precision="4"
-                      sortKeyPosition="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[espe_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[espe_codigo]"
-                      name="espe_codigo"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[espe_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[vari_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[vari_codigo]"
-                      name="vari_codigo"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[vari_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[cate_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[cate_codigo]"
-                      name="cate_codigo"
-                      precision="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[cate_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_tipopa]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_tipopa]"
-                      name="paen_tipopa"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_tipopa]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_feccon]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_feccon]"
-                      name="paen_feccon">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_feccon]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_altura]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_altura]"
-                      name="paen_altura"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_altura]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_ccajas]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[paen_ccajas]"
-                      name="paen_ccajas"
-                      precision="7">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_ccajas]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[bapa_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[bapa_codigo]"
-                      name="bapa_codigo"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[bapa_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[parr_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort.Outputs[Sort Output].Columns[parr_codigo]"
-                      name="parr_codigo"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[parr_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\PalletEncab\Sort 1"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort 1"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\PalletEncab\Sort 1.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[pate_tempor]"
-                      cachedDataType="numeric"
-                      cachedName="pate_tempor"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[pate_tempor]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[expo_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="expo_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[expo_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[paen_numero]"
-                      cachedDataType="numeric"
-                      cachedName="paen_numero"
-                      cachedPrecision="8"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_numero]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[plde_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">4</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[espe_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[vari_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[cate_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="cate_codigo"
-                      cachedPrecision="3"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[cate_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[paen_tipopa]"
-                      cachedDataType="numeric"
-                      cachedName="paen_tipopa"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_tipopa]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[paen_feccon]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="paen_feccon"
-                      cachedScale="6"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_feccon]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[paen_altura]"
-                      cachedDataType="numeric"
-                      cachedName="paen_altura"
-                      cachedPrecision="4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_altura]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[paen_ccajas]"
-                      cachedDataType="numeric"
-                      cachedName="paen_ccajas"
-                      cachedPrecision="7"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_ccajas]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[bapa_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="bapa_codigo"
-                      cachedPrecision="1"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[bapa_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\PalletEncab\Sort 1.Inputs[Sort Input].Columns[parr_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="parr_codigo"
-                      cachedPrecision="2"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[parr_codigo]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\PalletEncab\Sort 1.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[pate_tempor]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[pate_tempor]"
-                      name="pate_tempor"
-                      precision="4"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[pate_tempor]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[expo_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[expo_codigo]"
-                      name="expo_codigo"
-                      precision="4"
-                      sortKeyPosition="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[expo_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_numero]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_numero]"
-                      name="paen_numero"
-                      precision="8"
-                      sortKeyPosition="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_numero]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[plde_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[plde_codigo]"
-                      name="plde_codigo"
-                      precision="4"
-                      sortKeyPosition="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[plde_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[espe_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[espe_codigo]"
-                      name="espe_codigo"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[espe_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[vari_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[vari_codigo]"
-                      name="vari_codigo"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[vari_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[cate_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[cate_codigo]"
-                      name="cate_codigo"
-                      precision="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[cate_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_tipopa]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_tipopa]"
-                      name="paen_tipopa"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_tipopa]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_feccon]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_feccon]"
-                      name="paen_feccon"
-                      scale="6">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_feccon]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_altura]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_altura]"
-                      name="paen_altura"
-                      precision="4">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_altura]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_ccajas]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[paen_ccajas]"
-                      name="paen_ccajas"
-                      precision="7">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_ccajas]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[bapa_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[bapa_codigo]"
-                      name="bapa_codigo"
-                      precision="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[bapa_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[parr_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Sort 1.Outputs[Sort Output].Columns[parr_codigo]"
-                      name="parr_codigo"
-                      precision="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[parr_codigo]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\PalletEncab\Spro_palletencab"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Spro_palletencab"
+              refId="Package\PalletEncab\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
               usesDispositions="true"
-              version="7">
+              version="6">
               <properties>
                 <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
 pate_tempor,
@@ -2087,338 +582,331 @@ paen_altura,
 paen_ccajas,
 bapa_codigo,
 parr_codigo
-from  dba.[spro_palletencab]
-where pate_tempor=? and
-plde_codigo=74 and
-espe_codigo=?</property>
+from  dba.[spro_palletencab]</property>
                 <property
                   dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select 
+pate_tempor,
+expo_codigo,
+paen_numero,
+plde_codigo,
+espe_codigo,
+vari_codigo,
+cate_codigo,
+paen_tipopa,
+paen_feccon,
+paen_altura,
+paen_ccajas,
+bapa_codigo,
+parr_codigo
+from  dba.[spro_palletencab]) [refTable]
+where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTable].[paen_numero] = ? and [refTable].[plde_codigo] = ? and [refTable].[espe_codigo] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="pate_tempor" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="expo_codigo" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="paen_numero" dataType="DT_NUMERIC" length="0" precision="8" scale="0" codePage="0"/&gt;&lt;referenceColumn name="plde_codigo" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="espe_codigo" dataType="DT_NUMERIC" length="0" precision="2" scale="0" codePage="0"/&gt;&lt;referenceColumn name="vari_codigo" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="cate_codigo" dataType="DT_NUMERIC" length="0" precision="3" scale="0" codePage="0"/&gt;&lt;referenceColumn name="paen_tipopa" dataType="DT_NUMERIC" length="0" precision="1" scale="0" codePage="0"/&gt;&lt;referenceColumn name="paen_feccon" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="6" codePage="0"/&gt;&lt;referenceColumn name="paen_altura" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="paen_ccajas" dataType="DT_NUMERIC" length="0" precision="7" scale="0" codePage="0"/&gt;&lt;referenceColumn name="bapa_codigo" dataType="DT_NUMERIC" length="0" precision="1" scale="0" codePage="0"/&gt;&lt;referenceColumn name="parr_codigo" dataType="DT_NUMERIC" length="0" precision="2" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]};#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]};#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]};#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]};#{Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[espe_codigo]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
                   name="DefaultCodePage">1252</property>
                 <property
                   dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parámetro0:Input",{7669F752-4B3B-4C0C-A7BF-160710FC6D96};"Parámetro1:Input",{783005C7-B187-420B-AF07-1D3EDCD1EB97};</property>
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\PalletEncab\Spro_palletencab.Connections[OleDbConnection]"
+                  refId="Package\PalletEncab\Lookup.Connections[OleDbConnection]"
                   connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
-                  description="The OLE DB runtime connection used to access the database."
+                  description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
+              <inputs>
+                <input
+                  refId="Package\PalletEncab\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PalletEncab\Lookup.Inputs[Lookup Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[pate_tempor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">pate_tempor</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletEncab\Lookup.Inputs[Lookup Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[expo_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">expo_codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletEncab\Lookup.Inputs[Lookup Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[paen_numero]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">paen_numero</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletEncab\Lookup.Inputs[Lookup Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">plde_codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PalletEncab\Lookup.Inputs[Lookup Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output].Columns[espe_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">espe_codigo</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
               <outputs>
                 <output
-                  refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
+                  refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\PalletEncab\Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[vari_codigo_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[pate_tempor]"
-                      name="pate_tempor"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[vari_codigo_destino]"
+                      name="vari_codigo_destino"
                       precision="4"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">vari_codigo</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[cate_codigo_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[expo_codigo]"
-                      name="expo_codigo"
-                      precision="4"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_numero]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_numero]"
-                      name="paen_numero"
-                      precision="8"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[plde_codigo]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[plde_codigo]"
-                      name="plde_codigo"
-                      precision="4"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[espe_codigo]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[espe_codigo]"
-                      name="espe_codigo"
-                      precision="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[vari_codigo]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[vari_codigo]"
-                      name="vari_codigo"
-                      precision="4"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[cate_codigo]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[cate_codigo]"
-                      name="cate_codigo"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[cate_codigo_destino]"
+                      name="cate_codigo_destino"
                       precision="3"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">cate_codigo</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_tipopa]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_tipopa_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_tipopa]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_tipopa]"
-                      name="paen_tipopa"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_tipopa_destino]"
+                      name="paen_tipopa_destino"
                       precision="1"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">paen_tipopa</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_feccon]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_feccon_destino]"
                       dataType="dbTimeStamp2"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_feccon]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_feccon]"
-                      name="paen_feccon"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_feccon_destino]"
+                      name="paen_feccon_destino"
                       scale="6"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">paen_feccon</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_altura]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_altura_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_altura]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_altura]"
-                      name="paen_altura"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_altura_destino]"
+                      name="paen_altura_destino"
                       precision="4"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">paen_altura</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_ccajas]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_ccajas_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_ccajas]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[paen_ccajas]"
-                      name="paen_ccajas"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[paen_ccajas_destino]"
+                      name="paen_ccajas_destino"
                       precision="7"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">paen_ccajas</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[bapa_codigo]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[bapa_codigo_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[bapa_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[bapa_codigo]"
-                      name="bapa_codigo"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[bapa_codigo_destino]"
+                      name="bapa_codigo_destino"
                       precision="1"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">bapa_codigo</property>
+                      </properties>
+                    </outputColumn>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[parr_codigo_destino]"
                       dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].Columns[parr_codigo]"
-                      name="parr_codigo"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Match Output].Columns[parr_codigo_destino]"
+                      name="parr_codigo_destino"
                       precision="2"
-                      truncationRowDisposition="FailComponent" />
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">parr_codigo</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
-                      dataType="numeric"
-                      name="pate_tempor"
-                      precision="4" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
-                      dataType="numeric"
-                      name="expo_codigo"
-                      precision="4" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
-                      dataType="numeric"
-                      name="paen_numero"
-                      precision="8" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
-                      dataType="numeric"
-                      name="plde_codigo"
-                      precision="4" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
-                      dataType="numeric"
-                      name="espe_codigo"
-                      precision="2" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
-                      dataType="numeric"
-                      name="vari_codigo"
-                      precision="4" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
-                      dataType="numeric"
-                      name="cate_codigo"
-                      precision="3" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_tipopa]"
-                      dataType="numeric"
-                      name="paen_tipopa"
-                      precision="1" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_feccon]"
-                      dataType="dbTimeStamp2"
-                      name="paen_feccon"
-                      scale="6" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_altura]"
-                      dataType="numeric"
-                      name="paen_altura"
-                      precision="4" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[paen_ccajas]"
-                      dataType="numeric"
-                      name="paen_ccajas"
-                      precision="7" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[bapa_codigo]"
-                      dataType="numeric"
-                      name="bapa_codigo"
-                      precision="1" />
-                    <externalMetadataColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
-                      dataType="numeric"
-                      name="parr_codigo"
-                      precision="2" />
-                  </externalMetadataColumns>
+                  <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output]"
+                  refId="Package\PalletEncab\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\PalletEncab\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PalletEncab\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
                   isErrorOut="true"
-                  name="OLE DB Source Error Output">
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\PalletEncab\Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
-                      name="pate_tempor"
-                      precision="4" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
-                      name="expo_codigo"
-                      precision="4" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
-                      name="paen_numero"
-                      precision="8" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
-                      name="plde_codigo"
-                      precision="4" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
-                      name="espe_codigo"
-                      precision="2" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
-                      name="vari_codigo"
-                      precision="4" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
-                      name="cate_codigo"
-                      precision="3" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_tipopa]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_tipopa]"
-                      name="paen_tipopa"
-                      precision="1" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_feccon]"
-                      dataType="dbTimeStamp2"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_feccon]"
-                      name="paen_feccon"
-                      scale="6" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_altura]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_altura]"
-                      name="paen_altura"
-                      precision="4" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_ccajas]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[paen_ccajas]"
-                      name="paen_ccajas"
-                      precision="7" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[bapa_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[bapa_codigo]"
-                      name="bapa_codigo"
-                      precision="1" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
-                      dataType="numeric"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
-                      name="parr_codigo"
-                      precision="2" />
-                    <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\PalletEncab\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\PalletEncab\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2453,7 +941,8 @@ espe_codigo=?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select pate_tempor, expo_codigo, paen_numero, plde_codigo, espe_codigo,       vari_codigo, cate_codigo, paen_tipopa, paen_feccon, paen_altura, paen_ccajas, bapa_codigo, parr_codigo
 from dbo.[spro_palletencab_ss]
-where pate_tempor=?</property>
+where pate_tempor=? and
+ Isnull(paen_sincro,0)=0</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2789,15 +1278,10 @@ where pate_tempor=?</property>
           </components>
           <paths>
             <path
-              refId="Package\PalletEncab.Paths[Agregar]"
+              refId="Package\PalletEncab.Paths[Lookup No Match Output]"
               endId="Package\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input]"
-              name="Agregar"
-              startId="Package\PalletEncab\Conditional Split.Outputs[Agregar]" />
-            <path
-              refId="Package\PalletEncab.Paths[Merge Join Output]"
-              endId="Package\PalletEncab\Conditional Split.Inputs[Conditional Split Input]"
-              name="Merge Join Output"
-              startId="Package\PalletEncab\Merge Join.Outputs[Merge Join Output]" />
+              name="Lookup No Match Output"
+              startId="Package\PalletEncab\Lookup.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\PalletEncab.Paths[OLE DB Command Output]"
               endId="Package\PalletEncab\Actualiza estado de transferido origen.Inputs[OLE DB Command Input]"
@@ -2805,24 +1289,9 @@ where pate_tempor=?</property>
               startId="Package\PalletEncab\Agrega Registros nuevos.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\PalletEncab.Paths[OLE DB Source Output]"
-              endId="Package\PalletEncab\Sort.Inputs[Sort Input]"
+              endId="Package\PalletEncab\Lookup.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\PalletEncab.Paths[OLE DB Source Output1]"
-              endId="Package\PalletEncab\Sort 1.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\PalletEncab\Spro_palletencab.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\PalletEncab.Paths[Sort Output]"
-              endId="Package\PalletEncab\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\PalletEncab\Sort.Outputs[Sort Output]" />
-            <path
-              refId="Package\PalletEncab.Paths[Sort Output1]"
-              endId="Package\PalletEncab\Merge Join.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\PalletEncab\Sort 1.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2836,7 +1305,7 @@ where pate_tempor=?</property>
       DTS:From="Package\PalletEncab"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\Data Flow Task 1" />
+      DTS:To="Package\PalletDetaFruta" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -2851,39 +1320,27 @@ where pate_tempor=?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\PalletDetaFruta"
+          TopLeft="183.571431697632,194.235296841724" />
+        <NodeLayout
           Size="132,41.6"
           Id="Package\PalletEncab"
-          TopLeft="192.85714614148,84.8823541316194" />
-        <NodeLayout
-          Size="160,41.6"
-          Id="Package\Data Flow Task 1"
-          TopLeft="191.428574688581,172.058825942472" />
+          TopLeft="192.14286041503,86.4117659177747" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="258.85714614148,126.482354131619">
+          TopLeft="258.457146056331,128.011765917775">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="12.5714285471009,45.5764718108526"
+              EndConnector="0,66.2235309239492"
               Start="0,0"
-              End="12.5714285471009,38.0764718108526">
+              End="0,58.7235309239492">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.7882359054263" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.7882359054263"
-                    Point2="0,22.7882359054263"
-                    Point3="4,22.7882359054263" />
-                  <mssgle:LineSegment
-                    End="8.57142854710094,22.7882359054263" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.57142854710094,22.7882359054263"
-                    Point2="12.5714285471009,22.7882359054263"
-                    Point3="12.5714285471009,26.7882359054263" />
-                  <mssgle:LineSegment
-                    End="12.5714285471009,38.0764718108526" />
+                    End="0,58.7235309239492" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2899,189 +1356,83 @@ where pate_tempor=?</property>
     design-time-name="Package\PalletEncab">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\PalletEncab\Spro_palletencab_ss"
-          TopLeft="159,91" />
+          TopLeft="140.666666354452,30.9705873934043" />
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\PalletEncab\Agrega Registros nuevos"
-          TopLeft="103,531" />
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\PalletEncab\Spro_palletencab"
-          TopLeft="628,91" />
-        <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\PalletEncab\Conditional Split"
-          TopLeft="400,402" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\PalletEncab\Sort 1"
-          TopLeft="587,207.6" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\PalletEncab\Sort"
-          TopLeft="253,201" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\PalletEncab\Merge Join"
-          TopLeft="405,316" />
+          TopLeft="28.3571415859826,284.382349482458" />
         <NodeLayout
           Size="256,41.6"
           Id="Package\PalletEncab\Actualiza estado de transferido origen"
-          TopLeft="67.1428531773236,650.635294106922" />
-        <EdgeLayout
-          Id="Package\PalletEncab.Paths[Sort Output1]"
-          TopLeft="635.8,249.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-145.733333333333,66.8"
-              Start="0,0"
-              End="-145.733333333333,59.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.5912195121951" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.5912195121951"
-                    Point2="0,39.5912195121951"
-                    Point3="-4,39.5912195121951" />
-                  <mssgle:LineSegment
-                    End="-141.733333333333,39.5912195121951" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-141.733333333333,39.5912195121951"
-                    Point2="-145.733333333333,39.5912195121951"
-                    Point3="-145.733333333333,43.5912195121951" />
-                  <mssgle:LineSegment
-                    End="-145.733333333333,59.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PalletEncab.Paths[Sort Output]"
-          TopLeft="301.8,242.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="168,73.4000000000001"
-              Start="0,0"
-              End="168,65.9000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.7"
-                    Point2="0,36.7"
-                    Point3="4,36.7" />
-                  <mssgle:LineSegment
-                    End="164,36.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="164,36.7"
-                    Point2="168,36.7"
-                    Point3="168,40.7" />
-                  <mssgle:LineSegment
-                    End="168,65.9000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PalletEncab.Paths[OLE DB Source Output1]"
-          TopLeft="707.6,132.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-71.7999999999998,75.0000000000001"
-              Start="0,0"
-              End="-71.7999999999998,67.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="-4,37.5" />
-                  <mssgle:LineSegment
-                    End="-67.7999999999998,37.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-67.7999999999998,37.5"
-                    Point2="-71.7999999999998,37.5"
-                    Point3="-71.7999999999998,41.5" />
-                  <mssgle:LineSegment
-                    End="-71.7999999999998,67.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PalletEncab.Paths[OLE DB Source Output]"
-          TopLeft="246.2,132.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="55.6,68.4"
-              Start="0,0"
-              End="55.6,60.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.2"
-                    Point2="0,34.2"
-                    Point3="4,34.2" />
-                  <mssgle:LineSegment
-                    End="51.6,34.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="51.6,34.2"
-                    Point2="55.6,34.2"
-                    Point3="55.6,38.2" />
-                  <mssgle:LineSegment
-                    End="55.6,60.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="88.5714249708215,407.841173054767" />
         <EdgeLayout
           Id="Package\PalletEncab.Paths[OLE DB Command Output]"
-          TopLeft="197.871426588662,572.6">
+          TopLeft="125.957141585983,325.982349482458">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78.0352941069222"
+              EndConnector="90.6142833848389,81.8588235723097"
               Start="0,0"
-              End="0,70.5352941069222">
+              End="90.6142833848389,74.3588235723097">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.5352941069222" />
+                    End="0,36.9294117861548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.9294117861548"
+                    Point2="0,40.9294117861548"
+                    Point3="4,40.9294117861548" />
+                  <mssgle:LineSegment
+                    End="86.6142833848389,40.9294117861548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.6142833848389,40.9294117861548"
+                    Point2="90.6142833848389,40.9294117861548"
+                    Point3="90.6142833848389,44.9294117861548" />
+                  <mssgle:LineSegment
+                    End="90.6142833848389,74.3588235723097" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\PalletEncab\Lookup"
+          TopLeft="278.095242831172,157.147061027458" />
+        <EdgeLayout
+          Id="Package\PalletEncab.Paths[OLE DB Source Output]"
+          TopLeft="227.866666354452,72.5705873934043">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106.62857647672,84.5764736340536"
+              Start="0,0"
+              End="106.62857647672,77.0764736340536">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2882368170268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.2882368170268"
+                    Point2="0,42.2882368170268"
+                    Point3="4,42.2882368170268" />
+                  <mssgle:LineSegment
+                    End="102.62857647672,42.2882368170268" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102.62857647672,42.2882368170268"
+                    Point2="106.62857647672,42.2882368170268"
+                    Point3="106.62857647672,46.2882368170268" />
+                  <mssgle:LineSegment
+                    End="106.62857647672,77.0764736340536" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3091,63 +1442,48 @@ where pate_tempor=?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\PalletEncab.Paths[Merge Join Output]"
-          TopLeft="473.5,357.6">
+          Id="Package\PalletEncab.Paths[Lookup No Match Output]"
+          TopLeft="334.495242831172,198.747061027458">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.4"
+              EndConnector="-208.538101245189,85.6352884549996"
               Start="0,0"
-              End="0,36.9">
+              End="-208.538101245189,78.1352884549996">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PalletEncab.Paths[Agregar]"
-          TopLeft="477.2,443.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-276.6,87.3999999999998"
-              Start="0,0"
-              End="-276.6,79.8999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.6999999999999" />
+                    End="0,38.8176442274998" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,39.6999999999999"
-                    Point2="0,43.6999999999999"
-                    Point3="-4,43.6999999999999" />
+                    Point1="0,38.8176442274998"
+                    Point2="0,42.8176442274998"
+                    Point3="-4,42.8176442274998" />
                   <mssgle:LineSegment
-                    End="-272.6,43.6999999999999" />
+                    End="-204.538101245189,42.8176442274998" />
                   <mssgle:CubicBezierSegment
-                    Point1="-272.6,43.6999999999999"
-                    Point2="-276.6,43.6999999999999"
-                    Point3="-276.6,47.6999999999999" />
+                    Point1="-204.538101245189,42.8176442274998"
+                    Point2="-208.538101245189,42.8176442274998"
+                    Point3="-208.538101245189,46.8176442274998" />
                   <mssgle:LineSegment
-                    End="-276.6,79.8999999999998" />
+                    End="-208.538101245189,78.1352884549996" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-156.6867578125,48.6999999999999,36.773515625,11.3359375"
+              BoundingBox="-160.075437341345,47.8176442274998,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Este Componente Buscara en el destino si el registro esta"
+          ParentId="Package\PalletEncab"
+          FontInfo="{assembly:Null}"
+          Size="330.4,60"
+          Id="94759265-4f36-43a7-88f8-397a7f5599e6"
+          TopLeft="335.119053326091,103.490197529842" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3160,15 +1496,25 @@ where pate_tempor=?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\PalletEncab\Spro_palletencab">
+    design-time-name="Package\PalletEncab\Lookup">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
