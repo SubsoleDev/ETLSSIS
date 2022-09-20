@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="179"
-  DTS:VersionGUID="{629FDEE7-AFEE-48E4-A13B-54F20128B8E2}">
+  DTS:VersionBuild="181"
+  DTS:VersionGUID="{B21CEC4E-AE90-4A8B-B375-AFF5CD559606}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3710,7 +3710,7 @@ fecha_vaciado is null</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [id] = 1,
       [nro_orden_trabajo] = det.[orpr_numero],
-      [nro_lote] =convert(numeric(10,0), replace(dba.lote_productor(det.lote_pltcod,det.lote_espcod,det.lote_codigo),'.','')),
+      [nro_lote] =det.lote_codigo,
       [folio] =t.lote_codbar,
       [fecha_vaciado] =null ,
       [cantidad_envases] =1
@@ -3844,7 +3844,7 @@ and  orpr_tipope=1</property>
                           refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Output].ExternalColumns[nro_lote]"
                           dataType="numeric"
                           name="nro_lote"
-                          precision="10" />
+                          precision="4" />
                         <externalMetadataColumn
                           refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Output].ExternalColumns[folio]"
                           codePage="1252"
@@ -3882,7 +3882,7 @@ and  orpr_tipope=1</property>
                           dataType="numeric"
                           lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Error Output].Columns[nro_lote]"
                           name="nro_lote"
-                          precision="10" />
+                          precision="4" />
                         <outputColumn
                           refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Error Output].Columns[folio]"
                           codePage="1252"
@@ -6369,7 +6369,7 @@ nro_lote	=?
       [fecha_cosecha] = lot.lote_feccos,
       [guia] = lot.lote_guisii,
       [nro_proceso] = det.orpr_numero,
-      [nro_lote] = convert(numeric(10,0), replace(dba.lote_productor(det.lote_pltcod,det.lote_espcod,det.lote_codigo),'.','')),
+      [nro_lote] = det.lote_codigo,
       [cod_productor_etiquetado] = lot.prod_codigo,
       [cod_variedad_etiquetada] = lot.vari_codigo,
       [cantidad_bins] = det.orpd_canbul,
@@ -6664,7 +6664,7 @@ and  orpr_tipope=1</property>
                           refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems.Outputs[OLE DB Source Output].ExternalColumns[nro_lote]"
                           dataType="numeric"
                           name="nro_lote"
-                          precision="10" />
+                          precision="4" />
                         <externalMetadataColumn
                           refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems.Outputs[OLE DB Source Output].ExternalColumns[cod_productor_etiquetado]"
                           dataType="numeric"
@@ -6770,7 +6770,7 @@ and  orpr_tipope=1</property>
                           dataType="numeric"
                           lineageId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems.Outputs[OLE DB Source Error Output].Columns[nro_lote]"
                           name="nro_lote"
-                          precision="10" />
+                          precision="4" />
                         <outputColumn
                           refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems.Outputs[OLE DB Source Error Output].Columns[cod_productor_etiquetado]"
                           dataType="numeric"

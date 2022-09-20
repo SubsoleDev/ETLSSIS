@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="137"
-  DTS:VersionGUID="{CA5232D9-034B-405C-A788-84CADB1C25EA}">
+  DTS:VersionBuild="143"
+  DTS:VersionGUID="{8CEE4378-3F88-4356-8E05-68325D8B61D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2660,7 +2660,7 @@ where [refTable].[lote_pltcod] = ? and [refTable].[lote_espcod] = ? and [refTabl
                       dataType="System.Int32"
                       description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                       name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">0</property>
+                      typeConverter="LookupNoMatchBehavior">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -2763,7 +2763,6 @@ where [refTable].[lote_pltcod] = ? and [refTable].[lote_espcod] = ? and [refTabl
                     <output
                       refId="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota.Outputs[Lookup Match Output]"
                       errorOrTruncationOperation="Lookup"
-                      errorRowDisposition="FailComponent"
                       exclusionGroup="1"
                       name="Lookup Match Output"
                       synchronousInputId="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota.Inputs[Lookup Input]">
@@ -2810,6 +2809,55 @@ where [refTable].[lote_pltcod] = ? and [refTable].[lote_espcod] = ? and [refTabl
                           refId="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -3912,6 +3960,11 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
               </components>
               <paths>
                 <path
+                  refId="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Derived Column Output]"
+                  endId="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Outputs[Derived Column Output]" />
+                <path
                   refId="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup Match Output]"
                   endId="Package\Contenedor de secuencias\PalletDetaFruta\Valida que no exista en destino.Inputs[Lookup Input]"
                   name="Lookup Match Output"
@@ -3928,7 +3981,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                   startId="Package\Contenedor de secuencias\PalletDetaFruta\Valida que no exista en destino.Outputs[Lookup No Match Output]" />
                 <path
                   refId="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup No Match Output1]"
-                  endId="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota.Inputs[Lookup Input]"
+                  endId="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column.Inputs[Derived Column Input]"
                   name="Lookup No Match Output"
                   startId="Package\Contenedor de secuencias\PalletDetaFruta\Sin Nota encab.Outputs[Lookup No Match Output]" />
                 <path
@@ -7926,21 +7979,21 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
         <NodeLayout
           Size="132,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab"
-          TopLeft="41.9857334747603,22.6294135181962" />
+          TopLeft="41.9857334747603,21.8647076251186" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 2]"
-          TopLeft="109.371447705736,64.2294135181962">
+          TopLeft="109.371447705736,63.4647076251186">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,101.400002005521"
+              EndConnector="0,102.164707898598"
               Start="0,0"
-              End="0,93.9000020055213">
+              End="0,94.6647078985984">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,93.9000020055213" />
+                    End="0,94.6647078985984" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7966,26 +8019,26 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-25.4642851942655,76.2558888387088"
+              EndConnector="-25.464285194265,76.2558888387091"
               Start="0,0"
-              End="-25.4642851942655,68.7558888387088">
+              End="-25.464285194265,68.7558888387091">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.1279444193544" />
+                    End="0,34.1279444193545" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.1279444193544"
-                    Point2="0,38.1279444193544"
-                    Point3="-4,38.1279444193544" />
+                    Point1="0,34.1279444193545"
+                    Point2="0,38.1279444193545"
+                    Point3="-4,38.1279444193545" />
                   <mssgle:LineSegment
-                    End="-21.4642851942655,38.1279444193544" />
+                    End="-21.464285194265,38.1279444193545" />
                   <mssgle:CubicBezierSegment
-                    Point1="-21.4642851942655,38.1279444193544"
-                    Point2="-25.4642851942655,38.1279444193544"
-                    Point3="-25.4642851942655,42.1279444193544" />
+                    Point1="-21.464285194265,38.1279444193545"
+                    Point2="-25.464285194265,38.1279444193545"
+                    Point3="-25.464285194265,42.1279444193545" />
                   <mssgle:LineSegment
-                    End="-25.4642851942655,68.7558888387088" />
+                    End="-25.464285194265,68.7558888387091" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8000,26 +8053,26 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="33.8428565407287,73.752943986345"
+              EndConnector="33.842856540729,73.7529439863451"
               Start="0,0"
-              End="33.8428565407287,66.252943986345">
+              End="33.842856540729,66.2529439863451">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.8764719931725" />
+                    End="0,32.8764719931726" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.8764719931725"
-                    Point2="0,36.8764719931725"
-                    Point3="4,36.8764719931725" />
+                    Point1="0,32.8764719931726"
+                    Point2="0,36.8764719931726"
+                    Point3="4,36.8764719931726" />
                   <mssgle:LineSegment
-                    End="29.8428565407287,36.8764719931725" />
+                    End="29.842856540729,36.8764719931726" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.8428565407287,36.8764719931725"
-                    Point2="33.8428565407287,36.8764719931725"
-                    Point3="33.8428565407287,40.8764719931725" />
+                    Point1="29.842856540729,36.8764719931726"
+                    Point2="33.842856540729,36.8764719931726"
+                    Point3="33.842856540729,40.8764719931726" />
                   <mssgle:LineSegment
-                    End="33.8428565407287,66.252943986345" />
+                    End="33.842856540729,66.2529439863451" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8319,11 +8372,11 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Contenedor de secuencias\PalletDetaFruta\Busca el tipoenvase"
-          TopLeft="80,280.4" />
+          TopLeft="59,326.4" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Contenedor de secuencias\PalletDetaFruta\Busca La nota"
-          TopLeft="316.615384615385,182.784615384615" />
+          TopLeft="364.615384615385,315.784615384615" />
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Contenedor de secuencias\PalletDetaFruta\Sin Nota encab"
@@ -8375,7 +8428,9 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="54.6923076923077,-22,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -8413,42 +8468,6 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup No Match Output1]"
-          TopLeft="421.8,104.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33.1846153846155,77.984615384615"
-              Start="0,0"
-              End="-33.1846153846155,70.484615384615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.9923076923075" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.9923076923075"
-                    Point2="0,38.9923076923075"
-                    Point3="-4,38.9923076923075" />
-                  <mssgle:LineSegment
-                    End="-29.1846153846155,38.9923076923075" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.1846153846155,38.9923076923075"
-                    Point2="-33.1846153846155,38.9923076923075"
-                    Point3="-33.1846153846155,42.9923076923075" />
-                  <mssgle:LineSegment
-                    End="-33.1846153846155,70.484615384615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-72.3986944110577,43.9923076923075,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup No Match Output]"
           TopLeft="227.723076923077,490.938461538462">
           <EdgeLayout.Curve>
@@ -8480,80 +8499,154 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="27.7013055889419,55.8923076923075,111.6127734375,11.609375"
+              BoundingBox="27.701305588942,55.8923076923075,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup Match Output1]"
-          TopLeft="388.615384615385,224.384615384615">
+          TopLeft="364.615384615385,336.584615384615">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-223.015384615385,56.015384615385"
+              EndConnector="-134.415384615385,10.6153846153849"
               Start="0,0"
-              End="-223.015384615385,48.515384615385">
+              End="-126.915384615385,10.6153846153849">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.0076923076925" />
+                    End="-63.2076923076926,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.0076923076925"
-                    Point2="0,28.0076923076925"
-                    Point3="-4,28.0076923076925" />
+                    Point1="-63.2076923076926,0"
+                    Point2="-67.2076923076926,0"
+                    Point3="-67.2076923076926,4" />
                   <mssgle:LineSegment
-                    End="-219.015384615385,28.0076923076925" />
+                    End="-67.2076923076926,6.61538461538493" />
                   <mssgle:CubicBezierSegment
-                    Point1="-219.015384615385,28.0076923076925"
-                    Point2="-223.015384615385,28.0076923076925"
-                    Point3="-223.015384615385,32.0076923076925" />
+                    Point1="-67.2076923076926,6.61538461538493"
+                    Point2="-67.2076923076926,10.6153846153849"
+                    Point3="-71.2076923076926,10.6153846153849" />
                   <mssgle:LineSegment
-                    End="-223.015384615385,48.515384615385" />
+                    End="-126.915384615385,10.6153846153849" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-159.699079026442,33.0076923076925,96.3827734375,11.609375"
+              BoundingBox="-115.399079026443,-17.609375,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup Match Output]"
-          TopLeft="165.6,322">
+          TopLeft="144.6,368">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="25.8564102564104,127.338461538462"
+              EndConnector="83.123076923077,81.338461538462"
               Start="0,0"
-              End="25.8564102564104,119.838461538462">
+              End="83.123076923077,73.838461538462">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,71.8650270855907" />
+                    End="0,36.669230769231" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,71.8650270855907"
-                    Point2="0,75.8650270855907"
-                    Point3="4,75.8650270855907" />
+                    Point1="0,36.669230769231"
+                    Point2="0,40.669230769231"
+                    Point3="4,40.669230769231" />
                   <mssgle:LineSegment
-                    End="21.8564102564104,75.8650270855907" />
+                    End="79.123076923077,40.669230769231" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.8564102564104,75.8650270855907"
-                    Point2="25.8564102564104,75.8650270855907"
-                    Point3="25.8564102564104,79.8650270855907" />
+                    Point1="79.123076923077,40.669230769231"
+                    Point2="83.123076923077,40.669230769231"
+                    Point3="83.123076923077,44.669230769231" />
                   <mssgle:LineSegment
-                    End="25.8564102564104,119.838461538462" />
+                    End="83.123076923077,73.838461538462" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-35.2631815905448,80.8650270855907,96.3827734375,11.609375"
+              BoundingBox="-6.6298482572115,45.669230769231,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Contenedor de secuencias\PalletDetaFruta\Derived Column"
+          TopLeft="558,195" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Lookup No Match Output1]"
+          TopLeft="421.8,104.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212.6,90.2"
+              Start="0,0"
+              End="212.6,82.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.1" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.1"
+                    Point2="0,45.1"
+                    Point3="4,45.1" />
+                  <mssgle:LineSegment
+                    End="208.6,45.1" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208.6,45.1"
+                    Point2="212.6,45.1"
+                    Point3="212.6,49.1" />
+                  <mssgle:LineSegment
+                    End="212.6,82.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="50.49361328125,50.1,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\PalletDetaFruta.Paths[Derived Column Output]"
+          TopLeft="634.4,236.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-197.784615384615,79.1846153846151"
+              Start="0,0"
+              End="-197.784615384615,71.6846153846151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5923076923075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5923076923075"
+                    Point2="0,39.5923076923075"
+                    Point3="-4,39.5923076923075" />
+                  <mssgle:LineSegment
+                    End="-193.784615384615,39.5923076923075" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-193.784615384615,39.5923076923075"
+                    Point2="-197.784615384615,39.5923076923075"
+                    Point3="-197.784615384615,43.5923076923075" />
+                  <mssgle:LineSegment
+                    End="-197.784615384615,71.6846153846151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -8575,7 +8668,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -8585,7 +8678,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8643,7 +8736,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
         <NodeLayout
           Size="218.4,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje"
-          TopLeft="227.238094873169,1060.4745134682" />
+          TopLeft="228.428571083919,1077.04314115155" />
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos"
@@ -8658,33 +8751,33 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="60.133330949148,52.4294098110199"
+              EndConnector="61.3238071598979,68.9980374943692"
               Start="0,0"
-              End="60.133330949148,44.9294098110199">
+              End="61.3238071598979,61.4980374943692">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.21470490551" />
+                    End="0,30.4990187471846" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.21470490551"
-                    Point2="0,26.21470490551"
-                    Point3="4,26.21470490551" />
+                    Point1="0,30.4990187471846"
+                    Point2="0,34.4990187471846"
+                    Point3="4,34.4990187471846" />
                   <mssgle:LineSegment
-                    End="56.133330949148,26.21470490551" />
+                    End="57.3238071598979,34.4990187471846" />
                   <mssgle:CubicBezierSegment
-                    Point1="56.133330949148,26.21470490551"
-                    Point2="60.133330949148,26.21470490551"
-                    Point3="60.133330949148,30.21470490551" />
+                    Point1="57.3238071598979,34.4990187471846"
+                    Point2="61.3238071598979,34.4990187471846"
+                    Point3="61.3238071598979,38.4990187471846" />
                   <mssgle:LineSegment
-                    End="60.133330949148,44.9294098110199" />
+                    End="61.3238071598979,61.4980374943692" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-34.608373587926,31.21470490551,129.350078125,16"
+              BoundingBox="-25.1444831388011,39.4990187471846,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8708,31 +8801,31 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-57.0600390625,53.1019617611565,114.120078125,16"
+              BoundingBox="-48.19138671875,55.2972742611565,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\PalletEncab.Paths[Lookup Match Output]"
-          TopLeft="335.35238150788,1102.0745134682">
+          TopLeft="335.947619613255,1118.64314115155">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,64.7431331598514"
+              EndConnector="0,48.1745054765026"
               Start="0,0"
-              End="0,57.2431331598514">
+              End="0,40.6745054765026">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.2431331598514" />
+                    End="0,40.6745054765026" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,22.8168790799257,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.5325652382513,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9040,7 +9133,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-18.51701171875,53.665686006392,37.0340234375,16"
+              BoundingBox="-9.648359375,56.954748506392,19.29671875,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
