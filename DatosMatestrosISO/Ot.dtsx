@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="178"
-  DTS:VersionGUID="{4292D9AD-5F29-4AEB-BB47-61B061588895}">
+  DTS:VersionBuild="179"
+  DTS:VersionGUID="{629FDEE7-AFEE-48E4-A13B-54F20128B8E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3710,7 +3710,7 @@ fecha_vaciado is null</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [id] = 1,
       [nro_orden_trabajo] = det.[orpr_numero],
-      [nro_lote] =det.lote_codigo,
+      [nro_lote] =convert(numeric(10,0), replace(dba.lote_productor(det.lote_pltcod,det.lote_espcod,det.lote_codigo),'.','')),
       [folio] =t.lote_codbar,
       [fecha_vaciado] =null ,
       [cantidad_envases] =1
@@ -3844,7 +3844,7 @@ and  orpr_tipope=1</property>
                           refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Output].ExternalColumns[nro_lote]"
                           dataType="numeric"
                           name="nro_lote"
-                          precision="4" />
+                          precision="10" />
                         <externalMetadataColumn
                           refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Output].ExternalColumns[folio]"
                           codePage="1252"
@@ -3882,7 +3882,7 @@ and  orpr_tipope=1</property>
                           dataType="numeric"
                           lineageId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Error Output].Columns[nro_lote]"
                           name="nro_lote"
-                          precision="4" />
+                          precision="10" />
                         <outputColumn
                           refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Outputs[OLE DB Source Error Output].Columns[folio]"
                           codePage="1252"
@@ -9446,7 +9446,7 @@ and  orpr_tipope=1</property>
         <NodeLayout
           Size="127.2,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-ORigen"
-          TopLeft="941.857149802909,118.907563009889" />
+          TopLeft="935.42857826486,73.0252094252299" />
         <NodeLayout
           Size="154.4,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Conditional Split"
@@ -9565,30 +9565,30 @@ and  orpr_tipope=1</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle.Paths[OLE DB Source Output1]"
-          TopLeft="1005.45714980291,160.507563009889">
+          TopLeft="999.02857826486,114.62520942523">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.31428572645,72.021848776266"
+              EndConnector="20.7428572644992,117.904202360925"
               Start="0,0"
-              End="14.31428572645,64.521848776266">
+              End="20.7428572644992,110.404202360925">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.010924388133" />
+                    End="0,54.9521011804626" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.010924388133"
-                    Point2="0,36.010924388133"
-                    Point3="4,36.010924388133" />
+                    Point1="0,54.9521011804626"
+                    Point2="0,58.9521011804626"
+                    Point3="4,58.9521011804626" />
                   <mssgle:LineSegment
-                    End="10.31428572645,36.010924388133" />
+                    End="16.7428572644992,58.9521011804626" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.31428572645,36.010924388133"
-                    Point2="14.31428572645,36.010924388133"
-                    Point3="14.31428572645,40.010924388133" />
+                    Point1="16.7428572644992,58.9521011804626"
+                    Point2="20.7428572644992,58.9521011804626"
+                    Point3="20.7428572644992,62.9521011804626" />
                   <mssgle:LineSegment
-                    End="14.31428572645,64.521848776266" />
+                    End="20.7428572644992,110.404202360925" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
