@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="Destinos"
   DTS:DTSID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}"
@@ -10,7 +10,7 @@
       DTS:ConnectionString="Data Source=Osiris\ERPproduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAACu4PV2XfcxOKXHd/sNFiX1AAAAAASAAACgAAAAEAAAANVjXlxrZt1VXbFtZYWBs994AAAAGC52NPJt6G3/0oPyRXeunMvG4ZVQ+9ZKqiP21EkV2C02oGB7Nmn0Q7zhFt6EgYA+pT3YWgs8r7PTkVs2GQwj5W3apkSDiLFe4u8K+eAFMbBHVUK8J6mAZbp6U5VSANXnSenG18Ev0GjC8WElQoVVKARMqNSoUU75FAAAAC1XDtA0EzIY37G6fD00XuGkx7d/</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAAB8uUNtohV/e0e6gJ/Y7WxjAAAAAASAAACgAAAAEAAAAMk6/rmutF8Gbvdhcc6RRpB4AAAAvUO2gcTbgRSK79I6K5J9G+TblxX9g02JImgebR0aAyzYFCvTbXPnfxspMgJXuggz41P2aVetwVLgYx7kfFfv1PP/oluDzPKgyDBz8ylp5Cv4mMFftPtCBgThNIi06xDZs7/3hbRvdPfivWoEyfiojMMaLBKgfBE9FAAAAAEj1L77c249Y+3tglngxB3qpAPP</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

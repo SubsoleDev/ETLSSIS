@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/17/2022 9:11:12 AM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="14"
-  DTS:VersionGUID="{033EAB1D-2539-4FB9-BE76-B9F0BD910B62}">
+  DTS:VersionGUID="{73AD4A7E-18E8-4364-9681-0ED3AF9B3013}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -271,8 +271,8 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
               <connections>
                 <connection
                   refId="Package\Cuarteles\Cuarteles-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -563,8 +563,8 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
               <connections>
                 <connection
                   refId="Package\Cuarteles\Cuartel_Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1660,8 +1660,8 @@ cod_predio=? where cod_cuartel=?
               <connections>
                 <connection
                   refId="Package\Cuarteles\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1928,8 +1928,8 @@ cod_predio=? where cod_cuartel=?
               <connections>
                 <connection
                   refId="Package\Cuarteles\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2080,8 +2080,8 @@ cod_predio=? where cod_cuartel=?
               <connections>
                 <connection
                   refId="Package\Cuarteles\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

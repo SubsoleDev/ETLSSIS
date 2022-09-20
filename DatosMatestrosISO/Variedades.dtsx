@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/17/2022 9:10:09 AM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="24"
-  DTS:VersionGUID="{A419B702-31D7-469C-B8C9-5F1671E27D22}">
+  DTS:VersionGUID="{9A6B41FD-F352-4C38-BA16-BDCFA61FFE27}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -74,8 +74,8 @@ cod_especie = ?
               <connections>
                 <connection
                   refId="Package\Variedades\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -268,8 +268,8 @@ cod_especie = ?
               <connections>
                 <connection
                   refId="Package\Variedades\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -981,8 +981,8 @@ cod_especie = ?
               <connections>
                 <connection
                   refId="Package\Variedades\Elimina.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1712,8 +1712,8 @@ cod_especie = ?
               <connections>
                 <connection
                   refId="Package\Variedades\Variedad Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1898,8 +1898,8 @@ where espe_codigo=?</property>
               <connections>
                 <connection
                   refId="Package\Variedades\Variedad Origen.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/17/2022 9:10:30 AM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="19"
-  DTS:VersionGUID="{6797039F-B400-47D2-B575-E99E068F5883}">
+  DTS:VersionGUID="{FB95B2DA-4ECA-4A1C-9563-F06702A192EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -76,8 +76,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -332,8 +332,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1054,8 +1054,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Elimina.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1404,8 +1404,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Productor-Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1679,8 +1679,8 @@ where espe_codigo=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Productor-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

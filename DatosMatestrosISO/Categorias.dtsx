@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/18/2022 11:20:47 AM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="11"
-  DTS:VersionGUID="{04C55AC1-A184-46B3-AFE6-E949DAA7FF59}">
+  DTS:VersionGUID="{9ECE9290-5108-4B77-BF78-3898578C3A5B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -96,8 +96,8 @@
               <connections>
                 <connection
                   refId="Package\Categorias\Categorias-Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -259,8 +259,8 @@
               <connections>
                 <connection
                   refId="Package\Categorias\Categorias-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1000,8 +1000,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1141,8 +1141,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1272,8 +1272,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

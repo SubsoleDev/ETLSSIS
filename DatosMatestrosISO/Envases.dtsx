@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/17/2022 2:47:29 PM"
@@ -12,7 +12,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="34"
-  DTS:VersionGUID="{DA122B6B-541A-4A3A-AABC-59E54779B67D}">
+  DTS:VersionGUID="{B7F60029-1309-4E76-BD0C-22D3AB0BBF93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -75,8 +75,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -312,8 +312,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -923,8 +923,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\Elimina.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1065,8 +1065,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\envases.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1304,8 +1304,8 @@ where Exists(select *
               <connections>
                 <connection
                   refId="Package\Envases\envases Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
