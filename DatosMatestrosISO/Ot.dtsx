@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/23/2022 12:45:54 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="176"
-  DTS:VersionGUID="{09702AD7-8B13-43E9-B832-B0626716007D}">
+  DTS:VersionBuild="178"
+  DTS:VersionGUID="{4292D9AD-5F29-4AEB-BB47-61B061588895}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,7 +100,7 @@
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.orden_trabajo_ext set
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dbo.orden_trabajo_ext set
 cod_empresa = ?,
 cod_planta  = ?,
 cod_temporada = ?,
@@ -116,8 +116,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -565,7 +565,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete from dbo.orden_trabajo_ext 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">delete from dbo.orden_trabajo_ext 
 where nro_orden_trabajo = ? and integrado='N'</property>
                     <property
                       dataType="System.Int32"
@@ -575,8 +575,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\Eliminar.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1120,7 +1120,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -1146,8 +1146,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\Orden trabajo.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1426,7 +1426,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1460,8 +1460,8 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2358,7 +2358,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [Id]=ROW_NUMBER() OVER(ORDER BY orp.orpr_numero ASC) ,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [Id]=ROW_NUMBER() OVER(ORDER BY orp.orpr_numero ASC) ,
         [nro_orden_trabajo] = orp.orpr_numero,
 		[cod_empresa] = 268,
 		[cod_planta] =orp.plde_codigo,
@@ -2398,8 +2398,8 @@ and     orp.orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                      connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2720,7 +2720,7 @@ and     orp.orpr_tipope=1</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.orden_trabajo_ext_detalle set
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dbo.orden_trabajo_ext_detalle set
 fecha_vaciado = ?,
  cantidad_envases = ? 
 where 
@@ -2735,8 +2735,8 @@ folio = ?</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Actualiza Items.Connections[OleDbConnection]"
-                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
-                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2909,7 +2909,7 @@ folio = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2943,8 +2943,8 @@ folio = ?</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Agrega detalle.Connections[OleDbConnection]"
-                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
-                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3277,7 +3277,7 @@ folio = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete  dbo.orden_trabajo_ext_detalle 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">delete  dbo.orden_trabajo_ext_detalle 
 where 
 nro_orden_trabajo  = ? and 
 nro_lote = ?  and 
@@ -3291,8 +3291,8 @@ fecha_vaciado is null</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Elimina detalle.Connections[OleDbConnection]"
-                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
-                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3708,7 +3708,7 @@ fecha_vaciado is null</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [id] = 1,
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [id] = 1,
       [nro_orden_trabajo] = det.[orpr_numero],
       [nro_lote] =det.lote_codigo,
       [folio] =t.lote_codbar,
@@ -3758,8 +3758,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-Detalle.Connections[OleDbConnection]"
-                      connectionManagerID="{B9269F69-F478-4584-9A5A-942425A08937}:invalid"
-                      connectionManagerRefId="{B9269F69-F478-4584-9A5A-942425A08937}:invalid"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3942,7 +3942,7 @@ and  orpr_tipope=1</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -3968,8 +3968,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\Orden Trabajo Detalle\Ot-ORigen.Connections[OleDbConnection]"
-                      connectionManagerID="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
-                      connectionManagerRefId="{42065093-654F-415E-9137-FAF627D7C474}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4717,7 +4717,7 @@ and  orpr_tipope=1</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update  dbo.orden_trabajo_ext_items	set
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update  dbo.orden_trabajo_ext_items	set
 cod_sdp	=?,
 cod_cuartel	=?,
 cod_productor	=?,
@@ -4743,8 +4743,8 @@ nro_lote	=?
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Actualiza Items.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5477,7 +5477,7 @@ nro_lote	=?
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete from  dbo.orden_trabajo_ext_items	
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">delete from  dbo.orden_trabajo_ext_items	
 where nro_orden_trabajo	=? And
 nro_lote	=?
 </property>
@@ -5489,8 +5489,8 @@ nro_lote	=?
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Eliminar items.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6358,7 +6358,7 @@ nro_lote	=?
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [id] = Row_Number() over (ORDER BY det.orpr_numero ASC),
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [id] = Row_Number() over (ORDER BY det.orpr_numero ASC),
       [nro_orden_trabajo] = det.orpr_numero,      
       [cod_sdp] = left(prc.prcc_cuartsag,20),
       [cod_cuartel]  = Convert(varchar(20),FORMAT(lot.prbr_codpre,'00')+
@@ -6417,8 +6417,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\OrdenItems.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                      connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6851,7 +6851,7 @@ and  orpr_tipope=1</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -6877,8 +6877,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\ORdenItems-Destino.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -7320,7 +7320,7 @@ and  orpr_tipope=1</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -7354,8 +7354,8 @@ and  orpr_tipope=1</property>
                   <connections>
                     <connection
                       refId="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Ot-Items-Destino.Connections[OleDbConnection]"
-                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                      connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                      connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
