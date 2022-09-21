@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="186"
-  DTS:VersionGUID="{E84F66FE-8EB6-41E9-ADD1-6B3D7DF6F815}">
+  DTS:VersionBuild="188"
+  DTS:VersionGUID="{4D1660E0-5F5F-4C7A-9533-1171818C0791}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,14 +28,14 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Cache_embase]"
+      DTS:refId="Package.ConnectionManagers[Cache_envase]"
       DTS:CreationName="CACHE"
       DTS:DTSID="{7F18F619-64CF-4CFB-95D3-5AD2655F5D6D}"
-      DTS:ObjectName="Cache_embase">
+      DTS:ObjectName="Cache_envase">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:UseFile="True"
-          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_PallEmbase.caw">
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_PallEnvase.caw">
           <DTS:CacheColumns>
             <DTS:CacheColumn
               DTS:DataType="129"
@@ -43,19 +43,19 @@
               DTS:CodePage="1252"
               DTS:IndexPosition="1"
               DTS:ObjectName="emba_codigo"
-              DTS:DTSID="{C39F8121-9EE8-49A2-A8C1-00CBF687474C}"
+              DTS:DTSID="{2D6E9DF8-F9FA-495C-BF15-B775C87B021D}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="131"
               DTS:Precision="1"
               DTS:ObjectName="enva_tipoen"
-              DTS:DTSID="{88996920-9831-49A2-A674-2EAD536D96C4}"
+              DTS:DTSID="{4DBD94E1-C6A9-4D7E-AEC9-492E6ED73B57}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="131"
               DTS:Precision="3"
               DTS:ObjectName="enva_codigo"
-              DTS:DTSID="{553319F7-0DB0-4D6C-ADFF-A3C219E2B4C7}"
+              DTS:DTSID="{4070AD33-5CDF-4E80-A102-AC96BF4D2556}"
               DTS:CreationName="" />
           </DTS:CacheColumns>
         </DTS:ConnectionManager>
@@ -8883,9 +8883,9 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           SendMailTask:SMTPServer="{DEE0EF4D-B8C8-4ED2-8119-C002AA8527ED}"
           SendMailTask:From="noreply@subsole.com"
           SendMailTask:To="etl@subsole.com"
-          SendMailTask:Subject="Transferencia de Pallets"
+          SendMailTask:Subject="Transferencia de Pallets Error"
           SendMailTask:Priority="High"
-          SendMailTask:MessageSource="Ok" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          SendMailTask:MessageSource="Error en la transferencia de pallets, ver el detalle en sql" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -8897,7 +8897,8 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
       DTS:From="Package\Contenedor de secuencias"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\Notificacion" />
+      DTS:To="Package\Notificacion"
+      DTS:Value="1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
@@ -9035,7 +9036,9 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="51.8855980242031,-15.421875,23.0573828125,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9407,9 +9410,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9443,9 +9444,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9480,7 +9479,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.3986944110575,110.492307692308,111.6127734375,11.609375"
+              BoundingBox="-48.3986944110574,110.492307692308,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
