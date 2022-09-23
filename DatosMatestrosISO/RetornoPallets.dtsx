@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="219"
-  DTS:VersionGUID="{ED00EA36-1B3F-41D9-8F6D-C5256282E52F}">
+  DTS:VersionBuild="220"
+  DTS:VersionGUID="{A1BB0F14-588E-4E4B-9D84-B55DEC252831}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -13299,7 +13299,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
         <NodeLayout
           Size="226.4,41.6"
           Id="Package\Contenedor de secuencias\PalletDetaFruta\Movtos_PalletFruta_procesados"
-          TopLeft="453.027212894345,1593.60224346263" />
+          TopLeft="425.476192016991,1582.67787356152" />
         <NodeLayout
           Size="158.4,50.4"
           Id="Package\Contenedor de secuencias\PalletDetaFruta\Agrega Registros"
@@ -13360,26 +13360,26 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="220.6,116.615384615385"
+              EndConnector="193.048979122646,105.691014714276"
               Start="0,0"
-              End="220.6,109.115384615385">
+              End="193.048979122646,98.1910147142758">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.3076923076924" />
+                    End="0,48.8455073571379" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,54.3076923076924"
-                    Point2="0,58.3076923076924"
-                    Point3="4,58.3076923076924" />
+                    Point1="0,48.8455073571379"
+                    Point2="0,52.8455073571379"
+                    Point3="4,52.8455073571379" />
                   <mssgle:LineSegment
-                    End="216.6,58.3076923076924" />
+                    End="189.048979122646,52.8455073571379" />
                   <mssgle:CubicBezierSegment
-                    Point1="216.6,58.3076923076924"
-                    Point2="220.6,58.3076923076924"
-                    Point3="220.6,62.3076923076924" />
+                    Point1="189.048979122646,52.8455073571379"
+                    Point2="193.048979122646,52.8455073571379"
+                    Point3="193.048979122646,56.8455073571379" />
                   <mssgle:LineSegment
-                    End="220.6,109.115384615385" />
+                    End="193.048979122646,98.1910147142758" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
