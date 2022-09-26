@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="9/6/2022 4:21:44 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{0686FBC4-3F24-4F72-97ED-EB2D80562DA6}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{D9700666-2031-493A-8181-078F97748FC2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -260,26 +260,6 @@
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Tarea Enviar correo"
-      DTS:CreationName="Microsoft.SendMailTask"
-      DTS:Description="Tarea Enviar correo"
-      DTS:DTSID="{DA1CD795-D2F9-4DA2-9800-D6C76CFC1B0D}"
-      DTS:ExecutableType="Microsoft.SendMailTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Tarea Enviar correo"
-      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SendMailTask:SendMailTaskData
-          SendMailTask:SMTPServer="{3F46E46E-F4A3-4C46-884E-418B10842C58}"
-          SendMailTask:From="noreplay@subsole.com"
-          SendMailTask:To="etl@subsole.com"
-          SendMailTask:Subject="Proyecto ISO - Datos Maestros - Exitosa"
-          SendMailTask:MessageSource="Actualización Exitosa" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Tarea Enviar correo 1"
       DTS:CreationName="Microsoft.SendMailTask"
       DTS:Description="Tarea Enviar correo"
@@ -288,7 +268,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Tarea Enviar correo 1"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SendMailTask:SendMailTaskData
@@ -301,14 +281,6 @@
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{96957AEF-4A5F-4A88-833F-C805EFD85F79}"
-      DTS:From="Package\Contenedor de secuencias"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\Tarea Enviar correo" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
@@ -541,32 +513,6 @@
           Size="669.6,401.6"
           Id="Package\Contenedor de secuencias"
           TopLeft="60,60" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Tarea Enviar correo"
-          TopLeft="793.57144208587,171.294120049394" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="729.6,193.647060024697">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.9714420858697,0"
-              Start="0,0"
-              End="56.4714420858697,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="56.4714420858697,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="180,41.6"
           Id="Package\Tarea Enviar correo 1"
