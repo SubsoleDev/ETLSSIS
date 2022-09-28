@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/17/2022 2:47:29 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{B7F60029-1309-4E76-BD0C-22D3AB0BBF93}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{AC0E09C3-7019-411A-B80A-05D302E9C480}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -60,12 +60,13 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.envase_ext set 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dbo.envase_ext set 
 nombre=?, 
 peso_neto=?, 
 peso_bruto=?, 
 peso_declarado=? ,
-gtin=?
+gtin=?,
+material=?
 where cod_envase=?</property>
                 <property
                   dataType="System.Int32"
@@ -75,8 +76,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -137,6 +138,14 @@ where cod_envase=?</property>
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]" />
+                    <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[Material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Material"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -209,8 +218,21 @@ where cod_envase=?</property>
                       refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="50"
                       name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_6">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -278,7 +300,7 @@ where cod_envase=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -312,8 +334,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -374,6 +396,14 @@ where cod_envase=?</property>
                       cachedName="Gtin"
                       externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[gtin]"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]" />
+                    <inputColumn
+                      refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].Columns[Material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Material"
+                      externalMetadataColumnId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[material]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -411,7 +441,7 @@ where cod_envase=?</property>
                       refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[material]"
                       codePage="1252"
                       dataType="str"
-                      length="5"
+                      length="50"
                       name="material" />
                     <externalMetadataColumn
                       refId="Package\Envases\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[gtin]"
@@ -531,6 +561,20 @@ where cod_envase=?</property>
                       cachedPrecision="10"
                       cachedScale="2"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[material_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="material_destino"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[Material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Material"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -578,13 +622,13 @@ where cod_envase=?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">([REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]},"") == [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]},"")) &amp;&amp; ((#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]}))</property>
+                      name="Expression">([REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]},"") == [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]},"")) &amp;&amp; ((#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]}))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">(REPLACENULL(cod_envase,"") == REPLACENULL(cod_envase_destino,"")) &amp;&amp; ((nombre != nombre_destino || peso_neto != peso_neto_destino || peso_bruto != peso_bruto_destino || peso_declarado != peso_declarado_destino))</property>
+                      name="FriendlyExpression">(REPLACENULL(cod_envase,"") == REPLACENULL(cod_envase_destino,"")) &amp;&amp; ((nombre != nombre_destino || peso_neto != peso_neto_destino || peso_bruto != peso_bruto_destino || peso_declarado != peso_declarado_destino || Material != material_destino))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -913,7 +957,7 @@ where cod_envase=?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete dbo.envase_ext 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">delete dbo.envase_ext 
 where cod_envase=?</property>
                 <property
                   dataType="System.Int32"
@@ -923,8 +967,8 @@ where cod_envase=?</property>
               <connections>
                 <connection
                   refId="Package\Envases\Elimina.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1020,13 +1064,14 @@ where cod_envase=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  distinct 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select  distinct 
 	   [cod_envase] = emb.emba_codigo
-     ,[nombre] = Ema.emba_abrevi
+     ,[nombre] = Left(Emb.emba_nombre,50)
       ,[peso_neto] = env.enva_pesone
       ,[peso_bruto] = env.enva_pesobr
       ,[peso_declarado] = env.enva_pesone
-      ,Gtin = gt.gtin_codigo
+      ,Gtin = gt.gtin_codigo,
+Material=emb.emba_abrevi
   from dba.embalajes emb join dba.envases env on
   emb.enva_codigo = env.enva_codigo 
   and emb.enva_tipoen = env.enva_tipoen
@@ -1039,7 +1084,17 @@ where cod_envase=?</property>
   esp.espe_codigo=gt.espe_codigo and
   env.enva_tipoen=gt.enva_tipoen
   where  esp.espe_codigo = ?
-  and gt.gtin_estado=1</property>
+  and gt.gtin_estado=1
+union all
+select Convert(varchar(20),Format(en.enva_tipoen,'0')+Format(en.enva_codigo,'000')),
+enva_nombre,enva_pesone,enva_pesobr,enva_pesone as peso_declarado, null,
+enva_nombre as Material
+from dba.envases en  inner join dba.envases_especies as  es on
+en.enva_tipoen=es.enva_tipoen and
+en.enva_codigo=es.enva_codigo  inner join dba.tiposenvases as t on
+en.enva_tipoen=t.enva_tipoen
+where es.espe_codigo=? and
+t.tien_usoenv=1</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1060,13 +1115,13 @@ where cod_envase=?</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{2027D252-0C50-4E25-8211-1F369C4C4A44};</property>
+                  name="ParameterMapping">"0:Input",{2027D252-0C50-4E25-8211-1F369C4C4A44};"1:Input",{2027D252-0C50-4E25-8211-1F369C4C4A44};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Envases\envases.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1141,6 +1196,17 @@ where cod_envase=?</property>
                       lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Gtin]"
                       name="Gtin"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Material]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[Material]"
+                      length="40"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Material]"
+                      name="Material"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1148,13 +1214,13 @@ where cod_envase=?</property>
                       refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[cod_envase]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="20"
                       name="cod_envase" />
                     <externalMetadataColumn
                       refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
                       codePage="1252"
                       dataType="str"
-                      length="40"
+                      length="50"
                       name="nombre" />
                     <externalMetadataColumn
                       refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_neto]"
@@ -1180,6 +1246,12 @@ where cod_envase=?</property>
                       dataType="str"
                       length="14"
                       name="Gtin" />
+                    <externalMetadataColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[Material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Material" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1191,14 +1263,14 @@ where cod_envase=?</property>
                       refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[cod_envase]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="20"
                       lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[cod_envase]"
                       name="cod_envase" />
                     <outputColumn
                       refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[nombre]"
                       codePage="1252"
                       dataType="str"
-                      length="40"
+                      length="50"
                       lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[nombre]"
                       name="nombre" />
                     <outputColumn
@@ -1229,6 +1301,13 @@ where cod_envase=?</property>
                       length="14"
                       lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[Gtin]"
                       name="Gtin" />
+                    <outputColumn
+                      refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[Material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[Material]"
+                      name="Material" />
                     <outputColumn
                       refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1271,7 +1350,7 @@ where cod_envase=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select (enva_tipoen*100000) +e.enva_codigo as CodEnvase,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select (enva_tipoen*100000) +e.enva_codigo as CodEnvase,
 e.enva_nombre,e.enva_pesone,e.enva_pesobr,e.enva_pesone as enva_declarado
 from dba.envases as e
 where Exists(select * 
@@ -1304,8 +1383,8 @@ where Exists(select *
               <connections>
                 <connection
                   refId="Package\Envases\envases Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1584,6 +1663,13 @@ where Exists(select *
                       cachedLength="20"
                       cachedName="Gtin"
                       lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[Gtin]" />
+                    <inputColumn
+                      refId="Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[Material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Material"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[Material]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1848,6 +1934,21 @@ where Exists(select *
                           name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[gtin]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]"
+                      name="Material">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Envases\Merge Join.Inputs[Merge Join Left Input].Columns[Material]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1984,6 +2085,24 @@ where Exists(select *
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Envases\Sort.Inputs[Sort Input].Columns[Material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Material"
+                      lineageId="Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Material]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2083,6 +2202,21 @@ where Exists(select *
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Gtin]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Envases\Sort.Outputs[Sort Output].Columns[Material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Envases\Sort.Outputs[Sort Output].Columns[Material]"
+                      name="Material">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Envases\envases.Outputs[OLE DB Source Output].Columns[Material]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>

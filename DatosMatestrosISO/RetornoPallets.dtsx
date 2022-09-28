@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="306"
-  DTS:VersionGUID="{C5E05F55-704A-4BE4-BA02-DF41CE41EA58}">
+  DTS:VersionBuild="308"
+  DTS:VersionGUID="{6F020EB0-0BE6-492E-9D89-7A4BEDF81C76}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3099,6 +3099,201 @@ WITH RESULT SETS NONE
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Contenedor de secuencias\Genera Historico\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input].Columns[plde_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="plde_codigo"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[plde_codigo]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input].Columns[tpmv_codigo]"
+                          cachedDataType="i4"
+                          cachedName="tpmv_codigo"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[tpmv_codigo]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input].Columns[mfee_numero]"
+                          cachedDataType="numeric"
+                          cachedName="mfee_numero"
+                          cachedPrecision="8"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[mfee_numero]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">3</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input].Columns[expo_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="expo_codigo"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[expo_codigo]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">4</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input].Columns[numero_pallet]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="numero_pallet"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[numero_pallet]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[plde_codigo]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[plde_codigo]"
+                          name="plde_codigo"
+                          precision="4"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[plde_codigo]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[tpmv_codigo]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[tpmv_codigo]"
+                          name="tpmv_codigo"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[tpmv_codigo]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[mfee_numero]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[mfee_numero]"
+                          name="mfee_numero"
+                          precision="8"
+                          sortKeyPosition="3">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[mfee_numero]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[expo_codigo]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[expo_codigo]"
+                          name="expo_codigo"
+                          precision="4"
+                          sortKeyPosition="4">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[expo_codigo]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[numero_pallet]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[numero_pallet]"
+                          name="numero_pallet">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[numero_pallet]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Contenedor de secuencias\Genera Historico\String agg en c#"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="Incluye y ejecuta código de scripts personalizados. Por ejemplo, se usa para aplicar una regla de negocios que limita el intervalo de valores válidos de una columna de ingresos o para sumar los valores de dos columnas y calcular el promedio de la suma.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;11"
@@ -3897,7 +4092,7 @@ namespace SC_1b82781373fb4b95b9f8366fe0406111.Properties {
     <msb:CodeName>SC_1b82781373fb4b95b9f8366fe0406111</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_1b82781373fb4b95b9f8366fe0406111</msb:DisplayName>
-    <msb:ProjectId>{DF0765F7-8B9C-4F11-B14A-FCE41831C8D5}</msb:ProjectId>
+    <msb:ProjectId>{F7A6752E-2AE2-4A5E-A8FC-9785E91B67C9}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_1b82781373fb4b95b9f8366fe0406111.csproj" />
@@ -4044,7 +4239,7 @@ namespace SC_1b82781373fb4b95b9f8366fe0406111.Properties {
                         <arrayElement
                           dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
-ZGUuDQ0KJAAAAAAAAABQRQAATAEDACB6NGMAAAAAAAAAAOAAIiALATAAABwAAAAIAAAAAAAASjoA
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAPF8NGMAAAAAAAAAAOAAIiALATAAABwAAAAIAAAAAAAASjoA
 AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
 ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAPg5AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
 AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -4155,7 +4350,7 @@ IABzAHUAIABsAHUAZwBhAHIALAAgAGEAcwBpAGcAbgBlACAAdQBuACAAdgBhAGwAbwByACAAYQAg
 AGwAYQAgAGMAbwBsAHUAbQBuAGEALgAAE0UAbgB0AHIAYQBkAGEAIAAwAAARUwBhAGwAaQBkAGEA
 IAAwAABxUwBDAF8AMQBiADgAMgA3ADgAMQAzADcAMwBmAGIANABiADkANQBiADkAZgA4ADMANgA2
 AGYAZQAwADQAMAA2ADEAMQAxAC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMA
-ZQBzAAAAAF55YIlEWXBEv8rUJEvTfLwABCABAQgDIAABBSABARERBCABAQ4FIAEBEV0HAAICETkR
+ZQBzAAAAAEjgIxSeCiJItNOSPbErymcABCABAQgDIAABBSABARERBCABAQ4FIAEBEV0HAAICETkR
 OQUAARE5CAUAAg4ODgkgAwESQR0IEkUDBhJBAwYdCAUgARE5CAQgAQIIBCABCAgEIAEOCAMgAAIF
 IAIBCBwGIAICDhF1BSABHQgIAwcBCAYAAggSRQ4GAAESeRF9BSAAEoCBByACAQ4SgIEIt3pcVhk0
 4IkIiYRdzYCAzJEDBhE5AgYOAwYSGAMGEhwDBhIQAgYIAwYSSQMGElUDBhJZAwYSJAUgAQESDAQg
@@ -4264,30 +4459,34 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                           cachedDataType="numeric"
                           cachedName="plde_codigo"
                           cachedPrecision="4"
-                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[plde_codigo]" />
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[plde_codigo]" />
                         <inputColumn
                           refId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Inputs[Entrada 0].Columns[tpmv_codigo]"
                           cachedDataType="i4"
                           cachedName="tpmv_codigo"
-                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[tpmv_codigo]" />
+                          cachedSortKeyPosition="2"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[tpmv_codigo]" />
                         <inputColumn
                           refId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Inputs[Entrada 0].Columns[mfee_numero]"
                           cachedDataType="numeric"
                           cachedName="mfee_numero"
                           cachedPrecision="8"
-                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[mfee_numero]" />
+                          cachedSortKeyPosition="3"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[mfee_numero]" />
                         <inputColumn
                           refId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Inputs[Entrada 0].Columns[expo_codigo]"
                           cachedDataType="numeric"
                           cachedName="expo_codigo"
                           cachedPrecision="4"
-                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[expo_codigo]" />
+                          cachedSortKeyPosition="4"
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[expo_codigo]" />
                         <inputColumn
                           refId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Inputs[Entrada 0].Columns[numero_pallet]"
                           cachedDataType="wstr"
                           cachedLength="8"
                           cachedName="numero_pallet"
-                          lineageId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1].Columns[numero_pallet]" />
+                          lineageId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output].Columns[numero_pallet]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -4338,7 +4537,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
               <paths>
                 <path
                   refId="Package\Contenedor de secuencias\Genera Historico.Paths[Aggregate Output 1]"
-                  endId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Inputs[Entrada 0]"
+                  endId="Package\Contenedor de secuencias\Genera Historico\Sort.Inputs[Sort Input]"
                   name="Aggregate Output 1"
                   startId="Package\Contenedor de secuencias\Genera Historico\Aggregate.Outputs[Aggregate Output 1]" />
                 <path
@@ -4356,6 +4555,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   endId="Package\Contenedor de secuencias\Genera Historico\Ejecuta proc Historicos.Inputs[OLE DB Command Input]"
                   name="Salida 0"
                   startId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Outputs[Salida 0]" />
+                <path
+                  refId="Package\Contenedor de secuencias\Genera Historico.Paths[Sort Output]"
+                  endId="Package\Contenedor de secuencias\Genera Historico\String agg en c#.Inputs[Entrada 0]"
+                  name="Sort Output"
+                  startId="Package\Contenedor de secuencias\Genera Historico\Sort.Outputs[Sort Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -17279,33 +17483,31 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="157.6,41.6"
           Id="Package\Contenedor de secuencias\Genera Historico\String agg en c#"
-          TopLeft="517.346947585876,454.453787886148" />
+          TopLeft="561.224499353515,492.68908254003" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Contenedor de secuencias\Genera Historico\Ejecuta proc Historicos"
+          TopLeft="715.30613463057,550.58824301591" />
         <EdgeLayout
-          Id="Package\Contenedor de secuencias\Genera Historico.Paths[Aggregate Output 1]"
-          TopLeft="459.2,420.078991841775">
+          Id="Package\Contenedor de secuencias\Genera Historico.Paths[Salida 0]"
+          TopLeft="718.824499353515,513.48908254003">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="136.946947585876,34.3747960443728"
+              EndConnector="89.2816352770558,37.0991604758794"
               Start="0,0"
-              End="136.946947585876,26.8747960443728">
+              End="89.2816352770558,29.5991604758794">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.1873980221864" />
+                    End="85.2816352770558,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.1873980221864"
-                    Point2="0,17.1873980221864"
-                    Point3="4,17.1873980221864" />
+                    Point1="85.2816352770558,0"
+                    Point2="89.2816352770558,0"
+                    Point3="89.2816352770558,4" />
                   <mssgle:LineSegment
-                    End="132.946947585876,17.1873980221864" />
-                  <mssgle:CubicBezierSegment
-                    Point1="132.946947585876,17.1873980221864"
-                    Point2="136.946947585876,17.1873980221864"
-                    Point3="136.946947585876,21.1873980221864" />
-                  <mssgle:LineSegment
-                    End="136.946947585876,26.8747960443728" />
+                    End="89.2816352770558,29.5991604758794" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17315,35 +17517,45 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Contenedor de secuencias\Genera Historico\Ejecuta proc Historicos"
-          TopLeft="715.30613463057,550.58824301591" />
+          Size="97.6,41.6"
+          Id="Package\Contenedor de secuencias\Genera Historico\Sort"
+          TopLeft="412.244904979673,485.042023609254" />
         <EdgeLayout
-          Id="Package\Contenedor de secuencias\Genera Historico.Paths[Salida 0]"
-          TopLeft="596.146947585876,496.053787886148">
+          Id="Package\Contenedor de secuencias\Genera Historico.Paths[Aggregate Output 1]"
+          TopLeft="460.122452489836,420.078991841775">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="211.959187044694,54.5344551297621"
+              EndConnector="0,64.9630317674789"
               Start="0,0"
-              End="211.959187044694,47.0344551297621">
+              End="0,57.4630317674789">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.267227564881" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.267227564881"
-                    Point2="0,27.267227564881"
-                    Point3="4,27.267227564881" />
+                    End="0,57.4630317674789" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Genera Historico.Paths[Sort Output]"
+          TopLeft="509.844904979673,509.665553074642">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.379594373842,0"
+              Start="0,0"
+              End="43.879594373842,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="207.959187044694,27.267227564881" />
-                  <mssgle:CubicBezierSegment
-                    Point1="207.959187044694,27.267227564881"
-                    Point2="211.959187044694,27.267227564881"
-                    Point3="211.959187044694,31.267227564881" />
-                  <mssgle:LineSegment
-                    End="211.959187044694,47.0344551297621" />
+                    End="43.879594373842,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
