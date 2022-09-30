@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">R-DIAZ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAAAjXFpYdvUadpacnBpfE5iXAAAAAASAAACgAAAAEAAAABEV5Awm8ju7qnqbw5d2mSyIAAAASaRStrBkV0mJDS1y1U+TMNNwoHzNQOLQ71Z1elyz2N8v8WkJQF5jehs16+6zh7n6UlMGlLycEWaf6W2uikGA6e3FIDiQBvvRu+AHu2IiLcEe0RHyUQc5RDRnbQg2DOrrrGL2DRrGDEoDv4B+V2lKDzvPxybmGg9gqh4soWGZqiKIBhaK6i43KhQAAABOiPaSXvH3kaYJn/v9BVrBqPDCvg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAABblb5KJrOVRZ0X21oDo/z9AAAAAASAAACgAAAAEAAAADgTCTbOLJuGemfH3Wq3mJWIAAAAiMyR6uKm1xf+JMBJNX/7sbr1UwijRDLP5CHW+H6zgzhA9zvFaRpg6mRDFRYlRWNgaRVorenchRpIjgOopwpvUVAsJ+7xIhjK5T0AfORcrBJCpmw+sQUrSRiNhp3Q3gULZnBCtSWUDtQj9hXCE8l+CtOIBDLSlCT1VTTRnt8/LNXPWnINiEeT8hQAAAD91gOFr20I1U0QWvTLlRYLFZI0hA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,6 +42,7 @@
           <SSIS:Package SSIS:Name="Ot.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DatosMaestos.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="RetornoPallets.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PesoProceso.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Conn_Origen.conmgr" />
@@ -1597,8 +1598,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1794,8 +1793,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2186,8 +2183,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2219,6 +2214,38 @@
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="PesoProceso.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A3E6D38F-B50F-4E57-A14A-7FE01D9F0C0C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9BDE5061-B840-4145-8A6F-EA4EE495971A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="gv_Especie">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{67E3E503-6C62-4D6F-8E7F-2DBA3E91F28F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">16</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>

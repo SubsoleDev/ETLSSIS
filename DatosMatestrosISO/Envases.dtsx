@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{AC0E09C3-7019-411A-B80A-05D302E9C480}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{957462E1-BAA7-44A4-8391-283BE5E45B3F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -130,22 +130,22 @@ where cod_envase=?</property>
                       externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]" />
                     <inputColumn
+                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[Material]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Material"
+                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]" />
+                    <inputColumn
                       refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[cod_envase]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="cod_envase"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]" />
-                    <inputColumn
-                      refId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].Columns[Material]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="40"
-                      cachedName="Material"
                       externalMetadataColumnId="Package\Envases\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]" />
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -565,7 +565,7 @@ where cod_envase=?</property>
                       refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[material_destino]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="5"
+                      cachedLength="50"
                       cachedName="material_destino"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]" />
                     <inputColumn
@@ -1086,15 +1086,22 @@ Material=emb.emba_abrevi
   where  esp.espe_codigo = ?
   and gt.gtin_estado=1
 union all
-select Convert(varchar(20),Format(en.enva_tipoen,'0')+Format(en.enva_codigo,'000')),
-enva_nombre,enva_pesone,enva_pesobr,enva_pesone as peso_declarado, null,
-enva_nombre as Material
-from dba.envases en  inner join dba.envases_especies as  es on
-en.enva_tipoen=es.enva_tipoen and
-en.enva_codigo=es.enva_codigo  inner join dba.tiposenvases as t on
-en.enva_tipoen=t.enva_tipoen
-where es.espe_codigo=? and
-t.tien_usoenv=1</property>
+SELECT    cod_envase =Convert(varchar(20), FORMAT(env.enva_tipoen,'0') + FORMAT(env.enva_codigo,'000')),
+        nombre = env.enva_nombre,
+        peso_neto = env.enva_pesone, 
+        peso_bruto = env.enva_pesobr,
+        peso_declarado = env.enva_pesone,
+        gtin = '',
+        material = env.enva_nombre
+FROM    dba.envases_especies AS esp,
+        dba.envases AS env,
+        dba.tiposenvases AS ten
+WHERE    esp.enva_tipoen = env.enva_tipoen
+AND        esp.enva_codigo = env.enva_codigo
+AND        env.enva_tipoen = ten.enva_tipoen
+AND        esp.espe_codigo = ?
+AND        ten.tien_usoenv = 1
+AND        env.enva_ctlcon = 1</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1449,17 +1456,6 @@ where Exists(select *
                       scale="2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[material]"
-                      length="5"
-                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]"
-                      name="material"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[gtin]"
                       codePage="1252"
                       dataType="str"
@@ -1469,6 +1465,17 @@ where Exists(select *
                       length="20"
                       lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[gtin]"
                       name="gtin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[material]"
+                      length="50"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]"
+                      name="material"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1507,7 +1514,7 @@ where Exists(select *
                       refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[material]"
                       codePage="1252"
                       dataType="str"
-                      length="5"
+                      length="50"
                       name="material" />
                     <externalMetadataColumn
                       refId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].ExternalColumns[gtin]"
@@ -1558,13 +1565,6 @@ where Exists(select *
                       precision="10"
                       scale="2" />
                     <outputColumn
-                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[material]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[material]"
-                      name="material" />
-                    <outputColumn
                       refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[gtin]"
                       codePage="1252"
                       dataType="str"
@@ -1583,6 +1583,13 @@ where Exists(select *
                       lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[material]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Error Output].Columns[material]"
+                      name="material" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1718,7 +1725,7 @@ where Exists(select *
                       refId="Package\Envases\Merge Join.Inputs[Merge Join Right Input].Columns[material]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="5"
+                      cachedLength="50"
                       cachedName="material"
                       lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[material]" />
                     <inputColumn
@@ -1908,7 +1915,7 @@ where Exists(select *
                       refId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]"
                       codePage="1252"
                       dataType="str"
-                      length="5"
+                      length="50"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]"
                       name="material_destino">
                       <properties>
@@ -2341,7 +2348,7 @@ where Exists(select *
                       refId="Package\Envases\Sort 1.Inputs[Sort Input].Columns[material]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="5"
+                      cachedLength="50"
                       cachedName="material"
                       lineageId="Package\Envases\envases Destino.Outputs[OLE DB Source Output].Columns[material]">
                       <properties>
@@ -2463,7 +2470,7 @@ where Exists(select *
                       refId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[material]"
                       codePage="1252"
                       dataType="str"
-                      length="5"
+                      length="50"
                       lineageId="Package\Envases\Sort 1.Outputs[Sort Output].Columns[material]"
                       name="material">
                       <properties>
@@ -2909,7 +2916,9 @@ where Exists(select *
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-24.9142858115995,27.154413358666,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2944,7 +2953,7 @@ where Exists(select *
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-60.6535697088435,19.5848595234724,32.5928515625,11.3359375"
+              BoundingBox="-60.6535697088434,19.5848595234724,32.5928515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
