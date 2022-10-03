@@ -11,10 +11,23 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{9BDE5061-B840-4145-8A6F-EA4EE495971A}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{E0E60FAF-4C46-4F44-9DAD-5D81B6DF8A76}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones SMTP]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{F52FAF58-24CA-413E-9DE8-F99E0F05A807}"
+      DTS:ObjectName="Administrador de conexiones SMTP">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=192.168.31.3;UseWindowsAuthentication=False;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:PackageParameters>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -2937,7 +2950,38 @@ espe_codigo=?</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Enviar correo"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Tarea Enviar correo"
+      DTS:DTSID="{737E5364-0B70-4034-87CC-99A6871DF6EF}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Enviar correo"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{F52FAF58-24CA-413E-9DE8-F99E0F05A807}"
+          SendMailTask:From="noreply@subsole.com"
+          SendMailTask:To="etl@subsole.com"
+          SendMailTask:Subject="Error Pesos Proceso"
+          SendMailTask:Priority="High"
+          SendMailTask:MessageSource="Error Pesos Proceso" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{A86CA451-92F9-453A-9DD1-0FB77FB5FADB}"
+      DTS:From="Package\PesoProceso"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Enviar correo"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -2949,11 +2993,51 @@ espe_codigo=?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136.8,41.6"
           Id="Package\PesoProceso"
           TopLeft="133.571430846137,147.588237363987" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Tarea Enviar correo"
+          TopLeft="305.714290920569,260.76470953948" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="201.971430846137,189.188237363987">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.342860074433,71.5764721754926"
+              Start="0,0"
+              End="189.342860074433,64.0764721754926">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7882360877463" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7882360877463"
+                    Point2="0,35.7882360877463"
+                    Point3="4,35.7882360877463" />
+                  <mssgle:LineSegment
+                    End="185.342860074433,35.7882360877463" />
+                  <mssgle:CubicBezierSegment
+                    Point1="185.342860074433,35.7882360877463"
+                    Point2="189.342860074433,35.7882360877463"
+                    Point3="189.342860074433,39.7882360877463" />
+                  <mssgle:LineSegment
+                    End="189.342860074433,64.0764721754926" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="83.1427386309663,40.7882360877463,23.0573828125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3246,7 +3330,7 @@ espe_codigo=?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.5178570942,32.6392171734346,56.75,16"
+              BoundingBox="-109.64920475045,32.6392171734346,39.0126953125,9.470703125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
