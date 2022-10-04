@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{E0E60FAF-4C46-4F44-9DAD-5D81B6DF8A76}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{F3CD59B1-5B96-4D75-B8D0-E63892C39271}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -299,6 +299,342 @@
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\PesoProceso\Actuaiza Estado Transferido.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PesoProceso\Actualiza Peso"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza Peso"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dba.spro_pesoprocesopack set
+  pppa_pespro=?
+  where pppa_tipdoc=? and
+      pppa_docrel=? and
+      prod_codigo=? and
+      espe_codigo=? and
+      vari_codigo=? and
+      enva_tipoen=? and
+      enva_codigo=? and
+      emba_codigo=? and
+      pppa_calibr=? and
+      pate_tempor=? and
+      plde_codigo=?
+  </property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PesoProceso\Actualiza Peso.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_pespro]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_pespro"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_pespro]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_tipdoc]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_tipdoc"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_docrel]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_docrel"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[prod_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="prod_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="6"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="7"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[enva_tipoen]"
+                      cachedDataType="numeric"
+                      cachedName="enva_tipoen"
+                      cachedPrecision="1"
+                      cachedSortKeyPosition="9"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[enva_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="enva_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="10"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[emba_codigo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="emba_codigo"
+                      cachedSortKeyPosition="8"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_calibr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="pppa_calibr"
+                      cachedSortKeyPosition="11"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="8"
+                      scale="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="numeric"
+                      name="Param_5"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="numeric"
+                      name="Param_6"
+                      precision="1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="numeric"
+                      name="Param_7"
+                      precision="3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="numeric"
+                      name="Param_10"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="numeric"
+                      name="Param_11"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1711,6 +2047,34 @@ where espe_codigo=?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
+                  refId="Package\PesoProceso\Reg No Existe pasa.Outputs[ExisteUpdate]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ExisteUpdate"
+                  synchronousInputId="Package\PesoProceso\Reg No Existe pasa.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(pate_tempor_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
                   refId="Package\PesoProceso\Reg No Existe pasa.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
@@ -2907,6 +3271,11 @@ espe_codigo=?</property>
               name="Derived Column Output"
               startId="Package\PesoProceso\Agregar Columnas Adicionales Fijas.Outputs[Derived Column Output]" />
             <path
+              refId="Package\PesoProceso.Paths[ExisteUpdate]"
+              endId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input]"
+              name="ExisteUpdate"
+              startId="Package\PesoProceso\Reg No Existe pasa.Outputs[ExisteUpdate]" />
+            <path
               refId="Package\PesoProceso.Paths[Lookup Match Output]"
               endId="Package\PesoProceso\Agregar Columnas Adicionales Fijas.Inputs[Derived Column Input]"
               name="Lookup Match Output"
@@ -3047,109 +3416,71 @@ espe_codigo=?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\PesoProceso\spro_pesoprocesopack_s"
-          TopLeft="96.4285730707403,73.4117657354546" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\PesoProceso\Busca Tipos de envase"
-          TopLeft="231.428575369777,162.117649332462" />
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[OLE DB Source Output]"
-          TopLeft="194.02857307074,115.011765735455">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="130.200002299036,47.1058835970077"
-              Start="0,0"
-              End="130.200002299036,39.6058835970077">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5529417985038" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5529417985038"
-                    Point2="0,23.5529417985038"
-                    Point3="4,23.5529417985038" />
-                  <mssgle:LineSegment
-                    End="126.200002299036,23.5529417985038" />
-                  <mssgle:CubicBezierSegment
-                    Point1="126.200002299036,23.5529417985038"
-                    Point2="130.200002299036,23.5529417985038"
-                    Point3="130.200002299036,27.5529417985038" />
-                  <mssgle:LineSegment
-                    End="130.200002299036,39.6058835970077" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="129.6,41.6"
+          Id="Package\PesoProceso\Merge Join"
+          TopLeft="512.285720148865,479.964712456601" />
         <NodeLayout
           Size="244.8,41.6"
           Id="Package\PesoProceso\Agregar Columnas Adicionales Fijas"
           TopLeft="254.285718616174,244.705885784849" />
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Lookup Match Output]"
-          TopLeft="324.228575369777,203.717649332462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.4571432463978,40.9882364523866"
-              Start="0,0"
-              End="52.4571432463978,33.4882364523866">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.4941182261933" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.4941182261933"
-                    Point2="0,20.4941182261933"
-                    Point3="4,20.4941182261933" />
-                  <mssgle:LineSegment
-                    End="48.4571432463978,20.4941182261933" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.4571432463978,20.4941182261933"
-                    Point2="52.4571432463978,20.4941182261933"
-                    Point3="52.4571432463978,24.4941182261933" />
-                  <mssgle:LineSegment
-                    End="52.4571432463978,33.4882364523866" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-21.9628150955511,25.4941182261933,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\PesoProceso\Actuaiza Estado Transferido"
+          TopLeft="320.238100691718,782.549030582798" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\PesoProceso\spro_pesoprocesopack_s"
+          TopLeft="96.4285730707403,73.4117657354546" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\PesoProceso\Reg No Existe pasa"
+          TopLeft="496.514291090868,570.964712274281" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\PesoProceso\Sort 1"
+          TopLeft="314.428573922235,376.235299394205" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\PesoProceso\Busca Tipos de envase"
+          TopLeft="231.428575369777,162.117649332462" />
         <NodeLayout
           Size="219.2,41.6"
           Id="Package\PesoProceso\Origen spro_pesoprocesopack"
           TopLeft="734.942868419083,262.247060571657" />
         <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\PesoProceso\Agrega Registros"
+          TopLeft="321.428576902468,667.84314662115" />
+        <NodeLayout
           Size="97.6,41.6"
           Id="Package\PesoProceso\Sort"
           TopLeft="795.800010473388,344.070591130966" />
         <EdgeLayout
-          Id="Package\PesoProceso.Paths[OLE DB Source Output1]"
-          TopLeft="844.571439446235,303.847060571657">
+          Id="Package\PesoProceso.Paths[Sort Output1]"
+          TopLeft="844.600010473388,385.670591130966">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.2235305593088"
+              EndConnector="-247.247623657855,94.2941213256349"
               Start="0,0"
-              End="0,32.7235305593088">
+              End="-247.247623657855,86.7941213256349">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.7235305593088" />
+                    End="0,51.8865158100715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.8865158100715"
+                    Point2="0,55.8865158100715"
+                    Point3="-4,55.8865158100715" />
+                  <mssgle:LineSegment
+                    End="-243.247623657855,55.8865158100715" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-243.247623657855,55.8865158100715"
+                    Point2="-247.247623657855,55.8865158100715"
+                    Point3="-247.247623657855,59.8865158100715" />
+                  <mssgle:LineSegment
+                    End="-247.247623657855,86.7941213256349" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3158,48 +3489,6 @@ espe_codigo=?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\PesoProceso\Sort 1"
-          TopLeft="314.428573922235,376.235299394205" />
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Derived Column Output]"
-          TopLeft="376.685718616174,286.305885784849">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.05714469393922,89.9294136093561"
-              Start="0,0"
-              End="-9.05714469393922,82.4294136093561">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.9647068046781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,40.9647068046781"
-                    Point2="0,44.9647068046781"
-                    Point3="-4,44.9647068046781" />
-                  <mssgle:LineSegment
-                    End="-5.05714469393922,44.9647068046781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.05714469393922,44.9647068046781"
-                    Point2="-9.05714469393922,44.9647068046781"
-                    Point3="-9.05714469393922,48.9647068046781" />
-                  <mssgle:LineSegment
-                    End="-9.05714469393922,82.4294136093561" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\PesoProceso\Merge Join"
-          TopLeft="512.285720148865,479.964712456601" />
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Sort Output]"
           TopLeft="367.628573922235,417.835299394205">
@@ -3235,31 +3524,19 @@ espe_codigo=?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output1]"
-          TopLeft="844.600010473388,385.670591130966">
+          Id="Package\PesoProceso.Paths[OLE DB Source Output1]"
+          TopLeft="844.571439446235,303.847060571657">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-247.247623657855,94.2941213256349"
+              EndConnector="0,40.2235305593088"
               Start="0,0"
-              End="-247.247623657855,86.7941213256349">
+              End="0,32.7235305593088">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.8865158100715" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,51.8865158100715"
-                    Point2="0,55.8865158100715"
-                    Point3="-4,55.8865158100715" />
-                  <mssgle:LineSegment
-                    End="-243.247623657855,55.8865158100715" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-243.247623657855,55.8865158100715"
-                    Point2="-247.247623657855,55.8865158100715"
-                    Point3="-247.247623657855,59.8865158100715" />
-                  <mssgle:LineSegment
-                    End="-247.247623657855,86.7941213256349" />
+                    End="0,32.7235305593088" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3268,24 +3545,32 @@ espe_codigo=?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\PesoProceso\Reg No Existe pasa"
-          TopLeft="496.514291090868,570.964712274281" />
         <EdgeLayout
-          Id="Package\PesoProceso.Paths[Merge Join Output]"
-          TopLeft="579.000005619867,521.564712456601">
+          Id="Package\PesoProceso.Paths[OLE DB Source Output]"
+          TopLeft="194.02857307074,115.011765735455">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.3999998176798"
+              EndConnector="130.200002299036,47.1058835970077"
               Start="0,0"
-              End="0,41.8999998176798">
+              End="130.200002299036,39.6058835970077">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.8999998176798" />
+                    End="0,19.5529417985038" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5529417985038"
+                    Point2="0,23.5529417985038"
+                    Point3="4,23.5529417985038" />
+                  <mssgle:LineSegment
+                    End="126.200002299036,23.5529417985038" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.200002299036,23.5529417985038"
+                    Point2="130.200002299036,23.5529417985038"
+                    Point3="130.200002299036,27.5529417985038" />
+                  <mssgle:LineSegment
+                    End="130.200002299036,39.6058835970077" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3294,10 +3579,40 @@ espe_codigo=?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\PesoProceso\Agrega Registros"
-          TopLeft="321.428576902468,667.84314662115" />
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[OLE DB Command Output]"
+          TopLeft="400.628576902468,709.44314662115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.4095237892502,73.1058839616478"
+              Start="0,0"
+              End="24.4095237892502,65.6058839616478">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5529419808239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5529419808239"
+                    Point2="0,36.5529419808239"
+                    Point3="4,36.5529419808239" />
+                  <mssgle:LineSegment
+                    End="20.4095237892502,36.5529419808239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.4095237892502,36.5529419808239"
+                    Point2="24.4095237892502,36.5529419808239"
+                    Point3="24.4095237892502,40.5529419808239" />
+                  <mssgle:LineSegment
+                    End="24.4095237892502,65.6058839616478" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[NoExiste]"
           TopLeft="580.914291090868,612.564712274281">
@@ -3334,42 +3649,136 @@ espe_codigo=?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\PesoProceso\Actuaiza Estado Transferido"
-          TopLeft="320.238100691718,782.549030582798" />
         <EdgeLayout
-          Id="Package\PesoProceso.Paths[OLE DB Command Output]"
-          TopLeft="400.628576902468,709.44314662115">
+          Id="Package\PesoProceso.Paths[Merge Join Output]"
+          TopLeft="579.000005619867,521.564712456601">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.4095237892502,73.1058839616478"
+              EndConnector="0,49.3999998176798"
               Start="0,0"
-              End="24.4095237892502,65.6058839616478">
+              End="0,41.8999998176798">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5529419808239" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.5529419808239"
-                    Point2="0,36.5529419808239"
-                    Point3="4,36.5529419808239" />
-                  <mssgle:LineSegment
-                    End="20.4095237892502,36.5529419808239" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.4095237892502,36.5529419808239"
-                    Point2="24.4095237892502,36.5529419808239"
-                    Point3="24.4095237892502,40.5529419808239" />
-                  <mssgle:LineSegment
-                    End="24.4095237892502,65.6058839616478" />
+                    End="0,41.8999998176798" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Lookup Match Output]"
+          TopLeft="324.228575369777,203.717649332462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.4571432463978,40.9882364523866"
+              Start="0,0"
+              End="52.4571432463978,33.4882364523866">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4941182261933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4941182261933"
+                    Point2="0,20.4941182261933"
+                    Point3="4,20.4941182261933" />
+                  <mssgle:LineSegment
+                    End="48.4571432463978,20.4941182261933" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.4571432463978,20.4941182261933"
+                    Point2="52.4571432463978,20.4941182261933"
+                    Point3="52.4571432463978,24.4941182261933" />
+                  <mssgle:LineSegment
+                    End="52.4571432463978,33.4882364523866" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.9628150955511,25.4941182261933,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Derived Column Output]"
+          TopLeft="376.685718616174,286.305885784849">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.05714469393922,89.9294136093561"
+              Start="0,0"
+              End="-9.05714469393922,82.4294136093561">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.9647068046781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.9647068046781"
+                    Point2="0,44.9647068046781"
+                    Point3="-4,44.9647068046781" />
+                  <mssgle:LineSegment
+                    End="-5.05714469393922,44.9647068046781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.05714469393922,44.9647068046781"
+                    Point2="-9.05714469393922,44.9647068046781"
+                    Point3="-9.05714469393922,48.9647068046781" />
+                  <mssgle:LineSegment
+                    End="-9.05714469393922,82.4294136093561" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\PesoProceso\Actualiza Peso"
+          TopLeft="644.285725257835,668.341183902813" />
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[ExisteUpdate]"
+          TopLeft="607.714291090868,612.564712274281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.371434166966,55.776471628532"
+              Start="0,0"
+              End="109.371434166966,48.276471628532">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6248222943904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6248222943904"
+                    Point2="0,22.6248222943904"
+                    Point3="4,22.6248222943904" />
+                  <mssgle:LineSegment
+                    End="105.371434166966,22.6248222943904" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.371434166966,22.6248222943904"
+                    Point2="109.371434166966,22.6248222943904"
+                    Point3="109.371434166966,26.6248222943904" />
+                  <mssgle:LineSegment
+                    End="109.371434166966,48.276471628532" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="25.4943694272332,27.6248222943904,58.3826953125,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3389,7 +3798,7 @@ espe_codigo=?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3399,7 +3808,7 @@ espe_codigo=?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

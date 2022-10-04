@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="317"
-  DTS:VersionGUID="{6C6D4C74-3425-4297-8238-2F63BF3F8179}">
+  DTS:VersionBuild="332"
+  DTS:VersionGUID="{E22A68FC-A127-42CB-A095-3D9377E7B80A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2287,6 +2287,1867 @@ fr.plde_codigo =en.plde_codigo)</property>
       DTS:ObjectName="Contenedor de secuencias">
       <DTS:Variables />
       <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9C46F1B7-8DA5-4D9B-8623-1D0132329F2C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Escribe en Bitacora Movtos"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate"
+                  componentClassID="Microsoft.Aggregate"
+                  contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+                  name="Aggregate"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                      name="CountDistinctScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                      name="CountDistinctKeys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                      name="AutoExtendFactor">25</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1]"
+                      name="Aggregate Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[plde_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="plde_codigo"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[plde_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[mfee_numero]"
+                          cachedDataType="numeric"
+                          cachedName="mfee_numero"
+                          cachedPrecision="8"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[mfee_numero]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[pafr_ccajas]"
+                          cachedDataType="numeric"
+                          cachedName="pafr_ccajas"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_ccajas]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[pafr_docrel]"
+                          cachedDataType="numeric"
+                          cachedName="pafr_docrel"
+                          cachedPrecision="8"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_docrel]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[prod_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="prod_codigo"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prod_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[paen_numero]"
+                          cachedDataType="numeric"
+                          cachedName="paen_numero"
+                          cachedPrecision="8"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[paen_numero]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1].Columns[pate_tempor]"
+                          cachedDataType="numeric"
+                          cachedName="pate_tempor"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pate_tempor]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1]"
+                      name="Aggregate Output 1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                          name="KeyScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                          name="Keys" />
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[plde_codigo]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[plde_codigo]"
+                          name="plde_codigo"
+                          precision="4">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[plde_codigo]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[mfee_numero]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[mfee_numero]"
+                          name="mfee_numero"
+                          precision="8">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[mfee_numero]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_ccajas]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_ccajas]"
+                          name="pafr_ccajas"
+                          precision="4">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_ccajas]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">4</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_docrel]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_docrel]"
+                          name="pafr_docrel"
+                          precision="8">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_docrel]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[prod_codigo]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[prod_codigo]"
+                          name="prod_codigo"
+                          precision="4">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prod_codigo]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[paen_numero]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[paen_numero]"
+                          name="paen_numero"
+                          precision="8">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[paen_numero]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pate_tempor]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pate_tempor]"
+                          name="pate_tempor"
+                          precision="4">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pate_tempor]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Agrega a la bitacora"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">insert into dba.bitacoramovtos(
+       plde_codigo      ,tpmv_codigo      ,mfee_numero      ,bimv_fecacc      ,bimv_accion
+	  ,bimv_observ      ,bimv_ccajas      ,bimv_comput      ,bimv_usuari      ,bimv_tipdoc
+	  ,bimv_docrel      ,mfee_fecmov      ,prod_codigo      ,bimv_cajant      ,bimv_fplazo
+	  ,bimv_nropal      ,bimv_secuen      ,pate_tempor)
+Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Connections[OleDbConnection]"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="plde_codigo"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[plde_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[tpmv_codigo]"
+                          cachedDataType="i4"
+                          cachedName="tpmv_codigo"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[tpmv_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[mfee_numero]"
+                          cachedDataType="numeric"
+                          cachedName="mfee_numero"
+                          cachedPrecision="8"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[mfee_numero]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_fecacc]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="bimv_fecacc"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_fecacc]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_accion]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="bimv_accion"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_accion]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_observ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="bimv_observ"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_observ]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[pafr_ccajas]"
+                          cachedDataType="numeric"
+                          cachedName="pafr_ccajas"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_ccajas]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_comput]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="bimv_comput"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_comput]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_usuari]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="bimv_usuari"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_usuari]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_tipdoc]"
+                          cachedDataType="i4"
+                          cachedName="bimv_tipdoc"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_tipdoc]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[pafr_docrel]"
+                          cachedDataType="numeric"
+                          cachedName="pafr_docrel"
+                          cachedPrecision="8"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_docrel]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[mfee_fecmov]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="mfee_fecmov"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[mfee_fecmov]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[prod_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="prod_codigo"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[prod_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_cajant]"
+                          cachedDataType="numeric"
+                          cachedName="bimv_cajant"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_cajant]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_fplazo]"
+                          cachedDataType="i4"
+                          cachedName="bimv_fplazo"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_fplazo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[paen_numero]"
+                          cachedDataType="numeric"
+                          cachedName="paen_numero"
+                          cachedPrecision="8"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[paen_numero]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[bimv_secuen]"
+                          cachedDataType="i4"
+                          cachedName="bimv_secuen"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_secuen]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                          cachedDataType="numeric"
+                          cachedName="pate_tempor"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pate_tempor]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="numeric"
+                          name="Param_0"
+                          precision="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="numeric"
+                          name="Param_1"
+                          precision="2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="numeric"
+                          name="Param_2"
+                          precision="8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          dataType="dbTimeStamp2"
+                          name="Param_3"
+                          scale="6">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1073741889</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Param_5">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          dataType="numeric"
+                          name="Param_6"
+                          precision="8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="Param_7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="Param_8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          dataType="numeric"
+                          name="Param_9"
+                          precision="2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          dataType="numeric"
+                          name="Param_10"
+                          precision="8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          dataType="dbTimeStamp2"
+                          name="Param_11"
+                          scale="6">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">1073741889</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          dataType="numeric"
+                          name="Param_12"
+                          precision="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                          dataType="numeric"
+                          name="Param_13"
+                          precision="8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                          dataType="numeric"
+                          name="Param_14"
+                          precision="1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                          dataType="numeric"
+                          name="Param_15"
+                          precision="8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                          dataType="numeric"
+                          name="Param_16"
+                          precision="8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input].ExternalColumns[Param_17]"
+                          dataType="numeric"
+                          name="Param_17"
+                          precision="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Columnas Adicionales Fijas"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Inputs[Derived Column Input].Columns[pafr_ccajas]"
+                          cachedDataType="numeric"
+                          cachedName="pafr_ccajas"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_ccajas]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_fecacc]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_fecacc]"
+                          name="bimv_fecacc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_accion]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_accion]"
+                          name="bimv_accion"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,25,1252)"Agrega Pallet Recepcion"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,25,1252)"Agrega Pallet Recepcion"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_comput]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_comput]"
+                          name="bimv_comput"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,25,1252)"INTEGRADO"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,25,1252)"INTEGRADO"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_usuari]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_usuari]"
+                          name="bimv_usuari"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,25,1252)"INTEGRADO"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,25,1252)"INTEGRADO"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_tipdoc]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_tipdoc]"
+                          name="bimv_tipdoc"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">4</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">4</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[mfee_fecmov]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[mfee_fecmov]"
+                          name="mfee_fecmov"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_fplazo]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_fplazo]"
+                          name="bimv_fplazo"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">0</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_secuen]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_secuen]"
+                          name="bimv_secuen"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">1</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_observ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_observ]"
+                          name="bimv_observ"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,25,1252)""</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,25,1252)""</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_cajant]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[bimv_cajant]"
+                          name="bimv_cajant"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">#{Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1].Columns[pafr_ccajas]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">pafr_ccajas</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[tpmv_codigo]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[tpmv_codigo]"
+                          name="tpmv_codigo"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">4</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">4</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="13322"
+                  name="Movimientos Procesados"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Movtos_ConRecep]"
+                      connectionManagerRefId="Package.ConnectionManagers[Movtos_ConRecep]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pate_tempor]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pate_tempor]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pate_tempor]"
+                          name="pate_tempor"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[expo_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[expo_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[expo_codigo]"
+                          name="expo_codigo"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[paen_numero]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[paen_numero]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[paen_numero]"
+                          name="paen_numero"
+                          precision="8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[plde_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[plde_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[plde_codigo]"
+                          name="plde_codigo"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_secuen]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_secuen]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_secuen]"
+                          name="pafr_secuen"
+                          precision="3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[espe_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[espe_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[espe_codigo]"
+                          name="espe_codigo"
+                          precision="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[vari_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[vari_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[vari_codigo]"
+                          name="vari_codigo"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prod_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prod_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prod_codigo]"
+                          name="prod_codigo"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prbr_codpre]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prbr_codpre]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prbr_codpre]"
+                          name="prbr_codpre"
+                          precision="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prcc_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prcc_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prcc_codigo]"
+                          name="prcc_codigo"
+                          precision="3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[emba_codigo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[emba_codigo]"
+                          length="10"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[emba_codigo]"
+                          name="emba_codigo"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[cate_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[cate_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[cate_codigo]"
+                          name="cate_codigo"
+                          precision="3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[lote_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[lote_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[lote_codigo]"
+                          name="lote_codigo"
+                          precision="8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_calibr]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_calibr]"
+                          length="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_calibr]"
+                          name="pafr_calibr"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_fecemb]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_fecemb]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_fecemb]"
+                          name="pafr_fecemb"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_docrel]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_docrel]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_docrel]"
+                          name="pafr_docrel"
+                          precision="8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_ccajas]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_ccajas]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pafr_ccajas]"
+                          name="pafr_ccajas"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[vari_codrot]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[vari_codrot]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[vari_codrot]"
+                          name="vari_codrot"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[cate_codrot]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[cate_codrot]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[cate_codrot]"
+                          name="cate_codrot"
+                          precision="3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[caen_calrot]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[caen_calrot]"
+                          length="4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[caen_calrot]"
+                          name="caen_calrot"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prod_codrot]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prod_codrot]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prod_codrot]"
+                          name="prod_codrot"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prbr_codrot]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prbr_codrot]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prbr_codrot]"
+                          name="prbr_codrot"
+                          precision="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prcc_codrot]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prcc_codrot]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[prcc_codrot]"
+                          name="prcc_codrot"
+                          precision="3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[lote_codrot]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[lote_codrot]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[lote_codrot]"
+                          name="lote_codrot"
+                          precision="8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[frio_tipofr]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[frio_tipofr]"
+                          length="2"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[frio_tipofr]"
+                          name="frio_tipofr"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[plde_origen]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[plde_origen]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[plde_origen]"
+                          name="plde_origen"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pefr_codigo]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pefr_codigo]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[pefr_codigo]"
+                          name="pefr_codigo"
+                          precision="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[mfee_numero]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[mfee_numero]"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].Columns[mfee_numero]"
+                          name="mfee_numero"
+                          precision="8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pate_tempor]"
+                          dataType="numeric"
+                          name="pate_tempor"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[expo_codigo]"
+                          dataType="numeric"
+                          name="expo_codigo"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[paen_numero]"
+                          dataType="numeric"
+                          name="paen_numero"
+                          precision="8" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[plde_codigo]"
+                          dataType="numeric"
+                          name="plde_codigo"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_secuen]"
+                          dataType="numeric"
+                          name="pafr_secuen"
+                          precision="3" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[espe_codigo]"
+                          dataType="numeric"
+                          name="espe_codigo"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[vari_codigo]"
+                          dataType="numeric"
+                          name="vari_codigo"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prod_codigo]"
+                          dataType="numeric"
+                          name="prod_codigo"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prbr_codpre]"
+                          dataType="numeric"
+                          name="prbr_codpre"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prcc_codigo]"
+                          dataType="numeric"
+                          name="prcc_codigo"
+                          precision="3" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[emba_codigo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="emba_codigo" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[cate_codigo]"
+                          dataType="numeric"
+                          name="cate_codigo"
+                          precision="3" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[lote_codigo]"
+                          dataType="numeric"
+                          name="lote_codigo"
+                          precision="8" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_calibr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="pafr_calibr" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_fecemb]"
+                          dataType="dbTimeStamp"
+                          name="pafr_fecemb" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_docrel]"
+                          dataType="numeric"
+                          name="pafr_docrel"
+                          precision="8" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pafr_ccajas]"
+                          dataType="numeric"
+                          name="pafr_ccajas"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[vari_codrot]"
+                          dataType="numeric"
+                          name="vari_codrot"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[cate_codrot]"
+                          dataType="numeric"
+                          name="cate_codrot"
+                          precision="3" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[caen_calrot]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="caen_calrot" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prod_codrot]"
+                          dataType="numeric"
+                          name="prod_codrot"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prbr_codrot]"
+                          dataType="numeric"
+                          name="prbr_codrot"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[prcc_codrot]"
+                          dataType="numeric"
+                          name="prcc_codrot"
+                          precision="3" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[lote_codrot]"
+                          dataType="numeric"
+                          name="lote_codrot"
+                          precision="8" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[frio_tipofr]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="frio_tipofr" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[plde_origen]"
+                          dataType="i4"
+                          name="plde_origen" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[pefr_codigo]"
+                          dataType="numeric"
+                          name="pefr_codigo"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output].ExternalColumns[mfee_numero]"
+                          dataType="numeric"
+                          name="mfee_numero"
+                          precision="8" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Aggregate Output 1]"
+                  endId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Inputs[Derived Column Input]"
+                  name="Aggregate Output 1"
+                  startId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Outputs[Aggregate Output 1]" />
+                <path
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Derived Column Output]"
+                  endId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Flat File Source Output]"
+                  endId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Flat File Source Output"
+                  startId="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Contenedor de secuencias\Genera Historico"
           DTS:CreationName="Microsoft.Pipeline"
@@ -8590,8 +10451,8 @@ END
 ) as pefr_codigo
 FROM    dba.spro_ordenproceso
 WHERE    plde_codigo = 74
-AND        orpr_tipord = 4
-Group by plde_codigo,orpr_tipord,orpr_numero</property>
+AND        orpr_tipord = 4 
+Group by plde_codigo,orpr_numero</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -9250,7 +11111,7 @@ pate_tempor=?</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select pate_tempor,expo_codigo,paen_numero,plde_codigo,Max(pafr_docrel) as Numorden 
 from [dbo].[spro_palletfruta_ss]
-where paen_sincro=0
+where Isnull(paen_sincro,0)=0
 group by pate_tempor,expo_codigo,paen_numero,plde_codigo</property>
                     <property
                       dataType="System.String"
@@ -13096,6 +14957,12 @@ where [refTable].[paen_numero] = ?</property>
                           cachedName="expo_codigo"
                           cachedPrecision="4"
                           lineageId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Recepcion\Aggregate.Inputs[Aggregate Input 1].Columns[pate_tempor]"
+                          cachedDataType="numeric"
+                          cachedName="pate_tempor"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -13209,6 +15076,33 @@ where [refTable].[paen_numero] = ?</property>
                               dataType="System.Int32"
                               description="Specifies the ID of the input column used in the aggregation."
                               name="AggregationColumnId">#{Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[expo_codigo]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\Recepcion\Aggregate.Outputs[Aggregate Output 1].Columns[pate_tempor]"
+                          dataType="numeric"
+                          lineageId="Package\Contenedor de secuencias\Recepcion\Aggregate.Outputs[Aggregate Output 1].Columns[pate_tempor]"
+                          name="pate_tempor"
+                          precision="4">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Output].Columns[pate_tempor]}</property>
                             <property
                               dataType="System.Int32"
                               description="Specifies the type of aggregation."
@@ -15880,13 +17774,13 @@ pate_tempor=?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,20,1252)@[System::UserName]</property>
+                              name="Expression">(DT_STR,20,1252)"INTEGRADO"</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,20,1252)@[System::UserName]</property>
+                              name="FriendlyExpression">(DT_STR,20,1252)"INTEGRADO"</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -15904,13 +17798,13 @@ pate_tempor=?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_STR,20,1252)@[System::MachineName]</property>
+                              name="Expression">(DT_STR,20,1252)"INTEGRADO"</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_STR,20,1252)@[System::MachineName]</property>
+                              name="FriendlyExpression">(DT_STR,20,1252)"INTEGRADO"</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -16184,8 +18078,9 @@ mfee_docrel,
 mfee_usuari,
 mfee_comput,
 mfee_horacr,
-expo_codigo)
-Values (?,?,?,?,?,?,?,?,?,?)</property>
+expo_codigo,
+pate_tempor)
+Values (?,?,?,?,?,?,?,?,?,?,?)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -16274,6 +18169,13 @@ Values (?,?,?,?,?,?,?,?,?,?)</property>
                           cachedPrecision="4"
                           externalMetadataColumnId="Package\Contenedor de secuencias\Recepcion\spro_movtofrutaembaenca.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                           lineageId="Package\Contenedor de secuencias\Recepcion\Aggregate.Outputs[Aggregate Output 1].Columns[expo_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\Recepcion\spro_movtofrutaembaenca.Inputs[OLE DB Command Input].Columns[pate_tempor]"
+                          cachedDataType="numeric"
+                          cachedName="pate_tempor"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\Recepcion\spro_movtofrutaembaenca.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          lineageId="Package\Contenedor de secuencias\Recepcion\Aggregate.Outputs[Aggregate Output 1].Columns[pate_tempor]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -16391,6 +18293,18 @@ Values (?,?,?,?,?,?,?,?,?,?)</property>
                           refId="Package\Contenedor de secuencias\Recepcion\spro_movtofrutaembaenca.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                           dataType="numeric"
                           name="Param_9"
+                          precision="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\Recepcion\spro_movtofrutaembaenca.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          dataType="numeric"
+                          name="Param_10"
                           precision="4">
                           <properties>
                             <property
@@ -16929,6 +18843,14 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Restricción 3"
           DTS:To="Package\Contenedor de secuencias\Genera Historico" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{C293119B-22A8-4CA8-9A57-03960D1F4E73}"
+          DTS:From="Package\Contenedor de secuencias\Genera Historico"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 4"
+          DTS:To="Package\Contenedor de secuencias\Escribe en Bitacora Movtos" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -16999,7 +18921,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="132,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab"
-          TopLeft="41.5095429904604,21.3549036964002" />
+          TopLeft="42.9381144433603,18.2960801240896" />
         <NodeLayout
           Size="128.8,41.6"
           Id="Package\Contenedor de secuencias\PalletFruta"
@@ -17050,26 +18972,26 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="91.4333198655216,58.8411774304504"
+              EndConnector="91.4333198655217,58.841177430451"
               Start="0,0"
-              End="91.4333198655216,51.3411774304504">
+              End="91.4333198655217,51.341177430451">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9777798029085" />
+                    End="0,19.9777798029088" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.9777798029085"
-                    Point2="0,23.9777798029085"
-                    Point3="4,23.9777798029085" />
+                    Point1="0,19.9777798029088"
+                    Point2="0,23.9777798029088"
+                    Point3="4,23.9777798029088" />
                   <mssgle:LineSegment
-                    End="87.4333198655216,23.9777798029085" />
+                    End="87.4333198655217,23.9777798029088" />
                   <mssgle:CubicBezierSegment
-                    Point1="87.4333198655216,23.9777798029085"
-                    Point2="91.4333198655216,23.9777798029085"
-                    Point3="91.4333198655216,27.9777798029085" />
+                    Point1="87.4333198655217,23.9777798029088"
+                    Point2="91.4333198655217,23.9777798029088"
+                    Point3="91.4333198655217,27.9777798029088" />
                   <mssgle:LineSegment
-                    End="91.4333198655216,51.3411774304504" />
+                    End="91.4333198655217,51.341177430451" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17080,30 +19002,30 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 2]"
-          TopLeft="107.50954299046,62.9549036964002">
+          TopLeft="108.93811444336,59.8960801240896">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="115.295240106389,88.1450998588412"
+              EndConnector="113.866668653489,91.2039234311514"
               Start="0,0"
-              End="115.295240106389,80.6450998588412">
+              End="113.866668653489,83.7039234311514">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.0725499294206" />
+                    End="0,41.6019617155757" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.0725499294206"
-                    Point2="0,44.0725499294206"
-                    Point3="4,44.0725499294206" />
+                    Point1="0,41.6019617155757"
+                    Point2="0,45.6019617155757"
+                    Point3="4,45.6019617155757" />
                   <mssgle:LineSegment
-                    End="111.295240106389,44.0725499294206" />
+                    End="109.866668653489,45.6019617155757" />
                   <mssgle:CubicBezierSegment
-                    Point1="111.295240106389,44.0725499294206"
-                    Point2="115.295240106389,44.0725499294206"
-                    Point3="115.295240106389,48.0725499294206" />
+                    Point1="109.866668653489,45.6019617155757"
+                    Point2="113.866668653489,45.6019617155757"
+                    Point3="113.866668653489,49.6019617155757" />
                   <mssgle:LineSegment
-                    End="115.295240106389,80.6450998588412" />
+                    End="113.866668653489,83.7039234311514" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17118,26 +19040,64 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="101.200001532691,54.1294137916762"
+              EndConnector="101.200001532691,54.129413791676"
               Start="0,0"
-              End="101.200001532691,46.6294137916762">
+              End="101.200001532691,46.629413791676">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.0647068958381" />
+                    End="0,23.064706895838" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.0647068958381"
-                    Point2="0,27.0647068958381"
-                    Point3="4,27.0647068958381" />
+                    Point1="0,23.064706895838"
+                    Point2="0,27.064706895838"
+                    Point3="4,27.064706895838" />
                   <mssgle:LineSegment
-                    End="97.2000015326911,27.0647068958381" />
+                    End="97.200001532691,27.064706895838" />
                   <mssgle:CubicBezierSegment
-                    Point1="97.2000015326911,27.0647068958381"
-                    Point2="101.200001532691,27.0647068958381"
-                    Point3="101.200001532691,31.0647068958381" />
+                    Point1="97.200001532691,27.064706895838"
+                    Point2="101.200001532691,27.064706895838"
+                    Point3="101.200001532691,31.064706895838" />
                   <mssgle:LineSegment
-                    End="101.200001532691,46.6294137916762" />
+                    End="101.200001532691,46.629413791676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos"
+          TopLeft="488.600011495182,431.611772845938" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]"
+          TopLeft="435.171437828395,388.870594777368">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.828573666787,42.7411780685702"
+              Start="0,0"
+              End="155.828573666787,35.2411780685702">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3705890342851" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3705890342851"
+                    Point2="0,21.3705890342851"
+                    Point3="4,21.3705890342851" />
+                  <mssgle:LineSegment
+                    End="151.828573666787,21.3705890342851" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.828573666787,21.3705890342851"
+                    Point2="155.828573666787,21.3705890342851"
+                    Point3="155.828573666787,25.3705890342851" />
+                  <mssgle:LineSegment
+                    End="155.828573666787,35.2411780685702" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17149,47 +19109,47 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="564.8,444"
-          Size="564.8,487.2"
+          PanelSize="702.4,524.8"
+          Size="702.4,568"
           Id="Package\Contenedor de secuencias"
           TopLeft="186.428574603431,121.826471491793" />
         <NodeLayout
           Size="132.8,41.6"
           Id="Package\Notificacion"
-          TopLeft="830.714299861266,355.014710861299" />
+          TopLeft="932.142873017156,367.250005150541" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="751.228574603431,365.426471491793">
+          TopLeft="888.828574603431,405.826471491793">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="79.485725257835,10.388239369506"
+              EndConnector="43.3142984137249,-17.7764663412515"
               Start="0,0"
-              End="71.985725257835,10.388239369506">
+              End="35.8142984137249,-17.7764663412515">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="35.7428626289175,0" />
+                    End="17.6571492068625,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="35.7428626289175,0"
-                    Point2="39.7428626289175,0"
-                    Point3="39.7428626289175,4" />
+                    Point1="17.6571492068625,0"
+                    Point2="21.6571492068625,0"
+                    Point3="21.6571492068625,-4" />
                   <mssgle:LineSegment
-                    End="39.7428626289175,6.38823936950604" />
+                    End="21.6571492068625,-13.7764663412515" />
                   <mssgle:CubicBezierSegment
-                    Point1="39.7428626289175,6.38823936950604"
-                    Point2="39.7428626289175,10.388239369506"
-                    Point3="43.7428626289175,10.388239369506" />
+                    Point1="21.6571492068625,-13.7764663412515"
+                    Point2="21.6571492068625,-17.7764663412515"
+                    Point3="25.6571492068625,-17.7764663412515" />
                   <mssgle:LineSegment
-                    End="71.985725257835,10.388239369506" />
+                    End="35.8142984137249,-17.7764663412515" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="28.2141712226675,-15.421875,23.0573828125,9.421875"
+              BoundingBox="10.1284578006125,1,23.0573828125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17199,9 +19159,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="61.299997147492,41.6352964770842"
+              EndConnector="130.099997147492,41.6352964770842"
               Start="0,0"
-              End="61.299997147492,34.1352964770842">
+              End="130.099997147492,34.1352964770842">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -17212,13 +19172,13 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                     Point2="0,20.8176482385421"
                     Point3="4,20.8176482385421" />
                   <mssgle:LineSegment
-                    End="57.299997147492,20.8176482385421" />
+                    End="126.099997147492,20.8176482385421" />
                   <mssgle:CubicBezierSegment
-                    Point1="57.299997147492,20.8176482385421"
-                    Point2="61.299997147492,20.8176482385421"
-                    Point3="61.299997147492,24.8176482385421" />
+                    Point1="126.099997147492,20.8176482385421"
+                    Point2="130.099997147492,20.8176482385421"
+                    Point3="130.099997147492,24.8176482385421" />
                   <mssgle:LineSegment
-                    End="61.299997147492,34.1352964770842" />
+                    End="130.099997147492,34.1352964770842" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17298,9 +19258,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17334,9 +19292,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17370,9 +19326,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17442,9 +19396,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17478,9 +19430,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17502,9 +19452,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17840,16 +19788,16 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-120.235369820938,23.0179293561559"
+              EndConnector="-120.235369820938,23.017929356156"
               Start="0,0"
-              End="-120.235369820938,15.5179293561559">
+              End="-120.235369820938,15.517929356156">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.64233374035585" />
+                    End="0,9.64233374035589" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.64233374035585"
+                    Point1="0,9.64233374035589"
                     Point2="0,13.6423337403559"
                     Point3="-4,13.6423337403559" />
                   <mssgle:LineSegment
@@ -17859,7 +19807,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                     Point2="-120.235369820938,13.6423337403559"
                     Point3="-120.235369820938,17.6423337403559" />
                   <mssgle:LineSegment
-                    End="-120.235369820938,15.5179293561559" />
+                    End="-120.235369820938,15.517929356156" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18010,26 +19958,26 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-16.5741490701888,51.2330531880929"
+              EndConnector="-16.5741490701889,51.2330531880928"
               Start="0,0"
-              End="-16.5741490701888,43.7330531880929">
+              End="-16.5741490701889,43.7330531880928">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.6165265940465" />
+                    End="0,21.6165265940464" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.6165265940465"
-                    Point2="0,25.6165265940465"
-                    Point3="-4,25.6165265940465" />
+                    Point1="0,21.6165265940464"
+                    Point2="0,25.6165265940464"
+                    Point3="-4,25.6165265940464" />
                   <mssgle:LineSegment
-                    End="-12.5741490701888,25.6165265940465" />
+                    End="-12.5741490701889,25.6165265940464" />
                   <mssgle:CubicBezierSegment
-                    Point1="-12.5741490701888,25.6165265940465"
-                    Point2="-16.5741490701888,25.6165265940465"
-                    Point3="-16.5741490701888,29.6165265940465" />
+                    Point1="-12.5741490701889,25.6165265940464"
+                    Point2="-16.5741490701889,25.6165265940464"
+                    Point3="-16.5741490701889,29.6165265940464" />
                   <mssgle:LineSegment
-                    End="-16.5741490701888,43.7330531880929" />
+                    End="-16.5741490701889,43.7330531880928" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18272,9 +20220,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.9714290579974,278.67451134113"
+              EndConnector="16.9714290579981,278.67451134113"
               Start="0,0"
-              End="16.9714290579974,271.17451134113">
+              End="16.9714290579981,271.17451134113">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -18285,13 +20233,13 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                     Point2="0,139.337255670565"
                     Point3="4,139.337255670565" />
                   <mssgle:LineSegment
-                    End="12.9714290579974,139.337255670565" />
+                    End="12.9714290579981,139.337255670565" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.9714290579974,139.337255670565"
-                    Point2="16.9714290579974,139.337255670565"
-                    Point3="16.9714290579974,143.337255670565" />
+                    Point1="12.9714290579981,139.337255670565"
+                    Point2="16.9714290579981,139.337255670565"
+                    Point3="16.9714290579981,143.337255670565" />
                   <mssgle:LineSegment
-                    End="16.9714290579974,271.17451134113" />
+                    End="16.9714290579981,271.17451134113" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -18427,9 +20375,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="34.0226203405735,72.3470597208299,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
@@ -18787,7 +20733,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,6.04531249999998,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,6.0453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -19456,6 +21402,47 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Recepcion\Sin Nota encab">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Recepcion\Busca el tipoenvase">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Contenedor de secuencias\Recepcion\Busca Correlativo de Recepcion">
     <Properties>
       <Property>
@@ -19484,39 +21471,6 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Contenedor de secuencias\Recepcion\Busca el tipoenvase">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Contenedor de secuencias\Recepcion\Sin Nota encab">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
           type="q2:string">false</Value>
       </Property>
       <Property>
@@ -19529,14 +21483,6 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <Value
           type="q4:string">0</Value>
       </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS">
-    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -19565,5 +21511,133 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Contenedor de secuencias\Escribe en Bitacora Movtos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados"
+          TopLeft="145,112" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora"
+          TopLeft="733,449" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate"
+          TopLeft="394,174" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Flat File Source Output]"
+          TopLeft="338.6,132.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.4,62"
+              Start="0,0"
+              End="47.9,62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.7,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.7,0"
+                    Point2="27.7,0"
+                    Point3="27.7,4" />
+                  <mssgle:LineSegment
+                    End="27.7,58" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.7,58"
+                    Point2="27.7,62"
+                    Point3="31.7,62" />
+                  <mssgle:LineSegment
+                    End="47.9,62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas"
+          TopLeft="498,271" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Aggregate Output 1]"
+          TopLeft="457.2,215.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.2,55.4"
+              Start="0,0"
+              End="143.2,47.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7"
+                    Point2="0,27.7"
+                    Point3="4,27.7" />
+                  <mssgle:LineSegment
+                    End="139.2,27.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.2,27.7"
+                    Point2="143.2,27.7"
+                    Point3="143.2,31.7" />
+                  <mssgle:LineSegment
+                    End="143.2,47.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Derived Column Output]"
+          TopLeft="600.4,312.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="219,136.4"
+              Start="0,0"
+              End="219,128.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.2000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.2000000000001"
+                    Point2="0,68.2000000000001"
+                    Point3="4,68.2000000000001" />
+                  <mssgle:LineSegment
+                    End="215,68.2000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="215,68.2000000000001"
+                    Point2="219,68.2000000000001"
+                    Point3="219,72.2000000000001" />
+                  <mssgle:LineSegment
+                    End="219,128.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="101.5,73.2000000000001,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
