@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">R-DIAZ</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAAAZgmjun7UyvlOKiilWt8RgAAAAAASAAACgAAAAEAAAABDJvNa3gq/7zH65bXDwI3OIAAAArQZ0aocTzk2PsPkr70p6s8x1zxM6RgEF7WtllDODG7w2Wg2z0MhvqoV4du9ZITprtouKWIXvp3Y/Z24fvq3MqxY/UlYZOAsT9kHsyOCejL1d8eKKHHb/pVNE3b44MzLjwrh4c9Hr7gl0XPIhfOMXkiY0sYEOal4lAmvFvLCvAvxOpUri0+FoMRQAAAAon+8QXfPuOU5ESOvPsgwH1L68Ng==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAAD/hHJYEsvb7fTU91P6lzxUAAAAAASAAACgAAAAEAAAAEmwg0/YT60E6m3X/UyzKXyIAAAA1ABAeAvHd4nt6tLs6ZJfcn75tgsoRM5mEjFtu0GWxdiTarmTTDb6MQVORjbQa0XstHSwI8db3LUfdQmFhOxZ3Qe9QAZJmbWJiOVRpZGhDUO4wfZsY8pb/uGE32fNvp54wgd6cgWAAdG70iRW+/tGVwzcmSfO6jEFoZFq0Xx6aGKDKCsg/bPj/xQAAADNtvcbSSBCz2Ai8GnYSVOofF684w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -47,8 +47,8 @@
           <SSIS:Package SSIS:Name="FG_Traspasovaciado.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
-          <SSIS:ConnectionManager SSIS:Name="Conn_Origen.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="Destinos.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="ERP.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="Intermedia.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
