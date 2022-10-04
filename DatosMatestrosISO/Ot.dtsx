@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="182"
-  DTS:VersionGUID="{33376AE2-8D5F-48F7-8183-AFF6103E26C6}">
+  DTS:VersionBuild="183"
+  DTS:VersionGUID="{1FCCB126-EE44-42DA-ADD3-887297094AE6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -9336,7 +9336,7 @@ and  orpr_tipope=1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-130.215331308987,34.7065707847732,36.773515625,11.3359375"
+              BoundingBox="-138.690917246487,34.7065707847732,53.7246875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9733,7 +9733,7 @@ and  orpr_tipope=1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-166.096425568377,15.2446333578422,32.5928515625,11.3359375"
+              BoundingBox="-174.572011505877,15.2446333578422,49.5440234375,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10077,7 +10077,7 @@ and  orpr_tipope=1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-94.29642578125,36.8458404074703,32.5928515625,11.3359375"
+              BoundingBox="-102.77201171875,36.8458404074703,49.5440234375,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
