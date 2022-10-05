@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="RetornoPallets"
   DTS:PackageType="5"
-  DTS:VersionBuild="355"
-  DTS:VersionGUID="{9C03C424-0218-4291-B477-827A0BC308DC}">
+  DTS:VersionBuild="356"
+  DTS:VersionGUID="{3D38C928-37E7-4D8D-837C-0D6000F5197E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23338,6 +23338,18 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package.EventHandlers[OnError]\Registra error"
+          TopLeft="580,313.235294106922" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Buffer">
     <LayoutInfo>
@@ -24226,7 +24238,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24260,7 +24274,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24294,7 +24310,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24352,7 +24370,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24386,7 +24406,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24420,7 +24442,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24454,7 +24478,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24620,7 +24646,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24690,7 +24718,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24724,7 +24754,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24758,7 +24790,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24792,7 +24826,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24826,7 +24862,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24860,28 +24898,30 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Este Componente Buscara en el destino si el registro esta"
           ParentId="Package\Contenedor de secuencias\PalletEncab"
           FontInfo="{assembly:Null}"
-          Size="330.4,40"
+          Size="330.4,NaN"
           Id="94759265-4f36-43a7-88f8-397a7f5599e6"
           TopLeft="293.595240063813,934.101965817777" />
         <AnnotationLayout
           Text="Los registros sin nota seran notificados"
           ParentId="Package\Contenedor de secuencias\PalletEncab"
           FontInfo="{assembly:Null}"
-          Size="234.4,40"
+          Size="234.4,NaN"
           Id="2df095ea-eb3e-4983-b262-2e8354194184"
           TopLeft="1052.0095410746,670.494121872596" />
         <AnnotationLayout
           Text="Necesario para notificar"
           ParentId="Package\Contenedor de secuencias\PalletEncab"
           FontInfo="{assembly:Null}"
-          Size="154.4,40"
+          Size="154.4,NaN"
           Id="5551007c-c9bd-433f-9082-50e42c51834d"
           TopLeft="1230.75001394323,857.250003874302" />
       </GraphLayout>
@@ -24909,7 +24949,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -25012,7 +25052,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25046,7 +25088,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25116,7 +25160,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25146,7 +25192,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25172,7 +25220,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25214,7 +25264,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25256,7 +25308,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25358,7 +25412,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25394,7 +25450,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25422,7 +25480,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25460,7 +25520,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25494,7 +25556,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -25502,7 +25566,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\PalletFruta"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="515.2,855.2"
+          PanelSize="515.2,855.4"
           Size="515.2,898.4"
           Id="d1fd5a56-928d-4a9d-af0a-cafaa96cd63a"
           TopLeft="113.5,374.037082657083">
@@ -25575,7 +25639,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25609,7 +25675,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -25617,7 +25685,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\PalletFruta"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="339.2,310.4"
+          PanelSize="339.2,310.6"
           Size="339.2,353.6"
           Id="56873432-dc55-456d-9b25-6b511f74c4b1"
           TopLeft="846.166666666667,385.944444444444">
@@ -26291,17 +26359,5 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package.EventHandlers[OnError]\Registra error"
-          TopLeft="580,314" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
