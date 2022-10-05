@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/16/2022 4:25:53 PM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Especies"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{A51FAFC7-09CF-4AC3-AFE3-E6272B6AEA7A}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{7107C817-4676-4091-9ED4-D0B3D4E17399}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -60,7 +60,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update dbo.especie_ext
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">update dbo.especie_ext
 set
 nombre=?,
 abreviado=?
@@ -73,8 +73,8 @@ where cod_especie=?</property>
               <connections>
                 <connection
                   refId="Package\Especies\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -211,7 +211,7 @@ where cod_especie=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -245,8 +245,8 @@ where cod_especie=?</property>
               <connections>
                 <connection
                   refId="Package\Especies\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1108,7 +1108,7 @@ where cod_especie=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from dba.especies
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from dba.especies
 where espe_codigo =?</property>
                 <property
                   dataType="System.String"
@@ -1135,8 +1135,8 @@ where espe_codigo =?</property>
               <connections>
                 <connection
                   refId="Package\Especies\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1486,7 +1486,7 @@ where espe_codigo =?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1512,8 +1512,8 @@ where espe_codigo =?</property>
               <connections>
                 <connection
                   refId="Package\Especies\OLE DB Source 1.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

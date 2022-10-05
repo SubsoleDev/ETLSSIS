@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="PesoProceso"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{F3CD59B1-5B96-4D75-B8D0-E63892C39271}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{93156CB0-FF42-4AD8-A7D1-1D0282EC26E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

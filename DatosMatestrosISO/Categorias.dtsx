@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/18/2022 11:20:47 AM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Categorias"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{9ECE9290-5108-4B77-BF78-3898578C3A5B}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{8E1CD35C-4F33-40D5-9834-450FFE0DF5C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -67,7 +67,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.cate_codigo,cate_nombre,espe_codigo
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.cate_codigo,cate_nombre,espe_codigo
   from dba.categorias as a inner join dba.categoriaespe as ce on
   a.cate_codigo=ce.cate_codigo
   where espe_codigo=?</property>
@@ -96,8 +96,8 @@
               <connections>
                 <connection
                   refId="Package\Categorias\Categorias-Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -230,7 +230,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.cate_codigo,cate_nombre,espe_codigo
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.cate_codigo,cate_nombre,espe_codigo
   from dba.categorias as a inner join dba.categoriaespe as ce on
   a.cate_codigo=ce.cate_codigo
   where espe_codigo=?</property>
@@ -259,8 +259,8 @@
               <connections>
                 <connection
                   refId="Package\Categorias\Categorias-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -988,7 +988,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.categoria_ext set
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dbo.categoria_ext set
 descripcion=?, 
 cod_especie=? 
 where cod_categoria=?</property>
@@ -1000,8 +1000,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1131,7 +1131,7 @@ where cod_categoria=?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Delete dbo.categoria_ext  
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Delete dbo.categoria_ext  
 where cod_categoria=?</property>
                 <property
                   dataType="System.Int32"
@@ -1141,8 +1141,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1238,7 +1238,7 @@ where cod_categoria=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1272,8 +1272,8 @@ where cod_categoria=?</property>
               <connections>
                 <connection
                   refId="Package\Categorias\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

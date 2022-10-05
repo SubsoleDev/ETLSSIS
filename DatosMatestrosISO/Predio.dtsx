@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Predios"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{4188CC92-40A7-4C92-9738-707C1E6BC4AC}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{390A2FC0-627F-4BB4-81BE-70F295CBC01F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>

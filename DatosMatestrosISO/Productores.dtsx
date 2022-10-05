@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/17/2022 9:10:30 AM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Productores"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{FB95B2DA-4ECA-4A1C-9563-F06702A192EC}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{6B6F6296-C478-4B2E-A4A4-30BFE0622578}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -60,7 +60,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update dbo.productor_ext set
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">update dbo.productor_ext set
 nombre =?,
 csg =?,
 pais=?,
@@ -76,8 +76,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -298,7 +298,7 @@ where cod_productor=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -332,8 +332,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Agrega.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1044,7 +1044,7 @@ where cod_productor=?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">delete dbo.productor_ext  
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">delete dbo.productor_ext  
 where cod_productor=?</property>
                 <property
                   dataType="System.Int32"
@@ -1054,8 +1054,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Elimina.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1378,7 +1378,7 @@ where cod_productor=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1404,8 +1404,8 @@ where cod_productor=?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Productor-Destino.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1634,7 +1634,7 @@ where cod_productor=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select prod_codigo,prod_nombre,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select prod_codigo,prod_nombre,
 (select  top 1 prbr_codcsg 
 	from dba.prodbienraiz as pre
 	where prod.prod_codigo=pre.prod_codigo and pre.prbr_estado=1 and prbr_codcsg  is not null ) as csg
@@ -1679,8 +1679,8 @@ where espe_codigo=?)</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Productor-Origen.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="DatosMaestros"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{D9700666-2031-493A-8181-078F97748FC2}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{25B36324-D258-4B3D-A5E7-CB4141A2854C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

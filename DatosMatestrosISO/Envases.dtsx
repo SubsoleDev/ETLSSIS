@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Envases"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{957462E1-BAA7-44A4-8391-283BE5E45B3F}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{F76011ED-0E23-468D-B71F-A7459301D8B6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -3010,7 +3010,7 @@ where Exists(select *
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Envases\envases Destino">
+    design-time-name="Package\Envases\envases">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3023,7 +3023,7 @@ where Exists(select *
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Envases\envases">
+    design-time-name="Package\Envases\envases Destino">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

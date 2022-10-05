@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/18/2022 11:25:41 AM"
@@ -9,10 +9,10 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="13322"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Calibres"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{4F05E815-70A1-40AC-9880-D9AFC720D897}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{5A85E088-FBD3-46B4-92D6-E2C04B9F9EAE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -60,7 +60,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
 update dbo.calibres_ext set
 descripcion = ?,
 rango = ?,
@@ -75,8 +75,8 @@ where cod_calibre=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\Actualiza.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -253,7 +253,7 @@ where cod_calibre=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -287,8 +287,8 @@ where cod_calibre=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\Agrega Calibres.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -423,7 +423,7 @@ where cod_calibre=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select caen_calibr cod_calibre,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select caen_calibr cod_calibre,
  caen_calibr as descripcion, 
 'A-B' as rango,
 null as gtin,
@@ -455,8 +455,8 @@ where espe_codigo=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\Calibres.Connections[OleDbConnection]"
-                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
-                  connectionManagerRefId="{70536297-E20F-471B-90FF-787A6DAA6650}:invalid"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1046,7 +1046,7 @@ where espe_codigo=?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1072,8 +1072,8 @@ where espe_codigo=?</property>
               <connections>
                 <connection
                   refId="Package\Calibres\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
-                  connectionManagerRefId="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:invalid"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
