@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="332"
-  DTS:VersionGUID="{E22A68FC-A127-42CB-A095-3D9377E7B80A}">
+  DTS:VersionBuild="336"
+  DTS:VersionGUID="{0862FC5F-FD62-4C6C-A00F-26A87AFDA275}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -6738,13 +6738,6 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
                           externalMetadataColumnId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                           lineageId="Package\Contenedor de secuencias\PalletEncab\Merge Join 1.Outputs[Merge Join Output].Columns[paen_feccon]" />
                         <inputColumn
-                          refId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_altura]"
-                          cachedDataType="numeric"
-                          cachedName="paen_altura"
-                          cachedPrecision="4"
-                          externalMetadataColumnId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                          lineageId="Package\Contenedor de secuencias\PalletEncab\Merge Join 1.Outputs[Merge Join Output].Columns[paen_altura]" />
-                        <inputColumn
                           refId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[paen_ccajas]"
                           cachedDataType="numeric"
                           cachedName="paen_ccajas"
@@ -6849,6 +6842,13 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
                           cachedPrecision="2"
                           externalMetadataColumnId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_25]"
                           lineageId="Package\Contenedor de secuencias\PalletEncab\Merge Join 1.Outputs[Merge Join Output].Columns[merc_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].Columns[tpen_altura_real]"
+                          cachedDataType="numeric"
+                          cachedName="tpen_altura_real"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Match Output].Columns[tpen_altura_real]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -7193,6 +7193,205 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
                           refId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           dataType="i4"
                           lineageId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Busca Altura"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select enva_tipoen,enva_codigo,tpen_codigo,tpen_cancaj,tpen_altura
+from dba.tipopallenvase
+where tpen_estado=1</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select enva_tipoen,enva_codigo,tpen_codigo,tpen_cancaj,tpen_altura
+from dba.tipopallenvase
+where tpen_estado=1) [refTable]
+where [refTable].[enva_tipoen] = ? and [refTable].[enva_codigo] = ? and [refTable].[tpen_codigo] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="enva_tipoen" dataType="DT_NUMERIC" length="0" precision="1" scale="0" codePage="0"/&gt;&lt;referenceColumn name="enva_codigo" dataType="DT_NUMERIC" length="0" precision="3" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tpen_codigo" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="tpen_cancaj" dataType="DT_NUMERIC" length="0" precision="7" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tpen_altura" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje.Outputs[Lookup Match Output].Columns[enva_tipoen]};#{Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje.Outputs[Lookup Match Output].Columns[enva_codigo]};#{Package\Contenedor de secuencias\PalletEncab\Derived Column.Outputs[Derived Column Output].Columns[tpen_codigo_altura]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Connections[OleDbConnection]"
+                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input].Columns[enva_tipoen]"
+                          cachedDataType="numeric"
+                          cachedName="enva_tipoen"
+                          cachedPrecision="1"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje.Outputs[Lookup Match Output].Columns[enva_tipoen]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">enva_tipoen</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input].Columns[enva_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="enva_codigo"
+                          cachedPrecision="3"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje.Outputs[Lookup Match Output].Columns[enva_codigo]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">enva_codigo</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input].Columns[tpen_codigo_altura]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="tpen_codigo_altura"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Outputs[Derived Column Output].Columns[tpen_codigo_altura]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">tpen_codigo</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Match Output].Columns[tpen_altura_real]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Match Output].Columns[tpen_altura_real]"
+                          name="tpen_altura_real"
+                          precision="4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">tpen_altura</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -7549,6 +7748,14 @@ where [refTable].[paen_numero] = ?</property>
                       refId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Inputs[Derived Column Input]"
                       description="Input to the Derived Column Transformation"
                       name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Inputs[Derived Column Input].Columns[paen_altura]"
+                          cachedDataType="numeric"
+                          cachedName="paen_altura"
+                          cachedPrecision="4"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Merge Join 1.Outputs[Merge Join Output].Columns[paen_altura]" />
+                      </inputColumns>
                       <externalMetadataColumns />
                     </input>
                   </inputs>
@@ -7602,6 +7809,30 @@ where [refTable].[paen_numero] = ?</property>
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Outputs[Derived Column Output].Columns[tpen_codigo_altura]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="5"
+                          lineageId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Outputs[Derived Column Output].Columns[tpen_codigo_altura]"
+                          name="tpen_codigo_altura"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,5,1252)#{Package\Contenedor de secuencias\PalletEncab\Merge Join 1.Outputs[Merge Join Output].Columns[paen_altura]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,5,1252)paen_altura</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -11482,7 +11713,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
               <paths>
                 <path
                   refId="Package\Contenedor de secuencias\PalletEncab.Paths[Derived Column Output]"
-                  endId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input]"
+                  endId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Inputs[Lookup Input]"
                   name="Derived Column Output"
                   startId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Outputs[Derived Column Output]" />
                 <path
@@ -11490,6 +11721,11 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                   endId="Package\Contenedor de secuencias\PalletEncab\Derived Column.Inputs[Derived Column Input]"
                   name="Lookup Match Output"
                   startId="Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\Contenedor de secuencias\PalletEncab.Paths[Lookup Match Output2]"
+                  endId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Inputs[OLE DB Command Input]"
+                  name="Lookup Match Output"
+                  startId="Package\Contenedor de secuencias\PalletEncab\Busca Altura.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\Contenedor de secuencias\PalletEncab.Paths[Lookup Match Output1]"
                   endId="Package\Contenedor de secuencias\PalletEncab\Se busca si el registro esta en destino.Inputs[Lookup Input]"
@@ -11531,20 +11767,20 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                   name="OLE DB Command Output"
                   startId="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos.Outputs[OLE DB Command Output]" />
                 <path
-                  refId="Package\Contenedor de secuencias\PalletEncab.Paths[OLE DB Source Output]"
-                  endId="Package\Contenedor de secuencias\PalletEncab\Sort 2.Inputs[Sort Input]"
+                  refId="Package\Contenedor de secuencias\PalletEncab.Paths[OLE DB Source Output2]"
+                  endId="Package\Contenedor de secuencias\PalletEncab\Sort 1.Inputs[Sort Input]"
                   name="OLE DB Source Output"
-                  startId="Package\Contenedor de secuencias\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output]" />
+                  startId="Package\Contenedor de secuencias\PalletEncab\spro_palletfruta_ss Conecta.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\Contenedor de secuencias\PalletEncab.Paths[OLE DB Source Output1]"
                   endId="Package\Contenedor de secuencias\PalletEncab\Sort.Inputs[Sort Input]"
                   name="OLE DB Source Output"
                   startId="Package\Contenedor de secuencias\PalletEncab\spro_ordenproceso ERP.Outputs[OLE DB Source Output]" />
                 <path
-                  refId="Package\Contenedor de secuencias\PalletEncab.Paths[OLE DB Source Output2]"
-                  endId="Package\Contenedor de secuencias\PalletEncab\Sort 1.Inputs[Sort Input]"
+                  refId="Package\Contenedor de secuencias\PalletEncab.Paths[OLE DB Source Output]"
+                  endId="Package\Contenedor de secuencias\PalletEncab\Sort 2.Inputs[Sort Input]"
                   name="OLE DB Source Output"
-                  startId="Package\Contenedor de secuencias\PalletEncab\spro_palletfruta_ss Conecta.Outputs[OLE DB Source Output]" />
+                  startId="Package\Contenedor de secuencias\PalletEncab\Spro_palletencab_ss.Outputs[OLE DB Source Output]" />
                 <path
                   refId="Package\Contenedor de secuencias\PalletEncab.Paths[Row Count Output 1]"
                   endId="Package\Contenedor de secuencias\PalletEncab\Multicast.Inputs[Multicast Input 1]"
@@ -18911,6 +19147,10 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           Id="Package\Buffer"
           TopLeft="353.928577455939,38.5911750147088" />
         <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos"
+          TopLeft="488.600011495182,431.611772845938" />
+        <NodeLayout
           Size="156,41.6"
           Id="Package\Contenedor de secuencias\Genera Historico"
           TopLeft="357.171437828395,347.270594777368" />
@@ -19068,10 +19308,6 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos"
-          TopLeft="488.600011495182,431.611772845938" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]"
           TopLeft="435.171437828395,388.870594777368">
@@ -19116,40 +19352,40 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="132.8,41.6"
           Id="Package\Notificacion"
-          TopLeft="932.142873017156,367.250005150541" />
+          TopLeft="964.285730707403,368.205887516888" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="888.828574603431,405.826471491793">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.3142984137249,-17.7764663412515"
+              EndConnector="75.4571561039721,-16.8205839749049"
               Start="0,0"
-              End="35.8142984137249,-17.7764663412515">
+              End="67.9571561039721,-16.8205839749049">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="17.6571492068625,0" />
+                    End="33.7285780519861,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="17.6571492068625,0"
-                    Point2="21.6571492068625,0"
-                    Point3="21.6571492068625,-4" />
+                    Point1="33.7285780519861,0"
+                    Point2="37.7285780519861,0"
+                    Point3="37.7285780519861,-4" />
                   <mssgle:LineSegment
-                    End="21.6571492068625,-13.7764663412515" />
+                    End="37.7285780519861,-12.8205839749049" />
                   <mssgle:CubicBezierSegment
-                    Point1="21.6571492068625,-13.7764663412515"
-                    Point2="21.6571492068625,-17.7764663412515"
-                    Point3="25.6571492068625,-17.7764663412515" />
+                    Point1="37.7285780519861,-12.8205839749049"
+                    Point2="37.7285780519861,-16.8205839749049"
+                    Point3="41.7285780519861,-16.8205839749049" />
                   <mssgle:LineSegment
-                    End="35.8142984137249,-17.7764663412515" />
+                    End="67.9571561039721,-16.8205839749049" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.1284578006125,1,23.0573828125,9.421875"
+              BoundingBox="26.1998866457361,1,23.0573828125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -19490,10 +19726,138 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Contenedor de secuencias\Escribe en Bitacora Movtos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas"
+          TopLeft="498,271" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora"
+          TopLeft="733,449" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados"
+          TopLeft="145,112" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate"
+          TopLeft="394,174" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Aggregate Output 1]"
+          TopLeft="457.2,215.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143.2,55.4"
+              Start="0,0"
+              End="143.2,47.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7"
+                    Point2="0,27.7"
+                    Point3="4,27.7" />
+                  <mssgle:LineSegment
+                    End="139.2,27.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.2,27.7"
+                    Point2="143.2,27.7"
+                    Point3="143.2,31.7" />
+                  <mssgle:LineSegment
+                    End="143.2,47.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Flat File Source Output]"
+          TopLeft="338.6,132.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.4,62"
+              Start="0,0"
+              End="47.9,62">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.7,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.7,0"
+                    Point2="27.7,0"
+                    Point3="27.7,4" />
+                  <mssgle:LineSegment
+                    End="27.7,58" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.7,58"
+                    Point2="27.7,62"
+                    Point3="31.7,62" />
+                  <mssgle:LineSegment
+                    End="47.9,62" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Derived Column Output]"
+          TopLeft="600.4,312.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="219,136.4"
+              Start="0,0"
+              End="219,128.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.2000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.2000000000001"
+                    Point2="0,68.2000000000001"
+                    Point3="4,68.2000000000001" />
+                  <mssgle:LineSegment
+                    End="215,68.2000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="215,68.2000000000001"
+                    Point2="219,68.2000000000001"
+                    Point3="219,72.2000000000001" />
+                  <mssgle:LineSegment
+                    End="219,128.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="101.5,73.2000000000001,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
     design-time-name="Package\Contenedor de secuencias\Genera Historico">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Contenedor de secuencias\Genera Historico\Flat File Source"
@@ -19537,7 +19901,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19565,7 +19931,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19599,7 +19967,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19633,7 +20003,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -19655,7 +20027,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -19693,7 +20067,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Agrega Registros nuevos"
-          TopLeft="310.845240681147,1416.49411944166" />
+          TopLeft="236.559525130355,1414.20000176243" />
         <NodeLayout
           Size="140,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Notiene Nota"
@@ -19725,7 +20099,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Derived Column"
-          TopLeft="248,1240.2" />
+          TopLeft="226.571428206502,1237.90588232077" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\CuentaSiinNota"
@@ -19741,7 +20115,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="247.2,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Actualiza Estado de Sinc en conecta"
-          TopLeft="563.428574092534,1481.45294037033" />
+          TopLeft="564.142859818984,1502.09999948343" />
         <NodeLayout
           Size="218.4,41.6"
           Id="Package\Contenedor de secuencias\PalletEncab\Buscamos el tipo de embalaje"
@@ -20056,30 +20430,30 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias\PalletEncab.Paths[OLE DB Command Output]"
-          TopLeft="408.445240681147,1458.09411944166">
+          TopLeft="334.159525130355,1455.80000176243">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="278.583333411387,23.3588209286702"
+              EndConnector="353.583334688629,46.2999977209997"
               Start="0,0"
-              End="278.583333411387,15.8588209286702">
+              End="353.583334688629,38.7999977209997">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,7.67941046433509" />
+                    End="0,19.1499988604999" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,7.67941046433509"
-                    Point2="0,11.6794104643351"
-                    Point3="4,11.6794104643351" />
+                    Point1="0,19.1499988604999"
+                    Point2="0,23.1499988604999"
+                    Point3="4,23.1499988604999" />
                   <mssgle:LineSegment
-                    End="274.583333411387,11.6794104643351" />
+                    End="349.583334688629,23.1499988604999" />
                   <mssgle:CubicBezierSegment
-                    Point1="274.583333411387,11.6794104643351"
-                    Point2="278.583333411387,11.6794104643351"
-                    Point3="278.583333411387,15.6794104643351" />
+                    Point1="349.583334688629,23.1499988604999"
+                    Point2="353.583334688629,23.1499988604999"
+                    Point3="353.583334688629,27.1499988604999" />
                   <mssgle:LineSegment
-                    End="278.583333411387,15.8588209286702" />
+                    End="353.583334688629,38.7999977209997" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20314,68 +20688,34 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-11.2285710839191,89.5568588484507"
+              EndConnector="-32.6571428774168,87.2627411692174"
               Start="0,0"
-              End="-11.2285710839191,82.0568588484507">
+              End="-32.6571428774168,79.7627411692174">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.7784294242254" />
+                    End="0,39.6313705846087" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.7784294242254"
-                    Point2="0,44.7784294242254"
-                    Point3="-4,44.7784294242254" />
+                    Point1="0,39.6313705846087"
+                    Point2="0,43.6313705846087"
+                    Point3="-4,43.6313705846087" />
                   <mssgle:LineSegment
-                    End="-7.22857108391912,44.7784294242254" />
+                    End="-28.6571428774168,43.6313705846087" />
                   <mssgle:CubicBezierSegment
-                    Point1="-7.22857108391912,44.7784294242254"
-                    Point2="-11.2285710839191,44.7784294242254"
-                    Point3="-11.2285710839191,48.7784294242254" />
+                    Point1="-28.6571428774168,43.6313705846087"
+                    Point2="-32.6571428774168,43.6313705846087"
+                    Point3="-32.6571428774168,47.6313705846087" />
                   <mssgle:LineSegment
-                    End="-11.2285710839191,82.0568588484507" />
+                    End="-32.6571428774168,79.7627411692174" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-53.8056722607096,49.7784294242254,96.3827734375,11.609375"
+              BoundingBox="-64.5199581574584,48.6313705846087,96.3827734375,11.609375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\PalletEncab.Paths[Derived Column Output]"
-          TopLeft="324.4,1281.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="84.045240681147,134.69411944166"
-              Start="0,0"
-              End="84.045240681147,127.19411944166">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,63.3470597208299" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,63.3470597208299"
-                    Point2="0,67.3470597208299"
-                    Point3="4,67.3470597208299" />
-                  <mssgle:LineSegment
-                    End="80.045240681147,67.3470597208299" />
-                  <mssgle:CubicBezierSegment
-                    Point1="80.045240681147,67.3470597208299"
-                    Point2="84.045240681147,67.3470597208299"
-                    Point3="84.045240681147,71.3470597208299" />
-                  <mssgle:LineSegment
-                    End="84.045240681147,127.19411944166" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
@@ -20399,6 +20739,80 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           Size="154.4,40"
           Id="5551007c-c9bd-433f-9082-50e42c51834d"
           TopLeft="1230.75001394323,857.250003874302" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Contenedor de secuencias\PalletEncab\Busca Altura"
+          TopLeft="480.000008174351,1312.17647491029" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\PalletEncab.Paths[Derived Column Output]"
+          TopLeft="302.971428206502,1279.50588232077">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="245.428579967849,32.6705925895269"
+              Start="0,0"
+              End="245.428579967849,25.1705925895269">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.3352962947635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.3352962947635"
+                    Point2="0,16.3352962947635"
+                    Point3="4,16.3352962947635" />
+                  <mssgle:LineSegment
+                    End="241.428579967849,16.3352962947635" />
+                  <mssgle:CubicBezierSegment
+                    Point1="241.428579967849,16.3352962947635"
+                    Point2="245.428579967849,16.3352962947635"
+                    Point3="245.428579967849,20.3352962947635" />
+                  <mssgle:LineSegment
+                    End="245.428579967849,25.1705925895269" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\PalletEncab.Paths[Lookup Match Output2]"
+          TopLeft="548.400008174351,1353.77647491029">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-214.240483043997,60.4235268521331"
+              Start="0,0"
+              End="-214.240483043997,52.9235268521331">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2117634260666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2117634260666"
+                    Point2="0,30.2117634260666"
+                    Point3="-4,30.2117634260666" />
+                  <mssgle:LineSegment
+                    End="-210.240483043997,30.2117634260666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-210.240483043997,30.2117634260666"
+                    Point2="-214.240483043997,30.2117634260666"
+                    Point3="-214.240483043997,34.2117634260666" />
+                  <mssgle:LineSegment
+                    End="-214.240483043997,52.9235268521331" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-164.180280584498,35.2117634260666,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -20504,7 +20918,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20538,7 +20954,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20608,7 +21026,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -20638,7 +21058,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -20664,7 +21086,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -20706,7 +21130,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -20756,7 +21182,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -20764,7 +21192,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\PalletFruta"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="332.8,535.2"
+          PanelSize="332.8,535.4"
           Size="332.8,578.4"
           Id="d1fd5a56-928d-4a9d-af0a-cafaa96cd63a"
           TopLeft="115.5,371.037082657083">
@@ -20825,7 +21253,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -20859,7 +21289,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -20867,7 +21299,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\PalletFruta"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="339.2,310.4"
+          PanelSize="339.2,310.6"
           Size="339.2,353.6"
           Id="56873432-dc55-456d-9b25-6b511f74c4b1"
           TopLeft="780.166666666667,385.944444444444">
@@ -20921,25 +21353,21 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
-          Size="225.6,41.6"
-          Id="Package\Contenedor de secuencias\Recepcion\Valida que no exista en destino"
-          TopLeft="125.923076923077,449.338461538462" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Contenedor de secuencias\Recepcion\Lookup"
-          TopLeft="376.384615384616,234" />
-        <NodeLayout
           Size="226.4,41.6"
           Id="Package\Contenedor de secuencias\Recepcion\Movtos_PalletFruta_Procesados"
           TopLeft="42.7632638273021,783.322692129109" />
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Contenedor de secuencias\Recepcion\Busca el tipoenvase"
-          TopLeft="72.1428571793498,327.164705893078" />
+          Size="225.6,41.6"
+          Id="Package\Contenedor de secuencias\Recepcion\Valida que no exista en destino"
+          TopLeft="125.923076923077,449.338461538462" />
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Contenedor de secuencias\Recepcion\Sin Nota encab"
           TopLeft="358,63.2" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Contenedor de secuencias\Recepcion\Busca el tipoenvase"
+          TopLeft="72.1428571793498,327.164705893078" />
         <NodeLayout
           Size="168,41.6"
           Id="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS"
@@ -20948,6 +21376,10 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           Size="120,41.6"
           Id="Package\Contenedor de secuencias\Recepcion\Multicast"
           TopLeft="285.952384459729,587.72549570858" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Contenedor de secuencias\Recepcion\Lookup"
+          TopLeft="376.384615384616,234" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias\Recepcion.Paths[OLE DB Source Output]"
           TopLeft="232.615384615385,44.9076923076923">
@@ -20979,7 +21411,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -21013,7 +21447,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -21047,7 +21483,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -21269,7 +21707,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -21303,7 +21743,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -21365,7 +21807,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -21373,7 +21817,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\Recepcion"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="588,554.4"
+          PanelSize="588,554.6"
           Size="588,597.6"
           Id="9dbe7410-b965-4931-a2e1-71ffc1b128e1"
           TopLeft="547.067770948402,731.144819288188">
@@ -21395,7 +21839,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           Text="Movimientos a AP para usarlo posteriormente"
           ParentId="Package\Contenedor de secuencias\Recepcion"
           FontInfo="{assembly:Null}"
-          Size="272,40"
+          Size="272,NaN"
           Id="6c1b2cd1-277d-4789-8567-89009eb02969"
           TopLeft="39.7959190450673,833.26051006963" />
       </GraphLayout>
@@ -21511,133 +21955,28 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Contenedor de secuencias\Escribe en Bitacora Movtos">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Movimientos Procesados"
-          TopLeft="145,112" />
-        <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Agrega a la bitacora"
-          TopLeft="733,449" />
-        <NodeLayout
-          Size="126.4,41.6"
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Aggregate"
-          TopLeft="394,174" />
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Flat File Source Output]"
-          TopLeft="338.6,132.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="55.4,62"
-              Start="0,0"
-              End="47.9,62">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="23.7,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.7,0"
-                    Point2="27.7,0"
-                    Point3="27.7,4" />
-                  <mssgle:LineSegment
-                    End="27.7,58" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27.7,58"
-                    Point2="27.7,62"
-                    Point3="31.7,62" />
-                  <mssgle:LineSegment
-                    End="47.9,62" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas"
-          TopLeft="498,271" />
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Aggregate Output 1]"
-          TopLeft="457.2,215.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="143.2,55.4"
-              Start="0,0"
-              End="143.2,47.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.7"
-                    Point2="0,27.7"
-                    Point3="4,27.7" />
-                  <mssgle:LineSegment
-                    End="139.2,27.7" />
-                  <mssgle:CubicBezierSegment
-                    Point1="139.2,27.7"
-                    Point2="143.2,27.7"
-                    Point3="143.2,31.7" />
-                  <mssgle:LineSegment
-                    End="143.2,47.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos.Paths[Derived Column Output]"
-          TopLeft="600.4,312.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="219,136.4"
-              Start="0,0"
-              End="219,128.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.2000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,64.2000000000001"
-                    Point2="0,68.2000000000001"
-                    Point3="4,68.2000000000001" />
-                  <mssgle:LineSegment
-                    End="215,68.2000000000001" />
-                  <mssgle:CubicBezierSegment
-                    Point1="215,68.2000000000001"
-                    Point2="219,68.2000000000001"
-                    Point3="219,72.2000000000001" />
-                  <mssgle:LineSegment
-                    End="219,128.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="101.5,73.2000000000001,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\PalletEncab\Busca Altura">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
