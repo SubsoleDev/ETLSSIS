@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{268A7E76-95A3-40A8-8D53-48A6557648DF}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{1319EE49-5E57-4478-A042-1FFC3DEAB8EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -397,13 +397,6 @@
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_numero]"
-                      cachedDataType="numeric"
-                      cachedName="orpr_numero"
-                      cachedPrecision="8"
-                      cachedSortKeyPosition="3"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_codnot]"
                       cachedDataType="numeric"
                       cachedName="orpr_codnot"
@@ -441,6 +434,12 @@
                       cachedLength="30"
                       cachedName="pefr_nombre_destino"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_numero_destino]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero_destino"
+                      cachedPrecision="8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -460,13 +459,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]})</property>
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(plde_codigo_destino) &amp;&amp; ISNULL(orpr_tipord_destino) &amp;&amp; ISNULL(orpr_numero)</property>
+                      name="FriendlyExpression">ISNULL(plde_codigo_destino) &amp;&amp; ISNULL(orpr_tipord_destino) &amp;&amp; ISNULL(orpr_numero_destino)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -488,13 +487,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]}) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]})</property>
+                      name="Expression">![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]}) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(plde_codigo_destino) &amp;&amp; !ISNULL(orpr_tipord_destino) &amp;&amp; !ISNULL(orpr_numero) &amp;&amp; (orpr_codnot != pefr_codigo_destino || orpr_notcal != pefr_nombre_destino)</property>
+                      name="FriendlyExpression">!ISNULL(plde_codigo_destino) &amp;&amp; !ISNULL(orpr_tipord_destino) &amp;&amp; !ISNULL(orpr_numero_destino) &amp;&amp; (orpr_codnot != pefr_codigo_destino || orpr_notcal != REPLACENULL(pefr_nombre_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."

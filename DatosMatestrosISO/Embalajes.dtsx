@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{88369FAB-66F2-4C3F-9A54-7CC69623ED7F}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{6722D337-9CA1-45FB-B694-18815C654EC9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -514,22 +514,6 @@ where [emba_codigo] =? and
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[emba_codigo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="emba_codigo"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[tpen_codigo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="5"
-                      cachedName="tpen_codigo"
-                      cachedSortKeyPosition="2"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_codigo]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[enva_nombre]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -597,6 +581,20 @@ where [emba_codigo] =? and
                       cachedName="tpen_altura_destino"
                       cachedPrecision="4"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_altura_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[emba_codigo_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="emba_codigo_destino"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[tpen_codigo_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="tpen_codigo_destino"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_codigo_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -616,13 +614,13 @@ where [emba_codigo] =? and
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_codigo]})</property>
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_codigo_destino]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(emba_codigo) &amp;&amp; ISNULL(tpen_codigo)</property>
+                      name="FriendlyExpression">ISNULL(emba_codigo_destino) &amp;&amp; ISNULL(tpen_codigo_destino)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -644,13 +642,13 @@ where [emba_codigo] =? and
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">(![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_codigo]})) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_nombre]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_nombre_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[etiq_nombre]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[etiq_nombre_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[bapa_nombre]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[bapa_nombre_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_pesone]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_pesone_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_altura]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_altura_destino]})</property>
+                      name="Expression">(![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_codigo_destino]})) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_nombre]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_nombre_destino]},"") || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[etiq_nombre]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[etiq_nombre_destino]},"") || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[bapa_nombre]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[bapa_nombre_destino]},"") || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_pesone]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[enva_pesone_destino]},"") || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_altura]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[tpen_altura_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">(!ISNULL(emba_codigo) &amp;&amp; !ISNULL(tpen_codigo)) &amp;&amp; (enva_nombre != enva_nombre_destino || etiq_nombre != etiq_nombre_destino || bapa_nombre != bapa_nombre_destino || enva_pesone != enva_pesone_destino || tpen_altura != tpen_altura_destino)</property>
+                      name="FriendlyExpression">(!ISNULL(emba_codigo_destino) &amp;&amp; !ISNULL(tpen_codigo_destino)) &amp;&amp; (enva_nombre != REPLACENULL(enva_nombre_destino,"") || etiq_nombre != REPLACENULL(etiq_nombre_destino,"") || bapa_nombre != REPLACENULL(bapa_nombre_destino,"") || enva_pesone != REPLACENULL(enva_pesone_destino,"") || tpen_altura != REPLACENULL(tpen_altura_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
