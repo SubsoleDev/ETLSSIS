@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="DatosMaestros"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{25B36324-D258-4B3D-A5E7-CB4141A2854C}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{BA42D11A-ECB3-47C1-962F-59CB1D8408F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,6 +111,23 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Embalajes"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{7C55A0BD-72BD-4FEE-B278-EE82C9250544}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Embalajes"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Embalajes.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Contenedor de secuencias\Envases"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
@@ -149,6 +166,40 @@
                 <ParameterName>gv_Especies</ParameterName>
                 <BindedVariableOrParameterName>$Package::Especie</BindedVariableOrParameterName>
               </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Exportadores"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{DB90C3F4-82EA-4098-BB41-F3DA58BD5EC4}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Exportadores"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Exportadores.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\NotaProceso"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{D8D9E8DF-D963-4C01-97EB-1669D1C82797}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="NotaProceso"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>NotaProceso.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -257,6 +308,22 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Restricción 4"
           DTS:To="Package\Contenedor de secuencias\Calibres" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{6F53C211-26A7-45E5-86C9-E6282D39DCD5}"
+          DTS:From="Package\Contenedor de secuencias\Exportadores"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 5"
+          DTS:To="Package\Contenedor de secuencias\Embalajes" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{3DFF5BB5-0291-41F0-8F26-B434C61773F6}"
+          DTS:From="Package\Contenedor de secuencias\Embalajes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 6"
+          DTS:To="Package\Contenedor de secuencias\NotaProceso" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -506,50 +573,123 @@
             <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 4]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Contenedor de secuencias\Exportadores"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Contenedor de secuencias\Embalajes"
+          TopLeft="19.0714288025483,87.3235305593089" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Contenedor de secuencias\NotaProceso"
+          TopLeft="9.07142863224976,176.029414156317" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 5]"
+          TopLeft="78.8857144012742,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.2235305593089"
+              Start="0,0"
+              End="0,32.7235305593089">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.7235305593089" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 6]"
+          TopLeft="79.8714287173991,128.923530559309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1058835970076"
+              Start="0,0"
+              End="0,39.6058835970076">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6058835970076" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Grupo 4"
+          ParentId="Package\Contenedor de secuencias"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="151.2,272.8"
+          Size="151.2,316"
+          Id="a1844d70-52f0-4efe-9411-c64001853fe7"
+          TopLeft="704.500013113022,5.5">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Contenedor de secuencias\Exportadores</s:String>
+            <s:String>Package\Contenedor de secuencias\Embalajes</s:String>
+            <s:String>Package\Contenedor de secuencias\NotaProceso</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 5]</s:String>
+            <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 6]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="669.6,358.4"
-          Size="669.6,401.6"
+          PanelSize="956.8,376.8"
+          Size="956.8,420"
           Id="Package\Contenedor de secuencias"
           TopLeft="60,60" />
         <NodeLayout
           Size="180,41.6"
           Id="Package\Tarea Enviar correo 1"
-          TopLeft="809.942866971541,315.894114762111" />
+          TopLeft="1064.14286961118,297.541173328247" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="729.6,326.4">
+          TopLeft="1016.8,270">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80.3428669715414,10.2941147621115"
+              EndConnector="47.3428696111753,48.3411733282472"
               Start="0,0"
-              End="72.8428669715414,10.2941147621115">
+              End="39.8428696111753,48.3411733282472">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="28.328439329025,0" />
+                    End="19.6714348055876,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="28.328439329025,0"
-                    Point2="32.328439329025,0"
-                    Point3="32.328439329025,4" />
+                    Point1="19.6714348055876,0"
+                    Point2="23.6714348055876,0"
+                    Point3="23.6714348055876,4" />
                   <mssgle:LineSegment
-                    End="32.328439329025,6.29411476211146" />
+                    End="23.6714348055876,44.3411733282472" />
                   <mssgle:CubicBezierSegment
-                    Point1="32.328439329025,6.29411476211146"
-                    Point2="32.328439329025,10.2941147621115"
-                    Point3="36.328439329025,10.2941147621115" />
+                    Point1="23.6714348055876,44.3411733282472"
+                    Point2="23.6714348055876,48.3411733282472"
+                    Point3="27.6714348055876,48.3411733282472" />
                   <mssgle:LineSegment
-                    End="72.8428669715414,10.2941147621115" />
+                    End="39.8428696111753,48.3411733282472" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="20.799747922775,-15.421875,23.0573828125,9.421875"
+              BoundingBox="12.1427433993376,-15.421875,23.0573828125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

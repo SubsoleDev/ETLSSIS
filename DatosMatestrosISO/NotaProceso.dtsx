@@ -1,0 +1,1982 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/12/2022 12:50:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{2992B778-F4E2-4BF4-A547-A82AB5518A14}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{268A7E76-95A3-40A8-8D53-48A6557648DF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D24A479A-E30F-4A95-AFDA-C32F776BDDF4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Actualiza Registros"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza Registros"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">update [dbo].[iso_notaproceso] set
+		[pefr_codigo]=?,
+      [pefr_nombre]=?
+  where 
+	  [plde_codigo]=? and
+      [orpr_tipord]=? and
+      [orpr_numero]=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Actualiza Registros.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].Columns[orpr_codnot]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_codnot"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].Columns[orpr_notcal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="orpr_notcal"
+                      externalMetadataColumnId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Actualiza Registros.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Actualiza Registros.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Actualiza Registros.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Actualiza Registros.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Actualiza Registros.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Agrega Registros"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Agrega Registros"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[iso_notaproceso]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Agrega Registros.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[orpr_tipord]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[orpr_numero]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].Columns[orpr_codnot]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_codnot"
+                      cachedPrecision="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[pefr_codigo]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].Columns[orpr_notcal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="orpr_notcal"
+                      externalMetadataColumnId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[pefr_nombre]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[orpr_tipord]"
+                      dataType="numeric"
+                      name="orpr_tipord"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[orpr_numero]"
+                      dataType="numeric"
+                      name="orpr_numero"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[pefr_codigo]"
+                      dataType="numeric"
+                      name="pefr_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input].ExternalColumns[pefr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="pefr_nombre" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Agrega Registros.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agrega Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Agrega Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Agrega Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_codnot]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_codnot"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_notcal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="orpr_notcal"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[plde_codigo_destino]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo_destino"
+                      cachedPrecision="4"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_tipord_destino]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord_destino"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[pefr_codigo_destino]"
+                      cachedDataType="numeric"
+                      cachedName="pefr_codigo_destino"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[pefr_nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="pefr_nombre_destino"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[Agrega]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Agrega"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; [ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(plde_codigo_destino) &amp;&amp; ISNULL(orpr_tipord_destino) &amp;&amp; ISNULL(orpr_numero)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[Actualiza]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualiza"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]}) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(plde_codigo_destino) &amp;&amp; !ISNULL(orpr_tipord_destino) &amp;&amp; !ISNULL(orpr_numero) &amp;&amp; (orpr_codnot != pefr_codigo_destino || orpr_notcal != pefr_nombre_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Detino Nota Proc"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Detino Nota Proc"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[iso_notaproceso]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Detino Nota Proc.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_tipord]"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_numero]"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[pefr_codigo]"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_codigo]"
+                      name="pefr_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[pefr_nombre]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_nombre]"
+                      name="pefr_nombre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_tipord]"
+                      dataType="numeric"
+                      name="orpr_tipord"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_numero]"
+                      dataType="numeric"
+                      name="orpr_numero"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[pefr_codigo]"
+                      dataType="numeric"
+                      name="pefr_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[pefr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="pefr_nombre" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[pefr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[pefr_codigo]"
+                      name="pefr_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[pefr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[pefr_nombre]"
+                      name="pefr_nombre" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_tipord]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_numero]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_codnot]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_codnot"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_codnot]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_notcal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="orpr_notcal"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_notcal]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[orpr_tipord]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[orpr_numero]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[pefr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="pefr_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[pefr_codigo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[pefr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="pefr_nombre"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[pefr_nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[plde_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_tipord]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_numero]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]"
+                      name="orpr_codnot"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_codnot]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]"
+                      name="orpr_notcal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[orpr_notcal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]"
+                      name="plde_codigo_destino"
+                      precision="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[plde_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]"
+                      name="orpr_tipord_destino"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[orpr_tipord]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]"
+                      name="orpr_numero_destino"
+                      precision="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[orpr_numero]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]"
+                      name="pefr_codigo_destino"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[pefr_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]"
+                      name="pefr_nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[pefr_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Origen Nota Proc"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen Nota Proc"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT	ord.plde_codigo,
+		ord.orpr_tipord,
+		ord.orpr_numero,
+		orpr_codnot = ord.pefr_codigo,
+		orpr_notcal = per.pefr_nombre
+FROM	dba.spro_ordenproceso AS ord,
+		dba.periodofrio_especie AS esp,
+		dba.periodofrio AS per
+WHERE	ord.espe_codigo = esp.espe_codigo
+AND		ord.pefr_codigo = esp.pefr_codigo
+AND		esp.pefr_codigo = per.pefr_codigo
+AND		ord.plde_codigo = 74
+AND		ord.orpr_tipord = 4
+AND		ord.espe_codigo = 16
+AND		ord.orpr_tipope = 1
+ORDER BY	ord.plde_codigo,
+			ord.orpr_tipord,
+			ord.orpr_numero</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Origen Nota Proc.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_tipord]"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_numero]"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_codnot]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_codnot]"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_codnot]"
+                      name="orpr_codnot"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_notcal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_notcal]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_notcal]"
+                      name="orpr_notcal"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_tipord]"
+                      dataType="numeric"
+                      name="orpr_tipord"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_numero]"
+                      dataType="numeric"
+                      name="orpr_numero"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_codnot]"
+                      dataType="numeric"
+                      name="orpr_codnot"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].ExternalColumns[orpr_notcal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="orpr_notcal" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_codnot]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_codnot]"
+                      name="orpr_codnot"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_notcal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[orpr_notcal]"
+                      name="orpr_notcal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[orpr_codnot]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_codnot"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_codnot]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[orpr_notcal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="orpr_notcal"
+                      lineageId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_notcal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_codnot]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_codnot]"
+                      name="orpr_codnot"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_codnot]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_notcal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[orpr_notcal]"
+                      name="orpr_notcal">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_notcal]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[pefr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="pefr_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[pefr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="pefr_nombre"
+                      lineageId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[plde_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[orpr_tipord]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[orpr_tipord]"
+                      name="orpr_tipord"
+                      precision="2"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_tipord]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[orpr_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[orpr_numero]"
+                      name="orpr_numero"
+                      precision="8"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[orpr_numero]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[pefr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[pefr_codigo]"
+                      name="pefr_codigo"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[pefr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[pefr_nombre]"
+                      name="pefr_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output].Columns[pefr_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Actualiza]"
+              endId="Package\Data Flow Task\Actualiza Registros.Inputs[OLE DB Command Input]"
+              name="Actualiza"
+              startId="Package\Data Flow Task\Conditional Split 1.Outputs[Actualiza]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Agrega]"
+              endId="Package\Data Flow Task\Agrega Registros.Inputs[OLE DB Destination Input]"
+              name="Agrega"
+              startId="Package\Data Flow Task\Conditional Split 1.Outputs[Agrega]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Origen Nota Proc.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Detino Nota Proc.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="155.714288366084,87.1764718108524" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Data Flow Task\Origen Nota Proc"
+          TopLeft="176.428574433132,133.058825395512" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Data Flow Task\Detino Nota Proc"
+          TopLeft="596.42858158569,133.058825395512" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="262.142861607123,217.176473634053" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="615.714296199838,221.764708992519" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="256.028574433132,174.658825395512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.9142871739913,42.5176482385418"
+              Start="0,0"
+              End="54.9142871739913,35.0176482385418">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2588241192709" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2588241192709"
+                    Point2="0,21.2588241192709"
+                    Point3="4,21.2588241192709" />
+                  <mssgle:LineSegment
+                    End="50.9142871739913,21.2588241192709" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.9142871739913,21.2588241192709"
+                    Point2="54.9142871739913,21.2588241192709"
+                    Point3="54.9142871739913,25.2588241192709" />
+                  <mssgle:LineSegment
+                    End="54.9142871739913,35.0176482385418" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="672.271438892764,174.658825395512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1058835970077"
+              Start="0,0"
+              End="0,39.6058835970077">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6058835970077" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="449.285721937005,332.647063488779" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="310.942861607123,258.776473634053">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="182.876193663214,73.8705898547256"
+              Start="0,0"
+              End="182.876193663214,66.3705898547256">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.7818374017032" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.7818374017032"
+                    Point2="0,43.7818374017032"
+                    Point3="4,43.7818374017032" />
+                  <mssgle:LineSegment
+                    End="178.876193663214,43.7818374017032" />
+                  <mssgle:CubicBezierSegment
+                    Point1="178.876193663214,43.7818374017032"
+                    Point2="182.876193663214,43.7818374017032"
+                    Point3="182.876193663214,47.7818374017032" />
+                  <mssgle:LineSegment
+                    End="182.876193663214,66.3705898547256" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="668.914296199838,263.364708992519">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.561907596167,69.2823544962597"
+              Start="0,0"
+              End="-134.561907596167,61.7823544962597">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0624686404661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0624686404661"
+                    Point2="0,41.0624686404661"
+                    Point3="-4,41.0624686404661" />
+                  <mssgle:LineSegment
+                    End="-130.561907596167,41.0624686404661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.561907596167,41.0624686404661"
+                    Point2="-134.561907596167,41.0624686404661"
+                    Point3="-134.561907596167,45.0624686404661" />
+                  <mssgle:LineSegment
+                    End="-134.561907596167,61.7823544962597" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Data Flow Task\Conditional Split 1"
+          TopLeft="473.571436636302,420.588241192709" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="514.085721937005,374.247063488779">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.0857146992976,46.3411777039299"
+              Start="0,0"
+              End="41.0857146992976,38.8411777039299">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.170588851965"
+                    Point2="0,23.170588851965"
+                    Point3="4,23.170588851965" />
+                  <mssgle:LineSegment
+                    End="37.0857146992976,23.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.0857146992976,23.170588851965"
+                    Point2="41.0857146992976,23.170588851965"
+                    Point3="41.0857146992976,27.170588851965" />
+                  <mssgle:LineSegment
+                    End="41.0857146992976,38.8411777039299" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Data Flow Task\Agrega Registros"
+          TopLeft="300.00000510897,517.705889613571" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Agrega]"
+          TopLeft="555.171436636302,462.188241192709">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-175.971431527333,55.5176484208619"
+              Start="0,0"
+              End="-175.971431527333,48.0176484208619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7588242104309" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7588242104309"
+                    Point2="0,27.7588242104309"
+                    Point3="-4,27.7588242104309" />
+                  <mssgle:LineSegment
+                    End="-171.971431527333,27.7588242104309" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-171.971431527333,27.7588242104309"
+                    Point2="-175.971431527333,27.7588242104309"
+                    Point3="-175.971431527333,31.7588242104309" />
+                  <mssgle:LineSegment
+                    End="-175.971431527333,48.0176484208619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-104.282141544916,32.7588242104309,32.5928515625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Data Flow Task\Actualiza Registros"
+          TopLeft="667.142868504232,527.64706622358" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Actualiza]"
+          TopLeft="581.038103302969,462.188241192709">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="169.304765201264,65.4588250308713"
+              Start="0,0"
+              End="169.304765201264,57.9588250308713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5648435562177" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5648435562177"
+                    Point2="0,26.5648435562177"
+                    Point3="4,26.5648435562177" />
+                  <mssgle:LineSegment
+                    End="165.304765201264,26.5648435562177" />
+                  <mssgle:CubicBezierSegment
+                    Point1="165.304765201264,26.5648435562177"
+                    Point2="169.304765201264,26.5648435562177"
+                    Point3="169.304765201264,30.5648435562177" />
+                  <mssgle:LineSegment
+                    End="169.304765201264,57.9588250308713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="64.4159568193818,31.5648435562177,40.4728515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Origen Nota Proc">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Detino Nota Proc">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Agrega Registros">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

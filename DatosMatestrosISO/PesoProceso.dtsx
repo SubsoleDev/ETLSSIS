@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="PesoProceso"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{06A959C4-A8D2-470B-83C5-32839CCE3F42}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{CD5ED766-B177-4099-B3B0-D02500A997AF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -109,67 +109,59 @@
                       cachedDataType="numeric"
                       cachedName="pate_tempor"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[plde_codigo]"
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[plde_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[pppa_docrel]"
                       cachedDataType="numeric"
                       cachedName="pppa_docrel"
                       cachedPrecision="8"
-                      cachedSortKeyPosition="4"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_docrel]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[prod_codigo]"
                       cachedDataType="numeric"
                       cachedName="prod_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="5"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[prod_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[espe_codigo]"
                       cachedDataType="numeric"
                       cachedName="espe_codigo"
                       cachedPrecision="2"
-                      cachedSortKeyPosition="6"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[espe_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[vari_codigo]"
                       cachedDataType="numeric"
                       cachedName="vari_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="7"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[vari_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[emba_codigo]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[emba_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[pppa_calibr]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_calibr]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3263,6 +3255,520 @@ espe_codigo=?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\PesoProceso\Union de registros"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union de registros"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[plde_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pppa_docrel]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_docrel"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_docrel]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[prod_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="prod_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[prod_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[espe_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[vari_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[emba_codigo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="emba_codigo"
+                      cachedSortKeyPosition="8"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[emba_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pppa_calibr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="pppa_calibr"
+                      cachedSortKeyPosition="11"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_calibr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pppa_pespro]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_pespro"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_pespro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_pespro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[enva_tipoen]"
+                      cachedDataType="numeric"
+                      cachedName="enva_tipoen"
+                      cachedPrecision="1"
+                      cachedSortKeyPosition="9"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_tipoen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[enva_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="enva_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="10"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pppa_tipdoc]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_tipdoc"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_tipdoc]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pate_tempor_destino]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor_destino"
+                      cachedPrecision="4"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[plde_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pppa_docrel]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_docrel"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_docrel]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[prod_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="prod_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[prod_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[espe_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[vari_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[emba_codigo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="emba_codigo"
+                      cachedSortKeyPosition="8"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[emba_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pppa_calibr]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="pppa_calibr"
+                      cachedSortKeyPosition="11"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_calibr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pppa_pespro]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_pespro"
+                      cachedPrecision="8"
+                      cachedScale="3"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_pespro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_pespro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[enva_tipoen]"
+                      cachedDataType="numeric"
+                      cachedName="enva_tipoen"
+                      cachedPrecision="1"
+                      cachedSortKeyPosition="9"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_tipoen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[enva_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="enva_codigo"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="10"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_codigo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pppa_tipdoc]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_tipdoc"
+                      cachedPrecision="3"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_tipdoc]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pate_tempor_destino]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor_destino"
+                      cachedPrecision="4"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_docrel]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_docrel]"
+                      name="pppa_docrel"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[prod_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[prod_codigo]"
+                      name="prod_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[vari_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[emba_codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[emba_codigo]"
+                      name="emba_codigo" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_calibr]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_calibr]"
+                      name="pppa_calibr" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_pespro]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_pespro]"
+                      name="pppa_pespro"
+                      precision="8"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_tipoen]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_tipoen]"
+                      name="enva_tipoen"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[enva_codigo]"
+                      name="enva_codigo"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_tipdoc]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_tipdoc]"
+                      name="pppa_tipdoc"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]"
+                      name="pate_tempor_destino"
+                      precision="4" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -3292,9 +3798,14 @@ espe_codigo=?</property>
               startId="Package\PesoProceso\Reg No Existe pasa.Outputs[NoExiste]" />
             <path
               refId="Package\PesoProceso.Paths[OLE DB Command Output]"
-              endId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input]"
+              endId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1]"
               name="OLE DB Command Output"
               startId="Package\PesoProceso\Agrega Registros.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\PesoProceso.Paths[OLE DB Command Output1]"
+              endId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\PesoProceso\Actualiza Peso.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\PesoProceso.Paths[OLE DB Source Output]"
               endId="Package\PesoProceso\Busca Tipos de envase.Inputs[Lookup Input]"
@@ -3315,6 +3826,11 @@ espe_codigo=?</property>
               endId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\PesoProceso\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\PesoProceso.Paths[Union All Output 1]"
+              endId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input]"
+              name="Union All Output 1"
+              startId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3448,99 +3964,137 @@ espe_codigo=?</property>
         <NodeLayout
           Size="136.8,41.6"
           Id="Package\PesoProceso"
-          TopLeft="133.571430846137,147.588237363987" />
+          TopLeft="132.857145119687,147.588237363987" />
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Tarea Enviar correo"
           TopLeft="305.714290920569,260.76470953948" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="201.971430846137,189.188237363987">
+          TopLeft="201.257145119687,189.188237363987">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="189.342860074433,71.5764721754926"
+              EndConnector="190.057145800882,71.576472175493"
               Start="0,0"
-              End="189.342860074433,64.0764721754926">
+              End="190.057145800882,64.076472175493">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.7882360877463" />
+                    End="0,31.7882360877465" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.7882360877463"
-                    Point2="0,35.7882360877463"
-                    Point3="4,35.7882360877463" />
+                    Point1="0,31.7882360877465"
+                    Point2="0,35.7882360877465"
+                    Point3="4,35.7882360877465" />
                   <mssgle:LineSegment
-                    End="185.342860074433,35.7882360877463" />
+                    End="186.057145800882,35.7882360877465" />
                   <mssgle:CubicBezierSegment
-                    Point1="185.342860074433,35.7882360877463"
-                    Point2="189.342860074433,35.7882360877463"
-                    Point3="189.342860074433,39.7882360877463" />
+                    Point1="186.057145800882,35.7882360877465"
+                    Point2="190.057145800882,35.7882360877465"
+                    Point3="190.057145800882,39.7882360877465" />
                   <mssgle:LineSegment
-                    End="189.342860074433,64.0764721754926" />
+                    End="190.057145800882,64.076472175493" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="83.1427386309663,40.7882360877463,23.0573828125,9.421875"
+              BoundingBox="83.4998814941909,40.7882360877465,23.0573828125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package.EventHandlers[OnError]\Registra error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\PesoProceso">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\PesoProceso\Origen spro_pesoprocesopack"
+          TopLeft="734.942868419083,262.247060571657" />
+        <NodeLayout
           Size="97.6,41.6"
           Id="Package\PesoProceso\Sort"
           TopLeft="795.800010473388,344.070591130966" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\PesoProceso\Agrega Registros"
-          TopLeft="321.428576902468,667.84314662115" />
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\PesoProceso\Actuaiza Estado Transferido"
-          TopLeft="320.238100691718,782.549030582798" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\PesoProceso\Merge Join"
-          TopLeft="512.285720148865,479.964712456601" />
-        <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\PesoProceso\spro_pesoprocesopack_s"
-          TopLeft="96.4285730707403,73.4117657354546" />
-        <NodeLayout
-          Size="244.8,41.6"
-          Id="Package\PesoProceso\Agregar Columnas Adicionales Fijas"
-          TopLeft="254.285718616174,244.705885784849" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\PesoProceso\Sort 1"
-          TopLeft="314.428573922235,376.235299394205" />
-        <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\PesoProceso\Reg No Existe pasa"
-          TopLeft="496.514291090868,570.964712274281" />
-        <NodeLayout
-          Size="145.6,41.6"
-          Id="Package\PesoProceso\Actualiza Peso"
-          TopLeft="644.285725257835,668.341183902813" />
         <NodeLayout
           Size="185.6,41.6"
           Id="Package\PesoProceso\Busca Tipos de envase"
           TopLeft="231.428575369777,162.117649332462" />
         <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\PesoProceso\Origen spro_pesoprocesopack"
-          TopLeft="734.942868419083,262.247060571657" />
+          Size="129.6,41.6"
+          Id="Package\PesoProceso\Merge Join"
+          TopLeft="512.285720148865,479.964712456601" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\PesoProceso\Sort 1"
+          TopLeft="314.428573922235,376.235299394205" />
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\PesoProceso\Agregar Columnas Adicionales Fijas"
+          TopLeft="255.000004342624,243.941179891771" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\PesoProceso\Union de registros"
+          TopLeft="475.892865247264,775.539226562919" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\PesoProceso\Reg No Existe pasa"
+          TopLeft="497.228576817318,570.964712274281" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\PesoProceso\spro_pesoprocesopack_s"
+          TopLeft="70.000001192093,73.4117657354546" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\PesoProceso\Agrega Registros"
+          TopLeft="325.000005534718,676.254911445004" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\PesoProceso\Actuaiza Estado Transferido"
+          TopLeft="458.333341138704,929.117660089348" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\PesoProceso\Actualiza Peso"
+          TopLeft="646.428582437185,667.576478009735" />
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Union All Output 1]"
+          TopLeft="560.513103192984,817.139226562919">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,111.978433526429"
+              Start="0,0"
+              End="0,104.478433526429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.478433526429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Sort Output1]"
           TopLeft="844.600010473388,385.670591130966">
@@ -3572,9 +4126,7 @@ espe_codigo=?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3608,9 +4160,7 @@ espe_codigo=?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3632,141 +4182,167 @@ espe_codigo=?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[OLE DB Source Output]"
-          TopLeft="194.02857307074,115.011765735455">
+          TopLeft="167.600001192093,115.011765735455">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="130.200002299036,47.1058835970077"
+              EndConnector="156.628574177684,47.1058835970074"
               Start="0,0"
-              End="130.200002299036,39.6058835970077">
+              End="156.628574177684,39.6058835970074">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5529417985038" />
+                    End="0,19.5529417985037" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.5529417985038"
-                    Point2="0,23.5529417985038"
-                    Point3="4,23.5529417985038" />
+                    Point1="0,19.5529417985037"
+                    Point2="0,23.5529417985037"
+                    Point3="4,23.5529417985037" />
                   <mssgle:LineSegment
-                    End="126.200002299036,23.5529417985038" />
+                    End="152.628574177684,23.5529417985037" />
                   <mssgle:CubicBezierSegment
-                    Point1="126.200002299036,23.5529417985038"
-                    Point2="130.200002299036,23.5529417985038"
-                    Point3="130.200002299036,27.5529417985038" />
+                    Point1="152.628574177684,23.5529417985037"
+                    Point2="156.628574177684,23.5529417985037"
+                    Point3="156.628574177684,27.5529417985037" />
                   <mssgle:LineSegment
-                    End="130.200002299036,39.6058835970077" />
+                    End="156.628574177684,39.6058835970074" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[OLE DB Command Output1]"
+          TopLeft="719.228582437185,709.176478009735">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-135.335717189921,66.3627485531837"
+              Start="0,0"
+              End="-135.335717189921,58.8627485531837">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.4329375460946" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.4329375460946"
+                    Point2="0,39.4329375460946"
+                    Point3="-4,39.4329375460946" />
+                  <mssgle:LineSegment
+                    End="-131.335717189921,39.4329375460946" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-131.335717189921,39.4329375460946"
+                    Point2="-135.335717189921,39.4329375460946"
+                    Point3="-135.335717189921,43.4329375460946" />
+                  <mssgle:LineSegment
+                    End="-135.335717189921,58.8627485531837" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[OLE DB Command Output]"
-          TopLeft="400.628576902468,709.44314662115">
+          TopLeft="404.200005534718,717.854911445004">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.4095237892502,73.1058839616478"
+              EndConnector="127.692859712546,57.6843151179153"
               Start="0,0"
-              End="24.4095237892502,65.6058839616478">
+              End="127.692859712546,50.1843151179153">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5529419808239" />
+                    End="0,30.2761872439786" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,32.5529419808239"
-                    Point2="0,36.5529419808239"
-                    Point3="4,36.5529419808239" />
+                    Point1="0,30.2761872439786"
+                    Point2="0,34.2761872439786"
+                    Point3="4,34.2761872439786" />
                   <mssgle:LineSegment
-                    End="20.4095237892502,36.5529419808239" />
+                    End="123.692859712546,34.2761872439786" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.4095237892502,36.5529419808239"
-                    Point2="24.4095237892502,36.5529419808239"
-                    Point3="24.4095237892502,40.5529419808239" />
+                    Point1="123.692859712546,34.2761872439786"
+                    Point2="127.692859712546,34.2761872439786"
+                    Point3="127.692859712546,38.2761872439786" />
                   <mssgle:LineSegment
-                    End="24.4095237892502,65.6058839616478" />
+                    End="127.692859712546,50.1843151179153" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[NoExiste]"
-          TopLeft="580.914291090868,612.564712274281">
+          TopLeft="554.828576817318,612.564712274281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-180.285714188401,55.2784343468692"
+              EndConnector="-150.6285712826,63.6901991707226"
               Start="0,0"
-              End="-180.285714188401,47.7784343468692">
+              End="-150.6285712826,56.1901991707226">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.6392171734346" />
+                    End="0,21.8348976917861" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.6392171734346"
-                    Point2="0,27.6392171734346"
-                    Point3="-4,27.6392171734346" />
+                    Point1="0,21.8348976917861"
+                    Point2="0,25.8348976917861"
+                    Point3="-4,25.8348976917861" />
                   <mssgle:LineSegment
-                    End="-176.285714188401,27.6392171734346" />
+                    End="-146.6285712826,25.8348976917861" />
                   <mssgle:CubicBezierSegment
-                    Point1="-176.285714188401,27.6392171734346"
-                    Point2="-180.285714188401,27.6392171734346"
-                    Point3="-180.285714188401,31.6392171734346" />
+                    Point1="-146.6285712826,25.8348976917861"
+                    Point2="-150.6285712826,25.8348976917861"
+                    Point3="-150.6285712826,29.8348976917861" />
                   <mssgle:LineSegment
-                    End="-180.285714188401,47.7784343468692" />
+                    End="-150.6285712826,56.1901991707226" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-109.64920475045,32.6392171734346,39.0126953125,9.470703125"
+              BoundingBox="-94.8206332975501,30.8348976917861,39.0126953125,9.470703125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Merge Join Output]"
-          TopLeft="579.000005619867,521.564712456601">
+          TopLeft="579.357148483092,521.564712456601">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.3999998176798"
+              EndConnector="0,49.3999998176801"
               Start="0,0"
-              End="0,41.8999998176798">
+              End="0,41.8999998176801">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.8999998176798" />
+                    End="0,41.8999998176801" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3775,106 +4351,104 @@ espe_codigo=?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52.4571432463978,40.9882364523866"
+              EndConnector="53.1714289728468,40.2235305593094"
               Start="0,0"
-              End="52.4571432463978,33.4882364523866">
+              End="53.1714289728468,32.7235305593094">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.4941182261933" />
+                    End="0,16.1117652796547" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.4941182261933"
-                    Point2="0,20.4941182261933"
-                    Point3="4,20.4941182261933" />
+                    Point1="0,16.1117652796547"
+                    Point2="0,20.1117652796547"
+                    Point3="4,20.1117652796547" />
                   <mssgle:LineSegment
-                    End="48.4571432463978,20.4941182261933" />
+                    End="49.1714289728468,20.1117652796547" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.4571432463978,20.4941182261933"
-                    Point2="52.4571432463978,20.4941182261933"
-                    Point3="52.4571432463978,24.4941182261933" />
+                    Point1="49.1714289728468,20.1117652796547"
+                    Point2="53.1714289728468,20.1117652796547"
+                    Point3="53.1714289728468,24.1117652796547" />
                   <mssgle:LineSegment
-                    End="52.4571432463978,33.4882364523866" />
+                    End="53.1714289728468,32.7235305593094" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-21.9628150955511,25.4941182261933,96.3827734375,11.609375"
+              BoundingBox="-21.6056722323266,25.1117652796547,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[ExisteUpdate]"
-          TopLeft="607.714291090868,612.564712274281">
+          TopLeft="608.428576817318,612.564712274281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="109.371434166966,55.776471628532"
+              EndConnector="110.800005619867,55.0117657354542"
               Start="0,0"
-              End="109.371434166966,48.276471628532">
+              End="110.800005619867,47.5117657354542">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.6248222943904" />
+                    End="0,18.3146317349448" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.6248222943904"
-                    Point2="0,22.6248222943904"
-                    Point3="4,22.6248222943904" />
+                    Point1="0,18.3146317349448"
+                    Point2="0,22.3146317349448"
+                    Point3="4,22.3146317349448" />
                   <mssgle:LineSegment
-                    End="105.371434166966,22.6248222943904" />
+                    End="106.800005619867,22.3146317349448" />
                   <mssgle:CubicBezierSegment
-                    Point1="105.371434166966,22.6248222943904"
-                    Point2="109.371434166966,22.6248222943904"
-                    Point3="109.371434166966,26.6248222943904" />
+                    Point1="106.800005619867,22.3146317349448"
+                    Point2="110.800005619867,22.3146317349448"
+                    Point3="110.800005619867,26.3146317349448" />
                   <mssgle:LineSegment
-                    End="109.371434166966,48.276471628532" />
+                    End="110.800005619867,47.5117657354542" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="25.4943694272332,27.6248222943904,58.3826953125,11.609375"
+              BoundingBox="26.2086551536832,27.3146317349448,58.3826953125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Derived Column Output]"
-          TopLeft="376.685718616174,286.305885784849">
+          TopLeft="377.400004342624,285.541179891771">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.05714469393922,89.9294136093561"
+              EndConnector="-9.77143042038881,90.6941195024336"
               Start="0,0"
-              End="-9.05714469393922,82.4294136093561">
+              End="-9.77143042038881,83.1941195024336">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.9647068046781" />
+                    End="0,41.3470597512168" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.9647068046781"
-                    Point2="0,44.9647068046781"
-                    Point3="-4,44.9647068046781" />
+                    Point1="0,41.3470597512168"
+                    Point2="0,45.3470597512168"
+                    Point3="-4,45.3470597512168" />
                   <mssgle:LineSegment
-                    End="-5.05714469393922,44.9647068046781" />
+                    End="-5.77143042038881,45.3470597512168" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.05714469393922,44.9647068046781"
-                    Point2="-9.05714469393922,44.9647068046781"
-                    Point3="-9.05714469393922,48.9647068046781" />
+                    Point1="-5.77143042038881,45.3470597512168"
+                    Point2="-9.77143042038881,45.3470597512168"
+                    Point3="-9.77143042038881,49.3470597512168" />
                   <mssgle:LineSegment
-                    End="-9.05714469393922,82.4294136093561" />
+                    End="-9.77143042038881,83.1941195024336" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3919,17 +4493,5 @@ espe_codigo=?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package.EventHandlers[OnError]\Registra error"
-          TopLeft="60,60" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

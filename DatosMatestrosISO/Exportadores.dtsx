@@ -1,0 +1,1806 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/12/2022 12:21:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{C531315D-124E-4644-A2D6-97B7ED661FB6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{E1D5CEF6-2F53-4980-891B-D5E034DE4790}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Exportadores"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A6877F5A-0F4D-400F-84A1-F12A9A292F96}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Exportadores"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Exportadores\Actualiza Exportadores"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza Exportadores"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">update [dbo].[iso_exportadores] set
+       [expo_nombre]=?,
+       [expo_codalf]=?,
+       [expo_codgln]=?
+	  where [expo_codigo]=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Exportadores\Actualiza Exportadores.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      externalMetadataColumnId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      externalMetadataColumnId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      externalMetadataColumnId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Actualiza Exportadores.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Exportadores\Actualiza Exportadores.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Actualiza Exportadores.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportadores\Actualiza Exportadores.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Actualiza Exportadores.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Agrega Exportadores"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Agrega Exportadores"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[iso_exportadores]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Exportadores\Agrega Exportadores.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_codigo]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      externalMetadataColumnId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_nombre]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      externalMetadataColumnId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_codalf]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      externalMetadataColumnId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_codgln]"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_codigo]"
+                      dataType="numeric"
+                      name="expo_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="expo_nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="expo_codalf" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input].ExternalColumns[expo_codgln]"
+                      dataType="numeric"
+                      name="expo_codgln"
+                      precision="15" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Agrega Exportadores.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Agrega Exportadores.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportadores\Agrega Exportadores.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Agrega Exportadores.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_codigo_destino]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo_destino"
+                      cachedPrecision="4"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre_destino"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre_destino]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_codalf_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf_destino"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf_destino]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_codgln_destino]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln_destino"
+                      cachedPrecision="15"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Conditional Split.Outputs[Agrega]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Agrega"
+                  synchronousInputId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(expo_codigo_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Exportadores\Conditional Split.Outputs[Actualiza]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualiza"
+                  synchronousInputId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]}) &amp;&amp; (#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]} != #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre_destino]} || #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]} != #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf_destino]} || #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]} != #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(expo_codigo_destino) &amp;&amp; (expo_nombre != expo_nombre_destino || expo_codalf != expo_codalf_destino || expo_codgln != expo_codgln_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Exportadores\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Exportadores\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportadores\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Destino Exportadores"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Destino Exportadores"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[iso_exportadores]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Exportadores\Destino Exportadores.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_nombre]"
+                      length="40"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]"
+                      name="expo_nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codalf]"
+                      length="5"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]"
+                      name="expo_codalf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codgln]"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      dataType="numeric"
+                      name="expo_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="expo_nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="expo_codalf" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codgln]"
+                      dataType="numeric"
+                      name="expo_codgln"
+                      precision="15" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_nombre]"
+                      name="expo_nombre" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codalf]"
+                      name="expo_codalf" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Exportadores\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codigo]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_nombre]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codalf]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codgln]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Exportadores\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codigo]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_nombre]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codalf]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codgln]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]"
+                      name="expo_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]"
+                      name="expo_codalf">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codalf]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Left Input].Columns[expo_codgln]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]"
+                      name="expo_codigo_destino"
+                      precision="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre_destino]"
+                      name="expo_nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf_destino]"
+                      name="expo_codalf_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codalf]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]"
+                      name="expo_codgln_destino"
+                      precision="15">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Exportadores\Merge Join.Inputs[Merge Join Right Input].Columns[expo_codgln]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Origen Exportadores"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen Exportadores"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT	exp.expo_codigo,
+		exp.expo_nombre,
+		exp.expo_codalf,
+		exp.expo_codgln
+FROM	dba.plantadesp_exportadores AS pla,
+		dba.paramtemporada AS tem,
+		dba.exportadores AS exp
+WHERE	pla.pate_tempor = tem.pate_tempor
+AND		pla.expo_codigo = exp.expo_codigo
+AND		pla.plde_codigo = 74
+AND		tem.pate_vigent = 1
+AND		exp.expo_estado = 1
+AND		exp.expo_tipoex = 1
+ORDER BY	exp.expo_codigo</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Exportadores\Origen Exportadores.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_nombre]"
+                      length="40"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]"
+                      name="expo_nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codalf]"
+                      length="5"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]"
+                      name="expo_codalf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codgln]"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      dataType="numeric"
+                      name="expo_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="expo_nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="expo_codalf" />
+                    <externalMetadataColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].ExternalColumns[expo_codgln]"
+                      dataType="numeric"
+                      name="expo_codgln"
+                      precision="15" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_nombre]"
+                      name="expo_nombre" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codalf]"
+                      name="expo_codalf" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Exportadores\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort.Inputs[Sort Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort.Inputs[Sort Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort.Inputs[Sort Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort.Inputs[Sort Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      lineageId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_nombre]"
+                      name="expo_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codalf]"
+                      name="expo_codalf">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Sort.Outputs[Sort Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Exportadores\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Exportadores\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort 1.Inputs[Sort Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort 1.Inputs[Sort Input].Columns[expo_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="expo_nombre"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort 1.Inputs[Sort Input].Columns[expo_codalf]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="expo_codalf"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Exportadores\Sort 1.Inputs[Sort Input].Columns[expo_codgln]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codgln"
+                      cachedPrecision="15"
+                      lineageId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Exportadores\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_nombre]"
+                      name="expo_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codalf]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codalf]"
+                      name="expo_codalf">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codalf]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codgln]"
+                      dataType="numeric"
+                      lineageId="Package\Exportadores\Sort 1.Outputs[Sort Output].Columns[expo_codgln]"
+                      name="expo_codgln"
+                      precision="15">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output].Columns[expo_codgln]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Exportadores.Paths[Actualiza]"
+              endId="Package\Exportadores\Actualiza Exportadores.Inputs[OLE DB Command Input]"
+              name="Actualiza"
+              startId="Package\Exportadores\Conditional Split.Outputs[Actualiza]" />
+            <path
+              refId="Package\Exportadores.Paths[Agrega]"
+              endId="Package\Exportadores\Agrega Exportadores.Inputs[OLE DB Destination Input]"
+              name="Agrega"
+              startId="Package\Exportadores\Conditional Split.Outputs[Agrega]" />
+            <path
+              refId="Package\Exportadores.Paths[Merge Join Output]"
+              endId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Exportadores\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Exportadores.Paths[OLE DB Source Output]"
+              endId="Package\Exportadores\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Exportadores\Origen Exportadores.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Exportadores.Paths[OLE DB Source Output1]"
+              endId="Package\Exportadores\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Exportadores\Destino Exportadores.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Exportadores.Paths[Sort Output]"
+              endId="Package\Exportadores\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Exportadores\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Exportadores.Paths[Sort Output1]"
+              endId="Package\Exportadores\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Exportadores\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Exportadores"
+          TopLeft="325.000005534717,72.647059842377" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Exportadores">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Exportadores\Origen Exportadores"
+          TopLeft="207.857146396929,100.94117788625" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Exportadores\Destino Exportadores"
+          TopLeft="590.71429577409,105.529413244716" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Exportadores\Sort"
+          TopLeft="248.571432804575,195.764708627879" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Exportadores\Sort 1"
+          TopLeft="655.000011154583,178.941178980171" />
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[OLE DB Source Output]"
+          TopLeft="296.414289600752,142.54117788625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.2235307416289"
+              Start="0,0"
+              End="0,45.7235307416289">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.7235307416289" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[OLE DB Source Output1]"
+          TopLeft="680.314295774091,147.129413244716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.885715380493,31.8117657354547"
+              Start="0,0"
+              End="27.885715380493,24.3117657354547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.9058828677273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.9058828677273"
+                    Point2="0,15.9058828677273"
+                    Point3="4,15.9058828677273" />
+                  <mssgle:LineSegment
+                    End="23.885715380493,15.9058828677273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.885715380493,15.9058828677273"
+                    Point2="27.885715380493,15.9058828677273"
+                    Point3="27.885715380493,19.9058828677273" />
+                  <mssgle:LineSegment
+                    End="27.885715380493,24.3117657354547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Exportadores\Merge Join"
+          TopLeft="450.000007663454,273.000003828722" />
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[Sort Output]"
+          TopLeft="297.371432804575,237.364708627879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="217.42857485888,35.635295200843"
+              Start="0,0"
+              End="217.42857485888,28.135295200843">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8176476004215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8176476004215"
+                    Point2="0,17.8176476004215"
+                    Point3="4,17.8176476004215" />
+                  <mssgle:LineSegment
+                    End="213.42857485888,17.8176476004215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="213.42857485888,17.8176476004215"
+                    Point2="217.42857485888,17.8176476004215"
+                    Point3="217.42857485888,21.8176476004215" />
+                  <mssgle:LineSegment
+                    End="217.42857485888,28.135295200843" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[Sort Output1]"
+          TopLeft="708.200011154584,220.541178980171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-173.133336824463,52.4588248485513"
+              Start="0,0"
+              End="-173.133336824463,44.9588248485513">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0914498492633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0914498492633"
+                    Point2="0,31.0914498492633"
+                    Point3="-4,31.0914498492633" />
+                  <mssgle:LineSegment
+                    End="-169.133336824463,31.0914498492633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-169.133336824463,31.0914498492633"
+                    Point2="-173.133336824463,31.0914498492633"
+                    Point3="-173.133336824463,35.0914498492633" />
+                  <mssgle:LineSegment
+                    End="-173.133336824463,44.9588248485513" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Exportadores\Conditional Split"
+          TopLeft="454.285722022154,354.058828494953" />
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[Merge Join Output]"
+          TopLeft="514.800007663454,314.600003828722">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.6857143586997,39.4588246662311"
+              Start="0,0"
+              End="16.6857143586997,31.9588246662311">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7294123331155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7294123331155"
+                    Point2="0,19.7294123331155"
+                    Point3="4,19.7294123331155" />
+                  <mssgle:LineSegment
+                    End="12.6857143586997,19.7294123331155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.6857143586997,19.7294123331155"
+                    Point2="16.6857143586997,19.7294123331155"
+                    Point3="16.6857143586997,23.7294123331155" />
+                  <mssgle:LineSegment
+                    End="16.6857143586997,31.9588246662311" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Exportadores\Agrega Exportadores"
+          TopLeft="245.714289898775,461.117653525825" />
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[Agrega]"
+          TopLeft="531.485722022154,395.658828494953">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-197.371432123379,65.4588250308714"
+              Start="0,0"
+              End="-197.371432123379,57.9588250308714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.7294125154357" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.7294125154357"
+                    Point2="0,32.7294125154357"
+                    Point3="-4,32.7294125154357" />
+                  <mssgle:LineSegment
+                    End="-193.371432123379,32.7294125154357" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-193.371432123379,32.7294125154357"
+                    Point2="-197.371432123379,32.7294125154357"
+                    Point3="-197.371432123379,36.7294125154357" />
+                  <mssgle:LineSegment
+                    End="-197.371432123379,57.9588250308714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-114.982141842939,37.7294125154357,32.5928515625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Exportadores\Actualiza Exportadores"
+          TopLeft="637.142867993335,433.211769928817" />
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[Actualiza]"
+          TopLeft="555.885722022154,395.658828494953">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.057145971181,37.5529414338636"
+              Start="0,0"
+              End="174.057145971181,30.0529414338636">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.2522715977538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.2522715977538"
+                    Point2="0,15.2522715977538"
+                    Point3="4,15.2522715977538" />
+                  <mssgle:LineSegment
+                    End="170.057145971181,15.2522715977538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="170.057145971181,15.2522715977538"
+                    Point2="174.057145971181,15.2522715977538"
+                    Point3="174.057145971181,19.2522715977538" />
+                  <mssgle:LineSegment
+                    End="174.057145971181,30.0529414338636" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.7921472043407,20.2522715977538,40.4728515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Exportadores\Origen Exportadores">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Exportadores\Destino Exportadores">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Exportadores\Agrega Exportadores">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
