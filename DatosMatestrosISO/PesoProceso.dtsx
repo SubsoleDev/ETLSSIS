@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="PesoProceso"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{82F6DF7A-215E-498D-9D0D-A062988793C1}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{D662379E-29B3-4CB8-B384-1079A9D0FAA2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -76,13 +76,7 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">  Update dbo.spro_pesoprocesopack_ss set
   pppa_sincro=1
   where pate_tempor =? and
-  plde_codigo=? and
-  pppa_docrel=? and
-  prod_codigo=? and
-  espe_codigo=? and
-  vari_codigo=? and
-  emba_codigo=? and
-  pppa_calibr=?</property>
+pppa_codsku=?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -112,56 +106,13 @@
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor]" />
                     <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
+                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
                       externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[plde_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[pppa_docrel]"
-                      cachedDataType="numeric"
-                      cachedName="pppa_docrel"
-                      cachedPrecision="8"
-                      externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_docrel]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="prod_codigo"
-                      cachedPrecision="4"
-                      externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[prod_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[espe_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[vari_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[emba_codigo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="emba_codigo"
-                      externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[emba_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].Columns[pppa_calibr]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="pppa_calibr"
-                      externalMetadataColumnId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_calibr]" />
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_codsku]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -179,88 +130,15 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="numeric"
-                      name="Param_1"
-                      precision="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="numeric"
-                      name="Param_2"
-                      precision="8">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="numeric"
-                      name="Param_3"
-                      precision="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="numeric"
-                      name="Param_4"
-                      precision="2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      dataType="numeric"
-                      name="Param_5"
-                      precision="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      name="Param_6">
+                      length="20"
+                      name="Param_1">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actuaiza Estado Transferido.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="Param_7">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -318,17 +196,8 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dba.spro_pesoprocesopack_iso set
   pppa_pespro=?
-  where pppa_tipdoc=? and
-      pppa_docrel=? and
-      prod_codigo=? and
-      espe_codigo=? and
-      vari_codigo=? and
-      enva_tipoen=? and
-      enva_codigo=? and
-      emba_codigo=? and
-      pppa_calibr=? and
-      pate_tempor=? and
-      plde_codigo=?
+  where pate_tempor=? and
+      pppa_codsku=?
   </property>
                 <property
                   dataType="System.Int32"
@@ -360,95 +229,22 @@
                       externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_pespro]" />
                     <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_tipdoc]"
-                      cachedDataType="numeric"
-                      cachedName="pppa_tipdoc"
-                      cachedPrecision="3"
-                      cachedSortKeyPosition="3"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_docrel]"
-                      cachedDataType="numeric"
-                      cachedName="pppa_docrel"
-                      cachedPrecision="8"
-                      cachedSortKeyPosition="4"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="prod_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="5"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      cachedSortKeyPosition="6"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="7"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[enva_tipoen]"
-                      cachedDataType="numeric"
-                      cachedName="enva_tipoen"
-                      cachedPrecision="1"
-                      cachedSortKeyPosition="9"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[enva_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="enva_codigo"
-                      cachedPrecision="3"
-                      cachedSortKeyPosition="10"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[emba_codigo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_calibr]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]" />
-                    <inputColumn
                       refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pate_tempor]"
                       cachedDataType="numeric"
                       cachedName="pate_tempor"
                       cachedPrecision="4"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor]" />
                     <inputColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
+                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
                       cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                      externalMetadataColumnId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -469,7 +265,7 @@
                       refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="numeric"
                       name="Param_1"
-                      precision="2">
+                      precision="4">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -479,119 +275,10 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="numeric"
-                      name="Param_2"
-                      precision="8">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="numeric"
-                      name="Param_3"
-                      precision="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="numeric"
-                      name="Param_4"
-                      precision="2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      dataType="numeric"
-                      name="Param_5"
-                      precision="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      dataType="numeric"
-                      name="Param_6"
-                      precision="1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      dataType="numeric"
-                      name="Param_7"
-                      precision="3">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      name="Param_8">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="Param_9">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
-                      dataType="numeric"
-                      name="Param_10"
-                      precision="4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\PesoProceso\Actualiza Peso.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      dataType="numeric"
-                      name="Param_11"
-                      precision="4">
+                      length="20"
+                      name="Param_2">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -655,8 +342,8 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">insert into dba.spro_pesoprocesopack_iso([pate_tempor],[plde_codigo],
 [pppa_docrel],[prod_codigo],[espe_codigo],
 [vari_codigo],[emba_codigo],[enva_tipoen],
-[enva_codigo],[pppa_calibr],[pppa_pespro],[pppa_tipdoc])
-  Values(?,?,?,?,?,?,?,?,?,?,?,?)</property>
+[enva_codigo],[pppa_calibr],[pppa_pespro],[pppa_tipdoc],[pppa_codsku],[paen_numero])
+  Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -691,7 +378,6 @@
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
                     <inputColumn
@@ -699,7 +385,6 @@
                       cachedDataType="numeric"
                       cachedName="pppa_docrel"
                       cachedPrecision="8"
-                      cachedSortKeyPosition="4"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]" />
                     <inputColumn
@@ -707,7 +392,6 @@
                       cachedDataType="numeric"
                       cachedName="prod_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="5"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
                     <inputColumn
@@ -715,7 +399,6 @@
                       cachedDataType="numeric"
                       cachedName="espe_codigo"
                       cachedPrecision="2"
-                      cachedSortKeyPosition="6"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]" />
                     <inputColumn
@@ -723,7 +406,6 @@
                       cachedDataType="numeric"
                       cachedName="vari_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="7"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]" />
                     <inputColumn
@@ -732,7 +414,6 @@
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]" />
                     <inputColumn
@@ -740,7 +421,6 @@
                       cachedDataType="numeric"
                       cachedName="enva_tipoen"
                       cachedPrecision="1"
-                      cachedSortKeyPosition="9"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]" />
                     <inputColumn
@@ -748,7 +428,6 @@
                       cachedDataType="numeric"
                       cachedName="enva_codigo"
                       cachedPrecision="3"
-                      cachedSortKeyPosition="10"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]" />
                     <inputColumn
@@ -757,7 +436,6 @@
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]" />
                     <inputColumn
@@ -773,9 +451,24 @@
                       cachedDataType="numeric"
                       cachedName="pppa_tipdoc"
                       cachedPrecision="3"
-                      cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[paen_numero]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -919,6 +612,31 @@
                       dataType="numeric"
                       name="Param_11"
                       precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Agrega Registros.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="numeric"
+                      name="Param_13"
+                      precision="8">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1235,7 +953,7 @@ where [refTable].[emba_codigo] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">11</property>
+                  name="NumKeyColumns">2</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the null values are treated as equal values."
@@ -1259,39 +977,42 @@ where [refTable].[emba_codigo] = ?</property>
                       cachedSortKeyPosition="1"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pate_tempor]" />
                     <inputColumn
+                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_codsku]" />
+                    <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[plde_codigo]"
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="2"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[plde_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_docrel]"
                       cachedDataType="numeric"
                       cachedName="pppa_docrel"
                       cachedPrecision="8"
-                      cachedSortKeyPosition="4"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_docrel]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[prod_codigo]"
                       cachedDataType="numeric"
                       cachedName="prod_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="5"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[prod_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[espe_codigo]"
                       cachedDataType="numeric"
                       cachedName="espe_codigo"
                       cachedPrecision="2"
-                      cachedSortKeyPosition="6"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[espe_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[vari_codigo]"
                       cachedDataType="numeric"
                       cachedName="vari_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="7"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[vari_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[emba_codigo]"
@@ -1299,7 +1020,6 @@ where [refTable].[emba_codigo] = ?</property>
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[emba_codigo]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_calibr]"
@@ -1307,29 +1027,7 @@ where [refTable].[emba_codigo] = ?</property>
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_calibr]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[enva_tipoen]"
-                      cachedDataType="numeric"
-                      cachedName="enva_tipoen"
-                      cachedPrecision="1"
-                      cachedSortKeyPosition="9"
-                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[enva_tipoen]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[enva_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="enva_codigo"
-                      cachedPrecision="3"
-                      cachedSortKeyPosition="10"
-                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[enva_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_tipdoc]"
-                      cachedDataType="numeric"
-                      cachedName="pppa_tipdoc"
-                      cachedPrecision="3"
-                      cachedSortKeyPosition="3"
-                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_tipdoc]" />
                     <inputColumn
                       refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_pespro]"
                       cachedDataType="numeric"
@@ -1337,6 +1035,30 @@ where [refTable].[emba_codigo] = ?</property>
                       cachedPrecision="8"
                       cachedScale="3"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_pespro]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[enva_tipoen]"
+                      cachedDataType="numeric"
+                      cachedName="enva_tipoen"
+                      cachedPrecision="1"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[enva_tipoen]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[enva_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="enva_codigo"
+                      cachedPrecision="3"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[enva_codigo]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_tipdoc]"
+                      cachedDataType="numeric"
+                      cachedName="pppa_tipdoc"
+                      cachedPrecision="3"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_tipdoc]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[paen_numero]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1353,77 +1075,13 @@ where [refTable].[emba_codigo] = ?</property>
                       cachedSortKeyPosition="1"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pate_tempor]" />
                     <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[plde_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="plde_codigo"
-                      cachedPrecision="4"
+                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[plde_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[pppa_tipdoc]"
-                      cachedDataType="numeric"
-                      cachedName="pppa_tipdoc"
-                      cachedPrecision="2"
-                      cachedSortKeyPosition="3"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_tipdoc]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[pppa_docrel]"
-                      cachedDataType="numeric"
-                      cachedName="pppa_docrel"
-                      cachedPrecision="8"
-                      cachedSortKeyPosition="4"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_docrel]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="prod_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="5"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[prod_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[espe_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="espe_codigo"
-                      cachedPrecision="2"
-                      cachedSortKeyPosition="6"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[espe_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[vari_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="vari_codigo"
-                      cachedPrecision="4"
-                      cachedSortKeyPosition="7"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[vari_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[emba_codigo]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[emba_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[enva_tipoen]"
-                      cachedDataType="numeric"
-                      cachedName="enva_tipoen"
-                      cachedPrecision="1"
-                      cachedSortKeyPosition="9"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[enva_tipoen]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[enva_codigo]"
-                      cachedDataType="numeric"
-                      cachedName="enva_codigo"
-                      cachedPrecision="3"
-                      cachedSortKeyPosition="10"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[enva_codigo]" />
-                    <inputColumn
-                      refId="Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[pppa_calibr]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
-                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_calibr]" />
+                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_codsku]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1454,8 +1112,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]"
                       name="plde_codigo"
-                      precision="4"
-                      sortKeyPosition="2">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -1469,8 +1126,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]"
                       name="pppa_docrel"
-                      precision="8"
-                      sortKeyPosition="4">
+                      precision="8">
                       <properties>
                         <property
                           containsID="true"
@@ -1484,8 +1140,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]"
                       name="prod_codigo"
-                      precision="4"
-                      sortKeyPosition="5">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -1499,8 +1154,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]"
                       name="espe_codigo"
-                      precision="2"
-                      sortKeyPosition="6">
+                      precision="2">
                       <properties>
                         <property
                           containsID="true"
@@ -1514,8 +1168,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]"
                       name="vari_codigo"
-                      precision="4"
-                      sortKeyPosition="7">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -1530,8 +1183,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="str"
                       length="10"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]"
-                      name="emba_codigo"
-                      sortKeyPosition="8">
+                      name="emba_codigo">
                       <properties>
                         <property
                           containsID="true"
@@ -1546,8 +1198,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="str"
                       length="4"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]"
-                      name="pppa_calibr"
-                      sortKeyPosition="11">
+                      name="pppa_calibr">
                       <properties>
                         <property
                           containsID="true"
@@ -1576,8 +1227,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]"
                       name="enva_tipoen"
-                      precision="1"
-                      sortKeyPosition="9">
+                      precision="1">
                       <properties>
                         <property
                           containsID="true"
@@ -1591,8 +1241,7 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]"
                       name="enva_codigo"
-                      precision="3"
-                      sortKeyPosition="10">
+                      precision="3">
                       <properties>
                         <property
                           containsID="true"
@@ -1606,14 +1255,43 @@ where [refTable].[emba_codigo] = ?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]"
                       name="pppa_tipdoc"
-                      precision="3"
-                      sortKeyPosition="3">
+                      precision="3">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_tipdoc]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku]"
+                      name="pppa_codsku"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[pppa_codsku]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\PesoProceso\Merge Join.Inputs[Merge Join Left Input].Columns[paen_numero]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1628,6 +1306,21 @@ where [refTable].[emba_codigo] = ?</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[pate_tempor]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku_destino]"
+                      name="pppa_codsku_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\PesoProceso\Merge Join.Inputs[Merge Join Right Input].Columns[pppa_codsku]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1660,7 +1353,19 @@ where [refTable].[emba_codigo] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [pate_tempor],[plde_codigo],[pppa_tipdoc],[pppa_docrel],[prod_codigo],[espe_codigo],[vari_codigo],[emba_codigo],[enva_tipoen],[enva_codigo],[pppa_calibr],[pppa_pespro] 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [pate_tempor],
+[pppa_codsku],
+[plde_codigo],
+[pppa_tipdoc],
+[pppa_docrel],
+[prod_codigo],
+[espe_codigo],
+[vari_codigo],
+[emba_codigo],
+[enva_tipoen],
+[enva_codigo],
+[pppa_calibr],
+[pppa_pespro] 
 FROM [dba].[spro_pesoprocesopack_iso] 
 where espe_codigo=?</property>
                 <property
@@ -1821,6 +1526,17 @@ where espe_codigo=?</property>
                       precision="8"
                       scale="3"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].ExternalColumns[pppa_codsku]"
+                      length="20"
+                      lineageId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].Columns[pppa_codsku]"
+                      name="pppa_codsku"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1887,6 +1603,12 @@ where espe_codigo=?</property>
                       name="pppa_pespro"
                       precision="8"
                       scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].ExternalColumns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="pppa_codsku" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1900,6 +1622,13 @@ where espe_codigo=?</property>
                       lineageId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
                       name="pate_tempor"
                       precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Error Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Error Output].Columns[pppa_codsku]"
+                      name="pppa_codsku" />
                     <outputColumn
                       refId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
                       dataType="numeric"
@@ -2005,6 +1734,13 @@ where espe_codigo=?</property>
                       cachedName="pate_tempor_destino"
                       cachedPrecision="4"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]" />
+                    <inputColumn
+                      refId="Package\PesoProceso\Reg No Existe pasa.Inputs[Conditional Split Input].Columns[pppa_codsku_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku_destino"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2024,13 +1760,13 @@ where espe_codigo=?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]})</property>
+                      name="Expression">[ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]}) &amp;&amp; [ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku_destino]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(pate_tempor_destino)</property>
+                      name="FriendlyExpression">ISNULL(pate_tempor_destino) &amp;&amp; ISNULL(pppa_codsku_destino)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2052,13 +1788,13 @@ where espe_codigo=?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]})</property>
+                      name="Expression">![ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pate_tempor_destino]}) &amp;&amp; ![ISNULL](#{Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku_destino]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(pate_tempor_destino)</property>
+                      name="FriendlyExpression">!ISNULL(pate_tempor_destino) &amp;&amp; !ISNULL(pppa_codsku_destino)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2158,7 +1894,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">2</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2175,7 +1911,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">3</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2192,7 +1928,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">4</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2209,7 +1945,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">5</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2226,7 +1962,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">6</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2243,7 +1979,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">7</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2261,7 +1997,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">8</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2278,7 +2014,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">9</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2295,7 +2031,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">10</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2313,7 +2049,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">11</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2332,6 +2068,24 @@ where espe_codigo=?</property>
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
                           name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Sort.Inputs[Sort Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
+                      lineageId="Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].Columns[pppa_codsku]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -2364,8 +2118,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[plde_codigo]"
                       name="plde_codigo"
-                      precision="4"
-                      sortKeyPosition="2">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -2379,8 +2132,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_tipdoc]"
                       name="pppa_tipdoc"
-                      precision="2"
-                      sortKeyPosition="3">
+                      precision="2">
                       <properties>
                         <property
                           containsID="true"
@@ -2394,8 +2146,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_docrel]"
                       name="pppa_docrel"
-                      precision="8"
-                      sortKeyPosition="4">
+                      precision="8">
                       <properties>
                         <property
                           containsID="true"
@@ -2409,8 +2160,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[prod_codigo]"
                       name="prod_codigo"
-                      precision="4"
-                      sortKeyPosition="5">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -2424,8 +2174,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[espe_codigo]"
                       name="espe_codigo"
-                      precision="2"
-                      sortKeyPosition="6">
+                      precision="2">
                       <properties>
                         <property
                           containsID="true"
@@ -2439,8 +2188,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[vari_codigo]"
                       name="vari_codigo"
-                      precision="4"
-                      sortKeyPosition="7">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -2455,8 +2203,7 @@ where espe_codigo=?</property>
                       dataType="str"
                       length="10"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[emba_codigo]"
-                      name="emba_codigo"
-                      sortKeyPosition="8">
+                      name="emba_codigo">
                       <properties>
                         <property
                           containsID="true"
@@ -2470,8 +2217,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[enva_tipoen]"
                       name="enva_tipoen"
-                      precision="1"
-                      sortKeyPosition="9">
+                      precision="1">
                       <properties>
                         <property
                           containsID="true"
@@ -2485,8 +2231,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[enva_codigo]"
                       name="enva_codigo"
-                      precision="3"
-                      sortKeyPosition="10">
+                      precision="3">
                       <properties>
                         <property
                           containsID="true"
@@ -2501,8 +2246,7 @@ where espe_codigo=?</property>
                       dataType="str"
                       length="4"
                       lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_calibr]"
-                      name="pppa_calibr"
-                      sortKeyPosition="11">
+                      name="pppa_calibr">
                       <properties>
                         <property
                           containsID="true"
@@ -2524,6 +2268,22 @@ where espe_codigo=?</property>
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].Columns[pppa_pespro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\Sort.Outputs[Sort Output].Columns[pppa_codsku]"
+                      name="pppa_codsku"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\PesoProceso\Origen spro_pesoprocesopack.Outputs[OLE DB Source Output].Columns[pppa_codsku]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2585,7 +2345,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">2</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2602,7 +2362,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">4</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2619,7 +2379,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">5</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2636,7 +2396,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">6</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2653,7 +2413,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">7</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2671,7 +2431,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">8</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2689,7 +2449,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">11</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2724,7 +2484,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">9</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2741,7 +2501,7 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">10</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2758,7 +2518,42 @@ where espe_codigo=?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">3</property>
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Sort 1.Inputs[Sort Input].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
+                      lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[pppa_codsku]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Sort 1.Inputs[Sort Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[paen_numero]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -2791,8 +2586,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[plde_codigo]"
                       name="plde_codigo"
-                      precision="4"
-                      sortKeyPosition="2">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -2806,8 +2600,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_docrel]"
                       name="pppa_docrel"
-                      precision="8"
-                      sortKeyPosition="4">
+                      precision="8">
                       <properties>
                         <property
                           containsID="true"
@@ -2821,8 +2614,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[prod_codigo]"
                       name="prod_codigo"
-                      precision="4"
-                      sortKeyPosition="5">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -2836,8 +2628,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[espe_codigo]"
                       name="espe_codigo"
-                      precision="2"
-                      sortKeyPosition="6">
+                      precision="2">
                       <properties>
                         <property
                           containsID="true"
@@ -2851,8 +2642,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[vari_codigo]"
                       name="vari_codigo"
-                      precision="4"
-                      sortKeyPosition="7">
+                      precision="4">
                       <properties>
                         <property
                           containsID="true"
@@ -2867,8 +2657,7 @@ where espe_codigo=?</property>
                       dataType="str"
                       length="10"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[emba_codigo]"
-                      name="emba_codigo"
-                      sortKeyPosition="8">
+                      name="emba_codigo">
                       <properties>
                         <property
                           containsID="true"
@@ -2883,8 +2672,7 @@ where espe_codigo=?</property>
                       dataType="str"
                       length="4"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_calibr]"
-                      name="pppa_calibr"
-                      sortKeyPosition="11">
+                      name="pppa_calibr">
                       <properties>
                         <property
                           containsID="true"
@@ -2913,8 +2701,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[enva_tipoen]"
                       name="enva_tipoen"
-                      precision="1"
-                      sortKeyPosition="9">
+                      precision="1">
                       <properties>
                         <property
                           containsID="true"
@@ -2928,8 +2715,7 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[enva_codigo]"
                       name="enva_codigo"
-                      precision="3"
-                      sortKeyPosition="10">
+                      precision="3">
                       <properties>
                         <property
                           containsID="true"
@@ -2943,14 +2729,43 @@ where espe_codigo=?</property>
                       dataType="numeric"
                       lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_tipdoc]"
                       name="pppa_tipdoc"
-                      precision="3"
-                      sortKeyPosition="3">
+                      precision="3">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\PesoProceso\Agregar Columnas Adicionales Fijas.Outputs[Derived Column Output].Columns[pppa_tipdoc]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[pppa_codsku]"
+                      name="pppa_codsku"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[pppa_codsku]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\Sort 1.Outputs[Sort Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[paen_numero]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2984,6 +2799,7 @@ where espe_codigo=?</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [pate_tempor]
+     ,[pppa_codsku]
       ,[plde_codigo]
       ,[pppa_docrel]
       ,[prod_codigo]
@@ -2991,7 +2807,8 @@ where espe_codigo=?</property>
       ,[vari_codigo]
       ,[emba_codigo]
       ,[pppa_calibr]
-      ,[pppa_pespro]      
+      ,[pppa_pespro]
+      ,[paen_numero]      
   FROM [integracion_compac].[dbo].[spro_pesoprocesopack_ss]
 where Isnull([pppa_sincro],0) =0 and
 espe_codigo=?</property>
@@ -3123,6 +2940,27 @@ espe_codigo=?</property>
                       precision="8"
                       scale="3"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].ExternalColumns[pppa_codsku]"
+                      length="20"
+                      lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[pppa_codsku]"
+                      name="pppa_codsku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3174,6 +3012,17 @@ espe_codigo=?</property>
                       name="pppa_pespro"
                       precision="8"
                       scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].ExternalColumns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="pppa_codsku" />
+                    <externalMetadataColumn
+                      refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      dataType="numeric"
+                      name="paen_numero"
+                      precision="8" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3187,6 +3036,13 @@ espe_codigo=?</property>
                       lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
                       name="pate_tempor"
                       precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[pppa_codsku]"
+                      name="pppa_codsku" />
                     <outputColumn
                       refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
                       dataType="numeric"
@@ -3239,6 +3095,12 @@ espe_codigo=?</property>
                       precision="8"
                       scale="3" />
                     <outputColumn
+                      refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8" />
+                    <outputColumn
                       refId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\PesoProceso\spro_pesoprocesopack_s.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -3287,7 +3149,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="2"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]">
                       <properties>
                         <property
@@ -3302,7 +3163,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="pppa_docrel"
                       cachedPrecision="8"
-                      cachedSortKeyPosition="4"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]">
                       <properties>
                         <property
@@ -3317,7 +3177,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="prod_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="5"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]">
                       <properties>
                         <property
@@ -3332,7 +3191,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="espe_codigo"
                       cachedPrecision="2"
-                      cachedSortKeyPosition="6"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]">
                       <properties>
                         <property
@@ -3347,7 +3205,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="vari_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="7"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]">
                       <properties>
                         <property
@@ -3363,7 +3220,6 @@ espe_codigo=?</property>
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]">
                       <properties>
                         <property
@@ -3379,7 +3235,6 @@ espe_codigo=?</property>
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]">
                       <properties>
                         <property
@@ -3409,7 +3264,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="enva_tipoen"
                       cachedPrecision="1"
-                      cachedSortKeyPosition="9"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]">
                       <properties>
                         <property
@@ -3424,7 +3278,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="enva_codigo"
                       cachedPrecision="3"
-                      cachedSortKeyPosition="10"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]">
                       <properties>
                         <property
@@ -3439,7 +3292,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="pppa_tipdoc"
                       cachedPrecision="3"
-                      cachedSortKeyPosition="3"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]">
                       <properties>
                         <property
@@ -3461,6 +3313,22 @@ espe_codigo=?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 1].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_codsku]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -3491,7 +3359,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="plde_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="2"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]">
                       <properties>
                         <property
@@ -3506,7 +3373,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="pppa_docrel"
                       cachedPrecision="8"
-                      cachedSortKeyPosition="4"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_docrel]">
                       <properties>
                         <property
@@ -3521,7 +3387,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="prod_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="5"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]">
                       <properties>
                         <property
@@ -3536,7 +3401,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="espe_codigo"
                       cachedPrecision="2"
-                      cachedSortKeyPosition="6"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[espe_codigo]">
                       <properties>
                         <property
@@ -3551,7 +3415,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="vari_codigo"
                       cachedPrecision="4"
-                      cachedSortKeyPosition="7"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[vari_codigo]">
                       <properties>
                         <property
@@ -3567,7 +3430,6 @@ espe_codigo=?</property>
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="emba_codigo"
-                      cachedSortKeyPosition="8"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[emba_codigo]">
                       <properties>
                         <property
@@ -3583,7 +3445,6 @@ espe_codigo=?</property>
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="pppa_calibr"
-                      cachedSortKeyPosition="11"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_calibr]">
                       <properties>
                         <property
@@ -3613,7 +3474,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="enva_tipoen"
                       cachedPrecision="1"
-                      cachedSortKeyPosition="9"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_tipoen]">
                       <properties>
                         <property
@@ -3628,7 +3488,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="enva_codigo"
                       cachedPrecision="3"
-                      cachedSortKeyPosition="10"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[enva_codigo]">
                       <properties>
                         <property
@@ -3643,7 +3502,6 @@ espe_codigo=?</property>
                       cachedDataType="numeric"
                       cachedName="pppa_tipdoc"
                       cachedPrecision="3"
-                      cachedSortKeyPosition="3"
                       lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_tipdoc]">
                       <properties>
                         <property
@@ -3665,6 +3523,22 @@ espe_codigo=?</property>
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\PesoProceso\Union de registros.Inputs[Union All Input 2].Columns[pppa_codsku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="pppa_codsku"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\PesoProceso\Merge Join.Outputs[Merge Join Output].Columns[pppa_codsku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_codsku]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -3764,6 +3638,13 @@ espe_codigo=?</property>
                       lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pate_tempor_destino]"
                       name="pate_tempor_destino"
                       precision="4" />
+                    <outputColumn
+                      refId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_codsku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\PesoProceso\Union de registros.Outputs[Union All Output 1].Columns[pppa_codsku]"
+                      name="pppa_codsku" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4038,13 +3919,9 @@ espe_codigo=?</property>
           Id="Package\PesoProceso\Busca Tipos de envase"
           TopLeft="230.714289643327,165.176472904773" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\PesoProceso\Merge Join"
-          TopLeft="513.000005875315,450.90588851965" />
-        <NodeLayout
           Size="106.4,41.6"
           Id="Package\PesoProceso\Sort 1"
-          TopLeft="314.428573922235,376.235299394205" />
+          TopLeft="313.000002469335,376.235299394205" />
         <NodeLayout
           Size="244.8,41.6"
           Id="Package\PesoProceso\Agregar Columnas Adicionales Fijas"
@@ -4072,7 +3949,7 @@ espe_codigo=?</property>
         <NodeLayout
           Size="145.6,41.6"
           Id="Package\PesoProceso\Actualiza Peso"
-          TopLeft="690.000011750631,710.400008022084" />
+          TopLeft="782.142870462672,711.164713915162" />
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Union All Output 1]"
           TopLeft="579.321437040762,827.845109066006">
@@ -4099,74 +3976,6 @@ espe_codigo=?</property>
                     Point3="-13.3309529962582,54.2539225651321" />
                   <mssgle:LineSegment
                     End="-13.3309529962582,93.0078451302643" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output1]"
-          TopLeft="844.600010473388,385.670591130966">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-246.533337931406,65.2352973886842"
-              Start="0,0"
-              End="-246.533337931406,57.7352973886842">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.6638469889031" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.6638469889031"
-                    Point2="0,38.6638469889031"
-                    Point3="-4,38.6638469889031" />
-                  <mssgle:LineSegment
-                    End="-242.533337931406,38.6638469889031" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-242.533337931406,38.6638469889031"
-                    Point2="-246.533337931406,38.6638469889031"
-                    Point3="-246.533337931406,42.6638469889031" />
-                  <mssgle:LineSegment
-                    End="-246.533337931406,57.7352973886842" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output]"
-          TopLeft="367.628573922235,417.835299394205">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="189.904765286413,33.0705891254452"
-              Start="0,0"
-              End="189.904765286413,25.5705891254452">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.600373554837" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.600373554837"
-                    Point2="0,19.600373554837"
-                    Point3="4,19.600373554837" />
-                  <mssgle:LineSegment
-                    End="185.904765286413,19.600373554837" />
-                  <mssgle:CubicBezierSegment
-                    Point1="185.904765286413,19.600373554837"
-                    Point2="189.904765286413,19.600373554837"
-                    Point3="189.904765286413,23.600373554837" />
-                  <mssgle:LineSegment
-                    End="189.904765286413,25.5705891254452" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4233,30 +4042,30 @@ espe_codigo=?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[OLE DB Command Output1]"
-          TopLeft="762.800011750631,752.000008022084">
+          TopLeft="854.942870462672,752.764713915162">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-157.478574709869,34.2451010439221"
+              EndConnector="-249.62143342191,33.4803951508443"
               Start="0,0"
-              End="-157.478574709869,26.7451010439221">
+              End="-249.62143342191,25.9803951508443">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.348538301461" />
+                    End="0,15.8941478432553" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.348538301461"
-                    Point2="0,20.348538301461"
-                    Point3="-4,20.348538301461" />
+                    Point1="0,15.8941478432553"
+                    Point2="0,19.8941478432553"
+                    Point3="-4,19.8941478432553" />
                   <mssgle:LineSegment
-                    End="-153.478574709869,20.348538301461" />
+                    End="-245.62143342191,19.8941478432553" />
                   <mssgle:CubicBezierSegment
-                    Point1="-153.478574709869,20.348538301461"
-                    Point2="-157.478574709869,20.348538301461"
-                    Point3="-157.478574709869,24.348538301461" />
+                    Point1="-245.62143342191,19.8941478432553"
+                    Point2="-249.62143342191,19.8941478432553"
+                    Point3="-249.62143342191,23.8941478432553" />
                   <mssgle:LineSegment
-                    End="-157.478574709869,26.7451010439221" />
+                    End="-249.62143342191,25.9803951508443" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4336,28 +4145,6 @@ espe_codigo=?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\PesoProceso.Paths[Merge Join Output]"
-          TopLeft="580.428577072767,492.50588851965">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,102.929412333116"
-              Start="0,0"
-              End="0,95.4294123331157">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,95.4294123331157" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\PesoProceso.Paths[Lookup Match Output]"
           TopLeft="323.514289643327,206.776472904773">
           <EdgeLayout.Curve>
@@ -4399,50 +4186,156 @@ espe_codigo=?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="152.942863480413,73.3647071693175"
+              EndConnector="245.085722192453,74.1294130623957"
               Start="0,0"
-              End="152.942863480413,65.8647071693175">
+              End="245.085722192453,66.6294130623957">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7592051616386" />
+                    End="0,26.0693957210844" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.7592051616386"
-                    Point2="0,29.7592051616386"
-                    Point3="4,29.7592051616386" />
+                    Point1="0,26.0693957210844"
+                    Point2="0,30.0693957210844"
+                    Point3="4,30.0693957210844" />
                   <mssgle:LineSegment
-                    End="148.942863480413,29.7592051616386" />
+                    End="241.085722192453,30.0693957210844" />
                   <mssgle:CubicBezierSegment
-                    Point1="148.942863480413,29.7592051616386"
-                    Point2="152.942863480413,29.7592051616386"
-                    Point3="152.942863480413,33.7592051616386" />
+                    Point1="241.085722192453,30.0693957210844"
+                    Point2="245.085722192453,30.0693957210844"
+                    Point3="245.085722192453,34.0693957210844" />
                   <mssgle:LineSegment
-                    End="152.942863480413,65.8647071693175" />
+                    End="245.085722192453,66.6294130623957" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="47.2800840839563,34.7592051616386,58.3826953125,11.609375"
+              BoundingBox="93.3515134399767,35.0693957210844,58.3826953125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Derived Column Output]"
-          TopLeft="371.442860542755,315.364709721799">
+          TopLeft="375.257147163274,315.364709721799">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.8705896724056"
+              EndConnector="-9.05714469393888,60.870589672406"
               Start="0,0"
-              End="0,53.3705896724056">
+              End="-9.05714469393888,53.370589672406">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.3705896724056" />
+                    End="0,26.435294836203" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.435294836203"
+                    Point2="0,30.435294836203"
+                    Point3="-4,30.435294836203" />
+                  <mssgle:LineSegment
+                    End="-5.05714469393888,30.435294836203" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.05714469393888,30.435294836203"
+                    Point2="-9.05714469393888,30.435294836203"
+                    Point3="-9.05714469393888,34.435294836203" />
+                  <mssgle:LineSegment
+                    End="-9.05714469393888,53.370589672406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\PesoProceso\Merge Join"
+          TopLeft="520.000008855547,450.176471628532" />
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Sort Output]"
+          TopLeft="366.200002469335,417.835299394205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.600006386212,32.3411722343272"
+              Start="0,0"
+              End="218.600006386212,24.8411722343272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.1705861171636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.1705861171636"
+                    Point2="0,16.1705861171636"
+                    Point3="4,16.1705861171636" />
+                  <mssgle:LineSegment
+                    End="214.600006386212,16.1705861171636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.600006386212,16.1705861171636"
+                    Point2="218.600006386212,16.1705861171636"
+                    Point3="218.600006386212,20.1705861171636" />
+                  <mssgle:LineSegment
+                    End="218.600006386212,24.8411722343272" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Sort Output1]"
+          TopLeft="844.600010473388,385.670591130966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239.533334951174,64.5058804975662"
+              Start="0,0"
+              End="-239.533334951174,57.0058804975662">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2315340509966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.2315340509966"
+                    Point2="0,38.2315340509966"
+                    Point3="-4,38.2315340509966" />
+                  <mssgle:LineSegment
+                    End="-235.533334951174,38.2315340509966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235.533334951174,38.2315340509966"
+                    Point2="-239.533334951174,38.2315340509966"
+                    Point3="-239.533334951174,42.2315340509966" />
+                  <mssgle:LineSegment
+                    End="-239.533334951174,57.0058804975662" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Merge Join Output]"
+          TopLeft="583.928578562883,491.776471628532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103.658829224234"
+              Start="0,0"
+              End="0,96.1588292242337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.1588292242337" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
