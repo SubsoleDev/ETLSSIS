@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="PesoProceso"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{031BDF71-FC53-446C-9683-7CB1DF3EF8F2}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{B589239F-CD28-448E-9389-7369174F9857}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -194,7 +194,7 @@ pppa_codsku=?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dba.spro_pesoprocesopack_iso set
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dba.iso_spro_pesoprocesopack set
   pppa_pespro=?
   where pate_tempor=? and
       pppa_codsku=?
@@ -339,7 +339,7 @@ pppa_codsku=?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">insert into dba.spro_pesoprocesopack_iso([pate_tempor],[plde_codigo],
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">insert into dba.iso_spro_pesoprocesopack([pate_tempor],[plde_codigo],
 [pppa_docrel],[prod_codigo],[espe_codigo],
 [vari_codigo],[emba_codigo],[enva_tipoen],
 [enva_codigo],[pppa_calibr],[pppa_pespro],[pppa_tipdoc],[pppa_codsku],[paen_numero])
@@ -1366,7 +1366,7 @@ where [refTable].[emba_codigo] = ?</property>
 [enva_codigo],
 [pppa_calibr],
 [pppa_pespro] 
-FROM [dba].[spro_pesoprocesopack_iso] 
+FROM [dba].[iso_spro_pesoprocesopack] 
 where espe_codigo=?</property>
                 <property
                   dataType="System.String"
@@ -3915,41 +3915,45 @@ espe_codigo=?</property>
           Id="Package\PesoProceso\Sort"
           TopLeft="795.800010473388,344.070591130966" />
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\PesoProceso\Busca Tipos de envase"
-          TopLeft="230.714289643327,165.176472904773" />
+          Size="195.2,41.6"
+          Id="Package\PesoProceso\spro_pesoprocesopack_s"
+          TopLeft="70.000001192093,73.4117657354546" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\PesoProceso\Sort 1"
           TopLeft="313.000002469335,376.235299394205" />
         <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\PesoProceso\Busca Tipos de envase"
+          TopLeft="230.714289643327,165.176472904773" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\PesoProceso\Actualiza Peso"
+          TopLeft="802.551034075527,713.349587895384" />
+        <NodeLayout
           Size="244.8,41.6"
           Id="Package\PesoProceso\Agregar Columnas Adicionales Fijas"
           TopLeft="252.857147163274,273.764709721799" />
         <NodeLayout
-          Size="164,41.6"
-          Id="Package\PesoProceso\Union de registros"
-          TopLeft="497.321437040762,786.245109066006" />
+          Size="129.6,41.6"
+          Id="Package\PesoProceso\Merge Join"
+          TopLeft="520.000008855547,450.176471628532" />
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\PesoProceso\Reg No Existe pasa"
           TopLeft="498.657148270218,595.435300852766" />
         <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\PesoProceso\spro_pesoprocesopack_s"
-          TopLeft="70.000001192093,73.4117657354546" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\PesoProceso\Agrega Registros"
-          TopLeft="182.142860244733,713.725500205809" />
-        <NodeLayout
           Size="209.6,41.6"
           Id="Package\PesoProceso\Actuaiza Estado Transferido"
           TopLeft="461.190484044504,928.35295419627" />
         <NodeLayout
-          Size="145.6,41.6"
-          Id="Package\PesoProceso\Actualiza Peso"
-          TopLeft="802.551034075527,713.349587895384" />
+          Size="164,41.6"
+          Id="Package\PesoProceso\Union de registros"
+          TopLeft="497.321437040762,786.245109066006" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\PesoProceso\Agrega Registros"
+          TopLeft="182.142860244733,713.725500205809" />
         <EdgeLayout
           Id="Package\PesoProceso.Paths[Union All Output 1]"
           TopLeft="579.321437040762,827.845109066006">
@@ -3976,6 +3980,74 @@ espe_codigo=?</property>
                     Point3="-13.3309529962582,54.2539225651321" />
                   <mssgle:LineSegment
                     End="-13.3309529962582,93.0078451302643" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Sort Output1]"
+          TopLeft="844.600010473388,385.670591130966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239.533334951174,64.5058804975662"
+              Start="0,0"
+              End="-239.533334951174,57.0058804975662">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2315340509966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.2315340509966"
+                    Point2="0,38.2315340509966"
+                    Point3="-4,38.2315340509966" />
+                  <mssgle:LineSegment
+                    End="-235.533334951174,38.2315340509966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235.533334951174,38.2315340509966"
+                    Point2="-239.533334951174,38.2315340509966"
+                    Point3="-239.533334951174,42.2315340509966" />
+                  <mssgle:LineSegment
+                    End="-239.533334951174,57.0058804975662" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Sort Output]"
+          TopLeft="366.200002469335,417.835299394205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.600006386212,32.3411722343272"
+              Start="0,0"
+              End="218.600006386212,24.8411722343272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.1705861171636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.1705861171636"
+                    Point2="0,16.1705861171636"
+                    Point3="4,16.1705861171636" />
+                  <mssgle:LineSegment
+                    End="214.600006386212,16.1705861171636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.600006386212,16.1705861171636"
+                    Point2="218.600006386212,16.1705861171636"
+                    Point3="218.600006386212,20.1705861171636" />
+                  <mssgle:LineSegment
+                    End="218.600006386212,24.8411722343272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4145,6 +4217,28 @@ espe_codigo=?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\PesoProceso.Paths[Merge Join Output]"
+          TopLeft="583.928578562883,491.776471628532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103.658829224234"
+              Start="0,0"
+              End="0,96.1588292242337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.1588292242337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\PesoProceso.Paths[Lookup Match Output]"
           TopLeft="323.514289643327,206.776472904773">
           <EdgeLayout.Curve>
@@ -4250,111 +4344,9 @@ espe_codigo=?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\PesoProceso\Merge Join"
-          TopLeft="520.000008855547,450.176471628532" />
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output]"
-          TopLeft="366.200002469335,417.835299394205">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="218.600006386212,32.3411722343272"
-              Start="0,0"
-              End="218.600006386212,24.8411722343272">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.1705861171636" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.1705861171636"
-                    Point2="0,16.1705861171636"
-                    Point3="4,16.1705861171636" />
-                  <mssgle:LineSegment
-                    End="214.600006386212,16.1705861171636" />
-                  <mssgle:CubicBezierSegment
-                    Point1="214.600006386212,16.1705861171636"
-                    Point2="218.600006386212,16.1705861171636"
-                    Point3="218.600006386212,20.1705861171636" />
-                  <mssgle:LineSegment
-                    End="218.600006386212,24.8411722343272" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output1]"
-          TopLeft="844.600010473388,385.670591130966">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-239.533334951174,64.5058804975662"
-              Start="0,0"
-              End="-239.533334951174,57.0058804975662">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.2315340509966" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.2315340509966"
-                    Point2="0,38.2315340509966"
-                    Point3="-4,38.2315340509966" />
-                  <mssgle:LineSegment
-                    End="-235.533334951174,38.2315340509966" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-235.533334951174,38.2315340509966"
-                    Point2="-239.533334951174,38.2315340509966"
-                    Point3="-239.533334951174,42.2315340509966" />
-                  <mssgle:LineSegment
-                    End="-239.533334951174,57.0058804975662" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Merge Join Output]"
-          TopLeft="583.928578562883,491.776471628532">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,103.658829224234"
-              Start="0,0"
-              End="0,96.1588292242337">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,96.1588292242337" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\PesoProceso\spro_pesoprocesopack_s">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\PesoProceso\Busca Tipos de envase">
     <Properties>
@@ -4380,6 +4372,14 @@ espe_codigo=?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\PesoProceso\Origen spro_pesoprocesopack">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PesoProceso\spro_pesoprocesopack_s">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
