@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Especies"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{7107C817-4676-4091-9ED4-D0B3D4E17399}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{44797880-929C-4829-A864-94230B5CFE9B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -743,7 +743,7 @@ where cod_especie=?</property>
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">2</property>
+                  typeConverter="JoinType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
@@ -2298,6 +2298,10 @@ where espe_codigo =?</property>
           Id="Package\Especies\OLE DB Source 1"
           TopLeft="478.914293815652,45.6352941069224" />
         <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Especies\Merge Join"
+          TopLeft="301.42857656187,250.82353292947" />
+        <NodeLayout
           Size="155.2,41.6"
           Id="Package\Especies\Data Conversion 1"
           TopLeft="405.204088533238,466.436978911269" />
@@ -2321,6 +2325,66 @@ where espe_codigo =?</property>
           Size="120,41.6"
           Id="Package\Especies\Actualiza"
           TopLeft="424.59184396545,562.72269449927" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Especies\Sort 1"
+          TopLeft="500.714294241399,151.411766829375" />
+        <EdgeLayout
+          Id="Package\Especies.Paths[Sort Output]"
+          TopLeft="85.2285720489464,185.364707898599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="281.000004512923,65.4588250308711"
+              Start="0,0"
+              End="281.000004512923,57.9588250308711">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.7294125154355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.7294125154355"
+                    Point2="0,32.7294125154355"
+                    Point3="4,32.7294125154355" />
+                  <mssgle:LineSegment
+                    End="277.000004512923,32.7294125154355" />
+                  <mssgle:CubicBezierSegment
+                    Point1="277.000004512923,32.7294125154355"
+                    Point2="281.000004512923,32.7294125154355"
+                    Point3="281.000004512923,36.7294125154355" />
+                  <mssgle:LineSegment
+                    End="281.000004512923,57.9588250308711" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Especies.Paths[OLE DB Source Output1]"
+          TopLeft="556.014294028526,87.2352941069224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.1764727224528"
+              Start="0,0"
+              End="0,56.6764727224528">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.6764727224528" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Especies.Paths[OLE DB Source Output]"
           TopLeft="111.485714869596,95.6823530376989">
@@ -2347,6 +2411,40 @@ where espe_codigo =?</property>
                     Point3="-26.2571428206501,28.04117743045" />
                   <mssgle:LineSegment
                     End="-26.2571428206501,40.5823548609" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Especies.Paths[Merge Join Output]"
+          TopLeft="366.22857656187,292.42353292947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66.8857156359416,90.7176484208619"
+              Start="0,0"
+              End="-66.8857156359416,83.2176484208619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.358824210431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.358824210431"
+                    Point2="0,45.358824210431"
+                    Point3="-4,45.358824210431" />
+                  <mssgle:LineSegment
+                    End="-62.8857156359416,45.358824210431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.8857156359416,45.358824210431"
+                    Point2="-66.8857156359416,45.358824210431"
+                    Point3="-66.8857156359416,49.358824210431" />
+                  <mssgle:LineSegment
+                    End="-66.8857156359416,83.2176484208619" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2483,70 +2581,6 @@ where espe_codigo =?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Especies\Sort 1"
-          TopLeft="500.714294241399,151.411766829375" />
-        <EdgeLayout
-          Id="Package\Especies.Paths[OLE DB Source Output1]"
-          TopLeft="556.014294028526,87.2352941069224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64.1764727224528"
-              Start="0,0"
-              End="0,56.6764727224528">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.6764727224528" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Especies\Merge Join"
-          TopLeft="301.42857656187,250.82353292947" />
-        <EdgeLayout
-          Id="Package\Especies.Paths[Sort Output]"
-          TopLeft="85.2285720489464,185.364707898599">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="281.000004512923,65.4588250308711"
-              Start="0,0"
-              End="281.000004512923,57.9588250308711">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.7294125154355" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.7294125154355"
-                    Point2="0,32.7294125154355"
-                    Point3="4,32.7294125154355" />
-                  <mssgle:LineSegment
-                    End="277.000004512923,32.7294125154355" />
-                  <mssgle:CubicBezierSegment
-                    Point1="277.000004512923,32.7294125154355"
-                    Point2="281.000004512923,32.7294125154355"
-                    Point3="281.000004512923,36.7294125154355" />
-                  <mssgle:LineSegment
-                    End="281.000004512923,57.9588250308711" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Especies.Paths[Sort Output1]"
           TopLeft="553.914294241399,193.011766829375">
@@ -2573,40 +2607,6 @@ where espe_codigo =?</property>
                     Point3="-167.419051012863,38.2640467373733" />
                   <mssgle:LineSegment
                     End="-167.419051012863,50.3117661000948" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Especies.Paths[Merge Join Output]"
-          TopLeft="366.22857656187,292.42353292947">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-66.8857156359416,90.7176484208619"
-              Start="0,0"
-              End="-66.8857156359416,83.2176484208619">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.358824210431" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.358824210431"
-                    Point2="0,45.358824210431"
-                    Point3="-4,45.358824210431" />
-                  <mssgle:LineSegment
-                    End="-62.8857156359416,45.358824210431" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-62.8857156359416,45.358824210431"
-                    Point2="-66.8857156359416,45.358824210431"
-                    Point3="-66.8857156359416,49.358824210431" />
-                  <mssgle:LineSegment
-                    End="-66.8857156359416,83.2176484208619" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Envases"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{F76011ED-0E23-468D-B71F-A7459301D8B6}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{9D81CF1B-3E0A-4F1E-A81A-CF2118581C34}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
@@ -1070,7 +1070,14 @@ where cod_envase=?</property>
       ,[peso_neto] = env.enva_pesone
       ,[peso_bruto] = env.enva_pesobr
       ,[peso_declarado] = env.enva_pesone
-      ,Gtin = gt.gtin_codigo,
+      ,Gtin = (select top 1 gt.gtin_codigo
+	  from dba.spro_gtin as gt 
+	  where  emb.emba_abrcod=gt.emba_abrcod and
+			  env.enva_pesone=gt.enva_pesone and
+			  esp.espe_codigo=gt.espe_codigo and
+			  env.enva_tipoen=gt.enva_tipoen
+			   and gt.gtin_estado=1 )
+	  ,
 Material=emb.emba_abrevi
   from dba.embalajes emb join dba.envases env on
   emb.enva_codigo = env.enva_codigo 
@@ -1078,13 +1085,9 @@ Material=emb.emba_abrevi
   join dba.envases_especies esp on
   esp.enva_codigo = env.enva_codigo 
   and esp.enva_tipoen = env.enva_tipoen  inner join dba.embalajes_abreviados as Ema on
-  emb.emba_abrcod=Ema.emba_abrcod  inner join dba.spro_gtin as gt on
-  emb.emba_abrcod=gt.emba_abrcod and
-  env.enva_pesone=gt.enva_pesone and
-  esp.espe_codigo=gt.espe_codigo and
-  env.enva_tipoen=gt.enva_tipoen
+  emb.emba_abrcod=Ema.emba_abrcod  
   where  esp.espe_codigo = ?
-  and gt.gtin_estado=1
+  
 union all
 SELECT    cod_envase =Convert(varchar(20), FORMAT(env.enva_tipoen,'0') + FORMAT(env.enva_codigo,'000')),
         nombre = env.enva_nombre,
@@ -2588,29 +2591,17 @@ where Exists(select *
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Envases\Data Conversion 1 1 1"
-          TopLeft="491.690478126614,432.898043845187" />
-        <NodeLayout
           Size="112,41.6"
           Id="Package\Envases\Agrega"
           TopLeft="35.0000005960465,508.808829725613" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Envases\Sort"
-          TopLeft="95.0000016178404,148.68235467858" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Envases\Data Conversion 1 1"
           TopLeft="291.428576391571,430.702944852365" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Envases\Sort 1"
-          TopLeft="372.142863480413,191.367649742683" />
-        <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Envases\Conditional Split"
-          TopLeft="174.285717253782,329.588239916468" />
+          Size="183.2,41.6"
+          Id="Package\Envases\Data Conversion 1 1 1"
+          TopLeft="491.690478126614,432.898043845187" />
         <NodeLayout
           Size="116,41.6"
           Id="Package\Envases\envases"
@@ -2632,9 +2623,21 @@ where Exists(select *
           Id="Package\Envases\Elimina"
           TopLeft="491.6666750397,512.427456360622" />
         <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Envases\Conditional Split"
+          TopLeft="174.285717253782,329.588239916468" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Envases\Sort 1"
+          TopLeft="372.142863480413,191.367649742683" />
+        <NodeLayout
           Size="120,41.6"
           Id="Package\Envases\Actualiza"
           TopLeft="280.000004768372,516.611771569697" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Envases\Sort"
+          TopLeft="95.0000016178404,148.68235467858" />
         <EdgeLayout
           Id="Package\Envases.Paths[Sort Output1]"
           TopLeft="425.342863480413,232.967649742683">
