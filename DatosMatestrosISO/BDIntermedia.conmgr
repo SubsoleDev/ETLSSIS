@@ -7,7 +7,7 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=Osiris\ERPproduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      DTS:ConnectionString="Data Source=Hefesto-olivar\ERPproduccion;User ID=ETL_User;Initial Catalog=integracion_compac;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
         Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAACNfN5k0xnOzO2OQuxyWWa+AAAAAASAAACgAAAAEAAAAK46ssZbLajLCRo8/nz+2/F4AAAAi9/5gGa/nSy4sLl/yQuG36CAmgyGYfT3qwW+y6uwQNMeprgTUI02HDtjbAkrc5WAcgz2o7dVJBCT0D+LXIuxq4YgaVlFCiNqNnAMUhVdJAEaqZHgwyjYqvo0xz8oMBaiL/wId9GLKB3tCN4u8jvEdzaNwSM/KSnfFAAAABV6hIzVsNfWOM0AzJKRew1OFS6X</DTS:Password>

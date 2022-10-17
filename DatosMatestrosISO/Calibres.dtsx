@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Calibres"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{5A85E088-FBD3-46B4-92D6-E2C04B9F9EAE}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{CF3E08D6-3F18-4A8B-9401-A33C2EC33D84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:PackageParameters>
