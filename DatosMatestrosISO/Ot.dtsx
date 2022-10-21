@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Ot"
   DTS:PackageType="5"
-  DTS:VersionBuild="186"
-  DTS:VersionGUID="{AE7CBCC4-CD00-4D02-9D00-88039CB040CB}">
+  DTS:VersionBuild="189"
+  DTS:VersionGUID="{F9F5087E-C47A-468D-85D4-8C67D050DFA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,17 +28,6 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{6ACB952D-5EF3-4D17-B3A9-C4CC6674647D}"
-      DTS:ObjectName="gv_Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -2371,7 +2360,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
 		 FROM   dba.spro_ordenproceso orp
  where  orp.orpr_tipord = 4
  and    orp.espe_codigo = ?
- and    orp.plde_codigo = 74
+ and    orp.plde_codigo = ?
 and     orp.orpr_tipope=1</property>
                     <property
                       dataType="System.String"
@@ -2393,7 +2382,7 @@ and     orp.orpr_tipope=1</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"0:Input",{6ACB952D-A10C-4D17-B3A9-C4CC6674647D};</property>
+                      name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
                   </properties>
                   <connections>
                     <connection
@@ -3731,7 +3720,7 @@ fecha_vaciado is null</property>
 	det.lote_pltcod=t.lote_pltcod
   where  det.orpr_tipord = 4
  and    det.lote_espcod = ?
- and    det.plde_codigo = 74
+ and    det.plde_codigo = ?
 and  orpr_tipope=1</property>
                     <property
                       dataType="System.String"
@@ -3753,7 +3742,7 @@ and  orpr_tipope=1</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"0:Input",{6ACB952D-A10C-4D17-B3A9-C4CC6674647D};</property>
+                      name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
                   </properties>
                   <connections>
                     <connection
@@ -6390,7 +6379,7 @@ nro_lote	=?
     lot.prcc_codigo = prc.prcc_codigo 
   where  det.orpr_tipord = 4
  and    det.lote_espcod = ?
- and    det.plde_codigo = 74
+ and    det.plde_codigo = ?
 and  orpr_tipope=1</property>
                     <property
                       dataType="System.String"
@@ -6412,7 +6401,7 @@ and  orpr_tipope=1</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"0:Input",{6ACB952D-A10C-4D17-B3A9-C4CC6674647D};</property>
+                      name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
                   </properties>
                   <connections>
                     <connection
@@ -9163,6 +9152,18 @@ and  orpr_tipope=1</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package.EventHandlers[OnError]\Registra error"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Contenedor de secuencias\Orden de trabajo">
     <LayoutInfo>
@@ -9235,9 +9236,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9271,9 +9270,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9295,9 +9292,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9331,9 +9326,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9355,9 +9348,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9618,9 +9609,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9654,9 +9643,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9690,9 +9677,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9726,9 +9711,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9762,9 +9745,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9984,9 +9965,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10020,9 +9999,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10056,9 +10033,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10092,9 +10067,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10116,9 +10089,7 @@ and  orpr_tipope=1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10230,17 +10201,5 @@ and  orpr_tipope=1</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package.EventHandlers[OnError]\Registra error"
-          TopLeft="60,60" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

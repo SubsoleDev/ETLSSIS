@@ -11,21 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Variedades"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{BDD75901-1176-481D-B44F-8EB4FFCA92BA}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{050665FE-42B3-4ADC-9F6B-F05B962A9471}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{7E0B4157-9907-4E70-BFB1-E8E0A1FA8975}"
-      DTS:ObjectName="gv_Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -1893,7 +1882,7 @@ where espe_codigo=?</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parámetro0:Input",{7E0B4157-66F8-4E70-BFB1-E8E0A1FA8975};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection

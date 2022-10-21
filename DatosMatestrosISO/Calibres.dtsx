@@ -11,21 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Calibres"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{CF3E08D6-3F18-4A8B-9401-A33C2EC33D84}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{022ACAEC-DD8C-461D-931C-827C18FD3900}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{8D1244E7-6821-4A9C-A4E9-6B219DFD8E11}"
-      DTS:ObjectName="gv_especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -450,7 +439,7 @@ where espe_codigo=?</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{8D1244E7-97DE-4A9C-A4E9-6B219DFD8E11};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection
@@ -1683,7 +1672,7 @@ where espe_codigo=?</property>
         <NodeLayout
           Size="115.2,41.6"
           Id="Package\Calibres"
-          TopLeft="144.285716742885,38.2352946538826" />
+          TopLeft="143.571431016435,39.0000005469603" />
       </GraphLayout>
     </LayoutInfo>
   </Package>

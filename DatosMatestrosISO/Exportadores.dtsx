@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{E1D5CEF6-2F53-4980-891B-D5E034DE4790}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{A4BF63E4-0717-4CB1-A35D-37883435C442}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -946,7 +946,7 @@ FROM	dba.plantadesp_exportadores AS pla,
 		dba.exportadores AS exp
 WHERE	pla.pate_tempor = tem.pate_tempor
 AND		pla.expo_codigo = exp.expo_codigo
-AND		pla.plde_codigo = 74
+AND		pla.plde_codigo = ?
 AND		tem.pate_vigent = 1
 AND		exp.expo_estado = 1
 AND		exp.expo_tipoex = 1
@@ -971,7 +971,7 @@ ORDER BY	exp.expo_codigo</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
               </properties>
               <connections>
                 <connection
@@ -1504,35 +1504,97 @@ ORDER BY	exp.expo_codigo</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Exportadores\Conditional Split"
+          TopLeft="454.285722022154,354.058828494953" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Exportadores\Merge Join"
+          TopLeft="450.000007663454,273.000003828722" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Exportadores\Sort 1"
+          TopLeft="655.000011154583,178.941178980171" />
+        <NodeLayout
           Size="175.2,41.6"
           Id="Package\Exportadores\Origen Exportadores"
           TopLeft="207.857146396929,100.94117788625" />
         <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\Exportadores\Destino Exportadores"
-          TopLeft="590.71429577409,105.529413244716" />
+          Size="176.8,41.6"
+          Id="Package\Exportadores\Agrega Exportadores"
+          TopLeft="245.714289898775,461.117653525825" />
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Exportadores\Sort"
           TopLeft="248.571432804575,195.764708627879" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Exportadores\Sort 1"
-          TopLeft="655.000011154583,178.941178980171" />
+          Size="179.2,41.6"
+          Id="Package\Exportadores\Destino Exportadores"
+          TopLeft="590.71429577409,105.529413244716" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Exportadores\Actualiza Exportadores"
+          TopLeft="637.142867993335,433.211769928817" />
         <EdgeLayout
-          Id="Package\Exportadores.Paths[OLE DB Source Output]"
-          TopLeft="296.414289600752,142.54117788625">
+          Id="Package\Exportadores.Paths[Sort Output1]"
+          TopLeft="708.200011154584,220.541178980171">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.2235307416289"
+              EndConnector="-173.133336824463,52.4588248485513"
               Start="0,0"
-              End="0,45.7235307416289">
+              End="-173.133336824463,44.9588248485513">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.7235307416289" />
+                    End="0,27.0914498492633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0914498492633"
+                    Point2="0,31.0914498492633"
+                    Point3="-4,31.0914498492633" />
+                  <mssgle:LineSegment
+                    End="-169.133336824463,31.0914498492633" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-169.133336824463,31.0914498492633"
+                    Point2="-173.133336824463,31.0914498492633"
+                    Point3="-173.133336824463,35.0914498492633" />
+                  <mssgle:LineSegment
+                    End="-173.133336824463,44.9588248485513" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Exportadores.Paths[Sort Output]"
+          TopLeft="297.371432804575,237.364708627879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="217.42857485888,35.635295200843"
+              Start="0,0"
+              End="217.42857485888,28.135295200843">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8176476004215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8176476004215"
+                    Point2="0,17.8176476004215"
+                    Point3="4,17.8176476004215" />
+                  <mssgle:LineSegment
+                    End="213.42857485888,17.8176476004215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="213.42857485888,17.8176476004215"
+                    Point2="217.42857485888,17.8176476004215"
+                    Point3="217.42857485888,21.8176476004215" />
+                  <mssgle:LineSegment
+                    End="217.42857485888,28.135295200843" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1575,36 +1637,20 @@ ORDER BY	exp.expo_codigo</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Exportadores\Merge Join"
-          TopLeft="450.000007663454,273.000003828722" />
         <EdgeLayout
-          Id="Package\Exportadores.Paths[Sort Output]"
-          TopLeft="297.371432804575,237.364708627879">
+          Id="Package\Exportadores.Paths[OLE DB Source Output]"
+          TopLeft="296.414289600752,142.54117788625">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="217.42857485888,35.635295200843"
+              EndConnector="0,53.2235307416289"
               Start="0,0"
-              End="217.42857485888,28.135295200843">
+              End="0,45.7235307416289">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.8176476004215" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8176476004215"
-                    Point2="0,17.8176476004215"
-                    Point3="4,17.8176476004215" />
-                  <mssgle:LineSegment
-                    End="213.42857485888,17.8176476004215" />
-                  <mssgle:CubicBezierSegment
-                    Point1="213.42857485888,17.8176476004215"
-                    Point2="217.42857485888,17.8176476004215"
-                    Point3="217.42857485888,21.8176476004215" />
-                  <mssgle:LineSegment
-                    End="217.42857485888,28.135295200843" />
+                    End="0,45.7235307416289" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1613,44 +1659,6 @@ ORDER BY	exp.expo_codigo</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Exportadores.Paths[Sort Output1]"
-          TopLeft="708.200011154584,220.541178980171">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-173.133336824463,52.4588248485513"
-              Start="0,0"
-              End="-173.133336824463,44.9588248485513">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.0914498492633" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.0914498492633"
-                    Point2="0,31.0914498492633"
-                    Point3="-4,31.0914498492633" />
-                  <mssgle:LineSegment
-                    End="-169.133336824463,31.0914498492633" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-169.133336824463,31.0914498492633"
-                    Point2="-173.133336824463,31.0914498492633"
-                    Point3="-173.133336824463,35.0914498492633" />
-                  <mssgle:LineSegment
-                    End="-173.133336824463,44.9588248485513" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Exportadores\Conditional Split"
-          TopLeft="454.285722022154,354.058828494953" />
         <EdgeLayout
           Id="Package\Exportadores.Paths[Merge Join Output]"
           TopLeft="514.800007663454,314.600003828722">
@@ -1685,10 +1693,6 @@ ORDER BY	exp.expo_codigo</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Exportadores\Agrega Exportadores"
-          TopLeft="245.714289898775,461.117653525825" />
         <EdgeLayout
           Id="Package\Exportadores.Paths[Agrega]"
           TopLeft="531.485722022154,395.658828494953">
@@ -1725,10 +1729,6 @@ ORDER BY	exp.expo_codigo</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Exportadores\Actualiza Exportadores"
-          TopLeft="637.142867993335,433.211769928817" />
         <EdgeLayout
           Id="Package\Exportadores.Paths[Actualiza]"
           TopLeft="555.885722022154,395.658828494953">
@@ -1777,7 +1777,7 @@ ORDER BY	exp.expo_codigo</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Exportadores\Destino Exportadores">
+    design-time-name="Package\Exportadores\Agrega Exportadores">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1790,7 +1790,7 @@ ORDER BY	exp.expo_codigo</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Exportadores\Agrega Exportadores">
+    design-time-name="Package\Exportadores\Destino Exportadores">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -7,7 +7,7 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=Zeus\ErpProduccion;User ID=ETL_User;Initial Catalog=Terceros_2223;Provider=SQLNCLI11.1;Auto Translate=False;">
+      DTS:ConnectionString="Data Source=Zeus\ErpPRoduccion;User ID=ETL_User;Initial Catalog=Terceros_2223;Provider=SQLNCLI11.1;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
         Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJsPh7T7ra0CDUknB4AJGLAAAAAACAAAAAAADZgAAwAAAABAAAAC8kJMJsIjKeITlv3d5aJy/AAAAAASAAACgAAAAEAAAAHQs8cP0861Hv1yQpQeIr5p4AAAA3i4xdu4o9fhEbbIr7GCNDTJW6RWgDEXgOGbVcqjPRFoY59/za6V3cnbpY4g+rc4kRs9ZoIz6HL5HHLicR2/PAxcjr6Z+TahoGvVGFANWY7XXurGUiWp2HY7caHUYw3G7mx96Kdm1DYRo7dpc0ZtYP+XqwGsmqR+mFAAAANYXgVRXaK/Gkb7kTJAXQtouFgMV</DTS:Password>

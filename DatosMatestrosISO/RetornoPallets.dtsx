@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="RetornoPallets"
   DTS:PackageType="5"
-  DTS:VersionBuild="362"
-  DTS:VersionGUID="{779F40CF-EA75-4DDB-9AA7-E50E1916FE8F}">
+  DTS:VersionBuild="384"
+  DTS:VersionGUID="{32ACC15B-D639-445C-86FD-924CDF9E3AA0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -90,6 +90,260 @@
               DTS:Precision="3"
               DTS:ObjectName="enva_codigo"
               DTS:DTSID="{E14E460D-C830-4344-BBEC-58661033B667}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache_ExisteDestinoPalletEncab]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{FDA7740C-BBD7-446A-B00E-C5E4C4A9166C}"
+      DTS:ObjectName="Cache_ExisteDestinoPalletEncab">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_ExisteDestinoPalletEncab.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="pate_tempor"
+              DTS:DTSID="{FBA5A683-63E7-4526-B3AE-5FFBE90F1E5E}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="2"
+              DTS:ObjectName="expo_codigo"
+              DTS:DTSID="{C34B224D-6542-4709-8F6B-631B1EF5E891}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:IndexPosition="3"
+              DTS:ObjectName="paen_numero"
+              DTS:DTSID="{6FE3CB2F-B3D3-4579-84A3-62BE2E09DD03}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="4"
+              DTS:ObjectName="plde_codigo"
+              DTS:DTSID="{B2294E34-D3DB-40F3-B364-F4774735A65A}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="2"
+              DTS:IndexPosition="5"
+              DTS:ObjectName="espe_codigo"
+              DTS:DTSID="{2A4D206B-1655-4754-BAA8-472BD72D25F5}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:ObjectName="vari_codigo"
+              DTS:DTSID="{2E300324-19C3-407C-B150-459BCC9B3A3C}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="3"
+              DTS:ObjectName="cate_codigo"
+              DTS:DTSID="{1FA5F178-050D-401C-9890-E2EC4DBCC4DB}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="1"
+              DTS:ObjectName="paen_tipopa"
+              DTS:DTSID="{D115DCD3-062C-46AD-AEF4-AB69F642A441}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="304"
+              DTS:Scale="6"
+              DTS:ObjectName="paen_feccon"
+              DTS:DTSID="{E13F7E7E-F2C2-4A06-82AC-9A17C492C533}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:ObjectName="paen_altura"
+              DTS:DTSID="{F98A08DF-B2A8-493F-A11A-91B0942E3550}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="7"
+              DTS:ObjectName="paen_ccajas"
+              DTS:DTSID="{85D6EBD1-20B7-4A67-BA24-05719A962D55}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="1"
+              DTS:ObjectName="bapa_codigo"
+              DTS:DTSID="{2F5E372E-F231-4EA8-80C7-3CD106BBA438}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="2"
+              DTS:ObjectName="parr_codigo"
+              DTS:DTSID="{6169BA5E-DC10-45B2-83F4-8F95B11B6293}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{55C6A78D-F580-4DEA-9808-F718FC7E022D}"
+      DTS:ObjectName="Cache_Existespro_movtofrutaembaenca">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_Existespro_movtofrutaembaenca.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="plde_codigo"
+              DTS:DTSID="{1C5B845C-76DD-4405-BBF3-F42FD4855905}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="3"
+              DTS:ObjectName="tpmv_codigo"
+              DTS:DTSID="{E063019C-0480-4C81-95A7-14ACC8C212E9}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:IndexPosition="2"
+              DTS:ObjectName="mfee_docrel"
+              DTS:DTSID="{866EB2E0-6A6F-43EB-BE73-774485B68EAB}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:ObjectName="mfee_numero"
+              DTS:DTSID="{A22F9771-703F-4137-9D07-B0D6A7411075}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca_Ultimo]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{65E4E1B3-1E84-4ECD-B8D8-F3553900FA1B}"
+      DTS:ObjectName="Cache_Existespro_movtofrutaembaenca_Ultimo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_Existespro_movtofrutaembaenca_Ultimo.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="plde_codigo"
+              DTS:DTSID="{648AC4C9-47A2-46EE-82E7-3BA2E7176C66}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:ObjectName="UltimoReg"
+              DTS:DTSID="{6AF23AF4-4108-4225-9896-815C031BFDF1}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache_Existespro_palletfruta]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{D9BE50EB-E79F-441B-8C45-10A737868093}"
+      DTS:ObjectName="Cache_Existespro_palletfruta">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_Existespro_palletfruta.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="pate_tempor"
+              DTS:DTSID="{36FF1503-CE6C-4107-90A9-160AC1748557}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="2"
+              DTS:ObjectName="expo_codigo"
+              DTS:DTSID="{8D98B3E7-ADC4-4D0A-8A14-DB4722ABDAA1}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:IndexPosition="3"
+              DTS:ObjectName="paen_numero"
+              DTS:DTSID="{BC54EB78-2829-4412-B412-5C6A17A47604}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="4"
+              DTS:ObjectName="plde_codigo"
+              DTS:DTSID="{4BDA42BA-8074-4ED2-B4FE-FEA17B10BE70}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="3"
+              DTS:IndexPosition="5"
+              DTS:ObjectName="pafr_secuen"
+              DTS:DTSID="{D1393A58-5196-41F8-A481-501F393EA10E}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache_NotaCalidadLote]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{1CEEA221-411C-4569-888D-0F2F7C52A158}"
+      DTS:ObjectName="Cache_NotaCalidadLote">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_NotaCalidadLote.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="lote_pltcod"
+              DTS:DTSID="{F567D1BC-9E61-4E1E-A123-2AC1A43F72B0}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="2"
+              DTS:IndexPosition="2"
+              DTS:ObjectName="lote_espcod"
+              DTS:DTSID="{7063EFAB-68E8-4FC7-847D-EDC9800BEA35}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:IndexPosition="3"
+              DTS:ObjectName="lote_codigo"
+              DTS:DTSID="{6EA77917-E058-4769-8AC6-6E0BF83D11FC}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="2"
+              DTS:ObjectName="pefr_codigo"
+              DTS:DTSID="{21BFEA05-8850-475B-AA76-E6F52270159A}"
               DTS:CreationName="" />
           </DTS:CacheColumns>
         </DTS:ConnectionManager>
@@ -176,6 +430,40 @@
               DTS:Precision="3"
               DTS:ObjectName="etiq_codigo"
               DTS:DTSID="{96668B3F-8CC2-411C-97BE-60F4E80E89FC}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache_Procesos]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{74100B2A-820C-4A45-B671-D7D0A597E640}"
+      DTS:ObjectName="Cache_Procesos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:UseFile="True"
+          DTS:ConnectionString="C:\ETL\DatosMaestrosISO\DatosMatestrosISO\Cache_Procesos.caw">
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="4"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="plde_codigo"
+              DTS:DTSID="{238694BD-E46E-4D78-A1DD-3A010F717548}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:IndexPosition="2"
+              DTS:ObjectName="mfee_docrel"
+              DTS:DTSID="{BBDA998A-CF85-4EA6-B095-A0498BE4492D}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="131"
+              DTS:Precision="8"
+              DTS:ObjectName="mfee_numero"
+              DTS:DTSID="{D344D66D-777C-411D-A35D-9421B3241F7E}"
               DTS:CreationName="" />
           </DTS:CacheColumns>
         </DTS:ConnectionManager>
@@ -1038,26 +1326,6 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{783005C7-4E78-420B-AF07-1D3EDCD1EB97}"
-      DTS:ObjectName="gv_Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{7669F752-B4C4-4C0C-A7BF-160710FC6D96}"
-      DTS:ObjectName="gv_Temporada">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">2021</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -1781,6 +2049,224 @@
               </outputs>
             </component>
             <component
+              refId="Package\Buffer\Aggregate 4"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate 4"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Aggregate 4.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Aggregate 4.Inputs[Aggregate Input 1].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\Buffer\Aggregate 4.Inputs[Aggregate Input 1].Columns[mfee_numero]"
+                      cachedDataType="numeric"
+                      cachedName="mfee_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_numero]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[plde_codigo]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1].Columns[UltimoReg]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1].Columns[UltimoReg]"
+                      name="UltimoReg"
+                      precision="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_numero]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\Cache Notacalidad Lote"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache Notacalidad Lote">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Cache Notacalidad Lote.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache_NotaCalidadLote]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache_NotaCalidadLote]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input].Columns[lote_pltcod]"
+                      cachedDataType="numeric"
+                      cachedName="lote_pltcod"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_pltcod]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">lote_pltcod</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input].Columns[lote_espcod]"
+                      cachedDataType="numeric"
+                      cachedName="lote_espcod"
+                      cachedPrecision="2"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_espcod]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">lote_espcod</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input].Columns[lote_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="lote_codigo"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">lote_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input].Columns[pefr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="pefr_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[pefr_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">pefr_codigo</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Cache Notacalidad Lote.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Buffer\Cache pallets"
               componentClassID="Microsoft.Cache"
               contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -1977,6 +2463,294 @@
               </outputs>
             </component>
             <component
+              refId="Package\Buffer\Cache Transform 1"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache Transform 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Cache Transform 1.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache_Procesos]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache_Procesos]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Cache Transform 1.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 1.Inputs[Cache Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">plde_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 1.Inputs[Cache Input].Columns[mfee_docrel]"
+                      cachedDataType="numeric"
+                      cachedName="mfee_docrel"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[mfee_docrel]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">mfee_docrel</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 1.Inputs[Cache Input].Columns[mfee_numero]"
+                      cachedDataType="numeric"
+                      cachedName="mfee_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[mfee_numero]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">mfee_numero</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Cache Transform 1.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Buffer\Cache Transform 1.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\Cache Transform 2"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache Transform 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Cache Transform 2.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache_ExisteDestinoPalletEncab]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache_ExisteDestinoPalletEncab]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[pate_tempor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">pate_tempor</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[expo_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">expo_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_numero]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">paen_numero</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">plde_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[espe_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="espe_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[espe_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">espe_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[vari_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="vari_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[vari_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">vari_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[cate_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="cate_codigo"
+                      cachedPrecision="3"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[cate_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">cate_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[paen_tipopa]"
+                      cachedDataType="numeric"
+                      cachedName="paen_tipopa"
+                      cachedPrecision="1"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_tipopa]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">paen_tipopa</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[paen_feccon]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="paen_feccon"
+                      cachedScale="6"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_feccon]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">paen_feccon</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[paen_altura]"
+                      cachedDataType="numeric"
+                      cachedName="paen_altura"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_altura]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">paen_altura</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[paen_ccajas]"
+                      cachedDataType="numeric"
+                      cachedName="paen_ccajas"
+                      cachedPrecision="7"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_ccajas]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">paen_ccajas</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[bapa_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="bapa_codigo"
+                      cachedPrecision="1"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[bapa_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">bapa_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache Transform 2.Inputs[Cache Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[parr_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">parr_codigo</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Cache Transform 2.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Buffer\Cache Transform 2.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Buffer\Cache_Comuna"
               componentClassID="Microsoft.Cache"
               contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -2051,6 +2825,266 @@
                   refId="Package\Buffer\Cache_Comuna.Outputs[Cache Output]"
                   name="Cache Output"
                   synchronousInputId="Package\Buffer\Cache_Comuna.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache_Existespro_movtofrutaembaenca">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">plde_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input].Columns[tpmv_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="tpmv_codigo"
+                      cachedPrecision="3"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[tpmv_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">tpmv_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input].Columns[mfee_docrel]"
+                      cachedDataType="numeric"
+                      cachedName="mfee_docrel"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_docrel]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">mfee_docrel</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input].Columns[mfee_numero]"
+                      cachedDataType="numeric"
+                      cachedName="mfee_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_numero]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">mfee_numero</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache_Existespro_movtofrutaembaenca_Ultimo">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca_Ultimo]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca_Ultimo]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Inputs[Cache Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">plde_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Inputs[Cache Input].Columns[UltimoReg]"
+                      cachedDataType="numeric"
+                      cachedName="UltimoReg"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1].Columns[UltimoReg]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">UltimoReg</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\Cache_Existespro_palletfruta"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache_Existespro_palletfruta">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Cache_Existespro_palletfruta.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache_Existespro_palletfruta]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache_Existespro_palletfruta]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input].Columns[pate_tempor]"
+                      cachedDataType="numeric"
+                      cachedName="pate_tempor"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[pate_tempor]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">pate_tempor</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[expo_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">expo_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input].Columns[paen_numero]"
+                      cachedDataType="numeric"
+                      cachedName="paen_numero"
+                      cachedPrecision="8"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[paen_numero]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">paen_numero</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[plde_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">plde_codigo</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input].Columns[pafr_secuen]"
+                      cachedDataType="numeric"
+                      cachedName="pafr_secuen"
+                      cachedPrecision="3"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[pafr_secuen]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">pafr_secuen</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Cache_Existespro_palletfruta.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -2489,7 +3523,7 @@ fr.plde_codigo =en.plde_codigo)</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{7669F752-4B3B-4C0C-A7BF-160710FC6D96};</property>
+                  name="ParameterMapping">"0:Input",{16C940CD-1FA2-41E1-9CDE-C7D564C44DC9};</property>
               </properties>
               <connections>
                 <connection
@@ -2726,6 +3760,1134 @@ fr.plde_codigo =en.plde_codigo)</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Buffer\Multicast 1"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast 1">
+              <inputs>
+                <input
+                  refId="Package\Buffer\Multicast 1.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Multicast 1.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Buffer\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Buffer\Multicast 1.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Buffer\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Buffer\Multicast 1.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Buffer\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\NotaCalidad Lote"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="NotaCalidad Lote"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  lote_pltcod,lote_espcod,
+Convert(numeric(8,0),lote_codigo) as lote_codigo
+, pefr_codigo  as pefr_codigo
+FROM    dba.spro_lotesfrutagranel
+WHERE 
+lote_espcod = ? and
+lote_pltcod=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\NotaCalidad Lote.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_pltcod]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[lote_pltcod]"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_pltcod]"
+                      name="lote_pltcod"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_espcod]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[lote_espcod]"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_espcod]"
+                      name="lote_espcod"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[lote_codigo]"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[lote_codigo]"
+                      name="lote_codigo"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[pefr_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[pefr_codigo]"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].Columns[pefr_codigo]"
+                      name="pefr_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[lote_pltcod]"
+                      dataType="numeric"
+                      name="lote_pltcod"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[lote_espcod]"
+                      dataType="numeric"
+                      name="lote_espcod"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[lote_codigo]"
+                      dataType="numeric"
+                      name="lote_codigo"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output].ExternalColumns[pefr_codigo]"
+                      dataType="numeric"
+                      name="pefr_codigo"
+                      precision="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[lote_pltcod]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[lote_pltcod]"
+                      name="lote_pltcod"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[lote_espcod]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[lote_espcod]"
+                      name="lote_espcod"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[lote_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[lote_codigo]"
+                      name="lote_codigo"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[pefr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[pefr_codigo]"
+                      name="pefr_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select 
+pate_tempor,
+expo_codigo,
+paen_numero,
+plde_codigo,
+espe_codigo,
+vari_codigo,
+cate_codigo,
+paen_tipopa,
+paen_feccon,
+paen_altura,
+paen_ccajas,
+bapa_codigo,
+parr_codigo
+from  dba.[spro_palletencab]
+where plde_codigo=? and
+expo_codigo=268 and
+espe_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};"1:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_tipopa]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_tipopa]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_tipopa]"
+                      name="paen_tipopa"
+                      precision="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_feccon]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_feccon]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_feccon]"
+                      name="paen_feccon"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_altura]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_altura]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_altura]"
+                      name="paen_altura"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_ccajas]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_ccajas]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[paen_ccajas]"
+                      name="paen_ccajas"
+                      precision="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[bapa_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bapa_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[bapa_codigo]"
+                      name="bapa_codigo"
+                      precision="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
+                      dataType="numeric"
+                      name="pate_tempor"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      dataType="numeric"
+                      name="expo_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      dataType="numeric"
+                      name="paen_numero"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[espe_codigo]"
+                      dataType="numeric"
+                      name="espe_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[vari_codigo]"
+                      dataType="numeric"
+                      name="vari_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cate_codigo]"
+                      dataType="numeric"
+                      name="cate_codigo"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_tipopa]"
+                      dataType="numeric"
+                      name="paen_tipopa"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_feccon]"
+                      dataType="dbTimeStamp2"
+                      name="paen_feccon"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_altura]"
+                      dataType="numeric"
+                      name="paen_altura"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paen_ccajas]"
+                      dataType="numeric"
+                      name="paen_ccajas"
+                      precision="7" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bapa_codigo]"
+                      dataType="numeric"
+                      name="bapa_codigo"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
+                      dataType="numeric"
+                      name="parr_codigo"
+                      precision="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[espe_codigo]"
+                      name="espe_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[vari_codigo]"
+                      name="vari_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cate_codigo]"
+                      name="cate_codigo"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_tipopa]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_tipopa]"
+                      name="paen_tipopa"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_feccon]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_feccon]"
+                      name="paen_feccon"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_altura]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_altura]"
+                      name="paen_altura"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_ccajas]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paen_ccajas]"
+                      name="paen_ccajas"
+                      precision="7" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bapa_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bapa_codigo]"
+                      name="bapa_codigo"
+                      precision="1" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select plde_codigo,tpmv_codigo,
+mfee_docrel,mfee_numero
+from dba.spro_movtofrutaembaenca
+where tpmv_codigo=4 and plde_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[tpmv_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[tpmv_codigo]"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[tpmv_codigo]"
+                      name="tpmv_codigo"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_docrel]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[mfee_docrel]"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_docrel]"
+                      name="mfee_docrel"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[mfee_numero]"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[mfee_numero]"
+                      name="mfee_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[tpmv_codigo]"
+                      dataType="numeric"
+                      name="tpmv_codigo"
+                      precision="3" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[mfee_docrel]"
+                      dataType="numeric"
+                      name="mfee_docrel"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[mfee_numero]"
+                      dataType="numeric"
+                      name="mfee_numero"
+                      precision="8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[tpmv_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[tpmv_codigo]"
+                      name="tpmv_codigo"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[mfee_docrel]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[mfee_docrel]"
+                      name="mfee_docrel"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[mfee_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[mfee_numero]"
+                      name="mfee_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\palletFruta"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="palletFruta"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT pate_tempor ,
+expo_codigo ,
+paen_numero ,
+plde_codigo ,
+pafr_secuen 
+FROM dba.spro_palletfruta
+
+where plde_codigo=? and
+
+expo_codigo=268 and
+
+espe_codigo=?  and
+
+pate_tempor is not null</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};"1:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\palletFruta.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[pafr_secuen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[pafr_secuen]"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].Columns[pafr_secuen]"
+                      name="pafr_secuen"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[pate_tempor]"
+                      dataType="numeric"
+                      name="pate_tempor"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[expo_codigo]"
+                      dataType="numeric"
+                      name="expo_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[paen_numero]"
+                      dataType="numeric"
+                      name="paen_numero"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output].ExternalColumns[pafr_secuen]"
+                      dataType="numeric"
+                      name="pafr_secuen"
+                      precision="3" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[pate_tempor]"
+                      name="pate_tempor"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[expo_codigo]"
+                      name="expo_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[paen_numero]"
+                      name="paen_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[pafr_secuen]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[pafr_secuen]"
+                      name="pafr_secuen"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\palletFruta.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Buffer\Procesos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Procesos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select plde_codigo,mfee_docrel,mfee_numero
+from dba.spro_movtofrutaembaenca
+where tpmv_codigo=4 and plde_codigo=?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Buffer\Procesos.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[mfee_docrel]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].ExternalColumns[mfee_docrel]"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[mfee_docrel]"
+                      name="mfee_docrel"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[mfee_numero]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].ExternalColumns[mfee_numero]"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].Columns[mfee_numero]"
+                      name="mfee_numero"
+                      precision="8"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].ExternalColumns[plde_codigo]"
+                      dataType="numeric"
+                      name="plde_codigo"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].ExternalColumns[mfee_docrel]"
+                      dataType="numeric"
+                      name="mfee_docrel"
+                      precision="8" />
+                    <externalMetadataColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Output].ExternalColumns[mfee_numero]"
+                      dataType="numeric"
+                      name="mfee_numero"
+                      precision="8" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[plde_codigo]"
+                      name="plde_codigo"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[mfee_docrel]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[mfee_docrel]"
+                      name="mfee_docrel"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[mfee_numero]"
+                      dataType="numeric"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[mfee_numero]"
+                      name="mfee_numero"
+                      precision="8" />
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Buffer\Procesos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -2733,6 +4895,16 @@ fr.plde_codigo =en.plde_codigo)</property>
               endId="Package\Buffer\Cache Transform.Inputs[Cache Input]"
               name="Aggregate Output 1"
               startId="Package\Buffer\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Buffer.Paths[Aggregate Output 13]"
+              endId="Package\Buffer\Lookup 1.Inputs[Lookup Input]"
+              name="Aggregate Output 1"
+              startId="Package\Buffer\Aggregate 3.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Buffer.Paths[Aggregate Output 14]"
+              endId="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo.Inputs[Cache Input]"
+              name="Aggregate Output 1"
+              startId="Package\Buffer\Aggregate 4.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\Buffer.Paths[Aggregate Output 11]"
               endId="Package\Buffer\Lookup.Inputs[Lookup Input]"
@@ -2743,11 +4915,6 @@ fr.plde_codigo =en.plde_codigo)</property>
               endId="Package\Buffer\Cache pallets.Inputs[Cache Input]"
               name="Aggregate Output 1"
               startId="Package\Buffer\Aggregate 2.Outputs[Aggregate Output 1]" />
-            <path
-              refId="Package\Buffer.Paths[Aggregate Output 13]"
-              endId="Package\Buffer\Lookup 1.Inputs[Lookup Input]"
-              name="Aggregate Output 1"
-              startId="Package\Buffer\Aggregate 3.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\Buffer.Paths[Lookup Match Output]"
               endId="Package\Buffer\Aggregate.Inputs[Aggregate Input 1]"
@@ -2764,10 +4931,20 @@ fr.plde_codigo =en.plde_codigo)</property>
               name="Multicast Output 1"
               startId="Package\Buffer\Multicast.Outputs[Multicast Output 1]" />
             <path
+              refId="Package\Buffer.Paths[Multicast Output 11]"
+              endId="Package\Buffer\Cache_Existespro_movtofrutaembaenca.Inputs[Cache Input]"
+              name="Multicast Output 1"
+              startId="Package\Buffer\Multicast 1.Outputs[Multicast Output 1]" />
+            <path
               refId="Package\Buffer.Paths[Multicast Output 2]"
               endId="Package\Buffer\Aggregate 2.Inputs[Aggregate Input 1]"
               name="Multicast Output 2"
               startId="Package\Buffer\Multicast.Outputs[Multicast Output 2]" />
+            <path
+              refId="Package\Buffer.Paths[Multicast Output 21]"
+              endId="Package\Buffer\Aggregate 4.Inputs[Aggregate Input 1]"
+              name="Multicast Output 2"
+              startId="Package\Buffer\Multicast 1.Outputs[Multicast Output 2]" />
             <path
               refId="Package\Buffer.Paths[Multicast Output 3]"
               endId="Package\Buffer\Aggregate 3.Inputs[Aggregate Input 1]"
@@ -2778,6 +4955,31 @@ fr.plde_codigo =en.plde_codigo)</property>
               endId="Package\Buffer\Multicast.Inputs[Multicast Input 1]"
               name="OLE DB Source Output"
               startId="Package\Buffer\Movtos Seleccionados.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Buffer.Paths[OLE DB Source Output1]"
+              endId="Package\Buffer\Cache Transform 1.Inputs[Cache Input]"
+              name="OLE DB Source Output"
+              startId="Package\Buffer\Procesos.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Buffer.Paths[OLE DB Source Output2]"
+              endId="Package\Buffer\Cache Transform 2.Inputs[Cache Input]"
+              name="OLE DB Source Output"
+              startId="Package\Buffer\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Buffer.Paths[OLE DB Source Output3]"
+              endId="Package\Buffer\Cache Notacalidad Lote.Inputs[Cache Input]"
+              name="OLE DB Source Output"
+              startId="Package\Buffer\NotaCalidad Lote.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Buffer.Paths[OLE DB Source Output4]"
+              endId="Package\Buffer\Cache_Existespro_palletfruta.Inputs[Cache Input]"
+              name="OLE DB Source Output"
+              startId="Package\Buffer\palletFruta.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Buffer.Paths[OLE DB Source Output5]"
+              endId="Package\Buffer\Multicast 1.Inputs[Multicast Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Buffer\OLE DB Source 1.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -9665,7 +11867,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
                       name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
+                      typeConverter="LookupConnectionType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the cache type of the lookup table."
@@ -9708,11 +11910,11 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contenedor de secuencias\PalletEncab\Se busca si el registro esta en destino.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      refId="Package\Contenedor de secuencias\PalletEncab\Se busca si el registro esta en destino.Connections[CacheConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cache_ExisteDestinoPalletEncab]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cache_ExisteDestinoPalletEncab]"
                       description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
+                      name="CacheConnection" />
                   </connections>
                   <inputs>
                     <input
@@ -11247,7 +13449,7 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
 END 
 ) as pefr_codigo
 FROM    dba.spro_ordenproceso
-WHERE    plde_codigo = 74
+WHERE    plde_codigo = ?
 AND        orpr_tipord = 4 
 Group by plde_codigo,orpr_numero</property>
                     <property
@@ -11270,7 +13472,7 @@ Group by plde_codigo,orpr_numero</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
                   </properties>
                   <connections>
                     <connection
@@ -11434,7 +13636,7 @@ pate_tempor=?</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"0:Input",{7669F752-4B3B-4C0C-A7BF-160710FC6D96};</property>
+                      name="ParameterMapping">"0:Input",{16C940CD-1FA2-41E1-9CDE-C7D564C44DC9};</property>
                   </properties>
                   <connections>
                     <connection
@@ -14150,7 +16352,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
                       name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
+                      typeConverter="LookupConnectionType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the cache type of the lookup table."
@@ -14193,11 +16395,11 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contenedor de secuencias\PalletFruta\Busca que tenga proceso.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      refId="Package\Contenedor de secuencias\PalletFruta\Busca que tenga proceso.Connections[CacheConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cache_Procesos]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cache_Procesos]"
                       description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
+                      name="CacheConnection" />
                   </connections>
                   <inputs>
                     <input
@@ -15607,7 +17809,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select plde_codigo,orpr_tipord,orpr_numero,orpr_nrotur
 from dba.spro_ordenproceso
-where plde_codigo=74 and orpr_tipord=4</property>
+where plde_codigo=? and orpr_tipord=4</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -15628,7 +17830,7 @@ where plde_codigo=74 and orpr_tipord=4</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"0:Input",{ECF3C989-A85F-4B5B-9391-C8333E37C9BA};</property>
                   </properties>
                   <connections>
                     <connection
@@ -19171,7 +21373,7 @@ where [refTable].[plde_codigo] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
                       name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
+                      typeConverter="LookupConnectionType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the cache type of the lookup table."
@@ -19214,11 +21416,11 @@ where [refTable].[plde_codigo] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contenedor de secuencias\Recepcion\Busca Correlativo de Recepcion.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      refId="Package\Contenedor de secuencias\Recepcion\Busca Correlativo de Recepcion.Connections[CacheConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca_Ultimo]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca_Ultimo]"
                       description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
+                      name="CacheConnection" />
                   </connections>
                   <inputs>
                     <input
@@ -20439,7 +22641,7 @@ where [refTable].[lote_pltcod] = ? and [refTable].[lote_espcod] = ? and [refTabl
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
                       name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
+                      typeConverter="LookupConnectionType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the cache type of the lookup table."
@@ -20482,11 +22684,11 @@ where [refTable].[lote_pltcod] = ? and [refTable].[lote_espcod] = ? and [refTabl
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contenedor de secuencias\Recepcion\Lookup.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      refId="Package\Contenedor de secuencias\Recepcion\Lookup.Connections[CacheConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cache_NotaCalidadLote]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cache_NotaCalidadLote]"
                       description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
+                      name="CacheConnection" />
                   </connections>
                   <inputs>
                     <input
@@ -21103,7 +23305,7 @@ pate_tempor=?</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"0:Input",{783005C7-B187-420B-AF07-1D3EDCD1EB97};"0:Input",{7669F752-4B3B-4C0C-A7BF-160710FC6D96};</property>
+                      name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{16C940CD-1FA2-41E1-9CDE-C7D564C44DC9};</property>
                   </properties>
                   <connections>
                     <connection
@@ -22442,12 +24644,12 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
                       name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
+                      typeConverter="LookupConnectionType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the cache type of the lookup table."
                       name="CacheType"
-                      typeConverter="CacheType">1</property>
+                      typeConverter="CacheType">0</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -22485,11 +24687,11 @@ where [refTable].[pate_tempor] = ? and [refTable].[expo_codigo] = ? and [refTabl
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contenedor de secuencias\Recepcion\Valida que no exista en destino.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      refId="Package\Contenedor de secuencias\Recepcion\Valida que no exista en destino.Connections[CacheConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cache_Existespro_palletfruta]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cache_Existespro_palletfruta]"
                       description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
+                      name="CacheConnection" />
                   </connections>
                   <inputs>
                     <input
@@ -22658,7 +24860,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
                       name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
+                      typeConverter="LookupConnectionType">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the cache type of the lookup table."
@@ -22701,11 +24903,11 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Contenedor de secuencias\Recepcion\Valida Si ya Existe.Connections[OleDbConnection]"
-                      connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
-                      connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                      refId="Package\Contenedor de secuencias\Recepcion\Valida Si ya Existe.Connections[CacheConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca]"
+                      connectionManagerRefId="Package.ConnectionManagers[Cache_Existespro_movtofrutaembaenca]"
                       description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
+                      name="CacheConnection" />
                   </connections>
                   <inputs>
                     <input
@@ -23361,23 +25563,35 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     design-time-name="Package\Buffer">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\Buffer\Movtos Seleccionados"
           TopLeft="292.285716572586,13.2352926483616" />
         <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\Buffer\Cache Transform"
-          TopLeft="56.4285723895439,461.117653525824" />
+          Size="120,41.6"
+          Id="Package\Buffer\Multicast"
+          TopLeft="299.28571938252,85.6470600246971" />
         <NodeLayout
           Size="136,41.6"
           Id="Package\Buffer\Aggregate 2"
           TopLeft="400.000006301063,187.752943074744" />
         <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Buffer\Cache_Comuna"
-          TopLeft="1142,385" />
+          Size="136,41.6"
+          Id="Package\Buffer\Aggregate 3"
+          TopLeft="860,148" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Buffer\Cache Transform"
+          TopLeft="56.4285723895439,461.117653525824" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Buffer\Lookup"
+          TopLeft="114.857137541382,267.352942345464" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Buffer\Cache pallets"
+          TopLeft="574,293.2" />
         <NodeLayout
           Size="121.6,41.6"
           Id="Package\Buffer\Lookup 1"
@@ -23387,25 +25601,13 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           Id="Package\Buffer\Aggregate 1"
           TopLeft="115.714287684888,185.058826124792" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Buffer\Lookup"
-          TopLeft="114.857137541382,267.352942345464" />
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Buffer\Multicast"
-          TopLeft="299.28571938252,85.6470600246971" />
+          Size="151.2,41.6"
+          Id="Package\Buffer\Cache_Comuna"
+          TopLeft="1142,385" />
         <NodeLayout
           Size="126.4,41.6"
           Id="Package\Buffer\Aggregate"
           TopLeft="71.4285677914715,367.823529283068" />
-        <NodeLayout
-          Size="136,41.6"
-          Id="Package\Buffer\Aggregate 3"
-          TopLeft="860,148" />
-        <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Buffer\Cache pallets"
-          TopLeft="574,293.2" />
         <EdgeLayout
           Id="Package\Buffer.Paths[OLE DB Source Output]"
           TopLeft="382.685716572586,54.8352926483616">
@@ -23437,9 +25639,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23473,9 +25673,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23509,9 +25707,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23545,9 +25741,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23653,9 +25847,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23689,9 +25881,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23725,9 +25915,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23749,17 +25937,403 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Buffer\Cache Transform 1"
+          TopLeft="300.388888888889,166.388888888889" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Buffer\Procesos"
+          TopLeft="270.388888888889,31.0555555555555" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Buffer\Cache Transform 2"
+          TopLeft="478.38888888889,169.166666666667" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Buffer\OLE DB Source"
+          TopLeft="445.5,31.4999999999999" />
+        <EdgeLayout
+          Id="Package\Buffer.Paths[OLE DB Source Output2]"
+          TopLeft="520.3,73.0999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.0888888888901,96.0666666666666"
+              Start="0,0"
+              End="42.0888888888901,88.5666666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.0333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.0333333333333"
+                    Point2="0,48.0333333333333"
+                    Point3="4,48.0333333333333" />
+                  <mssgle:LineSegment
+                    End="38.0888888888901,48.0333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.0888888888901,48.0333333333333"
+                    Point2="42.0888888888901,48.0333333333333"
+                    Point3="42.0888888888901,52.0333333333333" />
+                  <mssgle:LineSegment
+                    End="42.0888888888901,88.5666666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Buffer.Paths[OLE DB Source Output1]"
+          TopLeft="330.388888888889,72.6555555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54,93.7333333333332"
+              Start="0,0"
+              End="54,86.2333333333332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8666666666666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8666666666666"
+                    Point2="0,46.8666666666666"
+                    Point3="4,46.8666666666666" />
+                  <mssgle:LineSegment
+                    End="50,46.8666666666666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50,46.8666666666666"
+                    Point2="54,46.8666666666666"
+                    Point3="54,50.8666666666666" />
+                  <mssgle:LineSegment
+                    End="54,86.2333333333332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Buffer\NotaCalidad Lote"
+          TopLeft="684.166666666668,37.5000000000002" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Buffer\Cache Notacalidad Lote"
+          TopLeft="687.611111111112,164.722222222222" />
+        <EdgeLayout
+          Id="Package\Buffer.Paths[OLE DB Source Output3]"
+          TopLeft="763.366666666668,79.1000000000002">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.6444444444444,85.622222222222"
+              Start="0,0"
+              End="18.6444444444444,78.122222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.811111111111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.811111111111"
+                    Point2="0,42.811111111111"
+                    Point3="4,42.811111111111" />
+                  <mssgle:LineSegment
+                    End="14.6444444444444,42.811111111111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6444444444444,42.811111111111"
+                    Point2="18.6444444444444,42.811111111111"
+                    Point3="18.6444444444444,46.811111111111" />
+                  <mssgle:LineSegment
+                    End="18.6444444444444,78.122222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Buffer\palletFruta"
+          TopLeft="14.3888888888889,37.5000000000001" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Buffer\Cache_Existespro_palletfruta"
+          TopLeft="73.7222222222222,164.055555555556" />
+        <EdgeLayout
+          Id="Package\Buffer.Paths[OLE DB Source Output4]"
+          TopLeft="78.7888888888889,79.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.133333333333,84.9555555555555"
+              Start="0,0"
+              End="102.133333333333,77.4555555555555">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4777777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.4777777777778"
+                    Point2="0,42.4777777777778"
+                    Point3="4,42.4777777777778" />
+                  <mssgle:LineSegment
+                    End="98.1333333333333,42.4777777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="98.1333333333333,42.4777777777778"
+                    Point2="102.133333333333,42.4777777777778"
+                    Point3="102.133333333333,46.4777777777778" />
+                  <mssgle:LineSegment
+                    End="102.133333333333,77.4555555555555" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Buffer\OLE DB Source 1"
+          TopLeft="85.1666666666666,257.388888888889" />
+        <NodeLayout
+          Size="266.4,41.6"
+          Id="Package\Buffer\Cache_Existespro_movtofrutaembaenca"
+          TopLeft="22.7539682539682,487.198412698412" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Buffer\Multicast 1"
+          TopLeft="123.436507936508,378.985714285714" />
+        <EdgeLayout
+          Id="Package\Buffer.Paths[OLE DB Source Output5]"
+          TopLeft="164.366666666667,298.988888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.4698412698413,79.9968253968256"
+              Start="0,0"
+              End="23.4698412698413,72.4968253968256">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9984126984128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.9984126984128"
+                    Point2="0,39.9984126984128"
+                    Point3="4,39.9984126984128" />
+                  <mssgle:LineSegment
+                    End="19.4698412698413,39.9984126984128" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.4698412698413,39.9984126984128"
+                    Point2="23.4698412698413,39.9984126984128"
+                    Point3="23.4698412698413,43.9984126984128" />
+                  <mssgle:LineSegment
+                    End="23.4698412698413,72.4968253968256" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Buffer.Paths[Multicast Output 11]"
+          TopLeft="187.836507936508,420.585714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.8825396825397,66.6126984126973"
+              Start="0,0"
+              End="-31.8825396825397,59.1126984126973">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.3063492063487" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.3063492063487"
+                    Point2="0,33.3063492063487"
+                    Point3="-4,33.3063492063487" />
+                  <mssgle:LineSegment
+                    End="-27.8825396825397,33.3063492063487" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.8825396825397,33.3063492063487"
+                    Point2="-31.8825396825397,33.3063492063487"
+                    Point3="-31.8825396825397,37.3063492063487" />
+                  <mssgle:LineSegment
+                    End="-31.8825396825397,59.1126984126973" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Buffer\Aggregate 4"
+          TopLeft="334.960317460317,390.642857142857" />
+        <EdgeLayout
+          Id="Package\Buffer.Paths[Multicast Output 21]"
+          TopLeft="252.236507936508,399.785714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.7238095238095,11.6571428571426"
+              Start="0,0"
+              End="75.2238095238095,11.6571428571426">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.3619047619047,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.3619047619047,0"
+                    Point2="41.3619047619047,0"
+                    Point3="41.3619047619047,4" />
+                  <mssgle:LineSegment
+                    End="41.3619047619047,7.65714285714262" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.3619047619047,7.65714285714262"
+                    Point2="41.3619047619047,11.6571428571426"
+                    Point3="45.3619047619047,11.6571428571426" />
+                  <mssgle:LineSegment
+                    End="75.2238095238095,11.6571428571426" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="302.4,41.6"
+          Id="Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo"
+          TopLeft="402.420634920635,485.087301587301" />
+        <EdgeLayout
+          Id="Package\Buffer.Paths[Aggregate Output 14]"
+          TopLeft="402.960317460317,432.242857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.660317460317,52.8444444444439"
+              Start="0,0"
+              End="150.660317460317,45.3444444444439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4222222222219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4222222222219"
+                    Point2="0,26.4222222222219"
+                    Point3="4,26.4222222222219" />
+                  <mssgle:LineSegment
+                    End="146.660317460317,26.4222222222219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146.660317460317,26.4222222222219"
+                    Point2="150.660317460317,26.4222222222219"
+                    Point3="150.660317460317,30.4222222222219" />
+                  <mssgle:LineSegment
+                    End="150.660317460317,45.3444444444439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <GroupLayout
+          Text="Validaciones"
+          ParentId="Package\Buffer"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1650.4,607.2"
+          Size="1650.4,650.4"
+          Id="2ac86bc2-7e90-4f13-8137-0dd4e48e95d2"
+          TopLeft="99.7222222222225,590.722222222222">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Buffer\Cache Transform 1</s:String>
+            <s:String>Package\Buffer\Procesos</s:String>
+            <s:String>Package\Buffer\Cache Transform 2</s:String>
+            <s:String>Package\Buffer\OLE DB Source</s:String>
+            <s:String>Package\Buffer.Paths[OLE DB Source Output2]</s:String>
+            <s:String>Package\Buffer.Paths[OLE DB Source Output1]</s:String>
+            <s:String>Package\Buffer\NotaCalidad Lote</s:String>
+            <s:String>Package\Buffer\Cache Notacalidad Lote</s:String>
+            <s:String>Package\Buffer.Paths[OLE DB Source Output3]</s:String>
+            <s:String>Package\Buffer\palletFruta</s:String>
+            <s:String>Package\Buffer\Cache_Existespro_palletfruta</s:String>
+            <s:String>Package\Buffer.Paths[OLE DB Source Output4]</s:String>
+            <s:String>Package\Buffer\OLE DB Source 1</s:String>
+            <s:String>Package\Buffer\Cache_Existespro_movtofrutaembaenca</s:String>
+            <s:String>Package\Buffer\Multicast 1</s:String>
+            <s:String>Package\Buffer.Paths[OLE DB Source Output5]</s:String>
+            <s:String>Package\Buffer.Paths[Multicast Output 11]</s:String>
+            <s:String>Package\Buffer\Aggregate 4</s:String>
+            <s:String>Package\Buffer.Paths[Multicast Output 21]</s:String>
+            <s:String>Package\Buffer\Cache_Existespro_movtofrutaembaenca_Ultimo</s:String>
+            <s:String>Package\Buffer.Paths[Aggregate Output 14]</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Buffer\Movtos Seleccionados">
     <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Buffer\Procesos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Buffer\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dba].[embalajes]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -23789,23 +26363,8 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Buffer\Lookup">
+    design-time-name="Package\Buffer\OLE DB Source">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dba].[embalajes]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -23815,7 +26374,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     design-time-name="Package\Contenedor de secuencias\Escribe en Bitacora Movtos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="204.8,41.6"
           Id="Package\Contenedor de secuencias\Escribe en Bitacora Movtos\Columnas Adicionales Fijas"
@@ -23863,7 +26422,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23897,7 +26458,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23931,7 +26494,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23941,7 +26506,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     design-time-name="Package\Contenedor de secuencias\Genera Historico">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Contenedor de secuencias\Genera Historico\Flat File Source"
@@ -23985,7 +26550,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24013,7 +26580,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24047,7 +26616,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24081,7 +26652,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -24103,7 +26676,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24912,7 +27487,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -24940,7 +27515,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -25015,7 +27590,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25049,7 +27626,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25119,7 +27698,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25149,7 +27730,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25175,7 +27758,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25217,7 +27802,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25259,7 +27846,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25361,7 +27950,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25397,7 +27988,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25425,7 +28018,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
@@ -25463,7 +28058,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25497,7 +28094,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -25505,7 +28104,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\PalletFruta"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="515.2,855.2"
+          PanelSize="515.2,855.4"
           Size="515.2,898.4"
           Id="d1fd5a56-928d-4a9d-af0a-cafaa96cd63a"
           TopLeft="113.5,374.037082657083">
@@ -25578,7 +28177,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -25612,7 +28213,9 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <GroupLayout
@@ -25620,7 +28223,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           ParentId="Package\Contenedor de secuencias\PalletFruta"
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="339.2,310.4"
+          PanelSize="339.2,310.6"
           Size="339.2,353.6"
           Id="56873432-dc55-456d-9b25-6b511f74c4b1"
           TopLeft="846.166666666667,385.944444444444">
@@ -25669,7 +28272,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -26173,6 +28776,29 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Recepcion\Valida que no exista en destino">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:boolean">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Contenedor de secuencias\Recepcion\Sin Nota encab">
     <Properties>
       <Property>
@@ -26201,7 +28827,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -26211,7 +28837,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -26242,7 +28868,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -26252,7 +28878,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -26265,7 +28891,7 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -26275,8 +28901,32 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Buffer\NotaCalidad Lote">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Buffer\palletFruta">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Buffer\OLE DB Source 1">
+    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>

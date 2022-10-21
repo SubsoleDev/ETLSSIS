@@ -11,21 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Productores"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{6B6F6296-C478-4B2E-A4A4-30BFE0622578}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{82807237-13C5-4827-B06E-9D26347854B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{14F43236-619E-4F25-B2C2-5BB65690A237}"
-      DTS:ObjectName="gv_Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -1674,7 +1663,7 @@ where espe_codigo=?)</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{14F43236-9E61-4F25-B2C2-5BB65690A237};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection
@@ -2553,13 +2542,17 @@ where espe_codigo=?)</property>
           Id="Package\Data Flow Task\Sort"
           TopLeft="114.285716231988,90.235295383163" />
         <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="262.142861607124,367.823534570351" />
-        <NodeLayout
           Size="106.4,41.6"
           Id="Package\Data Flow Task\Sort 1"
           TopLeft="384.285720830061,204.176473451733" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="268.571433145173,276.82353329411" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Data Flow Task\Elimina"
+          TopLeft="529.285723299397,595.035299758845" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Data Flow Task\Data Conversion 1"
@@ -2569,6 +2562,10 @@ where espe_codigo=?)</property>
           Id="Package\Data Flow Task\Agrega"
           TopLeft="21.4285717934979,532.800007292804" />
         <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Data Flow Task\Conditional Split"
+          TopLeft="262.142861607124,367.823534570351" />
+        <NodeLayout
           Size="164.8,41.6"
           Id="Package\Data Flow Task\Data Conversion 1 1 1"
           TopLeft="508.571437232349,466.16471081572" />
@@ -2576,14 +2573,6 @@ where espe_codigo=?)</property>
           Size="155.2,41.6"
           Id="Package\Data Flow Task\Data Conversion"
           TopLeft="447.857150484105,109.352942710104" />
-        <NodeLayout
-          Size="112,41.6"
-          Id="Package\Data Flow Task\Elimina"
-          TopLeft="529.285723299397,595.035299758845" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Data Flow Task\Merge Join"
-          TopLeft="268.571433145173,276.82353329411" />
         <NodeLayout
           Size="120,41.6"
           Id="Package\Data Flow Task\Actualiza"

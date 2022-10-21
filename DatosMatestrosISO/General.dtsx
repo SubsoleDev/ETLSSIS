@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="General"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{7589301D-4413-4A87-8B0D-3AB57B16715D}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{10EFC5BE-31D8-41B4-A955-D655BB21158F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,17 +28,6 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{E4722A18-C0CC-41C2-ADA6-7878C6C4700D}"
-      DTS:ObjectName="Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable

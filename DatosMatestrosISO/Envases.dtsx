@@ -11,21 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Envases"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{9D81CF1B-3E0A-4F1E-A81A-CF2118581C34}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{43EDA684-4E70-4FE7-B5B0-21FF96EB996B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{2027D252-F3AF-4E25-8211-1F369C4C4A44}"
-      DTS:ObjectName="gv_Especies">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -1125,7 +1114,7 @@ AND        env.enva_ctlcon = 1</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{2027D252-0C50-4E25-8211-1F369C4C4A44};"1:Input",{2027D252-0C50-4E25-8211-1F369C4C4A44};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection

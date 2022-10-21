@@ -11,21 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Categorias"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{8E1CD35C-4F33-40D5-9834-450FFE0DF5C4}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{FF9F0AD1-B9C0-4FD8-A512-388DD3693737}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{CE5E4FB9-0AF4-42B2-BACD-1C1D5D4AFF80}"
-      DTS:ObjectName="gv_Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -254,7 +243,7 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{CE5E4FB9-F50B-42B2-BACD-1C1D5D4AFF80};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection

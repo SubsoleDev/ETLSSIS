@@ -11,21 +11,10 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Cuartel"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{F1810089-A649-4C96-9C74-7F89A3101727}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{9D86EC4C-A085-4E40-AC82-F26F9EE11F95}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="3"
-      DTS:DTSID="{67C841AF-A257-489D-8164-AFEEBBC4B8BF}"
-      DTS:ObjectName="gv_Especie">
-      <DTS:Property
-        DTS:DataType="3"
-        DTS:Name="ParameterValue">16</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -266,7 +255,7 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{67C841AF-5DA8-489D-8164-AFEEBBC4B8BF};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection
@@ -1345,7 +1334,7 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">2</property>
+                  typeConverter="JoinType">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
@@ -3439,7 +3428,7 @@ cod_predio=? where cod_cuartel=?
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-133.286759813513,26.4588235723106,36.773515625,11.3359375"
+              BoundingBox="-141.762345751013,26.4588235723106,53.7246875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

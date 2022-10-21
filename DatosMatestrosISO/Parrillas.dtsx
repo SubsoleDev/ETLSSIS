@@ -1,0 +1,1411 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/17/2022 5:48:48 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="R-DIAZ"
+  DTS:CreatorName="SUBSOLE\rdiaz"
+  DTS:DTSID="{D3FBCE19-5F5C-4CAD-814A-4D79EF68B87C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{A094D35B-D86E-46FB-9293-A178BED493BF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Parrillas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{439557B0-3BFD-49A5-86AF-BE3B9B79E22E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Parrillas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Parrillas\Actualiza Parrillas"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualiza Parrillas"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">update dbo.[parrillas_ss] set
+   [parr_nombre]=?
+   where [parr_codigo]=?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Parrillas\Actualiza Parrillas.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]" />
+                    <inputColumn
+                      refId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      externalMetadataColumnId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Actualiza Parrillas.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parrillas\Actualiza Parrillas.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Actualiza Parrillas.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Actualiza Parrillas.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parrillas\Actualiza Parrillas.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Actualiza Parrillas.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Agrega Parrillas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Agrega Parrillas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[parrillas_ss]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Parrillas\Agrega Parrillas.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input].ExternalColumns[parr_codigo]"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]" />
+                    <inputColumn
+                      refId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      externalMetadataColumnId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input].ExternalColumns[parr_nombre]"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input].ExternalColumns[parr_codigo]"
+                      dataType="numeric"
+                      name="parr_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input].ExternalColumns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="parr_nombre" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Agrega Parrillas.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Agrega Parrillas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Agrega Parrillas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parrillas\Agrega Parrillas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Agrega Parrillas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre]" />
+                    <inputColumn
+                      refId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input].Columns[parr_codigo_destino]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo_destino"
+                      cachedPrecision="2"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_destino]" />
+                    <inputColumn
+                      refId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input].Columns[parr_nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre_destino"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre_destino]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Conditional Split.Outputs[Agrega]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Agrega"
+                  synchronousInputId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_destino]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(parr_codigo_destino)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parrillas\Conditional Split.Outputs[Actualiza]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Actualiza"
+                  synchronousInputId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_destino]}) &amp;&amp; (#{Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre]} != [REPLACENULL](#{Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre_destino]},""))</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(parr_codigo_destino) &amp;&amp; (parr_nombre != REPLACENULL(parr_nombre_destino,""))</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parrillas\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parrillas\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parrillas\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Destino parrillas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Destino parrillas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[parrillas_ss]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Parrillas\Destino parrillas.Connections[OleDbConnection]"
+                  connectionManagerID="{9DA1C9A8-2DE8-4A47-994B-DED152116E5F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Destinos]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_nombre]"
+                      length="20"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]"
+                      name="parr_nombre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
+                      dataType="numeric"
+                      name="parr_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="parr_nombre" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[parr_nombre]"
+                      name="parr_nombre" />
+                    <outputColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Parrillas\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Merge Join.Inputs[Merge Join Left Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Parrillas\Sort.Outputs[Sort Output].Columns[parr_codigo]" />
+                    <inputColumn
+                      refId="Package\Parrillas\Merge Join.Inputs[Merge Join Left Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      lineageId="Package\Parrillas\Sort.Outputs[Sort Output].Columns[parr_nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Parrillas\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Merge Join.Inputs[Merge Join Right Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Parrillas\Sort 1.Outputs[Sort Output].Columns[parr_codigo]" />
+                    <inputColumn
+                      refId="Package\Parrillas\Merge Join.Inputs[Merge Join Right Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      lineageId="Package\Parrillas\Sort 1.Outputs[Sort Output].Columns[parr_nombre]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Parrillas\Merge Join.Inputs[Merge Join Left Input].Columns[parr_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre]"
+                      name="parr_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Parrillas\Merge Join.Inputs[Merge Join Left Input].Columns[parr_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_destino]"
+                      dataType="numeric"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_codigo_destino]"
+                      name="parr_codigo_destino"
+                      precision="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Parrillas\Merge Join.Inputs[Merge Join Right Input].Columns[parr_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Parrillas\Merge Join.Outputs[Merge Join Output].Columns[parr_nombre_destino]"
+                      name="parr_nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Parrillas\Merge Join.Inputs[Merge Join Right Input].Columns[parr_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Origen Parrillas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen Parrillas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select parr_codigo,parr_nombre
+ from [dba].[parrillas]
+where parr_estado=1</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Parrillas\Origen Parrillas.Connections[OleDbConnection]"
+                  connectionManagerID="{70536297-E20F-471B-90FF-787A6DAA6650}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Conn_Origen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_nombre]"
+                      length="20"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]"
+                      name="parr_nombre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_codigo]"
+                      dataType="numeric"
+                      name="parr_codigo"
+                      precision="2" />
+                    <externalMetadataColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].ExternalColumns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="parr_nombre" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2" />
+                    <outputColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[parr_nombre]"
+                      name="parr_nombre" />
+                    <outputColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Parrillas\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Sort.Inputs[Sort Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parrillas\Sort.Inputs[Sort Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      lineageId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Sort.Outputs[Sort Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Parrillas\Sort.Outputs[Sort Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Parrillas\Sort.Outputs[Sort Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Parrillas\Sort.Outputs[Sort Output].Columns[parr_nombre]"
+                      name="parr_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parrillas\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Parrillas\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parrillas\Sort 1.Inputs[Sort Input].Columns[parr_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="parr_codigo"
+                      cachedPrecision="2"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parrillas\Sort 1.Inputs[Sort Input].Columns[parr_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="parr_nombre"
+                      lineageId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parrillas\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parrillas\Sort 1.Outputs[Sort Output].Columns[parr_codigo]"
+                      dataType="numeric"
+                      lineageId="Package\Parrillas\Sort 1.Outputs[Sort Output].Columns[parr_codigo]"
+                      name="parr_codigo"
+                      precision="2"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_codigo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Parrillas\Sort 1.Outputs[Sort Output].Columns[parr_nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Parrillas\Sort 1.Outputs[Sort Output].Columns[parr_nombre]"
+                      name="parr_nombre">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output].Columns[parr_nombre]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Parrillas.Paths[Actualiza]"
+              endId="Package\Parrillas\Actualiza Parrillas.Inputs[OLE DB Command Input]"
+              name="Actualiza"
+              startId="Package\Parrillas\Conditional Split.Outputs[Actualiza]" />
+            <path
+              refId="Package\Parrillas.Paths[Agrega]"
+              endId="Package\Parrillas\Agrega Parrillas.Inputs[OLE DB Destination Input]"
+              name="Agrega"
+              startId="Package\Parrillas\Conditional Split.Outputs[Agrega]" />
+            <path
+              refId="Package\Parrillas.Paths[Merge Join Output]"
+              endId="Package\Parrillas\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Parrillas\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Parrillas.Paths[OLE DB Source Output]"
+              endId="Package\Parrillas\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Parrillas\Origen Parrillas.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Parrillas.Paths[OLE DB Source Output1]"
+              endId="Package\Parrillas\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Parrillas\Destino parrillas.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Parrillas.Paths[Sort Output]"
+              endId="Package\Parrillas\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Parrillas\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Parrillas.Paths[Sort Output1]"
+              endId="Package\Parrillas\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Parrillas\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="115.2,41.6"
+          Id="Package\Parrillas"
+          TopLeft="357.142863224964,222.529414885597" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Parrillas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Parrillas\Origen Parrillas"
+          TopLeft="91.4285729855908,113.94117806857" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Parrillas\Destino parrillas"
+          TopLeft="484.285722533051,120.058825213191" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Parrillas\Sort"
+          TopLeft="137.142859478386,219.470591313286" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Parrillas\Sort 1"
+          TopLeft="519.285723129098,197.294120414034" />
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[OLE DB Source Output]"
+          TopLeft="166.228572985591,155.54117806857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.7142864927954,63.929413244716"
+              Start="0,0"
+              End="19.7142864927954,56.429413244716">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.964706622358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.964706622358"
+                    Point2="0,31.964706622358"
+                    Point3="4,31.964706622358" />
+                  <mssgle:LineSegment
+                    End="15.7142864927954,31.964706622358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.7142864927954,31.964706622358"
+                    Point2="19.7142864927954,31.964706622358"
+                    Point3="19.7142864927954,35.964706622358" />
+                  <mssgle:LineSegment
+                    End="19.7142864927954,56.429413244716" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[OLE DB Source Output1]"
+          TopLeft="561.085722533051,161.658825213191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.4000005960465,35.6352952008429"
+              Start="0,0"
+              End="11.4000005960465,28.1352952008429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8176476004215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8176476004215"
+                    Point2="0,17.8176476004215"
+                    Point3="4,17.8176476004215" />
+                  <mssgle:LineSegment
+                    End="7.40000059604654,17.8176476004215" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.40000059604654,17.8176476004215"
+                    Point2="11.4000005960465,17.8176476004215"
+                    Point3="11.4000005960465,21.8176476004215" />
+                  <mssgle:LineSegment
+                    End="11.4000005960465,28.1352952008429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Parrillas\Merge Join"
+          TopLeft="305.000005194119,323.470592771847" />
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[Sort Output]"
+          TopLeft="185.942859478386,261.070591313286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183.857145715733,62.4000014585608"
+              Start="0,0"
+              End="183.857145715733,54.9000014585608">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2000007292804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.2000007292804"
+                    Point2="0,31.2000007292804"
+                    Point3="4,31.2000007292804" />
+                  <mssgle:LineSegment
+                    End="179.857145715733,31.2000007292804" />
+                  <mssgle:CubicBezierSegment
+                    Point1="179.857145715733,31.2000007292804"
+                    Point2="183.857145715733,31.2000007292804"
+                    Point3="183.857145715733,35.2000007292804" />
+                  <mssgle:LineSegment
+                    End="183.857145715733,54.9000014585608" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[Sort Output1]"
+          TopLeft="572.485723129098,238.894120414034">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-182.419051268312,84.5764723578127"
+              Start="0,0"
+              End="-182.419051268312,77.0764723578127">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.1270311779232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.1270311779232"
+                    Point2="0,50.1270311779232"
+                    Point3="-4,50.1270311779232" />
+                  <mssgle:LineSegment
+                    End="-178.419051268312,50.1270311779232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-178.419051268312,50.1270311779232"
+                    Point2="-182.419051268312,50.1270311779232"
+                    Point3="-182.419051268312,54.1270311779232" />
+                  <mssgle:LineSegment
+                    End="-182.419051268312,77.0764723578127" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Parrillas\Conditional Split"
+          TopLeft="311.428576732168,435.117653161184" />
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[Merge Join Output]"
+          TopLeft="369.800005194119,365.070592771847">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.8285715380493,70.0470603893371"
+              Start="0,0"
+              End="18.8285715380493,62.5470603893371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0235301946686" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.0235301946686"
+                    Point2="0,35.0235301946686"
+                    Point3="4,35.0235301946686" />
+                  <mssgle:LineSegment
+                    End="14.8285715380493,35.0235301946686" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.8285715380493,35.0235301946686"
+                    Point2="18.8285715380493,35.0235301946686"
+                    Point3="18.8285715380493,39.0235301946686" />
+                  <mssgle:LineSegment
+                    End="18.8285715380493,62.5470603893371" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Parrillas\Agrega Parrillas"
+          TopLeft="109.285716146839,516.176477827415" />
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[Agrega]"
+          TopLeft="364.228576732169,476.717653161184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-178.94286058533,39.458824666231"
+              Start="0,0"
+              End="-178.94286058533,31.958824666231">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0263534029" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0263534029"
+                    Point2="0,16.0263534029"
+                    Point3="-4,16.0263534029" />
+                  <mssgle:LineSegment
+                    End="-174.94286058533,16.0263534029" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-174.94286058533,16.0263534029"
+                    Point2="-178.94286058533,16.0263534029"
+                    Point3="-178.94286058533,20.0263534029" />
+                  <mssgle:LineSegment
+                    End="-178.94286058533,31.958824666231" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-105.767856073915,21.0263534029,32.5928515625,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Parrillas\Actualiza Parrillas"
+          TopLeft="467.857150824703,529.941183902813" />
+        <EdgeLayout
+          Id="Package\Parrillas.Paths[Actualiza]"
+          TopLeft="413.028576732169,476.717653161184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.828574092534,53.2235307416289"
+              Start="0,0"
+              End="134.828574092534,45.7235307416289">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6169417166" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6169417166"
+                    Point2="0,21.6169417166"
+                    Point3="4,21.6169417166" />
+                  <mssgle:LineSegment
+                    End="130.828574092534,21.6169417166" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.828574092534,21.6169417166"
+                    Point2="134.828574092534,21.6169417166"
+                    Point3="134.828574092534,25.6169417166" />
+                  <mssgle:LineSegment
+                    End="134.828574092534,45.7235307416289" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="47.1778612650171,26.6169417166,40.4728515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Parrillas\Origen Parrillas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Parrillas\Destino parrillas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Parrillas\Agrega Parrillas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
