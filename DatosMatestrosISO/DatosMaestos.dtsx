@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="DatosMaestros"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{C0B6CE80-6BA1-4ACB-95AF-0B4A8C0209B7}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{2A97D419-5E4A-43B2-9743-F53FACD4D00D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -160,23 +160,6 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Contenedor de secuencias\Execute Package Task"
-          DTS:CreationName="Microsoft.ExecutePackageTask"
-          DTS:Description="Execute Package Task"
-          DTS:DTSID="{2569B4FD-8B00-4431-A902-076C0E94A52E}"
-          DTS:ExecutableType="Microsoft.ExecutePackageTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Execute Package Task"
-          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <ExecutePackageTask>
-              <UseProjectReference>True</UseProjectReference>
-              <PackageName>Plantadesp.dtsx</PackageName>
-            </ExecutePackageTask>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\Contenedor de secuencias\Exportadores"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
@@ -224,6 +207,23 @@
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
               <PackageName>Parrillas.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Plantadesp"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{2569B4FD-8B00-4431-A902-076C0E94A52E}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Plantadesp"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Plantadesp.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -359,7 +359,7 @@
           DTS:From="Package\Contenedor de secuencias\Parrillas"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Restricción 9"
-          DTS:To="Package\Contenedor de secuencias\Execute Package Task" />
+          DTS:To="Package\Contenedor de secuencias\Plantadesp" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -751,8 +751,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Contenedor de secuencias\Execute Package Task"
+          Size="129.6,41.6"
+          Id="Package\Contenedor de secuencias\Plantadesp"
           TopLeft="17.3142948374459,384.023536940512" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 9]"
@@ -760,9 +760,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.3428569239013,37.1647069869981"
+              EndConnector="-8.0571430760987,37.1647069869979"
               Start="0,0"
-              End="18.3428569239013,29.6647069869981">
+              End="-8.0571430760987,29.6647069869979">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -771,15 +771,15 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,14.582353493499"
                     Point2="0,18.582353493499"
-                    Point3="4,18.582353493499" />
+                    Point3="-4,18.582353493499" />
                   <mssgle:LineSegment
-                    End="14.3428569239013,18.582353493499" />
+                    End="-4.0571430760987,18.582353493499" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.3428569239013,18.582353493499"
-                    Point2="18.3428569239013,18.582353493499"
-                    Point3="18.3428569239013,22.582353493499" />
+                    Point1="-4.0571430760987,18.582353493499"
+                    Point2="-8.0571430760987,18.582353493499"
+                    Point3="-8.0571430760987,22.582353493499" />
                   <mssgle:LineSegment
-                    End="18.3428569239013,29.6647069869981" />
+                    End="-8.0571430760987,29.6647069869979" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -807,7 +807,7 @@
             <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 7]</s:String>
             <s:String>Package\Contenedor de secuencias\Parrillas</s:String>
             <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 8]</s:String>
-            <s:String>Package\Contenedor de secuencias\Execute Package Task</s:String>
+            <s:String>Package\Contenedor de secuencias\Plantadesp</s:String>
             <s:String>Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 9]</s:String>
           </GroupLayout.ChildrenIds>
         </GroupLayout>

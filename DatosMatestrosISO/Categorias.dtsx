@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Categorias"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{FF9F0AD1-B9C0-4FD8-A512-388DD3693737}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{1CCAB45F-BA76-48A5-AF1F-D582963580C9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -222,7 +222,11 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select a.cate_codigo,cate_nombre,espe_codigo
   from dba.categorias as a inner join dba.categoriaespe as ce on
   a.cate_codigo=ce.cate_codigo
-  where espe_codigo=?</property>
+  where espe_codigo=?
+union all
+select a.cate_codigo,cate_nombre,?
+  from dba.categorias as a 
+  where a.cate_codigo in(201,205)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -243,7 +247,7 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
+                  name="ParameterMapping">"0:Input",{800B75C1-66C5-447D-B198-0CA17958F295};"1:Input",{800B75C1-66C5-447D-B198-0CA17958F295};</property>
               </properties>
               <connections>
                 <connection
@@ -377,6 +381,20 @@
                       cachedName="cod_categoria_int"
                       cachedPrecision="4"
                       lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]" />
+                    <inputColumn
+                      refId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input].Columns[cate_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cate_nombre"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre]" />
+                    <inputColumn
+                      refId="Package\Categorias\Conditional Split.Inputs[Conditional Split Input].Columns[cate_nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cate_nombre_destino"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -424,13 +442,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]})</property>
+                      name="Expression">![ISNULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cod_categoria_int]}) &amp;&amp; ![ISNULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_codigo]}) &amp;&amp; ([REPLACENULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre]},"") != [REPLACENULL](#{Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(cod_categoria_int)</property>
+                      name="FriendlyExpression">!ISNULL(cod_categoria_int) &amp;&amp; !ISNULL(cate_codigo) &amp;&amp; (REPLACENULL(cate_nombre,"") != REPLACENULL(cate_nombre_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -886,6 +904,13 @@
                       cachedPrecision="4"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[cod_categoria_int]" />
+                    <inputColumn
+                      refId="Package\Categorias\Merge Join.Inputs[Merge Join Right Input].Columns[descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="descripcion"
+                      lineageId="Package\Categorias\Sort 1.Outputs[Sort Output].Columns[descripcion]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -952,6 +977,21 @@
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Categorias\Merge Join.Inputs[Merge Join Right Input].Columns[cod_categoria_int]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Categorias\Merge Join.Outputs[Merge Join Output].Columns[cate_nombre_destino]"
+                      name="cate_nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Categorias\Merge Join.Inputs[Merge Join Right Input].Columns[descripcion]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1976,7 +2016,7 @@ where cod_categoria=?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="82.4648820050882,16.7627675915905,36.5273828125,9.7490234375"
+              BoundingBox="73.596229661338,16.7627675915905,54.2646875,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

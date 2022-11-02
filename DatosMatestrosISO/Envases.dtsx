@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Envases"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{43EDA684-4E70-4FE7-B5B0-21FF96EB996B}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{E4F4ABE7-7EEC-4DB5-BB50-FCE245114364}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -564,6 +564,20 @@ where cod_envase=?</property>
                       cachedLength="40"
                       cachedName="Material"
                       lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[Gtin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Gtin"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]" />
+                    <inputColumn
+                      refId="Package\Envases\Conditional Split.Inputs[Conditional Split Input].Columns[gtin_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="gtin_destino"
+                      lineageId="Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[gtin_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -611,13 +625,13 @@ where cod_envase=?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">([REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]},"") == [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]},"")) &amp;&amp; ((#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]} || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]} != #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]}))</property>
+                      name="Expression">([REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase]},"") == [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[cod_envase_destino]},"")) &amp;&amp; (([REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre]},"") != [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]},"") || [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto]},0) != [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_neto_destino]},0) || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto]} != [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_bruto_destino]},0) || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado]} != [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[peso_declarado_destino]},0) || #{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Material]} != [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[material_destino]},"")) || [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[Gtin]},"") != [REPLACENULL](#{Package\Envases\Merge Join.Outputs[Merge Join Output].Columns[gtin_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">(REPLACENULL(cod_envase,"") == REPLACENULL(cod_envase_destino,"")) &amp;&amp; ((nombre != nombre_destino || peso_neto != peso_neto_destino || peso_bruto != peso_bruto_destino || peso_declarado != peso_declarado_destino || Material != material_destino))</property>
+                      name="FriendlyExpression">(REPLACENULL(cod_envase,"") == REPLACENULL(cod_envase_destino,"")) &amp;&amp; ((REPLACENULL(nombre,"") != REPLACENULL(nombre_destino,"") || REPLACENULL(peso_neto,0) != REPLACENULL(peso_neto_destino,0) || peso_bruto != REPLACENULL(peso_bruto_destino,0) || peso_declarado != REPLACENULL(peso_declarado_destino,0) || Material != REPLACENULL(material_destino,"")) || REPLACENULL(Gtin,"") != REPLACENULL(gtin_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1075,7 +1089,7 @@ Material=emb.emba_abrevi
   esp.enva_codigo = env.enva_codigo 
   and esp.enva_tipoen = env.enva_tipoen  inner join dba.embalajes_abreviados as Ema on
   emb.emba_abrcod=Ema.emba_abrcod  
-  where  esp.espe_codigo = ?
+  where  esp.espe_codigo = ? and env.enva_estado = 1  and emb. emba_estado = 1
   
 union all
 SELECT    cod_envase =Convert(varchar(20), FORMAT(env.enva_tipoen,'0') + FORMAT(env.enva_codigo,'000')),
@@ -1093,7 +1107,8 @@ AND        esp.enva_codigo = env.enva_codigo
 AND        env.enva_tipoen = ten.enva_tipoen
 AND        esp.espe_codigo = ?
 AND        ten.tien_usoenv = 1
-AND        env.enva_ctlcon = 1</property>
+AND        env.enva_ctlcon = 1
+and         env.enva_estado = 1</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2580,17 +2595,9 @@ where Exists(select *
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="112,41.6"
-          Id="Package\Envases\Agrega"
-          TopLeft="35.0000005960465,508.808829725613" />
-        <NodeLayout
           Size="164.8,41.6"
           Id="Package\Envases\Data Conversion 1 1"
           TopLeft="291.428576391571,430.702944852365" />
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Envases\Data Conversion 1 1 1"
-          TopLeft="491.690478126614,432.898043845187" />
         <NodeLayout
           Size="116,41.6"
           Id="Package\Envases\envases"
@@ -2604,9 +2611,17 @@ where Exists(select *
           Id="Package\Envases\Merge Join"
           TopLeft="190.000003235681,257.270591495606" />
         <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Envases\Data Conversion 1 1 1"
+          TopLeft="491.690478126614,432.898043845187" />
+        <NodeLayout
           Size="155.2,41.6"
           Id="Package\Envases\Data Conversion"
           TopLeft="48.5714293985951,413.505886514129" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Envases\Agrega"
+          TopLeft="35.0000005960465,508.808829725613" />
         <NodeLayout
           Size="112,41.6"
           Id="Package\Envases\Elimina"
@@ -2620,13 +2635,13 @@ where Exists(select *
           Id="Package\Envases\Sort 1"
           TopLeft="372.142863480413,191.367649742683" />
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\Envases\Actualiza"
-          TopLeft="280.000004768372,516.611771569697" />
-        <NodeLayout
           Size="97.6,41.6"
           Id="Package\Envases\Sort"
           TopLeft="95.0000016178404,148.68235467858" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Envases\Actualiza"
+          TopLeft="280.000004768372,516.611771569697" />
         <EdgeLayout
           Id="Package\Envases.Paths[Sort Output1]"
           TopLeft="425.342863480413,232.967649742683">
@@ -2908,9 +2923,7 @@ where Exists(select *
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.9142858115995,27.154413358666,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3002,7 +3015,7 @@ where Exists(select *
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Envases\envases">
+    design-time-name="Package\Envases\envases Destino">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3015,7 +3028,7 @@ where Exists(select *
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Envases\envases Destino">
+    design-time-name="Package\Envases\envases">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

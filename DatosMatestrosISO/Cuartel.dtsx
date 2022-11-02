@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Cuartel"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{9D86EC4C-A085-4E40-AC82-F26F9EE11F95}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{3DCD2C46-9BC5-44DF-93B3-8142059907F2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -46,30 +46,48 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[CodCuartel]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="CodCuartel"
-                      cachedPrecision="8"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]" />
                     <inputColumn
                       refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="prod_codigo"
-                      cachedPrecision="4"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
                     <inputColumn
-                      refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[cod_cuartel_int]"
-                      cachedDataType="numeric"
-                      cachedName="cod_cuartel_int"
-                      cachedPrecision="10"
-                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_int]" />
+                      refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[cod_cuartel_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_cuartel_destino"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]" />
                     <inputColumn
-                      refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[cod_productor_int]"
-                      cachedDataType="numeric"
-                      cachedName="cod_productor_int"
-                      cachedPrecision="10"
-                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]" />
+                      refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[cod_productor_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_productor_destino"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]" />
+                    <inputColumn
+                      refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[prcc_nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="prcc_nombre"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prcc_nombre]" />
+                    <inputColumn
+                      refId="Package\Cuarteles\Conditional Split.Inputs[Conditional Split Input].Columns[nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre_destino"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -89,13 +107,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_int]}) &amp;&amp; [ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]})</property>
+                      name="Expression">[ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]}) &amp;&amp; [ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(cod_cuartel_int) &amp;&amp; ISNULL(cod_productor_int)</property>
+                      name="FriendlyExpression">ISNULL(cod_cuartel_destino) &amp;&amp; ISNULL(cod_productor_destino)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -117,13 +135,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">(![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]}) &amp;&amp; ![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]})) &amp;&amp; (![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_int]}) &amp;&amp; ![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]}))</property>
+                      name="Expression">(![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]}) &amp;&amp; ![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]})) &amp;&amp; (![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]}) &amp;&amp; ![ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]})) &amp;&amp; (#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prcc_nombre]} != [REPLACENULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">(!ISNULL(CodCuartel) &amp;&amp; !ISNULL(prod_codigo)) &amp;&amp; (!ISNULL(cod_cuartel_int) &amp;&amp; !ISNULL(cod_productor_int))</property>
+                      name="FriendlyExpression">(!ISNULL(CodCuartel) &amp;&amp; !ISNULL(prod_codigo)) &amp;&amp; (!ISNULL(cod_cuartel_destino) &amp;&amp; !ISNULL(cod_productor_destino)) &amp;&amp; (prcc_nombre != REPLACENULL(nombre_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -223,8 +241,8 @@
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select 
-FORMAT(pred.prbr_codpre,'00')+
-FORMAT(cua.prcc_codigo,'000') as CodCuartel,prcc_nombre,'Chile' as pais,prov_nombre,regi_nomcor as regi_nombre,left(prod_direcc,50) as direccion,pred.prod_codigo,pred.prbr_codcsg,pred.prbr_codpre
+Convert(char(20),FORMAT(pred.prbr_codpre,'00')+
+FORMAT(cua.prcc_codigo,'000')) as CodCuartel,prcc_nombre,'Chile' as pais,prov_nombre,regi_nomcor as regi_nombre,left(prod_direcc,50) as direccion,pred.prod_codigo,pred.prbr_codcsg,pred.prbr_codpre
 from [dba].[prodcuarteles] as cua inner join dba.prodbienraiz as pred on
 cua.prod_codigo=pred.prod_codigo and
 cua.prbr_codpre=pred.prbr_codpre  inner join dba.[productores] as p on
@@ -272,13 +290,14 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <outputColumns>
                     <outputColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[CodCuartel]"
-                      dataType="numeric"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].ExternalColumns[CodCuartel]"
+                      length="20"
                       lineageId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[CodCuartel]"
                       name="CodCuartel"
-                      precision="8"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[prcc_nombre]"
@@ -337,13 +356,14 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[prod_codigo]"
-                      dataType="numeric"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].ExternalColumns[prod_codigo]"
+                      length="20"
                       lineageId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[prod_codigo]"
                       name="prod_codigo"
-                      precision="4"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[prbr_codcsg]"
@@ -370,8 +390,9 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].ExternalColumns[CodCuartel]"
-                      dataType="wstr"
-                      length="4000"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       name="CodCuartel" />
                     <externalMetadataColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].ExternalColumns[prcc_nombre]"
@@ -427,8 +448,9 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <outputColumns>
                     <outputColumn
                       refId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Error Output].Columns[CodCuartel]"
-                      dataType="wstr"
-                      length="4000"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       lineageId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Error Output].Columns[CodCuartel]"
                       name="CodCuartel" />
                     <outputColumn
@@ -806,112 +828,6 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
               </outputs>
             </component>
             <component
-              refId="Package\Cuarteles\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Cuarteles\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Cuarteles\Data Conversion.Inputs[Data Conversion Input].Columns[cod_cuartel]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="cod_cuartel"
-                      lineageId="Package\Cuarteles\Cuartel_Destino.Outputs[OLE DB Source Output].Columns[cod_cuartel]" />
-                    <inputColumn
-                      refId="Package\Cuarteles\Data Conversion.Inputs[Data Conversion Input].Columns[cod_productor]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="cod_productor"
-                      lineageId="Package\Cuarteles\Cuartel_Destino.Outputs[OLE DB Source Output].Columns[cod_productor]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Cuarteles\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_cuartel_int]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_cuartel_int]"
-                      name="cod_cuartel_int"
-                      precision="10"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Cuarteles\Cuartel_Destino.Outputs[OLE DB Source Output].Columns[cod_cuartel]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_productor_int]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_productor_int]"
-                      name="cod_productor_int"
-                      precision="10"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Cuarteles\Cuartel_Destino.Outputs[OLE DB Source Output].Columns[cod_productor]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Cuarteles\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Cuarteles\Data Conversion 1"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -925,16 +841,18 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <inputColumns>
                     <inputColumn
                       refId="Package\Cuarteles\Data Conversion 1.Inputs[Data Conversion Input].Columns[CodCuartel]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="CodCuartel"
-                      cachedPrecision="8"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]" />
                     <inputColumn
                       refId="Package\Cuarteles\Data Conversion 1.Inputs[Data Conversion Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="prod_codigo"
-                      cachedPrecision="4"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
                     <inputColumn
@@ -1062,16 +980,18 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <inputColumns>
                     <inputColumn
                       refId="Package\Cuarteles\Data Conversion 1 1.Inputs[Data Conversion Input].Columns[CodCuartel]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="CodCuartel"
-                      cachedPrecision="8"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]" />
                     <inputColumn
                       refId="Package\Cuarteles\Data Conversion 1 1.Inputs[Data Conversion Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="prod_codigo"
-                      cachedPrecision="4"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
                     <inputColumn
@@ -1199,16 +1119,18 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <inputColumns>
                     <inputColumn
                       refId="Package\Cuarteles\Data Conversion 1 1 1.Inputs[Data Conversion Input].Columns[CodCuartel]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="CodCuartel"
-                      cachedPrecision="8"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]" />
                     <inputColumn
                       refId="Package\Cuarteles\Data Conversion 1 1 1.Inputs[Data Conversion Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="prod_codigo"
-                      cachedPrecision="4"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]" />
                     <inputColumn
@@ -1356,16 +1278,18 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <inputColumns>
                     <inputColumn
                       refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Left Input].Columns[CodCuartel]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="CodCuartel"
-                      cachedPrecision="8"
                       cachedSortKeyPosition="1"
                       lineageId="Package\Cuarteles\Sort.Outputs[Sort Output].Columns[CodCuartel]" />
                     <inputColumn
                       refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Left Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="prod_codigo"
-                      cachedPrecision="4"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Cuarteles\Sort.Outputs[Sort Output].Columns[prod_codigo]" />
                     <inputColumn
@@ -1424,19 +1348,28 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   name="Merge Join Right Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_cuartel_int]"
-                      cachedDataType="numeric"
-                      cachedName="cod_cuartel_int"
-                      cachedPrecision="10"
+                      refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_cuartel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_cuartel"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_cuartel_int]" />
+                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_cuartel]" />
                     <inputColumn
-                      refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_productor_int]"
-                      cachedDataType="numeric"
-                      cachedName="cod_productor_int"
-                      cachedPrecision="10"
+                      refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_productor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="cod_productor"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_productor_int]" />
+                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_productor]" />
+                    <inputColumn
+                      refId="Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[nombre]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1449,10 +1382,11 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   <outputColumns>
                     <outputColumn
                       refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]"
-                      dataType="numeric"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[CodCuartel]"
                       name="CodCuartel"
-                      precision="8"
                       sortKeyPosition="1">
                       <properties>
                         <property
@@ -1539,10 +1473,11 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                     </outputColumn>
                     <outputColumn
                       refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]"
-                      dataType="numeric"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[prod_codigo]"
                       name="prod_codigo"
-                      precision="4"
                       sortKeyPosition="2">
                       <properties>
                         <property
@@ -1581,31 +1516,48 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_int]"
-                      dataType="numeric"
-                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_int]"
-                      name="cod_cuartel_int"
-                      precision="10">
+                      refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]"
+                      name="cod_cuartel_destino">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_cuartel_int]}</property>
+                          name="InputColumnID">#{Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_cuartel]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]"
-                      dataType="numeric"
-                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]"
-                      name="cod_productor_int"
-                      precision="10">
+                      refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]"
+                      name="cod_productor_destino">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_productor_int]}</property>
+                          name="InputColumnID">#{Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[cod_productor]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]"
+                      name="nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Cuarteles\Merge Join.Inputs[Merge Join Right Input].Columns[nombre]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2262,9 +2214,10 @@ cod_predio=? where cod_cuartel=?
                   <inputColumns>
                     <inputColumn
                       refId="Package\Cuarteles\Sort.Inputs[Sort Input].Columns[CodCuartel]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="CodCuartel"
-                      cachedPrecision="8"
                       lineageId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[CodCuartel]">
                       <properties>
                         <property
@@ -2369,9 +2322,10 @@ cod_predio=? where cod_cuartel=?
                     </inputColumn>
                     <inputColumn
                       refId="Package\Cuarteles\Sort.Inputs[Sort Input].Columns[prod_codigo]"
-                      cachedDataType="numeric"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
                       cachedName="prod_codigo"
-                      cachedPrecision="4"
                       lineageId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output].Columns[prod_codigo]">
                       <properties>
                         <property
@@ -2430,10 +2384,11 @@ cod_predio=? where cod_cuartel=?
                   <outputColumns>
                     <outputColumn
                       refId="Package\Cuarteles\Sort.Outputs[Sort Output].Columns[CodCuartel]"
-                      dataType="numeric"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       lineageId="Package\Cuarteles\Sort.Outputs[Sort Output].Columns[CodCuartel]"
                       name="CodCuartel"
-                      precision="8"
                       sortKeyPosition="1">
                       <properties>
                         <property
@@ -2520,10 +2475,11 @@ cod_predio=? where cod_cuartel=?
                     </outputColumn>
                     <outputColumn
                       refId="Package\Cuarteles\Sort.Outputs[Sort Output].Columns[prod_codigo]"
-                      dataType="numeric"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
                       lineageId="Package\Cuarteles\Sort.Outputs[Sort Output].Columns[prod_codigo]"
                       name="prod_codigo"
-                      precision="4"
                       sortKeyPosition="2">
                       <properties>
                         <property
@@ -2604,7 +2560,7 @@ cod_predio=? where cod_cuartel=?
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2712,7 +2668,7 @@ cod_predio=? where cod_cuartel=?
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2751,40 +2707,6 @@ cod_predio=? where cod_cuartel=?
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\Cuarteles\Sort 1.Inputs[Sort Input].Columns[cod_cuartel_int]"
-                      cachedDataType="numeric"
-                      cachedName="cod_cuartel_int"
-                      cachedPrecision="10"
-                      lineageId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_cuartel_int]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Cuarteles\Sort 1.Inputs[Sort Input].Columns[cod_productor_int]"
-                      cachedDataType="numeric"
-                      cachedName="cod_productor_int"
-                      cachedPrecision="10"
-                      lineageId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_productor_int]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">2</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2801,7 +2723,8 @@ cod_predio=? where cod_cuartel=?
                       dataType="str"
                       length="20"
                       lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_cuartel]"
-                      name="cod_cuartel">
+                      name="cod_cuartel"
+                      sortKeyPosition="1">
                       <properties>
                         <property
                           containsID="true"
@@ -2891,7 +2814,8 @@ cod_predio=? where cod_cuartel=?
                       dataType="str"
                       length="20"
                       lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_productor]"
-                      name="cod_productor">
+                      name="cod_productor"
+                      sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
@@ -2930,36 +2854,6 @@ cod_predio=? where cod_cuartel=?
                           name="SortColumnId">#{Package\Cuarteles\Cuartel_Destino.Outputs[OLE DB Source Output].Columns[cod_predio]}</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_cuartel_int]"
-                      dataType="numeric"
-                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_cuartel_int]"
-                      name="cod_cuartel_int"
-                      precision="10"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_cuartel_int]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_productor_int]"
-                      dataType="numeric"
-                      lineageId="Package\Cuarteles\Sort 1.Outputs[Sort Output].Columns[cod_productor_int]"
-                      name="cod_productor_int"
-                      precision="10"
-                      sortKeyPosition="2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output].Columns[cod_productor_int]}</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2979,21 +2873,16 @@ cod_predio=? where cod_cuartel=?
               startId="Package\Cuarteles\Conditional Split.Outputs[Agregar]" />
             <path
               refId="Package\Cuarteles.Paths[Data Conversion Output]"
-              endId="Package\Cuarteles\Sort 1.Inputs[Sort Input]"
-              name="Data Conversion Output"
-              startId="Package\Cuarteles\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Cuarteles.Paths[Data Conversion Output1]"
               endId="Package\Cuarteles\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
               startId="Package\Cuarteles\Data Conversion 1.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Cuarteles.Paths[Data Conversion Output2]"
+              refId="Package\Cuarteles.Paths[Data Conversion Output1]"
               endId="Package\Cuarteles\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Data Conversion Output"
               startId="Package\Cuarteles\Data Conversion 1 1.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Cuarteles.Paths[Data Conversion Output3]"
+              refId="Package\Cuarteles.Paths[Data Conversion Output2]"
               endId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input]"
               name="Data Conversion Output"
               startId="Package\Cuarteles\Data Conversion 1 1 1.Outputs[Data Conversion Output]" />
@@ -3014,7 +2903,7 @@ cod_predio=? where cod_cuartel=?
               startId="Package\Cuarteles\Cuarteles-Origen.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Cuarteles.Paths[OLE DB Source Output1]"
-              endId="Package\Cuarteles\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\Cuarteles\Sort 1.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Cuarteles\Cuartel_Destino.Outputs[OLE DB Source Output]" />
             <path
@@ -3057,42 +2946,6 @@ cod_predio=? where cod_cuartel=?
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Cuarteles\Data Conversion"
-          TopLeft="455.714293475054,78.7647069869982" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Cuarteles\OLE DB Command 1"
-          TopLeft="532.857151931646,493.011767558655" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Cuarteles\Data Conversion 1 1"
-          TopLeft="309.285719552819,410.517648967822" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Cuarteles\Merge Join"
-          TopLeft="276.428576136122,241.647062212538" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Cuarteles\Cuartel_Destino"
-          TopLeft="531.428580478746,16.8235296477083" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Cuarteles\Cuarteles-Origen"
-          TopLeft="70.0000011920929,19.1176473269413" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Cuarteles\OLE DB Destination"
-          TopLeft="27.1428576050973,504.682357595701" />
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Cuarteles\Sort 1"
-          TopLeft="479.285722447901,162.776471446212" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Cuarteles\OLE DB Command"
-          TopLeft="309.285719552819,502.141179709451" />
-        <NodeLayout
           Size="164.8,41.6"
           Id="Package\Cuarteles\Data Conversion 1"
           TopLeft="44.2857150398955,406.741180985692" />
@@ -3105,35 +2958,67 @@ cod_predio=? where cod_cuartel=?
           Id="Package\Cuarteles\Sort"
           TopLeft="92.8571444384906,123.117648785502" />
         <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Cuarteles\Cuarteles-Origen"
+          TopLeft="70.0000011920929,19.1176473269413" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Cuarteles\Cuartel_Destino"
+          TopLeft="514.285723043948,4.58823535846587" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Cuarteles\OLE DB Command 1"
+          TopLeft="532.857151931646,493.011767558655" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Cuarteles\OLE DB Command"
+          TopLeft="309.285719552819,502.141179709451" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Cuarteles\Data Conversion 1 1"
+          TopLeft="309.285719552819,410.517648967822" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Cuarteles\Merge Join"
+          TopLeft="240.714289813626,213.458825030871" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Cuarteles\Sort 1"
+          TopLeft="477.142865268552,141.470590219366" />
+        <NodeLayout
           Size="154.4,41.6"
           Id="Package\Cuarteles\Conditional Split"
           TopLeft="279.285719041922,322.22353384107" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Cuarteles\OLE DB Destination"
+          TopLeft="27.1428576050973,504.682357595701" />
         <EdgeLayout
           Id="Package\Cuarteles.Paths[Sort Output1]"
-          TopLeft="532.485722447901,204.376471446212">
+          TopLeft="530.342865268552,183.070590219366">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-170.990479645113,37.270590766326"
+              EndConnector="-204.561908788259,30.3882348115057"
               Start="0,0"
-              End="-170.990479645113,29.770590766326">
+              End="-204.561908788259,22.8882348115057">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.089642820042" />
+                    End="0,14.0105879492583" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.089642820042"
-                    Point2="0,22.089642820042"
-                    Point3="-4,22.089642820042" />
+                    Point1="0,14.0105879492583"
+                    Point2="0,18.0105879492583"
+                    Point3="-4,18.0105879492583" />
                   <mssgle:LineSegment
-                    End="-166.990479645113,22.089642820042" />
+                    End="-200.561908788259,18.0105879492583" />
                   <mssgle:CubicBezierSegment
-                    Point1="-166.990479645113,22.089642820042"
-                    Point2="-170.990479645113,22.089642820042"
-                    Point3="-170.990479645113,26.089642820042" />
+                    Point1="-200.561908788259,18.0105879492583"
+                    Point2="-204.561908788259,18.0105879492583"
+                    Point3="-204.561908788259,22.0105879492583" />
                   <mssgle:LineSegment
-                    End="-170.990479645113,29.770590766326" />
+                    End="-204.561908788259,22.8882348115057" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3148,26 +3033,26 @@ cod_predio=? where cod_cuartel=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="179.304765030965,76.9294134270361"
+              EndConnector="163.857145375135,48.7411762453694"
               Start="0,0"
-              End="179.304765030965,69.4294134270361">
+              End="163.857145375135,41.2411762453694">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5947499091946" />
+                    End="0,20.3705881226847" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,41.5947499091946"
-                    Point2="0,45.5947499091946"
-                    Point3="4,45.5947499091946" />
+                    Point1="0,20.3705881226847"
+                    Point2="0,24.3705881226847"
+                    Point3="4,24.3705881226847" />
                   <mssgle:LineSegment
-                    End="175.304765030965,45.5947499091946" />
+                    End="159.857145375135,24.3705881226847" />
                   <mssgle:CubicBezierSegment
-                    Point1="175.304765030965,45.5947499091946"
-                    Point2="179.304765030965,45.5947499091946"
-                    Point3="179.304765030965,49.5947499091946" />
+                    Point1="159.857145375135,24.3705881226847"
+                    Point2="163.857145375135,24.3705881226847"
+                    Point3="163.857145375135,28.3705881226847" />
                   <mssgle:LineSegment
-                    End="179.304765030965,69.4294134270361" />
+                    End="163.857145375135,41.2411762453694" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3178,24 +3063,30 @@ cod_predio=? where cod_cuartel=?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cuarteles.Paths[OLE DB Source Output1]"
-          TopLeft="531.428580478746,37.6235296477083">
+          TopLeft="590.685723043948,46.1882353584659">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="1.88571299630757,41.1411773392899"
+              EndConnector="-60.3428577753958,95.2823548608998"
               Start="0,0"
-              End="1.88571299630757,33.6411773392899">
+              End="-60.3428577753958,87.7823548608998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-2.11428700369243,0" />
+                    End="0,43.6411774304499" />
                   <mssgle:CubicBezierSegment
-                    Point1="-2.11428700369243,0"
-                    Point2="1.88571299630757,0"
-                    Point3="1.88571299630757,4" />
+                    Point1="0,43.6411774304499"
+                    Point2="0,47.6411774304499"
+                    Point3="-4,47.6411774304499" />
                   <mssgle:LineSegment
-                    End="1.88571299630757,33.6411773392899" />
+                    End="-56.3428577753958,47.6411774304499" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.3428577753958,47.6411774304499"
+                    Point2="-60.3428577753958,47.6411774304499"
+                    Point3="-60.3428577753958,51.6411774304499" />
+                  <mssgle:LineSegment
+                    End="-60.3428577753958,87.7823548608998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3228,30 +3119,30 @@ cod_predio=? where cod_cuartel=?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Cuarteles.Paths[Merge Join Output]"
-          TopLeft="341.228576136122,283.247062212538">
+          TopLeft="305.514289813626,255.058825030871">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.2571429057996,38.9764716285323"
+              EndConnector="50.9714292282963,67.1647088101986"
               Start="0,0"
-              End="15.2571429057996,31.4764716285323">
+              End="50.9714292282963,59.6647088101986">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.4882358142661" />
+                    End="0,29.5823544050993" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.4882358142661"
-                    Point2="0,19.4882358142661"
-                    Point3="4,19.4882358142661" />
+                    Point1="0,29.5823544050993"
+                    Point2="0,33.5823544050993"
+                    Point3="4,33.5823544050993" />
                   <mssgle:LineSegment
-                    End="11.2571429057996,19.4882358142661" />
+                    End="46.9714292282963,33.5823544050993" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.2571429057996,19.4882358142661"
-                    Point2="15.2571429057996,19.4882358142661"
-                    Point3="15.2571429057996,23.4882358142661" />
+                    Point1="46.9714292282963,33.5823544050993"
+                    Point2="50.9714292282963,33.5823544050993"
+                    Point3="50.9714292282963,37.5823544050993" />
                   <mssgle:LineSegment
-                    End="15.2571429057996,31.4764716285323" />
+                    End="50.9714292282963,59.6647088101986" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3292,12 +3183,12 @@ cod_predio=? where cod_cuartel=?
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="93.1791679018371,23.2260053454993,36.5273828125,9.7490234375"
+              BoundingBox="93.179167901837,23.2260053454993,36.5273828125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Cuarteles.Paths[Data Conversion Output3]"
+          Id="Package\Cuarteles.Paths[Data Conversion Output2]"
           TopLeft="615.614294794871,458.305884326288">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3319,7 +3210,7 @@ cod_predio=? where cod_cuartel=?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Cuarteles.Paths[Data Conversion Output2]"
+          Id="Package\Cuarteles.Paths[Data Conversion Output1]"
           TopLeft="391.685719552819,452.117648967822">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3341,7 +3232,7 @@ cod_predio=? where cod_cuartel=?
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Cuarteles.Paths[Data Conversion Output1]"
+          Id="Package\Cuarteles.Paths[Data Conversion Output]"
           TopLeft="126.685715039896,448.341180985692">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3366,28 +3257,6 @@ cod_predio=? where cod_cuartel=?
                     Point3="-14.3428574347983,32.1705883050046" />
                   <mssgle:LineSegment
                     End="-14.3428574347983,48.8411766100093" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Cuarteles.Paths[Data Conversion Output]"
-          TopLeft="532.900007961478,120.364706986998">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.4117644592141"
-              Start="0,0"
-              End="0,34.9117644592141">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.9117644592141" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3485,14 +3354,6 @@ cod_predio=? where cod_cuartel=?
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cuarteles\Cuarteles-Origen">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Cuarteles\OLE DB Destination">
     <Properties>
       <Property>
@@ -3502,6 +3363,14 @@ cod_predio=? where cod_cuartel=?
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cuarteles\Cuarteles-Origen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="PesoProceso"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{F811CACC-7111-45CA-9545-7A0143A4FFCD}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{85A384B3-6C19-4687-B1CE-D9879AEF9F39}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4318,17 +4318,9 @@ espe_codigo=?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\PesoProceso\Origen spro_pesoprocesopack"
-          TopLeft="734.942868419083,262.247060571657" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\PesoProceso\Sort"
-          TopLeft="795.800010473388,344.070591130966" />
-        <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\PesoProceso\spro_pesoprocesopack_s"
-          TopLeft="70.000001192093,73.4117657354546" />
+          Size="158.4,41.6"
+          Id="Package\PesoProceso\Agrega Registros"
+          TopLeft="182.142860244733,713.725500205809" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\PesoProceso\Sort 1"
@@ -4337,6 +4329,14 @@ espe_codigo=?</property>
           Size="185.6,41.6"
           Id="Package\PesoProceso\Busca Tipos de envase"
           TopLeft="230.714289643327,165.176472904773" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\PesoProceso\Union de registros"
+          TopLeft="497.321437040762,786.245109066006" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\PesoProceso\Reg No Existe pasa"
+          TopLeft="498.657148270218,595.435300852766" />
         <NodeLayout
           Size="145.6,41.6"
           Id="Package\PesoProceso\Actualiza Peso"
@@ -4350,137 +4350,35 @@ espe_codigo=?</property>
           Id="Package\PesoProceso\Merge Join"
           TopLeft="520.000008855547,450.176471628532" />
         <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\PesoProceso\Reg No Existe pasa"
-          TopLeft="498.657148270218,595.435300852766" />
+          Size="97.6,41.6"
+          Id="Package\PesoProceso\Sort"
+          TopLeft="795.800010473388,344.070591130966" />
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\PesoProceso\spro_pesoprocesopack_s"
+          TopLeft="70.000001192093,73.4117657354546" />
         <NodeLayout
           Size="209.6,41.6"
           Id="Package\PesoProceso\Actuaiza Estado Transferido"
           TopLeft="461.190484044504,928.35295419627" />
         <NodeLayout
-          Size="164,41.6"
-          Id="Package\PesoProceso\Union de registros"
-          TopLeft="497.321437040762,786.245109066006" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\PesoProceso\Agrega Registros"
-          TopLeft="182.142860244733,713.725500205809" />
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Union All Output 1]"
-          TopLeft="579.321437040762,827.845109066006">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13.3309529962582,100.507845130264"
-              Start="0,0"
-              End="-13.3309529962582,93.0078451302643">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.2539225651321" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.2539225651321"
-                    Point2="0,50.2539225651321"
-                    Point3="-4,50.2539225651321" />
-                  <mssgle:LineSegment
-                    End="-9.33095299625825,50.2539225651321" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.33095299625825,50.2539225651321"
-                    Point2="-13.3309529962582,50.2539225651321"
-                    Point3="-13.3309529962582,54.2539225651321" />
-                  <mssgle:LineSegment
-                    End="-13.3309529962582,93.0078451302643" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output1]"
-          TopLeft="844.600010473388,385.670591130966">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-239.533334951174,64.5058804975662"
-              Start="0,0"
-              End="-239.533334951174,57.0058804975662">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.2315340509966" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.2315340509966"
-                    Point2="0,38.2315340509966"
-                    Point3="-4,38.2315340509966" />
-                  <mssgle:LineSegment
-                    End="-235.533334951174,38.2315340509966" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-235.533334951174,38.2315340509966"
-                    Point2="-239.533334951174,38.2315340509966"
-                    Point3="-239.533334951174,42.2315340509966" />
-                  <mssgle:LineSegment
-                    End="-239.533334951174,57.0058804975662" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PesoProceso.Paths[Sort Output]"
-          TopLeft="366.200002469335,417.835299394205">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="218.600006386212,32.3411722343272"
-              Start="0,0"
-              End="218.600006386212,24.8411722343272">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.1705861171636" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.1705861171636"
-                    Point2="0,16.1705861171636"
-                    Point3="4,16.1705861171636" />
-                  <mssgle:LineSegment
-                    End="214.600006386212,16.1705861171636" />
-                  <mssgle:CubicBezierSegment
-                    Point1="214.600006386212,16.1705861171636"
-                    Point2="218.600006386212,16.1705861171636"
-                    Point3="218.600006386212,20.1705861171636" />
-                  <mssgle:LineSegment
-                    End="218.600006386212,24.8411722343272" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="219.2,41.6"
+          Id="Package\PesoProceso\Origen spro_pesoprocesopack"
+          TopLeft="734.942868419083,262.247060571657" />
         <EdgeLayout
           Id="Package\PesoProceso.Paths[OLE DB Source Output1]"
           TopLeft="844.571439446235,303.847060571657">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.2235305593088"
+              EndConnector="0,40.223530559309"
               Start="0,0"
-              End="0,32.7235305593088">
+              End="0,32.723530559309">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.7235305593088" />
+                    End="0,32.723530559309" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4747,6 +4645,108 @@ espe_codigo=?</property>
                     Point3="-9.05714469393888,34.435294836203" />
                   <mssgle:LineSegment
                     End="-9.05714469393888,53.370589672406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Union All Output 1]"
+          TopLeft="579.321437040762,827.845109066006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.3309529962582,100.507845130264"
+              Start="0,0"
+              End="-13.3309529962582,93.0078451302643">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.2539225651321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.2539225651321"
+                    Point2="0,50.2539225651321"
+                    Point3="-4,50.2539225651321" />
+                  <mssgle:LineSegment
+                    End="-9.33095299625825,50.2539225651321" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.33095299625825,50.2539225651321"
+                    Point2="-13.3309529962582,50.2539225651321"
+                    Point3="-13.3309529962582,54.2539225651321" />
+                  <mssgle:LineSegment
+                    End="-13.3309529962582,93.0078451302643" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Sort Output1]"
+          TopLeft="844.600010473388,385.670591130966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239.533334951174,64.5058804975662"
+              Start="0,0"
+              End="-239.533334951174,57.0058804975662">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.2315340509966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.2315340509966"
+                    Point2="0,38.2315340509966"
+                    Point3="-4,38.2315340509966" />
+                  <mssgle:LineSegment
+                    End="-235.533334951174,38.2315340509966" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235.533334951174,38.2315340509966"
+                    Point2="-239.533334951174,38.2315340509966"
+                    Point3="-239.533334951174,42.2315340509966" />
+                  <mssgle:LineSegment
+                    End="-239.533334951174,57.0058804975662" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PesoProceso.Paths[Sort Output]"
+          TopLeft="366.200002469335,417.835299394205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.600006386212,32.3411722343272"
+              Start="0,0"
+              End="218.600006386212,24.8411722343272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.1705861171636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.1705861171636"
+                    Point2="0,16.1705861171636"
+                    Point3="4,16.1705861171636" />
+                  <mssgle:LineSegment
+                    End="214.600006386212,16.1705861171636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.600006386212,16.1705861171636"
+                    Point2="218.600006386212,16.1705861171636"
+                    Point3="218.600006386212,20.1705861171636" />
+                  <mssgle:LineSegment
+                    End="218.600006386212,24.8411722343272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

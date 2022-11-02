@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{0BCAE704-BD87-408C-B33A-5A9447F650CD}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{41AD8F07-F349-4814-BC03-019FC43846C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -440,6 +440,27 @@
                       cachedName="orpr_numero_destino"
                       cachedPrecision="8"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[plde_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="plde_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_tipord]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_tipord"
+                      cachedPrecision="2"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input].Columns[orpr_numero]"
+                      cachedDataType="numeric"
+                      cachedName="orpr_numero"
+                      cachedPrecision="8"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -487,13 +508,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]}) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]},""))</property>
+                      name="Expression">![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero_destino]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_tipord]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_numero]}) &amp;&amp; (#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_codnot]} != #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_codigo_destino]} || #{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[orpr_notcal]} != [REPLACENULL](#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[pefr_nombre_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(plde_codigo_destino) &amp;&amp; !ISNULL(orpr_tipord_destino) &amp;&amp; !ISNULL(orpr_numero_destino) &amp;&amp; (orpr_codnot != pefr_codigo_destino || orpr_notcal != REPLACENULL(pefr_nombre_destino,""))</property>
+                      name="FriendlyExpression">!ISNULL(plde_codigo_destino) &amp;&amp; !ISNULL(orpr_tipord_destino) &amp;&amp; !ISNULL(orpr_numero_destino) &amp;&amp; !ISNULL(plde_codigo) &amp;&amp; !ISNULL(orpr_tipord) &amp;&amp; !ISNULL(orpr_numero) &amp;&amp; (orpr_codnot != pefr_codigo_destino || orpr_notcal != REPLACENULL(pefr_nombre_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1775,7 +1796,9 @@ ORDER BY	ord.plde_codigo,
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="12.5428573496488,28.170588851965,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1846,7 +1869,7 @@ ORDER BY	ord.plde_codigo,
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="64.4159568193818,31.5648435562177,40.4728515625,9.7490234375"
+              BoundingBox="64.415956819382,31.5648435562177,40.4728515625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
