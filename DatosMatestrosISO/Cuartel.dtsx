@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Cuartel"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{3DCD2C46-9BC5-44DF-93B3-8142059907F2}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{5B8F5AC9-78A3-4386-8305-B1B78327819A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -107,13 +107,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]}) &amp;&amp; [ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]})</property>
+                      name="Expression">[ISNULL](#{Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(cod_cuartel_destino) &amp;&amp; ISNULL(cod_productor_destino)</property>
+                      name="FriendlyExpression">ISNULL(cod_cuartel_destino)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1256,7 +1256,7 @@ pred.prod_codigo=p.prod_codigo inner join [dba].[comunasexp] as com on
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">1</property>
+                  typeConverter="JoinType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
@@ -1883,21 +1883,21 @@ cod_predio=? where cod_cuartel=?
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CodCuartel_str]"
+                      refId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_cuartel_destino]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
-                      cachedName="CodCuartel_str"
+                      cachedName="cod_cuartel_destino"
                       externalMetadataColumnId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Cuarteles\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[CodCuartel_str]" />
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_cuartel_destino]" />
                     <inputColumn
-                      refId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[prod_codigo_str]"
+                      refId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[cod_productor_destino]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
-                      cachedName="prod_codigo_str"
+                      cachedName="cod_productor_destino"
                       externalMetadataColumnId="Package\Cuarteles\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Cuarteles\Data Conversion 1 1 1.Outputs[Data Conversion Output].Columns[prod_codigo_str]" />
+                      lineageId="Package\Cuarteles\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_destino]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2947,20 +2947,8 @@ cod_predio=? where cod_cuartel=?
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="164.8,41.6"
-          Id="Package\Cuarteles\Data Conversion 1"
-          TopLeft="44.2857150398955,406.741180985692" />
-        <NodeLayout
-          Size="164.8,41.6"
           Id="Package\Cuarteles\Data Conversion 1 1 1"
           TopLeft="533.571437658096,416.705884326288" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Cuarteles\Sort"
-          TopLeft="92.8571444384906,123.117648785502" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Cuarteles\Cuarteles-Origen"
-          TopLeft="70.0000011920929,19.1176473269413" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Cuarteles\Cuartel_Destino"
@@ -2969,6 +2957,10 @@ cod_predio=? where cod_cuartel=?
           Size="164.8,41.6"
           Id="Package\Cuarteles\OLE DB Command 1"
           TopLeft="532.857151931646,493.011767558655" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Cuarteles\Cuarteles-Origen"
+          TopLeft="70.0000011920929,19.1176473269413" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Cuarteles\OLE DB Command"
@@ -2986,13 +2978,21 @@ cod_predio=? where cod_cuartel=?
           Id="Package\Cuarteles\Sort 1"
           TopLeft="477.142865268552,141.470590219366" />
         <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Cuarteles\OLE DB Destination"
+          TopLeft="27.1428576050973,504.682357595701" />
+        <NodeLayout
           Size="154.4,41.6"
           Id="Package\Cuarteles\Conditional Split"
           TopLeft="279.285719041922,322.22353384107" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Cuarteles\OLE DB Destination"
-          TopLeft="27.1428576050973,504.682357595701" />
+          Size="97.6,41.6"
+          Id="Package\Cuarteles\Sort"
+          TopLeft="92.8571444384906,123.117648785502" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Cuarteles\Data Conversion 1"
+          TopLeft="44.2857150398955,406.741180985692" />
         <EdgeLayout
           Id="Package\Cuarteles.Paths[Sort Output1]"
           TopLeft="530.342865268552,183.070590219366">
@@ -3148,7 +3148,9 @@ cod_predio=? where cod_cuartel=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="17.4857146141482,38.5823544050993,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -3297,7 +3299,7 @@ cod_predio=? where cod_cuartel=?
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-141.762345751013,26.4588235723106,53.7246875,16"
+              BoundingBox="-133.286759813513,26.4588235723106,36.773515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3341,7 +3343,7 @@ cod_predio=? where cod_cuartel=?
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Cuarteles\Cuartel_Destino">
+    design-time-name="Package\Cuarteles\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3354,7 +3356,7 @@ cod_predio=? where cod_cuartel=?
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Cuarteles\OLE DB Destination">
+    design-time-name="Package\Cuarteles\Cuartel_Destino">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="FG_Traspasovaciado"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{2E4F4D2B-A31D-480F-9016-FF067FE3FBF6}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{08A9FE8F-3FCA-4892-8E69-DAE72336933F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2057,7 +2057,7 @@ WHERE id = ?</property>
           Id="Package\Generacion Vaciado a Proceso"
           TopLeft="124.4285714529,310.764705893078" />
         <NodeLayout
-          Size="180,41.6"
+          Size="173.6,41.6"
           Id="Package\Sinconizar Items OT"
           TopLeft="104.285715380494,39.0588235723107" />
         <NodeLayout
@@ -2066,13 +2066,13 @@ WHERE id = ?</property>
           TopLeft="407,158" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="194.285715380494,80.6588235723107">
+          TopLeft="191.085715380494,80.6588235723107">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.0571417988565,83.1058823207673"
+              EndConnector="42.257141798856,83.1058823207673"
               Start="0,0"
-              End="39.0571417988565,75.6058823207673">
+              End="42.257141798856,75.6058823207673">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2083,13 +2083,13 @@ WHERE id = ?</property>
                     Point2="0,41.5529411603837"
                     Point3="4,41.5529411603837" />
                   <mssgle:LineSegment
-                    End="35.0571417988565,41.5529411603837" />
+                    End="38.257141798856,41.5529411603837" />
                   <mssgle:CubicBezierSegment
-                    Point1="35.0571417988565,41.5529411603837"
-                    Point2="39.0571417988565,41.5529411603837"
-                    Point3="39.0571417988565,45.5529411603837" />
+                    Point1="38.257141798856,41.5529411603837"
+                    Point2="42.257141798856,41.5529411603837"
+                    Point3="42.257141798856,45.5529411603837" />
                   <mssgle:LineSegment
-                    End="39.0571417988565,75.6058823207673" />
+                    End="42.257141798856,75.6058823207673" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2165,6 +2165,10 @@ WHERE id = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Sinconizar Items OT\Combinación de mezcla"
+          TopLeft="257,215" />
+        <NodeLayout
           Size="172,41.6"
           Id="Package\Sinconizar Items OT\Origen de OLE DB"
           TopLeft="137.4285714529,32.7647058930777" />
@@ -2173,21 +2177,21 @@ WHERE id = ?</property>
           Id="Package\Sinconizar Items OT\Ordenar 1"
           TopLeft="153,114" />
         <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\Sinconizar Items OT\División condicional"
-          TopLeft="270,314" />
-        <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\Sinconizar Items OT\Destino"
-          TopLeft="450,28" />
-        <NodeLayout
           Size="120.8,41.6"
           Id="Package\Sinconizar Items OT\Ordenar"
           TopLeft="449,111" />
         <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\Sinconizar Items OT\Combinación de mezcla"
-          TopLeft="257,215" />
+          Size="177.6,41.6"
+          Id="Package\Sinconizar Items OT\División condicional"
+          TopLeft="270,314" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Sinconizar Items OT\Agrega"
+          TopLeft="131.868134113833,418.823535285607" />
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package\Sinconizar Items OT\Destino"
+          TopLeft="450,28" />
         <NodeLayout
           Size="116,41.6"
           Id="Package\Sinconizar Items OT\Update"
@@ -2247,6 +2251,42 @@ WHERE id = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="27.9839192708333,31.347438752784,43.698828125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sinconizar Items OT.Paths[Al insertar]"
+          TopLeft="330.533333333333,355.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-142.6651992195,63.2235352856065"
+              Start="0,0"
+              End="-142.6651992195,55.7235352856065">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6281116247012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6281116247012"
+                    Point2="0,25.6281116247012"
+                    Point3="-4,25.6281116247012" />
+                  <mssgle:LineSegment
+                    End="-138.6651992195,25.6281116247012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-138.6651992195,25.6281116247012"
+                    Point2="-142.6651992195,25.6281116247012"
+                    Point3="-142.6651992195,29.6281116247012" />
+                  <mssgle:LineSegment
+                    End="-142.6651992195,55.7235352856065" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-94.7343574222502,30.6281116247012,46.803515625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2360,46 +2400,6 @@ WHERE id = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="112,41.6"
-          Id="Package\Sinconizar Items OT\Agrega"
-          TopLeft="131.868134113833,418.823535285607" />
-        <EdgeLayout
-          Id="Package\Sinconizar Items OT.Paths[Al insertar]"
-          TopLeft="330.533333333333,355.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-142.6651992195,63.2235352856065"
-              Start="0,0"
-              End="-142.6651992195,55.7235352856065">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.6281116247012" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.6281116247012"
-                    Point2="0,25.6281116247012"
-                    Point3="-4,25.6281116247012" />
-                  <mssgle:LineSegment
-                    End="-138.6651992195,25.6281116247012" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-138.6651992195,25.6281116247012"
-                    Point2="-142.6651992195,25.6281116247012"
-                    Point3="-142.6651992195,29.6281116247012" />
-                  <mssgle:LineSegment
-                    End="-142.6651992195,55.7235352856065" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-94.7343574222502,30.6281116247012,46.803515625,9.7490234375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

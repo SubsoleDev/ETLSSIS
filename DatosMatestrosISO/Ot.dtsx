@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Ot"
   DTS:PackageType="5"
-  DTS:VersionBuild="203"
-  DTS:VersionGUID="{820D72A0-C0AE-4AD1-9EF7-B149E304414E}">
+  DTS:VersionBuild="223"
+  DTS:VersionGUID="{03DA5421-00D7-41A9-9E76-6C2C5478BCB1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
               DTS:Precision="8"
               DTS:IndexPosition="1"
               DTS:ObjectName="nro_orden_trabajo"
-              DTS:DTSID="{E02051D2-BA43-4F46-A678-F183ECC98045}"
+              DTS:DTSID="{47CAF93D-8C2E-45D7-95F5-32C8C79AFC06}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="131"
               DTS:Precision="4"
               DTS:ObjectName="expo_codigo"
-              DTS:DTSID="{D4A24301-EEEB-48B0-B8DB-AC9138A8BC47}"
+              DTS:DTSID="{4F9E8D66-90C6-490A-B5C1-A5F66D3A662F}"
               DTS:CreationName="" />
           </DTS:CacheColumns>
         </DTS:ConnectionManager>
@@ -52,7 +52,7 @@
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="13322"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:HeaderRowDelimiter="_x003B_"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
@@ -60,147 +60,147 @@
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="20"
               DTS:TextQualified="True"
               DTS:ObjectName="id"
-              DTS:DTSID="{95162463-19A0-4791-8F44-4DD03095D65E}"
+              DTS:DTSID="{F007998B-52E8-4DD5-A710-069CA4BBD9A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="8"
               DTS:TextQualified="True"
               DTS:ObjectName="nro_orden_trabajo"
-              DTS:DTSID="{A63571AE-7E73-4FC0-95F5-013AACA46822}"
+              DTS:DTSID="{7D349DDF-E184-4A20-9433-763B89CE9640}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:MaximumWidth="20"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_sdp"
-              DTS:DTSID="{DFA443F7-A3C8-49FC-A617-EFC5A2932824}"
+              DTS:DTSID="{62911ADC-D564-4974-96BB-4301D881F522}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:MaximumWidth="20"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_cuartel"
-              DTS:DTSID="{091E8571-4E46-44E9-A594-9D71AD06075E}"
+              DTS:DTSID="{E4E2A4ED-76E2-46BF-BA29-B917C53F287A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="4"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_productor"
-              DTS:DTSID="{34463AAF-9FF8-437B-B94C-76B091AF5DB1}"
+              DTS:DTSID="{5E482E0A-3B76-4CEE-99D8-C223D76D5583}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="2"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_especie"
-              DTS:DTSID="{8B2CFAAF-F1B4-443E-A8E3-3C8EA2A74243}"
+              DTS:DTSID="{E6779893-B213-4C76-ACE9-3BB50970D051}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="4"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_variedad"
-              DTS:DTSID="{1D223474-0EA2-4AFF-BACD-1E85DBC48588}"
+              DTS:DTSID="{D66F8CDA-67FC-41E5-9C05-6788AD574FC6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="304"
               DTS:DataScale="6"
               DTS:TextQualified="True"
               DTS:ObjectName="fecha_cosecha"
-              DTS:DTSID="{BC2773C2-35F5-4F9C-8DE2-83FC7675F752}"
+              DTS:DTSID="{B45DE7F9-026B-4C69-BA40-948C5394FC0C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="8"
               DTS:TextQualified="True"
               DTS:ObjectName="guia"
-              DTS:DTSID="{81A4D186-00BC-4B4F-B229-8FD795966274}"
+              DTS:DTSID="{01C2491E-C57F-4837-9461-9CACE45E9682}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="8"
               DTS:TextQualified="True"
               DTS:ObjectName="nro_proceso"
-              DTS:DTSID="{53D36F23-9B35-4BA7-9A58-A94DE7401A09}"
+              DTS:DTSID="{7A378B43-7AAD-4C9D-B22E-3080EA094396}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="4"
               DTS:TextQualified="True"
               DTS:ObjectName="nro_lote"
-              DTS:DTSID="{55B98E14-A043-44F8-A052-1673549CFA93}"
+              DTS:DTSID="{598EBCD8-762A-41F5-8CB8-58285A47A0A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="4"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_productor_etiquetado"
-              DTS:DTSID="{B87FCD2C-F979-46C4-8F2A-2797D9D10E82}"
+              DTS:DTSID="{6587244B-E644-4B78-831A-9BAB4258BFA0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="4"
               DTS:TextQualified="True"
               DTS:ObjectName="cod_variedad_etiquetada"
-              DTS:DTSID="{ECE47604-8135-4234-A958-47EA9678ABA8}"
+              DTS:DTSID="{7AE6106C-F43C-4410-A92C-1D6840D9527C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="4"
               DTS:TextQualified="True"
               DTS:ObjectName="cantidad_bins"
-              DTS:DTSID="{8CB72D10-7EFC-46FE-85B1-267E49D42370}"
+              DTS:DTSID="{A09BA3E6-2BE5-41C5-A3BF-ED8C437D1AF6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="131"
               DTS:DataPrecision="8"
               DTS:DataScale="3"
               DTS:TextQualified="True"
               DTS:ObjectName="peso_total"
-              DTS:DTSID="{6BD8E670-87D5-4AF9-9EF8-F57CBC90C42A}"
+              DTS:DTSID="{11C44051-0A0E-40E0-BE0F-F1F112ACBE29}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
+              DTS:ColumnDelimiter="_x003B_"
               DTS:DataType="304"
               DTS:DataScale="6"
               DTS:TextQualified="True"
               DTS:ObjectName="fecha_ingreso"
-              DTS:DTSID="{8CDB497D-3B73-4F57-BA23-F5B3C09C9103}"
+              DTS:DTSID="{A75B0A7B-A742-444A-B722-384B6BEAA692}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +209,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="responsable_ingreso"
-              DTS:DTSID="{67EC028A-5691-4DC2-8E06-76E95B7801EC}"
+              DTS:DTSID="{5947470F-0521-4571-9FA0-1813131810BD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1978,7 +1978,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                           refId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Inputs[OLE DB Command Input].Columns[nro_orden_trabajo]"
                           cachedDataType="numeric"
                           cachedName="nro_orden_trabajo"
-                          cachedPrecision="10"
+                          cachedPrecision="8"
                           cachedSortKeyPosition="1"
                           externalMetadataColumnId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]" />
@@ -2130,7 +2130,7 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                           refId="Package\Contenedor de secuencias\Orden de trabajo\Conditional Split.Inputs[Conditional Split Input].Columns[nro_orden_trabajo]"
                           cachedDataType="numeric"
                           cachedName="nro_orden_trabajo"
-                          cachedPrecision="10"
+                          cachedPrecision="8"
                           cachedSortKeyPosition="1"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]" />
                         <inputColumn
@@ -2534,7 +2534,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                           refId="Package\Contenedor de secuencias\Orden de trabajo\Lookup.Inputs[Lookup Input].Columns[nro_orden_trabajo]"
                           cachedDataType="numeric"
                           cachedName="nro_orden_trabajo"
-                          cachedPrecision="10"
+                          cachedPrecision="8"
                           cachedSortKeyPosition="1"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]">
                           <properties>
@@ -2647,7 +2647,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                           refId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Inputs[Merge Join Left Input].Columns[nro_orden_trabajo]"
                           cachedDataType="numeric"
                           cachedName="nro_orden_trabajo"
-                          cachedPrecision="10"
+                          cachedPrecision="8"
                           cachedSortKeyPosition="1"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Sort.Outputs[Sort Output].Columns[nro_orden_trabajo]" />
                         <inputColumn
@@ -2801,7 +2801,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                           dataType="numeric"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]"
                           name="nro_orden_trabajo"
-                          precision="10"
+                          precision="8"
                           sortKeyPosition="1">
                           <properties>
                             <property
@@ -3443,7 +3443,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                           refId="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso.Inputs[OLE DB Destination Input].Columns[nro_orden_trabajo]"
                           cachedDataType="numeric"
                           cachedName="nro_orden_trabajo"
-                          cachedPrecision="10"
+                          cachedPrecision="8"
                           cachedSortKeyPosition="1"
                           externalMetadataColumnId="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso.Inputs[OLE DB Destination Input].ExternalColumns[nro_orden_trabajo]"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]" />
@@ -3633,7 +3633,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                           refId="Package\Contenedor de secuencias\Orden de trabajo\Sort.Inputs[Sort Input].Columns[nro_orden_trabajo]"
                           cachedDataType="numeric"
                           cachedName="nro_orden_trabajo"
-                          cachedPrecision="10"
+                          cachedPrecision="8"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso.Outputs[OLE DB Source Output].Columns[nro_orden_trabajo]">
                           <properties>
                             <property
@@ -3814,7 +3814,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                           dataType="numeric"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Sort.Outputs[Sort Output].Columns[nro_orden_trabajo]"
                           name="nro_orden_trabajo"
-                          precision="10"
+                          precision="8"
                           sortKeyPosition="1">
                           <properties>
                             <property
@@ -4325,7 +4325,7 @@ where [refTable].[nro_orden_trabajo] = ?</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  [Id]=ROW_NUMBER() OVER(ORDER BY orp.orpr_numero ASC) ,
         [nro_orden_trabajo] = orp.orpr_numero,
-		[cod_empresa] = 268,
+		[cod_empresa] = 0,
 		[cod_planta] =orp.plde_codigo,
 		[cod_temporada] = dba.f_TemporadaActual(),
 		[cod_linea] =  1,
@@ -4390,7 +4390,7 @@ and     orp.orpr_tipope=1</property>
                           externalMetadataColumnId="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso.Outputs[OLE DB Source Output].ExternalColumns[nro_orden_trabajo]"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso.Outputs[OLE DB Source Output].Columns[nro_orden_trabajo]"
                           name="nro_orden_trabajo"
-                          precision="10"
+                          precision="8"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Contenedor de secuencias\Orden de trabajo\spro_ordenproceso.Outputs[OLE DB Source Output].Columns[cod_empresa]"
@@ -11007,7 +11007,7 @@ nro_lote	=?
         <NodeLayout
           Size="158.4,42.4"
           Id="Package\Contenedor de secuencias\Orden de trabajo"
-          TopLeft="95.5571490365632,20.6411769746497" />
+          TopLeft="99.8428633952628,20.6411769746497" />
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle"
@@ -11015,33 +11015,33 @@ nro_lote	=?
         <NodeLayout
           Size="172,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem"
-          TopLeft="99.1285776688128,107.052942892424" />
+          TopLeft="101.271434848163,107.817648785502" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción]"
-          TopLeft="174.757149036563,63.0411769746497">
+          TopLeft="179.042863395263,63.0411769746497">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.3714286322496,44.0117659177743"
+              EndConnector="8.22857145289981,44.7764718108519"
               Start="0,0"
-              End="10.3714286322496,36.5117659177743">
+              End="8.22857145289981,37.2764718108519">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.0058829588871" />
+                    End="0,18.388235905426" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.0058829588871"
-                    Point2="0,22.0058829588871"
-                    Point3="4,22.0058829588871" />
+                    Point1="0,18.388235905426"
+                    Point2="0,22.388235905426"
+                    Point3="4,22.388235905426" />
                   <mssgle:LineSegment
-                    End="6.3714286322496,22.0058829588871" />
+                    End="4.22857145289981,22.388235905426" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.3714286322496,22.0058829588871"
-                    Point2="10.3714286322496,22.0058829588871"
-                    Point3="10.3714286322496,26.0058829588871" />
+                    Point1="4.22857145289981,22.388235905426"
+                    Point2="8.22857145289981,22.388235905426"
+                    Point3="8.22857145289981,26.388235905426" />
                   <mssgle:LineSegment
-                    End="10.3714286322496,36.5117659177743" />
+                    End="8.22857145289981,37.2764718108519" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11052,30 +11052,18 @@ nro_lote	=?
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 1]"
-          TopLeft="185.128577668813,148.652942892424">
+          TopLeft="190.585720574613,149.417648785502">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.77142863225021,43.282354131619"
+              EndConnector="0,42.5176482385414"
               Start="0,0"
-              End="8.77142863225021,35.782354131619">
+              End="0,35.0176482385414">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.6411770658095" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.6411770658095"
-                    Point2="0,21.6411770658095"
-                    Point3="4,21.6411770658095" />
-                  <mssgle:LineSegment
-                    End="4.77142863225021,21.6411770658095" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.77142863225021,21.6411770658095"
-                    Point2="8.77142863225021,21.6411770658095"
-                    Point3="8.77142863225021,25.6411770658095" />
-                  <mssgle:LineSegment
-                    End="8.77142863225021,35.782354131619" />
+                    End="0,35.0176482385414" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11107,24 +11095,24 @@ nro_lote	=?
               StartConnector="{assembly:Null}"
               EndConnector="100.628580649046,-40.7450979748683"
               Start="0,0"
-              End="93.1285806490457,-40.7450979748683">
+              End="93.1285806490459,-40.7450979748683">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="36.5417070114905,0" />
+                    End="36.5417070114906,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="36.5417070114905,0"
-                    Point2="40.5417070114905,0"
-                    Point3="40.5417070114905,-4" />
+                    Point1="36.5417070114906,0"
+                    Point2="40.5417070114906,0"
+                    Point3="40.5417070114906,-4" />
                   <mssgle:LineSegment
-                    End="40.5417070114905,-36.7450979748683" />
+                    End="40.5417070114906,-36.7450979748683" />
                   <mssgle:CubicBezierSegment
-                    Point1="40.5417070114905,-36.7450979748683"
-                    Point2="40.5417070114905,-40.7450979748683"
-                    Point3="44.5417070114905,-40.7450979748683" />
+                    Point1="40.5417070114906,-36.7450979748683"
+                    Point2="40.5417070114906,-40.7450979748683"
+                    Point3="44.5417070114906,-40.7450979748683" />
                   <mssgle:LineSegment
-                    End="93.1285806490457,-40.7450979748683" />
+                    End="93.1285806490459,-40.7450979748683" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11139,33 +11127,33 @@ nro_lote	=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="67.0285803084467,53.6980425081724"
+              EndConnector="67.028580308447,53.6980425081724"
               Start="0,0"
-              End="59.5285803084467,53.6980425081724">
+              End="59.528580308447,53.6980425081724">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="23.0047837973454,0" />
+                    End="23.0047837973455,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="23.0047837973454,0"
-                    Point2="27.0047837973454,0"
-                    Point3="27.0047837973454,4" />
+                    Point1="23.0047837973455,0"
+                    Point2="27.0047837973455,0"
+                    Point3="27.0047837973455,4" />
                   <mssgle:LineSegment
-                    End="27.0047837973454,49.6980425081724" />
+                    End="27.0047837973455,49.6980425081724" />
                   <mssgle:CubicBezierSegment
-                    Point1="27.0047837973454,49.6980425081724"
-                    Point2="27.0047837973454,53.6980425081724"
-                    Point3="31.0047837973454,53.6980425081724" />
+                    Point1="27.0047837973455,49.6980425081724"
+                    Point2="27.0047837973455,53.6980425081724"
+                    Point3="31.0047837973455,53.6980425081724" />
                   <mssgle:LineSegment
-                    End="59.5285803084467,53.6980425081724" />
+                    End="59.528580308447,53.6980425081724" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="15.4760923910954,-15.421875,23.0573828125,9.421875"
+              BoundingBox="15.4760923910955,-15.421875,23.0573828125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11175,9 +11163,9 @@ nro_lote	=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30.7428547100146,54.7529425277847"
+              EndConnector="30.7428547100139,54.7529425277847"
               Start="0,0"
-              End="30.7428547100146,47.2529425277847">
+              End="30.7428547100139,47.2529425277847">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -11188,13 +11176,13 @@ nro_lote	=?
                     Point2="0,27.3764712638923"
                     Point3="4,27.3764712638923" />
                   <mssgle:LineSegment
-                    End="26.7428547100146,27.3764712638923" />
+                    End="26.7428547100139,27.3764712638923" />
                   <mssgle:CubicBezierSegment
-                    Point1="26.7428547100146,27.3764712638923"
-                    Point2="30.7428547100146,27.3764712638923"
-                    Point3="30.7428547100146,31.3764712638923" />
+                    Point1="26.7428547100139,27.3764712638923"
+                    Point2="30.7428547100139,27.3764712638923"
+                    Point3="30.7428547100139,31.3764712638923" />
                   <mssgle:LineSegment
-                    End="30.7428547100146,47.2529425277847" />
+                    End="30.7428547100139,47.2529425277847" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11303,26 +11291,26 @@ nro_lote	=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="267.8,48.3999999999999"
+              EndConnector="267.8,48.4"
               Start="0,0"
-              End="267.8,40.8999999999999">
+              End="267.8,40.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1999999999999" />
+                    End="0,20.2" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1999999999999"
-                    Point2="0,24.1999999999999"
-                    Point3="4,24.1999999999999" />
+                    Point1="0,20.2"
+                    Point2="0,24.2"
+                    Point3="4,24.2" />
                   <mssgle:LineSegment
-                    End="263.8,24.1999999999999" />
+                    End="263.8,24.2" />
                   <mssgle:CubicBezierSegment
-                    Point1="263.8,24.1999999999999"
-                    Point2="267.8,24.1999999999999"
-                    Point3="267.8,28.1999999999999" />
+                    Point1="263.8,24.2"
+                    Point2="267.8,24.2"
+                    Point3="267.8,28.2" />
                   <mssgle:LineSegment
-                    End="267.8,40.8999999999999" />
+                    End="267.8,40.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11597,7 +11585,7 @@ nro_lote	=?
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Contenedor de secuencias\Orden de trabajo\Lookup"
-          TopLeft="324.28571427355,417.764705893078" />
+          TopLeft="325.28571427355,419.764705893078" />
         <NodeLayout
           Size="144,41.6"
           Id="Package\Contenedor de secuencias\Orden de trabajo\OrdenProceso"
@@ -11658,7 +11646,7 @@ nro_lote	=?
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-122.615331308988,17.800779538064,36.773515625,11.3359375"
+              BoundingBox="-122.615331308987,17.800779538064,36.773515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11794,26 +11782,26 @@ nro_lote	=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.1999996594021,67.7529427101043"
+              EndConnector="-15.199999659402,67.7529427101048"
               Start="0,0"
-              End="-15.1999996594021,60.2529427101043">
+              End="-15.199999659402,60.2529427101048">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.8764713550521" />
+                    End="0,29.8764713550524" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.8764713550521"
-                    Point2="0,33.8764713550521"
-                    Point3="-4,33.8764713550521" />
+                    Point1="0,29.8764713550524"
+                    Point2="0,33.8764713550524"
+                    Point3="-4,33.8764713550524" />
                   <mssgle:LineSegment
-                    End="-11.1999996594021,33.8764713550521" />
+                    End="-11.199999659402,33.8764713550524" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.1999996594021,33.8764713550521"
-                    Point2="-15.1999996594021,33.8764713550521"
-                    Point3="-15.1999996594021,37.8764713550521" />
+                    Point1="-11.199999659402,33.8764713550524"
+                    Point2="-15.199999659402,33.8764713550524"
+                    Point3="-15.199999659402,37.8764713550524" />
                   <mssgle:LineSegment
-                    End="-15.1999996594021,60.2529427101043" />
+                    End="-15.199999659402,60.2529427101048" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11828,55 +11816,57 @@ nro_lote	=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.82857698761694,111.57646688821"
+              EndConnector="-8.82857698761694,113.57646688821"
               Start="0,0"
-              End="-9.82857698761694,104.07646688821">
+              End="-8.82857698761694,106.07646688821">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.7882334441048" />
+                    End="0,52.788233444105" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,51.7882334441048"
-                    Point2="0,55.7882334441048"
-                    Point3="-4,55.7882334441048" />
+                    Point1="0,52.788233444105"
+                    Point2="0,56.788233444105"
+                    Point3="-4,56.788233444105" />
                   <mssgle:LineSegment
-                    End="-5.82857698761694,55.7882334441048" />
+                    End="-4.82857698761694,56.788233444105" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.82857698761694,55.7882334441048"
-                    Point2="-9.82857698761694,55.7882334441048"
-                    Point3="-9.82857698761694,59.7882334441048" />
+                    Point1="-4.82857698761694,56.788233444105"
+                    Point2="-8.82857698761694,56.788233444105"
+                    Point3="-8.82857698761694,60.788233444105" />
                   <mssgle:LineSegment
-                    End="-9.82857698761694,104.07646688821" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Lookup Match Output]"
-          TopLeft="380.942859776409,459.364705893078">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,80.7529467211463"
-              Start="0,0"
-              End="0,73.2529467211463">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,73.2529467211463" />
+                    End="-8.82857698761694,106.07646688821" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,30.8217858605731,96.3827734375,11.609375"
+              BoundingBox="-12.4142884938085,61.788233444105,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Orden de trabajo.Paths[Lookup Match Output]"
+          TopLeft="381.442859776409,461.364705893078">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.752946721146"
+              Start="0,0"
+              End="0,71.252946721146">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.252946721146" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,29.821785860573,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11925,7 +11915,7 @@ nro_lote	=?
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -11935,7 +11925,7 @@ nro_lote	=?
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -11997,7 +11987,7 @@ nro_lote	=?
         <NodeLayout
           Size="146.4,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Agrega detalle"
-          TopLeft="414.857149802909,505" />
+          TopLeft="411.285721170659,520.294117861553" />
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Contenedor de secuencias\Orden Trabajo Detalle\Sort"
@@ -12270,33 +12260,33 @@ nro_lote	=?
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-299.599999574253,25.2235291007479"
+              EndConnector="-303.171428206503,40.5176469623011"
               Start="0,0"
-              End="-299.599999574253,17.7235291007479">
+              End="-303.171428206503,33.0176469623011">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,6.24463335784223" />
+                    End="0,12.4563981508423" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,6.24463335784223"
-                    Point2="0,10.2446333578422"
-                    Point3="-4,10.2446333578422" />
+                    Point1="0,12.4563981508423"
+                    Point2="0,16.4563981508423"
+                    Point3="-4,16.4563981508423" />
                   <mssgle:LineSegment
-                    End="-295.599999574253,10.2446333578422" />
+                    End="-299.171428206503,16.4563981508423" />
                   <mssgle:CubicBezierSegment
-                    Point1="-295.599999574253,10.2446333578422"
-                    Point2="-299.599999574253,10.2446333578422"
-                    Point3="-299.599999574253,14.2446333578422" />
+                    Point1="-299.171428206503,16.4563981508423"
+                    Point2="-303.171428206503,16.4563981508423"
+                    Point3="-303.171428206503,20.4563981508423" />
                   <mssgle:LineSegment
-                    End="-299.599999574253,17.7235291007479" />
+                    End="-303.171428206503,33.0176469623011" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-166.096425568377,15.2446333578422,32.5928515625,11.3359375"
+              BoundingBox="-167.882139884501,21.4563981508423,32.5928515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -12343,10 +12333,6 @@ nro_lote	=?
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Sort 1"
-          TopLeft="403,154" />
-        <NodeLayout
           Size="159.2,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Ot-Items-Destino"
           TopLeft="39.0000000000001,569" />
@@ -12355,21 +12341,25 @@ nro_lote	=?
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Sort"
           TopLeft="140,155" />
         <NodeLayout
-          Size="154.4,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Conditional Split"
-          TopLeft="234,436.529411786155" />
+          Size="144.8,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Eliminar items"
+          TopLeft="658.999999744551,568.717647509262" />
         <NodeLayout
           Size="144.8,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\MovtosOtItem"
           TopLeft="95.7142873442902,74.3176480562217" />
         <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Eliminar items"
-          TopLeft="658.999999744551,568.717647509262" />
+          Size="154.4,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Conditional Split"
+          TopLeft="234,436.529411786155" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Merge Join"
           TopLeft="240,278" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Sort 1"
+          TopLeft="403,154" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Contenedor de secuencias\OrdenTrabajo-ITem\Actualiza Items"
