@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="RetornoPallets"
   DTS:PackageType="5"
-  DTS:VersionBuild="451"
-  DTS:VersionGUID="{385DFE17-A48D-4359-9C94-D662DF786E10}">
+  DTS:VersionBuild="455"
+  DTS:VersionGUID="{051E3DC3-99CB-469A-AEE0-704CA147F314}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -16502,8 +16502,8 @@ pafr_secuen = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Insert into  dba.spro_palletfruta(pate_tempor, expo_codigo, paen_numero , plde_codigo , pafr_secuen , espe_codigo , vari_codigo , prod_codigo  , prbr_codpre, prcc_codigo, emba_codigo, cate_codigo, lote_codigo , pafr_calibr , pafr_fecemb , pafr_docrel, pafr_ccajas, vari_codrot, cate_codrot, caen_calrot , prod_codrot , prbr_codrot , prcc_codrot  , lote_codrot,frio_tipofr,plde_origen,pefr_codigo,mfee_numero,tpmv_codigo,etiq_codigo,cocc_codigo,pafr_estemb,pafr_tipdoc,stic_codigo,pafr_linemb,plde_orirot,comu_codigo,pafr_turno)
-Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Insert into  dba.spro_palletfruta(pate_tempor, expo_codigo, paen_numero , plde_codigo , pafr_secuen , espe_codigo , vari_codigo , prod_codigo  , prbr_codpre, prcc_codigo, emba_codigo, cate_codigo, lote_codigo , pafr_calibr , pafr_fecemb , pafr_docrel, pafr_ccajas, vari_codrot, cate_codrot, caen_calrot , prod_codrot , prbr_codrot , prcc_codrot  , lote_codrot,frio_tipofr,plde_origen,pefr_codigo,mfee_numero,tpmv_codigo,etiq_codigo,cocc_codigo,pafr_estemb,pafr_tipdoc,stic_codigo,pafr_linemb,plde_orirot,comu_codigo,pafr_turno,frio_tiprot)
+Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -16789,6 +16789,14 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                           cachedPrecision="1"
                           externalMetadataColumnId="Package\Contenedor de secuencias\PalletFruta\Agrega spro_palletfruta.Inputs[OLE DB Command Input].ExternalColumns[Param_37]"
                           lineageId="Package\Contenedor de secuencias\PalletFruta\Evalua si no viene con turno toma OT.Outputs[Salida 0].Columns[Turno]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletFruta\Agrega spro_palletfruta.Inputs[OLE DB Command Input].Columns[frio_tiprot]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="frio_tiprot"
+                          externalMetadataColumnId="Package\Contenedor de secuencias\PalletFruta\Agrega spro_palletfruta.Inputs[OLE DB Command Input].ExternalColumns[Param_38]"
+                          lineageId="Package\Contenedor de secuencias\PalletFruta\Columnas Staticas.Outputs[Derived Column Output].Columns[frio_tiprot]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -17250,6 +17258,19 @@ Values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
                               name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Contenedor de secuencias\PalletFruta\Agrega spro_palletfruta.Inputs[OLE DB Command Input].ExternalColumns[Param_38]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Param_38">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
                           </properties>
                         </externalMetadataColumn>
                       </externalMetadataColumns>
@@ -17972,6 +17993,13 @@ where [refTable].[paen_numero] = ?</property>
                           cachedPrecision="4"
                           cachedSortKeyPosition="1"
                           lineageId="Package\Contenedor de secuencias\PalletFruta\Merge Join.Outputs[Merge Join Output].Columns[plde_codigo]" />
+                        <inputColumn
+                          refId="Package\Contenedor de secuencias\PalletFruta\Columnas Staticas.Inputs[Derived Column Input].Columns[frio_tipofr]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="frio_tipofr"
+                          lineageId="Package\Contenedor de secuencias\PalletFruta\Merge Join.Outputs[Merge Join Output].Columns[frio_tipofr]" />
                       </inputColumns>
                       <externalMetadataColumns />
                     </input>
@@ -18115,6 +18143,30 @@ where [refTable].[paen_numero] = ?</property>
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
                               name="FriendlyExpression">plde_codigo</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Contenedor de secuencias\PalletFruta\Columnas Staticas.Outputs[Derived Column Output].Columns[frio_tiprot]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\Contenedor de secuencias\PalletFruta\Columnas Staticas.Outputs[Derived Column Output].Columns[frio_tiprot]"
+                          name="frio_tiprot"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,2,1252)#{Package\Contenedor de secuencias\PalletFruta\Merge Join.Outputs[Merge Join Output].Columns[frio_tipofr]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,2,1252)frio_tipofr</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -24567,7 +24619,7 @@ caen_calrot ,
 prod_codrot ,
 prbr_codrot ,
 prcc_codrot ,
-lote_codrot=(prod_codigo*1000)  + lote_codigo,
+lote_codrot=CONCAT(prod_codigo, Format(lote_codigo,'0000')),
 'AR' as   frio_tipofr,
  plde_codigo as plde_origen,
 pafr_turno
@@ -25004,9 +25056,9 @@ pate_tempor=?</property>
                           precision="3" />
                         <externalMetadataColumn
                           refId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[lote_codrot]"
-                          dataType="numeric"
-                          name="lote_codrot"
-                          precision="10" />
+                          dataType="wstr"
+                          length="4000"
+                          name="lote_codrot" />
                         <externalMetadataColumn
                           refId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Output].ExternalColumns[frio_tipofr]"
                           codePage="1252"
@@ -25172,10 +25224,10 @@ pate_tempor=?</property>
                           precision="3" />
                         <outputColumn
                           refId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[lote_codrot]"
-                          dataType="numeric"
+                          dataType="wstr"
+                          length="4000"
                           lineageId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[lote_codrot]"
-                          name="lote_codrot"
-                          precision="10" />
+                          name="lote_codrot" />
                         <outputColumn
                           refId="Package\Contenedor de secuencias\Recepcion\PalletDetaFruta_SS.Outputs[OLE DB Source Error Output].Columns[frio_tipofr]"
                           codePage="1252"
@@ -26581,69 +26633,69 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
         <NodeLayout
           Size="126.4,41.6"
           Id="Package\Contenedor de secuencias\Recepcion"
-          TopLeft="160.319068823299,149.570591769085" />
+          TopLeft="159.604783096849,148.805885876007" />
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción]"
-          TopLeft="203.785735489966,191.170591769085">
+          TopLeft="203.071449763516,190.405885876007">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-101.821443952063,92.1058823207697"
+              EndConnector="-101.107158225613,92.8705882138477"
               Start="0,0"
-              End="-101.821443952063,84.6058823207697">
+              End="-101.107158225613,85.3705882138477">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5331470457137" />
+                    End="0,33.8447646971429" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.5331470457137"
-                    Point2="0,37.5331470457137"
-                    Point3="-4,37.5331470457137" />
+                    Point1="0,33.8447646971429"
+                    Point2="0,37.8447646971429"
+                    Point3="-4,37.8447646971429" />
                   <mssgle:LineSegment
-                    End="-97.8214439520625,37.5331470457137" />
+                    End="-97.1071582256126,37.8447646971429" />
                   <mssgle:CubicBezierSegment
-                    Point1="-97.8214439520625,37.5331470457137"
-                    Point2="-101.821443952063,37.5331470457137"
-                    Point3="-101.821443952063,41.5331470457137" />
+                    Point1="-97.1071582256126,37.8447646971429"
+                    Point2="-101.107158225613,37.8447646971429"
+                    Point3="-101.107158225613,41.8447646971429" />
                   <mssgle:LineSegment
-                    End="-101.821443952063,84.6058823207697" />
+                    End="-101.107158225613,85.3705882138477" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-58.9107219760313,42.5331470457137,16,16"
+              BoundingBox="-58.5535791128063,42.8447646971429,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Contenedor de secuencias.PrecedenceConstraints[Restricción 1]"
-          TopLeft="243.252402156632,191.170591769085">
+          TopLeft="242.538116430182,190.405885876007">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="92.1476055919717,60.3705892166067"
+              EndConnector="92.8618913184216,61.1352951096847"
               Start="0,0"
-              End="92.1476055919717,52.8705892166067">
+              End="92.8618913184216,53.6352951096847">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.6010151057672" />
+                    End="0,20.9126327571965" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.6010151057672"
-                    Point2="0,24.6010151057672"
-                    Point3="4,24.6010151057672" />
+                    Point1="0,20.9126327571965"
+                    Point2="0,24.9126327571965"
+                    Point3="4,24.9126327571965" />
                   <mssgle:LineSegment
-                    End="88.1476055919717,24.6010151057672" />
+                    End="88.8618913184216,24.9126327571965" />
                   <mssgle:CubicBezierSegment
-                    Point1="88.1476055919717,24.6010151057672"
-                    Point2="92.1476055919717,24.6010151057672"
-                    Point3="92.1476055919717,28.6010151057672" />
+                    Point1="88.8618913184216,24.9126327571965"
+                    Point2="92.8618913184216,24.9126327571965"
+                    Point3="92.8618913184216,28.9126327571965" />
                   <mssgle:LineSegment
-                    End="92.1476055919717,52.8705892166067" />
+                    End="92.8618913184216,53.6352951096847" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26658,26 +26710,26 @@ where [refTable].[plde_codigo] = ? and [refTable].[mfee_docrel] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114.580954379939,89.6745116449957"
+              EndConnector="113.866668653489,88.9098057519177"
               Start="0,0"
-              End="114.580954379939,82.1745116449957">
+              End="113.866668653489,81.4098057519177">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.8372558224979" />
+                    End="0,40.4549028759589" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.8372558224979"
-                    Point2="0,44.8372558224979"
-                    Point3="4,44.8372558224979" />
+                    Point1="0,40.4549028759589"
+                    Point2="0,44.4549028759589"
+                    Point3="4,44.4549028759589" />
                   <mssgle:LineSegment
-                    End="110.580954379939,44.8372558224979" />
+                    End="109.866668653489,44.4549028759589" />
                   <mssgle:CubicBezierSegment
-                    Point1="110.580954379939,44.8372558224979"
-                    Point2="114.580954379939,44.8372558224979"
-                    Point3="114.580954379939,48.8372558224979" />
+                    Point1="109.866668653489,44.4549028759589"
+                    Point2="113.866668653489,44.4549028759589"
+                    Point3="113.866668653489,48.4549028759589" />
                   <mssgle:LineSegment
-                    End="114.580954379939,82.1745116449957" />
+                    End="113.866668653489,81.4098057519177" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

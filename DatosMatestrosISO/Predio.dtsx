@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Predios"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{2CFB8BFE-E631-4136-824E-CF6DCA623961}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{05AE514D-A900-4F90-B09C-074FBD765E59}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -52,7 +52,10 @@
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update dbo.predio_ext set  
 nombre = ?, 
 csg = ?, 
-ggn = ?  
+ggn = ?,
+region=?,
+provincia=?,
+comuna=?  
 where cod_predio = ? and cod_productor = ?
 
 
@@ -79,21 +82,6 @@ where cod_predio = ? and cod_productor = ?
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[ggn]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="20"
-                      cachedName="ggn"
-                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[ggn]" />
-                    <inputColumn
-                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[prbr_codcsg]"
-                      cachedDataType="numeric"
-                      cachedName="prbr_codcsg"
-                      cachedPrecision="8"
-                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[prbr_codcsg]" />
-                    <inputColumn
                       refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[prbr_predio]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -102,21 +90,60 @@ where cod_predio = ? and cod_productor = ?
                       externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[prbr_predio]" />
                     <inputColumn
-                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[prod_codigo_str]"
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[prbr_codcsg]"
+                      cachedDataType="numeric"
+                      cachedName="prbr_codcsg"
+                      cachedPrecision="8"
+                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[prbr_codcsg]" />
+                    <inputColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[ggn]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="prod_codigo_str"
+                      cachedLength="20"
+                      cachedName="ggn"
+                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[ggn]" />
+                    <inputColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[Provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Provincia"
                       externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\Predios\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[prod_codigo_str]" />
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Provincia]" />
+                    <inputColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[Comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Comuna"
+                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Comuna]" />
                     <inputColumn
                       refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[prbr_codpre_str]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="2"
+                      cachedLength="20"
                       cachedName="prbr_codpre_str"
-                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\Predios\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[prbr_codpre_str]" />
+                    <inputColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].Columns[prod_codigo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="prod_codigo_str"
+                      externalMetadataColumnId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Predios\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[prod_codigo_str]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -163,7 +190,7 @@ where cod_predio = ? and cod_productor = ?
                       refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="50"
                       name="Param_3">
                       <properties>
                         <property
@@ -176,8 +203,47 @@ where cod_predio = ? and cod_productor = ?
                       refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
-                      length="20"
+                      length="50"
                       name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Predios\Actualiza.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_7">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -331,6 +397,30 @@ where cod_predio = ? and cod_productor = ?
                       cachedName="prbr_predio"
                       externalMetadataColumnId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[nombre]"
                       lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[prbr_predio]" />
+                    <inputColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].Columns[Provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Provincia"
+                      externalMetadataColumnId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[provincia]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Provincia]" />
+                    <inputColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].Columns[Comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Comuna"
+                      externalMetadataColumnId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[comuna]"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Comuna]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -364,6 +454,36 @@ where cod_predio = ? and cod_productor = ?
                       dataType="str"
                       length="20"
                       name="ggn" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="provincia" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="comuna" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Agrega.Inputs[OLE DB Destination Input].ExternalColumns[domicilio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="domicilio" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -431,6 +551,62 @@ where cod_predio = ? and cod_productor = ?
                       cachedName="cod_productor_int"
                       cachedPrecision="5"
                       lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[region_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region_destino"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[region_destino]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[provincia_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="provincia_destino"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[provincia_destino]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[comuna_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="comuna_destino"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[comuna_destino]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[Provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Provincia"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Provincia]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[Comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Comuna"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Comuna]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[prbr_predio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="prbr_predio"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[prbr_predio]" />
+                    <inputColumn
+                      refId="Package\Predios\Conditional Split.Inputs[Conditional Split Input].Columns[nombre_destino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre_destino"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -478,13 +654,13 @@ where cod_predio = ? and cod_productor = ?
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_predio_int]}) &amp;&amp; ![ISNULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]})</property>
+                      name="Expression">(#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_predio_int]} == #{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_predio_int]} &amp;&amp; #{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]} == #{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[cod_productor_int]}) &amp;&amp; ([REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[prbr_predio]},"") != [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]},"") || [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Region]},"") != [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[region_destino]},"") || [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Provincia]},"") != [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[provincia_destino]},"") || [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Comuna]},"") != [REPLACENULL](#{Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[comuna_destino]},""))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(cod_predio_int) &amp;&amp; !ISNULL(cod_productor_int)</property>
+                      name="FriendlyExpression">(cod_predio_int == cod_predio_int &amp;&amp; cod_productor_int == cod_productor_int) &amp;&amp; (REPLACENULL(prbr_predio,"") != REPLACENULL(nombre_destino,"") || REPLACENULL(Region,"") != REPLACENULL(region_destino,"") || REPLACENULL(Provincia,"") != REPLACENULL(provincia_destino,"") || REPLACENULL(Comuna,"") != REPLACENULL(comuna_destino,""))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -815,7 +991,7 @@ where cod_predio = ? and cod_productor = ?
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="2"
+                      length="20"
                       lineageId="Package\Predios\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[prbr_codpre_str]"
                       name="prbr_codpre_str"
                       truncationRowDisposition="FailComponent">
@@ -837,7 +1013,7 @@ where cod_predio = ? and cod_productor = ?
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="4"
+                      length="20"
                       lineageId="Package\Predios\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[prod_codigo_str]"
                       name="prod_codigo_str"
                       truncationRowDisposition="FailComponent">
@@ -1176,6 +1352,30 @@ where cod_predio=? and cod_productor = ?
                       cachedLength="40"
                       cachedName="prbr_predio"
                       lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[prbr_predio]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[Provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Provincia"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[Provincia]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[Comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Comuna"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[Comuna]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1198,6 +1398,41 @@ where cod_predio=? and cod_productor = ?
                       cachedPrecision="5"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[cod_productor_int]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[region]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="provincia"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[provincia]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="comuna"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[comuna]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[ggn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ggn"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[ggn]" />
+                    <inputColumn
+                      refId="Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nombre"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[nombre]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1308,6 +1543,126 @@ where cod_predio=? and cod_productor = ?
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[prbr_predio]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[region_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[region_destino]"
+                      name="region_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[provincia_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[provincia_destino]"
+                      name="provincia_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[provincia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[comuna_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[comuna_destino]"
+                      name="comuna_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[comuna]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[ggn_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[ggn_destino]"
+                      name="ggn_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[ggn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Region]"
+                      name="Region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[Region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Provincia]"
+                      name="Provincia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[Provincia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[Comuna]"
+                      name="Comuna">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Left Input].Columns[Comuna]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Merge Join.Outputs[Merge Join Output].Columns[nombre_destino]"
+                      name="nombre_destino">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Predios\Merge Join.Inputs[Merge Join Right Input].Columns[nombre]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1431,6 +1786,61 @@ where cod_predio=? and cod_productor = ?
                       lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[ggn]"
                       name="ggn"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[pais]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[pais]"
+                      name="pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[provincia]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[provincia]"
+                      name="provincia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[comuna]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[comuna]"
+                      name="comuna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[domicilio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[domicilio]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[domicilio]"
+                      name="domicilio"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1464,6 +1874,36 @@ where cod_predio=? and cod_productor = ?
                       dataType="str"
                       length="20"
                       name="ggn" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pais" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="provincia" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="comuna" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].ExternalColumns[domicilio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="domicilio" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1506,6 +1946,41 @@ where cod_predio=? and cod_productor = ?
                       length="20"
                       lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[ggn]"
                       name="ggn" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[pais]"
+                      name="pais" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[provincia]"
+                      name="provincia" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[comuna]"
+                      name="comuna" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[domicilio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[domicilio]"
+                      name="domicilio" />
                     <outputColumn
                       refId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1556,8 +2031,15 @@ where cod_predio=? and cod_productor = ?
 		 pre.prbr_codpre=cer.prbr_codpre and 
 		 cert_codigo=1 and espe_codigo=?
 		 ) as ggn
+,r.regi_nomcor as Region
+,p.prov_nombre as Provincia
+,com.comu_nombre as Comuna
 
- from dba.prodbienraiz as pre</property>
+ from dba.prodbienraiz as pre inner join  dba.comunasexp as com on
+ pre.comu_codigo=com.comu_codigo inner join dba.provincias as p on
+ com.regi_codigo=p.regi_codigo and
+ com.prov_codigo=p.prov_codigo inner join dba.regiones as r on
+ p.regi_codigo=r.regi_codigo</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1645,6 +2127,39 @@ where cod_predio=? and cod_productor = ?
                       lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[ggn]"
                       name="ggn"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].ExternalColumns[Provincia]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Provincia]"
+                      name="Provincia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].ExternalColumns[Comuna]"
+                      length="50"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Comuna]"
+                      name="Comuna"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1675,6 +2190,24 @@ where cod_predio=? and cod_productor = ?
                       dataType="str"
                       length="20"
                       name="ggn" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].ExternalColumns[Provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Provincia" />
+                    <externalMetadataColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].ExternalColumns[Comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Comuna" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1714,6 +2247,27 @@ where cod_predio=? and cod_productor = ?
                       length="20"
                       lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[ggn]"
                       name="ggn" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[Provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[Provincia]"
+                      name="Provincia" />
+                    <outputColumn
+                      refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[Comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[Comuna]"
+                      name="Comuna" />
                     <outputColumn
                       refId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1841,6 +2395,60 @@ where cod_predio=? and cod_productor = ?
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort.Inputs[Sort Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Region"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort.Inputs[Sort Input].Columns[Provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Provincia"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Provincia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort.Inputs[Sort Input].Columns[Comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Comuna"
+                      lineageId="Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Comuna]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1923,6 +2531,54 @@ where cod_predio=? and cod_productor = ?
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[ggn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort.Outputs[Sort Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[Region]"
+                      name="Region"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort.Outputs[Sort Output].Columns[Provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[Provincia]"
+                      name="Provincia"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Provincia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort.Outputs[Sort Output].Columns[Comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort.Outputs[Sort Output].Columns[Comuna]"
+                      name="Comuna"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Origen.Outputs[OLE DB Source Output].Columns[Comuna]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2077,6 +2733,78 @@ where cod_predio=? and cod_productor = ?
                           name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort 1.Inputs[Sort Input].Columns[region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="region"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort 1.Inputs[Sort Input].Columns[provincia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="provincia"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[provincia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort 1.Inputs[Sort Input].Columns[comuna]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="comuna"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[comuna]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Predios\Sort 1.Inputs[Sort Input].Columns[pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pais"
+                      lineageId="Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[pais]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2192,6 +2920,66 @@ where cod_predio=? and cod_productor = ?
                           name="SortColumnId">#{Package\Predios\Data Conversion.Outputs[Data Conversion Output].Columns[cod_productor_int]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[region]"
+                      name="region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[provincia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[provincia]"
+                      name="provincia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[provincia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[comuna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[comuna]"
+                      name="comuna">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[comuna]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Predios\Sort 1.Outputs[Sort Output].Columns[pais]"
+                      name="pais">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Predios\Predios-Destino.Outputs[OLE DB Source Output].Columns[pais]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2289,41 +3077,13 @@ where cod_predio=? and cod_productor = ?
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Predios\Data Conversion 1 1"
-          TopLeft="274.285718956772,438.929413791676" />
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Predios\Predios-Destino"
-          TopLeft="510.000008685248,9.94117661000951" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Predios\Data Conversion 1"
-          TopLeft="52.1428580308448,426.270592407207" />
-        <NodeLayout
           Size="112,41.6"
           Id="Package\Predios\Agrega"
           TopLeft="41.4285721340958,539.211769564177" />
         <NodeLayout
-          Size="148,41.6"
-          Id="Package\Predios\Predios-Origen"
-          TopLeft="99.28571597654,11.4705883961648" />
-        <NodeLayout
-          Size="112,41.6"
-          Id="Package\Predios\Elimina"
-          TopLeft="498.57143706205,523.047062030218" />
-        <NodeLayout
           Size="154.4,41.6"
           Id="Package\Predios\Conditional Split"
           TopLeft="255.000004342624,332.258826854072" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\Predios\Sort"
-          TopLeft="132.142859393237,97.8823543139395" />
-        <NodeLayout
-          Size="106.4,42.4"
-          Id="Package\Predios\Sort 1"
-          TopLeft="504.285722873649,165.941178797851" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Predios\Data Conversion 1 1 1"
@@ -2333,13 +3093,41 @@ where cod_predio=? and cod_productor = ?
           Id="Package\Predios\Data Conversion"
           TopLeft="496.4285798827,92.529413062396" />
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\Predios\Actualiza"
-          TopLeft="265.714290239373,525.894120960995" />
-        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Predios\Merge Join"
           TopLeft="266.428575965823,257.705885967169" />
+        <NodeLayout
+          Size="106.4,42.4"
+          Id="Package\Predios\Sort 1"
+          TopLeft="504.285722873649,165.941178797851" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Predios\Data Conversion 1"
+          TopLeft="52.1428580308448,426.270592407207" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Predios\Data Conversion 1 1"
+          TopLeft="274.285718956772,438.929413791676" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Predios\Sort"
+          TopLeft="132.142859393237,97.8823543139395" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Predios\Predios-Origen"
+          TopLeft="99.28571597654,11.4705883961648" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\Predios\Elimina"
+          TopLeft="498.57143706205,523.047062030218" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Predios\Predios-Destino"
+          TopLeft="510.000008685248,9.94117661000951" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Predios\Actualiza"
+          TopLeft="265.714290239373,525.894120960995" />
         <EdgeLayout
           Id="Package\Predios.Paths[Sort Output1]"
           TopLeft="557.485722873649,208.341178797851">
@@ -2722,19 +3510,6 @@ where cod_predio=? and cod_productor = ?
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Predios\Predios-Destino">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Predios\Agrega">
     <Properties>
       <Property>
@@ -2752,6 +3527,19 @@ where cod_predio=? and cod_productor = ?
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Predios\Predios-Destino">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

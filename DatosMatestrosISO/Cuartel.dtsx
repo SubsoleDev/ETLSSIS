@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Cuartel"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{5B8F5AC9-78A3-4386-8305-B1B78327819A}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{42AA8A68-9B91-4755-B241-87C3C798307E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3148,9 +3148,7 @@ cod_predio=? where cod_cuartel=?
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="17.4857146141482,38.5823544050993,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Envases"
   DTS:PackageType="5"
-  DTS:VersionBuild="58"
-  DTS:VersionGUID="{E4F4ABE7-7EEC-4DB5-BB50-FCE245114364}">
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{41B95460-BB69-402B-A70A-6E3FB0D5BF1A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1069,7 +1069,11 @@ where cod_envase=?</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select  distinct 
 	   [cod_envase] = emb.emba_codigo
-     ,[nombre] = Left(Emb.emba_nombre,50)
+     ,[nombre] = emb.emba_codigo + ' - ' + eti.etiq_nombre + ' - ' + 
+		              CASE WHEN env.enva_pesone &gt;= 10 THEN LEFT(CONVERT(VARCHAR(5),env.enva_pesone),4) 
+					     ELSE LEFT(CONVERT(VARCHAR(5),env.enva_pesone),3) 
+				     END + ' KN.'
+		
       ,[peso_neto] = env.enva_pesone
       ,[peso_bruto] = env.enva_pesobr
       ,[peso_declarado] = env.enva_pesone
@@ -1079,8 +1083,7 @@ where cod_envase=?</property>
 			  env.enva_pesone=gt.enva_pesone and
 			  esp.espe_codigo=gt.espe_codigo and
 			  env.enva_tipoen=gt.enva_tipoen
-			   and gt.gtin_estado=1 )
-	  ,
+			   and gt.gtin_estado=1 ) ,
 Material=emb.emba_abrevi
   from dba.embalajes emb join dba.envases env on
   emb.enva_codigo = env.enva_codigo 
@@ -1088,8 +1091,9 @@ Material=emb.emba_abrevi
   join dba.envases_especies esp on
   esp.enva_codigo = env.enva_codigo 
   and esp.enva_tipoen = env.enva_tipoen  inner join dba.embalajes_abreviados as Ema on
-  emb.emba_abrcod=Ema.emba_abrcod  
-  where  esp.espe_codigo = ? and env.enva_estado = 1  and emb. emba_estado = 1
+  emb.emba_abrcod=Ema.emba_abrcod inner join   dba.etiquetas AS eti on
+  emb.etiq_codigo = eti.etiq_codigo
+  where  esp.espe_codigo =?   and env.enva_estado = 1  and emb. emba_estado = 1
   
 union all
 SELECT    cod_envase =Convert(varchar(20), FORMAT(env.enva_tipoen,'0') + FORMAT(env.enva_codigo,'000')),
@@ -1234,7 +1238,7 @@ and         env.enva_estado = 1</property>
                       refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="44"
                       name="nombre" />
                     <externalMetadataColumn
                       refId="Package\Envases\envases.Outputs[OLE DB Source Output].ExternalColumns[peso_neto]"
@@ -1284,7 +1288,7 @@ and         env.enva_estado = 1</property>
                       refId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[nombre]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="44"
                       lineageId="Package\Envases\envases.Outputs[OLE DB Source Error Output].Columns[nombre]"
                       name="nombre" />
                     <outputColumn

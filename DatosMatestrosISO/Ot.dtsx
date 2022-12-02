@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Ot"
   DTS:PackageType="5"
-  DTS:VersionBuild="223"
-  DTS:VersionGUID="{03DA5421-00D7-41A9-9E76-6C2C5478BCB1}">
+  DTS:VersionBuild="225"
+  DTS:VersionGUID="{9FBB8ABA-4B00-4CA2-A644-A09473EE19AF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1983,11 +1983,12 @@ where nro_orden_trabajo = ? and integrado='N'</property>
                           externalMetadataColumnId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                           lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[nro_orden_trabajo]" />
                         <inputColumn
-                          refId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Inputs[OLE DB Command Input].Columns[fecha_proceso_destino]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="fecha_proceso_destino"
+                          refId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Inputs[OLE DB Command Input].Columns[expo_codigo]"
+                          cachedDataType="numeric"
+                          cachedName="expo_codigo"
+                          cachedPrecision="4"
                           externalMetadataColumnId="Package\Contenedor de secuencias\Orden de trabajo\Actualiza Movtos.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          lineageId="Package\Contenedor de secuencias\Orden de trabajo\Merge Join.Outputs[Merge Join Output].Columns[fecha_proceso_destino]" />
+                          lineageId="Package\Contenedor de secuencias\Orden de trabajo\Lookup.Outputs[Lookup Match Output].Columns[expo_codigo]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -10835,6 +10836,86 @@ nro_lote	=?
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Ejecucion de ISOs"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{01D6980B-4C20-4402-856E-0EDF098B0E48}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecucion de ISOs">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Ejecucion de ISOs\ISO_Embalajes"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{0D142428-A1CA-4D36-AF5B-FA7399A1AF69}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ISO_Embalajes"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Embalajes.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Ejecucion de ISOs\ISO_Exportadores"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{114FDF40-D2E8-432A-A856-48CBF5A07897}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ISO_Exportadores"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Exportadores.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Ejecucion de ISOs\ISO_NotaProceso"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{8B4227E0-0E2F-426C-A8C7-15A6C846307B}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ISO_NotaProceso"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>NotaProceso.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Ejecucion de ISOs\ISO_PlantaDesp"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{B8BC1A76-99A6-4C5B-8316-5DF7AFF4F75C}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ISO_PlantaDesp"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Plantadesp.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Notificacion  Error Actualizacion Ot"
       DTS:CreationName="Microsoft.SendMailTask"
       DTS:Description="Tarea Enviar correo"
@@ -10843,7 +10924,7 @@ nro_lote	=?
       DTS:LocaleID="-1"
       DTS:ObjectName="Notificacion  Error Actualizacion Ot"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -10865,7 +10946,7 @@ nro_lote	=?
       DTS:LocaleID="-1"
       DTS:ObjectName="Notificacion  Ok Actualizacion Ot"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -10905,6 +10986,14 @@ nro_lote	=?
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
       DTS:To="Package\Contenedor de secuencias" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{DC5A0525-AEA0-4BB6-808B-19BCFED17356}"
+      DTS:From="Package\Contenedor de secuencias"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Ejecucion de ISOs" />
   </DTS:PrecedenceConstraints>
   <DTS:EventHandlers>
     <DTS:EventHandler
@@ -10999,7 +11088,7 @@ nro_lote	=?
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="107.2,41.6"
           Id="Package\Buffer"
@@ -11183,6 +11272,63 @@ nro_lote	=?
                     Point3="30.7428547100139,31.3764712638923" />
                   <mssgle:LineSegment
                     End="30.7428547100139,47.2529425277847" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\Ejecucion de ISOs\ISO_NotaProceso"
+          TopLeft="25.096105433218,26.7443878834108" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Ejecucion de ISOs\ISO_Embalajes"
+          TopLeft="195.225978460383,27.4395750589359" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Ejecucion de ISOs\ISO_Exportadores"
+          TopLeft="353.667539600184,24.6588263568354" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Ejecucion de ISOs\ISO_PlantaDesp"
+          TopLeft="538.602606569991,25.3540135323607" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="719.2,113.6"
+          Size="719.2,156.8"
+          Id="Package\Ejecucion de ISOs"
+          TopLeft="131.250002235174,546.764713550522" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="462.914289728476,461.964707716279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.9357125066983,84.8000058342426"
+              Start="0,0"
+              End="27.9357125066983,77.3000058342426">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4000029171213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.4000029171213"
+                    Point2="0,42.4000029171213"
+                    Point3="4,42.4000029171213" />
+                  <mssgle:LineSegment
+                    End="23.9357125066983,42.4000029171213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.9357125066983,42.4000029171213"
+                    Point2="27.9357125066983,42.4000029171213"
+                    Point3="27.9357125066983,46.4000029171213" />
+                  <mssgle:LineSegment
+                    End="27.9357125066983,77.3000058342426" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11915,7 +12061,7 @@ nro_lote	=?
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -11925,7 +12071,7 @@ nro_lote	=?
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

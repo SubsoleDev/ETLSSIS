@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{A4BF63E4-0717-4CB1-A35D-37883435C442}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{9A10C3A5-EC78-4DD1-885F-46F289C38523}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -409,6 +409,13 @@
                       cachedName="expo_codgln_destino"
                       cachedPrecision="15"
                       lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]" />
+                    <inputColumn
+                      refId="Package\Exportadores\Conditional Split.Inputs[Conditional Split Input].Columns[expo_codigo]"
+                      cachedDataType="numeric"
+                      cachedName="expo_codigo"
+                      cachedPrecision="4"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -456,13 +463,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]}) &amp;&amp; (#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]} != #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre_destino]} || #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]} != #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf_destino]} || #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]} != #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]})</property>
+                      name="Expression">(#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo]} == #{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codigo_destino]}) &amp;&amp; ([REPLACENULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre]},"") != [REPLACENULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_nombre_destino]},"") || [REPLACENULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf]},"") != [REPLACENULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codalf_destino]},"") || [REPLACENULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln]},0) != [REPLACENULL](#{Package\Exportadores\Merge Join.Outputs[Merge Join Output].Columns[expo_codgln_destino]},0))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(expo_codigo_destino) &amp;&amp; (expo_nombre != expo_nombre_destino || expo_codalf != expo_codalf_destino || expo_codgln != expo_codgln_destino)</property>
+                      name="FriendlyExpression">(expo_codigo == expo_codigo_destino) &amp;&amp; (REPLACENULL(expo_nombre,"") != REPLACENULL(expo_nombre_destino,"") || REPLACENULL(expo_codalf,"") != REPLACENULL(expo_codalf_destino,"") || REPLACENULL(expo_codgln,0) != REPLACENULL(expo_codgln_destino,0))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1518,11 +1525,11 @@ ORDER BY	exp.expo_codigo</property>
         <NodeLayout
           Size="175.2,41.6"
           Id="Package\Exportadores\Origen Exportadores"
-          TopLeft="207.857146396929,100.94117788625" />
+          TopLeft="207.857146396929,101.705883779328" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Exportadores\Agrega Exportadores"
-          TopLeft="245.714289898775,461.117653525825" />
+          TopLeft="240.000004087175,439.705888519651" />
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Exportadores\Sort"
@@ -1639,18 +1646,18 @@ ORDER BY	exp.expo_codigo</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Exportadores.Paths[OLE DB Source Output]"
-          TopLeft="296.414289600752,142.54117788625">
+          TopLeft="296.414289600752,143.305883779328">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.2235307416289"
+              EndConnector="0,52.4588248485513"
               Start="0,0"
-              End="0,45.7235307416289">
+              End="0,44.9588248485513">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.7235307416289" />
+                    End="0,44.9588248485513" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1695,37 +1702,37 @@ ORDER BY	exp.expo_codigo</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Exportadores.Paths[Agrega]"
-          TopLeft="531.485722022154,395.658828494953">
+          TopLeft="507.085722022154,395.658828494953">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-197.371432123379,65.4588250308714"
+              EndConnector="-178.685717934979,44.0470600246979"
               Start="0,0"
-              End="-197.371432123379,57.9588250308714">
+              End="-178.685717934979,36.5470600246979">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.7294125154357" />
+                    End="0,13.8898828408004" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.7294125154357"
-                    Point2="0,32.7294125154357"
-                    Point3="-4,32.7294125154357" />
+                    Point1="0,13.8898828408004"
+                    Point2="0,17.8898828408004"
+                    Point3="-4,17.8898828408004" />
                   <mssgle:LineSegment
-                    End="-193.371432123379,32.7294125154357" />
+                    End="-174.685717934979,17.8898828408004" />
                   <mssgle:CubicBezierSegment
-                    Point1="-193.371432123379,32.7294125154357"
-                    Point2="-197.371432123379,32.7294125154357"
-                    Point3="-197.371432123379,36.7294125154357" />
+                    Point1="-174.685717934979,17.8898828408004"
+                    Point2="-178.685717934979,17.8898828408004"
+                    Point3="-178.685717934979,21.8898828408004" />
                   <mssgle:LineSegment
-                    End="-197.371432123379,57.9588250308714" />
+                    End="-178.685717934979,36.5470600246979" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-114.982141842939,37.7294125154357,32.5928515625,11.3359375"
+              BoundingBox="-105.639284748739,22.8898828408004,32.5928515625,11.3359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
