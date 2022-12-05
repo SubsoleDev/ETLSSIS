@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="RetornoPallets"
   DTS:PackageType="5"
-  DTS:VersionBuild="457"
-  DTS:VersionGUID="{C687CF61-319B-4DDC-9821-E59982CE9CBA}">
+  DTS:VersionBuild="458"
+  DTS:VersionGUID="{265CC8F1-D771-4216-88CD-C99F8D31053B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -11734,13 +11734,13 @@ where [refTable].[paen_numero] = ?</property>
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">1</property>
+                              name="Expression">2</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">1</property>
+                              name="FriendlyExpression">2</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
